@@ -1,52 +1,56 @@
+body {
+	background-image : url("images/texture.png");
+	background-repeat : repeat;
+	padding : 0;
+	margin : 0;
+	min-width:1200px;
+	}
 @font-face {
     font-family: 'Harabara';
     src: url('Harabara.ttf') format('truetype');
 }
-body {
-	background-image : url("images/texture.png");
-	background-repeat : repeat;
-	}
 h1 {
 	font-size : 30px;
 	}
-#logo {
-	width : 400px;
-	height : 150px;
-	background-image:url("images/logo.png");
-	margin-top : 20px;
+#entete{
+	height : 130px;
 	}
-
+#logo {
+	width : 250px;
+	height : 100px;
+	background-image:url("images/logo.png");
+	/*margin-top : 20px;*/
+	float : left;
+	}
 #menuDeroulant{
-	background: none repeat scroll 0 0 #b5e54f;
-	position: absolute;
-	min-width : 650px;
+	background-color : #b5e54f;
+	width : 550px;
 	height : 21px;
-	margin : -80px auto auto 410px;
+	margin : auto auto auto auto;
 	border-radius : 10px;
 	list-style-type: none;
-	padding: 5px;
 	border: 0 none;
+	}
+#menuDeroulant ul{
+	width : 550px;
+	height : 21px;
+	list-style-type: none;
+	border: 0 none;
+	text-align : center;
 	}
 #menuDeroulant li {
     border: 0 none;
     float: left;
+	padding :0;
     margin: 0;
-    padding: 0px 5px;
-    min-width: 150px;
-	max-width:250px;
+    width: 120px;
 	font-weight : bold;
-	text-align : center;
 }
 
 #menuDeroulant li a:link, #menuDeroulant li a:visited {
-    background: none repeat scroll 0 0 #b5e54f;
-    border-right: 2px solid #74c624;
-	border-left: 2px solid #74c624;
     color: black;
     display: block;
     margin: 0;
-    padding: 0px 10px;
-	padding-bottom : 5px;
     text-decoration: none;
 }
 
@@ -59,26 +63,20 @@ h1 {
 #menuDeroulant .sousMenu {
     border: 0 none;
     display: none;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+    margin-left: -55px;
 }
 #menuDeroulant .sousMenu li {
-    -moz-border-bottom-colors: none;
-    -moz-border-image: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    border-color: transparent transparent -moz-use-text-color -moz-use-text-color;
+    border-color: #74c624;
     border-style: solid solid none none;
     border-width: 1px 1px 0 0;
     float: none;
     margin: 0;
     padding: 0;
-    min-width: 150px;
+    width: 150px;
 	max-width:250px;
 	font-size:80%;
-	text-align: left;
+	text-align: center;
+	font-weight:normal;
 }
 #menuDeroulant .sousMenu li a:link, #menuDeroulant .sousMenu li a:visited {
     background:repeat scroll 0 0 #b5e54f;
@@ -131,3 +129,13 @@ h1 {
 	width : 350px;
 	margin-top : -100px;
 	}
+#connexion{
+	margin-top:20px;
+	margin-right:10px;
+	float:right;
+	width:300px;
+	height:30px;
+	text-align: center;
+	background-color : #b5e54f;
+	border-radius : 10px;
+}
