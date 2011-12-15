@@ -6,12 +6,19 @@ function connexionbdd()
 	$bd_nom_serveur='localhost';
 	$bd_login='root';
 	$bd_mot_de_passe='';
-	$bd_nom_bd='Polyjoule';
+	$bd_nom_bd='polyjoule';
 	
 	//Connexion à la base de données
-	mysql_connect($bd_nom_serveur, $bd_login, $bd_mot_de_passe);
-	mysql_select_db($bd_nom_bd);
-	mysql_query("set names 'utf8'");
+	$connexion = mysql_connect($bd_nom_serveur, $bd_login, $bd_mot_de_passe);
+	if (!$connexion)
+	{
+		die("Connexion impossible");
+	}
+	else
+	{
+		mysql_select_db($bd_nom_bd);
+		mysql_query("set names 'utf8'");
+	}
 }
 /*Vide les cookies*/
 function vider_cookie()

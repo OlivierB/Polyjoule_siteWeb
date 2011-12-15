@@ -14,12 +14,12 @@ page par défaut lors de l'affichage
 					<tr>
 						<td>
 							<div class="icone_gestion">
-								<a href="#"><img class="img_icone" src="ressources/design/classique/images/add_article.png"/><br/>Ajouter un article</a>
+								<a href="index.php?page=article&action=1"><img class="img_icone" src="ressources/design/classique/images/add_article.png"/><br/>Ajouter un article</a>
 							</div>
 						</td>
 						<td>
 							<div class="icone_gestion">
-								<a href="#"><img class="img_icone" src="ressources/design/classique/images/gestion_article.png"/><br/>Gestion des articles</a>
+								<a href="index.php?page=article"><img class="img_icone" src="ressources/design/classique/images/gestion_article.png"/><br/>Gestion des articles</a>
 							</div>
 						</td>
 						<td>

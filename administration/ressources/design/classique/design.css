@@ -139,3 +139,15 @@ h1 {
 	background-color : #b5e54f;
 	border-radius : 10px;
 }
+#articles
+{
+	border-collapse:collapse;
+	
+}
+.article
+{
+	text-align : center;
+	border : 2px solid #b5e54f;
+	border : 2px solid #b5e54f;
+	width : 20%;
+}
