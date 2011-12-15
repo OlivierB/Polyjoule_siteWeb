@@ -20,14 +20,6 @@ function connexionbdd()
 		mysql_query("set names 'utf8'");
 	}
 }
-/*Vide les cookies*/
-function vider_cookie()
-{
-	foreach($_COOKIE as $cle => $element)
-	{
-		setcookie($cle, '', time()-3600);
-	}
-}
 /*Vide la session*/
 function vidersession()
 {
