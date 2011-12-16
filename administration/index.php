@@ -22,7 +22,7 @@ connexionbdd();
 	<head>
 		<meta charset="utf-8">
 		
-		<link rel="stylesheet" media="screen" type="text/css" title="design" href="ressources/design/classique/design.css"  />
+		<link rel="stylesheet" media="screen" type="text/css" title="design" href="ressources/design/style1/design.css"  />
 		<!-- Inclusion de tinyMCE et paramètrage -->
 		<script type="text/JavaScript" src="ressources/autres/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
 		<script type="text/javascript">
@@ -72,37 +72,45 @@ connexionbdd();
 			<div id="menuDeroulant">
 				<ul>
 					<li>
-						<a href="index.php">Administration</a>
+						<a class="Menu" href="index.php">ADMINISTRATION</a>
 						<ul class="sousMenu">
+							<div class="menuH"></div>
 							<li><a href="#">Panneau d'administration</a></li>
 							<li><a href="#">Statistiques</a></li>
 							<li><a href="#">Mon profil</a></li>
 							<li><a href="#">Maintenance</a></li>
-							<li><a style="color:red;" href="index.php?page=deconnexion">Déconnexion</a></li>
+							<li><a href="index.php?page=deconnexion">Déconnexion</a></li>
+							<div class="menuB"></div>
 						</ul>
 					</li>
 					<li>
-						<a href="#">Menus</a>
+						<a href="#">MENUS</a>
 						<ul class="sousMenu">
+							<div class="menuH"></div>
 							<li><a href="#">Gestion des rubriques</a></li>
 							<li><a href="#">Menu principal</a></li>
+							<div class="menuB"></div>
 						</ul>
 					</li>
 					<li>
-						<a href="#">Contenu</a>
+						<a href="#">CONTENU</a>
 						<ul class="sousMenu">
+							<div class="menuH"></div>
 							<li><a href="index.php?page=article">Gestion des articles</a></li>
 							<li><a href="#">Gestion des catégories</a></li>
 							<li><a href="#">Articles en vedette</a></li>
 							<li><a href="#">Gestion des médias</a></li>
+							<div class="menuB"></div>
 						</ul>
 					</li>
 						<li>
-						<a href="#">Aide</a>
+						<a href="#">AIDE</a>
 						<ul class="sousMenu">
+							<div class="menuH"></div>
 							<li><a href="#">Aide administration</a></li>
 							<li><a href="#">Contact</a></li>
 							<li><a href="#">Liens utiles</a></li>
+							<div class="menuB"></div>
 						</ul>
 					</li>
 				</ul>

@@ -36,7 +36,7 @@ body{
 	height:300px;
 	background-color : #406BA4;
 	border-radius : 10px;
-	border : 2px solid #b5e54f;
+	border : 2px solid #FFFFFF;
 }
 label {
 float: left;
@@ -71,13 +71,7 @@ margin-right : 50px;
    vertical-align: middle;
    }
 .button:hover {
-   border-top-color: #b6e54f;
-   background: #b6e54f;
-   color: #ffffff;
-   }
-.button:active {
-   border-top-color: #b6e54f;
-   background: #b6e54f;
+	color : black;
    }
 
 p {

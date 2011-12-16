@@ -24,7 +24,7 @@ h1 {
 	}
 #menuDeroulant{
 	background-color : #b5e54f;
-	width : 550px;
+	width : 640px;
 	height : 21px;
 	margin : auto auto auto auto;
 	border-radius : 10px;
@@ -32,7 +32,7 @@ h1 {
 	border: 0 none;
 	}
 #menuDeroulant ul{
-	width : 550px;
+	width : 640px;
 	height : 21px;
 	list-style-type: none;
 	border: 0 none;
@@ -43,7 +43,7 @@ h1 {
     float: left;
 	padding :0;
     margin: 0;
-    width: 120px;
+    width: 200px;
 	font-weight : bold;
 }
 
