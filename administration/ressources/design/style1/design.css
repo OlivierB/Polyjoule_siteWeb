@@ -143,7 +143,24 @@ h1 {
 .article
 {
 	text-align : center;
-	border : 2px solid #b5e54f;
-	border : 2px solid #b5e54f;
+	border : 2px solid #406BA4;
 	width : 20%;
+}
+.validate{
+	font-size : 80%;
+	font-weight : normal;
+	width : 50px;
+	height : 50px;
+}
+.cancel{
+	font-size : 80%;
+	font-weight : normal;
+	width : 50px;
+	height : 50px;
+}
+.save{
+	font-size : 80%;
+	font-weight : normal;
+	width : 50px;
+	height : 50px;
 }

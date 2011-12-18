@@ -5,7 +5,7 @@ Page de gestion des articles
 **********/
 -->
 
-<div class="contenu" align="center">
+
 	<?php 
 	$actions = array(1,2,3); // Tableau des actions possibles
 	
@@ -14,23 +14,67 @@ Page de gestion des articles
 		$action = $_GET['action'];
 		if($action==1) //Ajout article
 		{ ?>
-			<h1> Ajout d'article </h1>
-			<span id="content_placeholder"></span>
-			<script language="javascript" type="text/javascript">
-			  with (document.getElementById ("content_placeholder")) {
-				with (appendChild (document.createElement ("TEXTAREA"))) {
-				  name = "nom_du_textarea";
-				  cols = 80;
-				  rows = 25;
-				  value = "texte_par_defaut";
-				}
-			  }
-			//-->
-			</script>
-			<noscript>
-			  The editor requires scripting to be enabled.
-			</noscript>
-			<noscript>mce:3</noscript>
+			<div class="contenu" align="center" style="height:50px;">
+				<div style="float : left;">
+					<img src="ressources/design/style1/images/add_article.png"/>
+				</div>
+				<div style="font-size : 120%;font-weight:bold;">
+					Ajout d'un Article
+				</div>
+				<div style="height:50px;width:300px;float:right;margin-top:-25px;">
+					<a href="" class="save"><img src="ressources/design/style1/images/save.png"/>Sauver</a>
+					<a href="" class="validate"><img src="ressources/design/style1/images/validate.png"/>Appliquer</a>
+					<a href="" class="cancel"><img src="ressources/design/style1/images/cancel.png"/>Annuler</a>
+				</div>
+			</div>
+			<div class="contenu" align ="center">
+			<?php
+			$req = mysql_query("SELECT * FROM RUBRIQUE");
+			$rubriques = array();
+			while($rub=mysql_fetch_array($req))
+			{
+				$rubriques[$rub[1]] = $rub[0];
+			}
+			?>
+				<form>
+					<p>
+						Titre :
+						<input type="text" value="" name="title"/>
+						Section : 
+						<?php
+							
+							echo "<select name='rubrique'>";
+							
+								echo "<option value='".$rub[0]."'>".$rub[2]."</option>";
+								/*$req1 = mysql_query("SELECT * FROM RUBRIQUE WHERE id_mere=".$rub[0]);
+								while($ssrub=mysql_fetch_array($req1))
+								{
+									echo "<option value='".$ssrub[0]."'>---->".$ssrub[2]."<option>";
+								}*/				
+							
+							echo "</select>";
+						?>
+					</p>
+				</form>
+									
+							
+				<span id="content_placeholder"></span>
+				<script language="javascript" type="text/javascript">
+				  with (document.getElementById ("content_placeholder")) {
+					with (appendChild (document.createElement ("TEXTAREA"))) {
+					  name = "nom_du_textarea";
+					  cols = 120;
+					  rows = 25;
+					  value = "texte_par_defaut";
+					}
+				  }
+				//-->
+				</script>
+				<noscript>
+				  The editor requires scripting to be enabled.
+				</noscript>
+				<noscript>mce:3</noscript>
+			</div>
 		<?php
 		}
 	}

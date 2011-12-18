@@ -141,3 +141,10 @@ h1 {
 	border : 2px solid #b5e54f;
 	width : 20%;
 }
+
+.titrePage {
+	color : #b5e54f;
+	text-align : left;
+	font-size :120%;
+	border : 1px solid #b5e54f;
+}
