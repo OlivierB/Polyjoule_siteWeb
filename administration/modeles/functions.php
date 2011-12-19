@@ -2,11 +2,17 @@
 /*Connexion à la BDD*/
 function connexionbdd()
 {
-	/* En local */
+	/* En local Linux, Windows *//*
 	$bd_nom_serveur='localhost';
 	$bd_login='root';
 	$bd_mot_de_passe='';
-	$bd_nom_bd='polyjoule';
+	$bd_nom_bd='polyjoule';/**/
+    
+    /* En local Mac */
+	$bd_nom_serveur='localhost';
+	$bd_login='root';
+	$bd_mot_de_passe='root';
+	$bd_nom_bd='polyjoule';/**/
 	
 	//Connexion à la base de données
 	$connexion = mysql_connect($bd_nom_serveur, $bd_login, $bd_mot_de_passe);
