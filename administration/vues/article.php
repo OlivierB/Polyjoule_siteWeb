@@ -15,13 +15,15 @@ Page de gestion des articles
 		if($action==1) //Ajout article
 		{ ?>
 			<div class="contenu" align="center" style="height:50px;">
-				<div style="float : left;">
+				<div style="float : left;font-size : 120%;font-weight:bold;">
+					<div style="float:left;">
 					<img src="ressources/design/style1/images/add_article.png"/>
+					</div>
+					<div style="float:right; margin-top:10px;margin-left:10px;">
+						Ajout d'un Article
+					</div>
 				</div>
-				<div style="font-size : 120%;font-weight:bold;">
-					Ajout d'un Article
-				</div>
-				<div style="height:50px;width:300px;float:right;margin-top:-25px;">
+				<div style="height:50px;width:300px;float:right;">
 					<a href="" class="save"><img src="ressources/design/style1/images/save.png"/>Sauver</a>
 					<a href="" class="validate"><img src="ressources/design/style1/images/validate.png"/>Appliquer</a>
 					<a href="" class="cancel"><img src="ressources/design/style1/images/cancel.png"/>Annuler</a>
@@ -36,27 +38,31 @@ Page de gestion des articles
 				$rubriques[$rub[1]] = $rub[0];
 			}
 			?>
-				<form>
-					<p>
-						Titre :
-						<input type="text" value="" name="title"/>
-						Section : 
-						<?php
-							
-							echo "<select name='rubrique'>";
-							
-								echo "<option value='".$rub[0]."'>".$rub[2]."</option>";
-								/*$req1 = mysql_query("SELECT * FROM RUBRIQUE WHERE id_mere=".$rub[0]);
-								while($ssrub=mysql_fetch_array($req1))
-								{
-									echo "<option value='".$ssrub[0]."'>---->".$ssrub[2]."<option>";
-								}*/				
-							
-							echo "</select>";
-						?>
-					</p>
-				</form>
-									
+				<div style="background-color : #f0f0ee;margin : 10px 12px 20px 13px;border : 1px solid #cccccc;text-align:left; padding-left : 20px;">
+					<form>
+						<p>
+							<label for="titleFR" style="float : left;"><strong>Titre</strong> (FR) :</label>
+							<input type="text" style="margin-left:10px;" size="60" value="" name="titleFR"/> <br/><br/>
+							<label for="titleEN" style="float : left;"><strong>Titre</strong> (EN) :</label>
+							<input type="text" style="margin-left:10px;" size="60" value="" name="titleEN"/> <br/><br/>
+							<strong>Section</strong> : 
+							<?php
+								
+								echo "<select name='rubrique'>";
+								
+									echo "<option value='".$rub[0]."'>".$rub[2]."</option>";
+									/*$req1 = mysql_query("SELECT * FROM RUBRIQUE WHERE id_mere=".$rub[0]);
+									while($ssrub=mysql_fetch_array($req1))
+									{
+										echo "<option value='".$ssrub[0]."'>---->".$ssrub[2]."<option>";
+									}*/				
+								
+								echo "</select>";
+							?><br/><br/>
+							<strong>Publié</strong> : Oui<input type="radio" name="publie" value=true/> Non<input type="radio" name="publie" value=false/>
+						</p>
+					</form>
+				</div>					
 							
 				<span id="content_placeholder"></span>
 				<script language="javascript" type="text/javascript">
