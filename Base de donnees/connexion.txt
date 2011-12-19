@@ -1,6 +1,0 @@
-Connexion à la BDD
-
-https://pma.olympe-network.com/
-
-LOGIN : 138931_polyj
-MDP : polyjoule
