@@ -102,24 +102,26 @@ Page de gestion des articles
 		  return false; }
 		}
 		</script>
-		
-		<h2>Gestion des	articles</h2>
-		<table id='articles'>
-		<tr class='article'><th class='article'><input type='checkbox' name="checkAll" id="checkAll" onClick="this.checked=check('checkArticle');"</th class='article'><th class='article'>Rubrique</th><th class='article'>Num Article</th><th class='article'>Titre de l'article</th></tr>
-		<?php
-		$req = mysql_query('SELECT * FROM ARTICLE;');
-		while($article = mysql_fetch_array($req))
-		{
-			$req1 = mysql_query('SELECT titreFR_rubrique FROM RUBRIQUE WHERE id_rubrique='.$article[0]);
-			$titreRub = mysql_fetch_array($req1);
-			echo "<tr class='article'><td class='article'><input type='checkbox' name='checkArticle' value='".$article[0]."'/></td><td class='article'>".$titreRub[0]."</td><td class='article'>".$article[1]."</td><td class='article'>".$article[2]."</td></tr>";
-		}
-		?>
-		</table>
-		<p>
-			Pour la sélection : <a href="index.php?page=article&action=2">Modifier</a> <a href="index.php?page=article&action=3">Supprimer</a>
-		</p>
-		<a href="index.php?page=article&action=1"> Ajouter un article </a>
+			
+		<div class="contenu" align="center">
+			<h2>Gestion des	articles</h2>
+			<table id='articles'>
+			<tr class='article'><th class='article'><input type='checkbox' name="checkAll" id="checkAll" onClick="this.checked=check('checkArticle');"</th class='article'><th class='article'>Rubrique</th><th class='article'>Num Article</th><th class='article'>Titre de l'article</th></tr>
+			<?php
+			$req = mysql_query('SELECT * FROM ARTICLE;');
+			while($article = mysql_fetch_array($req))
+			{
+				$req1 = mysql_query('SELECT titreFR_rubrique FROM RUBRIQUE WHERE id_rubrique='.$article[0]);
+				$titreRub = mysql_fetch_array($req1);
+				echo "<tr class='article'><td class='article'><input type='checkbox' name='checkArticle' value='".$article[0]."'/></td><td class='article'>".$titreRub[0]."</td><td class='article'>".$article[1]."</td><td class='article'>".$article[2]."</td></tr>";
+			}
+			?>
+			</table>
+			<p>
+				Pour la sélection : <a href="index.php?page=article&action=2">Modifier</a> <a href="index.php?page=article&action=3">Supprimer</a>
+			</p>
+			<a href="index.php?page=article&action=1"> Ajouter un article </a>
+		</div>
 		<?php
 	}
 	// ?>

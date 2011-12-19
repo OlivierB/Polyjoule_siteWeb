@@ -2,13 +2,13 @@
 /*Connexion à la BDD*/
 function connexionbdd()
 {
-	/* En local Linux, Windows *//*
+	/* En local Linux, Windows */
 	$bd_nom_serveur='localhost';
 	$bd_login='root';
 	$bd_mot_de_passe='';
 	$bd_nom_bd='polyjoule';/**/
     
-    /* En local Mac */
+    /* En local Mac *//*
 	$bd_nom_serveur='localhost';
 	$bd_login='root';
 	$bd_mot_de_passe='root';
