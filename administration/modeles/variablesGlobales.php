@@ -1,0 +1,1 @@
+<?php$pageRubrique="http://localhost/Polyjoule_siteWeb/administration/index.php?page=rubrique";?>

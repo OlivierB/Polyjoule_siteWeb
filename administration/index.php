@@ -10,6 +10,7 @@
 
 // fonctions
 include("modeles/functions.php");
+include("modeles/variablesGlobales.php");
 
 // Lancement session : session déjà lancé sur le site principal ?
 session_start();
