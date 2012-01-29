@@ -34,4 +34,21 @@ function vidersession()
 		unset($_SESSION[$cle]);
 	}
 }
+
+/*Faire une liste des rubriques filles*/
+function getChildRubrique($idRubrique,$niveau) {
+	$req = mysql_query("SELECT * FROM RUBRIQUE WHERE id_mere=".$idRubrique);
+	$niveau++;
+	while ($rubrique=mysql_fetch_array($req)) {
+		if($rubrique[0]!=null){
+			echo "<option value='".$rubrique[0]."'>";
+			for($i=0;$i<$niveau;$i++){
+				echo "----";
+			}
+			echo ">";
+			echo $rubrique[2]."</option>";
+			getChildRubrique($rubrique[0],$niveau);
+		}
+	}
+}
 ?>

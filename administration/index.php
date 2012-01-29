@@ -87,7 +87,7 @@ connexionbdd();
 						<a href="#">MENUS</a>
 						<ul class="sousMenu">
 							<div class="menuH"></div>
-							<li><a href="#">Gestion des rubriques</a></li>
+							<li><a href="index.php?page=rubrique">Gestion des rubriques</a></li>
 							<li><a href="#">Menu principal</a></li>
 							<div class="menuB"></div>
 						</ul>

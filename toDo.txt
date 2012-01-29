@@ -1,0 +1,1 @@
+---- Images ----	- ajouter une image ajout rubrique avec le nom "add_rubrique.png"
