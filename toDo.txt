@@ -1,1 +1,1 @@
----- Images ----	- ajouter une image ajout rubrique avec le nom "add_rubrique.png"---- rubrique.php ----	- ajouter la partie de modification
+---- Images ----	- ajouter une image ajout rubrique avec le nom "add_rubrique.png"---- rubrique.php ----	- ajouter la partie de modification	- faire partie avec message= ... 
