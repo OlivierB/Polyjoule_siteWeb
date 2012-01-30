@@ -11,22 +11,24 @@ h1 {
 	font-size : 30px;
 	}
 #entete{
-	height : 130px;
-	}
-#logo {
-	width : 250px;
-	height : 100px;
-	background-image:url("images/logo.png");
-	float : left;
+	margin : 10px 160px auto 160px;
+	width : 1240px;
+	background-image:url("images/header.png");
+	height : 150px;
 	}
 
+#menu{
+	height : 130px;
+	margin : -100px auto auto -150px;
+	color : white;
+}
 #menuDeroulant ul{
 	width : 640px;
 	padding :0;
 	height : 20px;
 	list-style-type: none;
-	border-top: 1px solid #98a1a3;
-	margin : 10px auto auto auto;
+	border-top: 2px solid #91cf2f;
+	margin : 50px auto auto auto;
 	padding-top : 10px;
 	font-size : 90%;
 	}
@@ -55,7 +57,7 @@ h1 {
 }
 
 #menuDeroulant li a:link, #menuDeroulant li a:visited {
-    color: black;
+    color: white;
     display: block;
     margin: 0;
     text-decoration: none;
@@ -102,29 +104,15 @@ h1 {
 }
 .contenu {
 	background-color : #FFFFFF;
-	margin : -30px 160px auto 160px;
+	margin : 20px 160px auto 160px;
 	border-left : 2px solid #7ba0ac;
 	border-right : 2px solid #7ba0ac;
+	border-top : 2px solid #7ba0ac;
+	border-top-left-radius : 10px;
+	border-top-right-radius : 10px;
 	padding : 5px;
 	width : 1213px;
 	min-height : 500px;
-}
-.titlePage {
-	text-align : center;
-	vertical-align : center;
-	position : absolute;
-	top : 190px;
-	left : 400px;
-	color : white;
-	font-size : 170%;
-}
-.titlePage a {
-	color: white;
-	text-decoration : normal;
-}
-
-.titlePage a:hoover{
-	color: #ffbb00;
 }
 
 .contenuH {

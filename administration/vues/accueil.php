@@ -5,11 +5,7 @@ page par défaut lors de l'affichage
 
 **********/
 -->
-<div class="contenuH">
-	<div class="titlePage">
-		<a href="index.php" >Accueil</a>
-	</div>
-</div>
+
 <div class="contenu">
 	<table>
 		<tr>

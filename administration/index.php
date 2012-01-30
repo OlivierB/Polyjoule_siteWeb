@@ -66,10 +66,8 @@ connexionbdd();
 	{
 	?>
 		<div id="entete">
-	
-			<div id="logo">
-			</div>
-			
+		</div>
+		<div id="menu">	
 			<div id="menuDeroulant">
 				<ul>
 					<li>
