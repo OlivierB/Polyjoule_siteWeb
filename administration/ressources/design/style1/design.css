@@ -4,6 +4,7 @@ body {
 	padding : 0;
 	margin : 0;
 	min-width:1200px;
+	height : 200px;
 	}
 
 h1 {
@@ -101,12 +102,44 @@ h1 {
 }
 .contenu {
 	background-color : #FFFFFF;
-	margin : 20px 160px auto 160px;
-	border : 4px solid #406BA4;
-	border-radius : 10px;
+	margin : -30px 160px auto 160px;
+	border-left : 2px solid #7ba0ac;
+	border-right : 2px solid #7ba0ac;
 	padding : 5px;
-	width : 1010px;
+	width : 1213px;
+	min-height : 500px;
 }
+.titlePage {
+	text-align : center;
+	vertical-align : center;
+	position : absolute;
+	top : 190px;
+	left : 400px;
+	color : white;
+	font-size : 170%;
+}
+.titlePage a {
+	color: white;
+	text-decoration : normal;
+}
+
+.titlePage a:hoover{
+	color: #ffbb00;
+}
+
+.contenuH {
+	display: block;
+	background-image : url("images/contenuH.png");
+	margin : -25px 160px auto 160px;
+	height : 161px;
+	width : 1227px;
+	}
+.contenuB {
+	background-image : url("images/contenuB.png");
+	margin : 0px 160px auto 160px;
+	height : 161px;
+	width : 1237px;
+	}
 #interface {
 	width : 600px;
 	border-right: 2px solid #406BA4;
@@ -138,7 +171,7 @@ h1 {
 #articles
 {
 	border-collapse:collapse;
-	
+	margin : auto auto auto auto;
 }
 .article
 {
