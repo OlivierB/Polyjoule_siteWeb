@@ -26,6 +26,7 @@ connexionbdd();
 		<link rel="stylesheet" media="screen" type="text/css" title="design" href="ressources/design/style1/design.css"  />
 		<!-- Inclusion de tinyMCE et paramètrage -->
 		<script type="text/JavaScript" src="ressources/autres/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+		<script type="text/JavaScript" src="ressources/autres/functions.js"></script>
 		<script type="text/javascript">
 			tinyMCE.init({
 				// General options
@@ -61,6 +62,28 @@ connexionbdd();
 	</head>
 
 	<body>
+	<script type="text/JavaScript">
+	function overMenu(){
+		var elements = document.getElementsByTagName("div");
+		for(var i=0; i<elements.length; i++)
+		{
+			if(elements[i].className == "contenu")
+			{
+				elements[i].style.marginTop="30px";		
+			}
+		}
+	}
+	function outMenu(){
+		var elements = document.getElementsByTagName("div");
+		for(var i=0; i<elements.length; i++)
+		{
+			if(elements[i].className == "contenu")
+			{
+				elements[i].style.marginTop="-70px";		
+			}
+		}
+	}
+	</script>
 	<?php
 	if(isset($_SESSION['id_membre'])) // Si le membre est connecté on affiche l'accueil du site
 	{
@@ -71,8 +94,8 @@ connexionbdd();
 			<div id="menuDeroulant">
 				<ul>
 					<li>
-						<a class="Menu" href="index.php">ADMINISTRATION</a>
-						<ul class="sousMenu">
+						<a class="Menu" href="index.php" onmouseover="overMenu();" onmouseout="outMenu();">ADMINISTRATION</a>
+						<ul class="sousMenu" onmouseover="overMenu();" onmouseout="outMenu();">
 							<div class="menuH"></div>
 							<li><a href="#">Panneau d'administration</a></li>
 							<li><a href="#">Statistiques</a></li>
@@ -83,8 +106,8 @@ connexionbdd();
 						</ul>
 					</li>
 					<li>
-						<a href="#">MENUS</a>
-						<ul class="sousMenu">
+						<a href="#" onmouseover="overMenu();" onmouseout="outMenu();">MENUS</a>
+						<ul class="sousMenu" onmouseover="overMenu();" onmouseout="outMenu();">
 							<div class="menuH"></div>
 							<li><a href="index.php?page=rubrique">Gestion des rubriques</a></li>
 							<li><a href="#">Menu principal</a></li>
@@ -92,8 +115,8 @@ connexionbdd();
 						</ul>
 					</li>
 					<li>
-						<a href="#">CONTENU</a>
-						<ul class="sousMenu">
+						<a href="#" onmouseover="overMenu();" onmouseout="outMenu();">CONTENU</a>
+						<ul class="sousMenu" onmouseover="overMenu();" onmouseout="outMenu();">
 							<div class="menuH"></div>
 							<li><a href="index.php?page=article">Gestion des articles</a></li>
 							<li><a href="#">Gestion des catégories</a></li>
@@ -103,8 +126,8 @@ connexionbdd();
 						</ul>
 					</li>
 						<li>
-						<a href="#">AIDE</a>
-						<ul class="sousMenu">
+						<a href="#" onmouseover="overMenu();" onmouseout="outMenu();">AIDE</a>
+						<ul class="sousMenu" onmouseover="overMenu();" onmouseout="outMenu();">
 							<div class="menuH"></div>
 							<li><a href="#">Aide administration</a></li>
 							<li><a href="#">Contact</a></li>
@@ -129,6 +152,9 @@ connexionbdd();
 				include ('controleurs/accueil.co.php');
 
 		}
+		?>
+		<div class="contenuB"></div>
+		<?php
 	}else{
 		include('controleurs/connexion.co.php');
 	}

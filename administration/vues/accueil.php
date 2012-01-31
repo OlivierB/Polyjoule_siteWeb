@@ -52,5 +52,4 @@ page par défaut lors de l'affichage
 		</tr>
 	</table>
 </div>
-<div class="contenuB"></div>
 

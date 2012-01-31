@@ -72,7 +72,7 @@ h1 {
 #menuDeroulant .sousMenu {
     border: 0 none;
     display: none;
-	margin : -10px auto auto 10px;;
+	margin : -10px auto auto 10px;
 	
 }
 #menuDeroulant .sousMenu li {
@@ -96,7 +96,7 @@ h1 {
 	color : white;
 }
 #menuDeroulant .sousMenu li a:hover{
-	background-color : #a8c3cc;
+	background-color : #91cf2f;
 	color : black;
 }
 #menuDeroulant li:hover > .sousMenu {
@@ -104,7 +104,7 @@ h1 {
 }
 .contenu {
 	background-color : #FFFFFF;
-	margin : 20px 160px auto 160px;
+	margin : -70px 160px auto 160px;
 	border-left : 2px solid #7ba0ac;
 	border-right : 2px solid #7ba0ac;
 	border-top : 2px solid #7ba0ac;
@@ -115,13 +115,6 @@ h1 {
 	min-height : 500px;
 }
 
-.contenuH {
-	display: block;
-	background-image : url("images/contenuH.png");
-	margin : -25px 160px auto 160px;
-	height : 161px;
-	width : 1227px;
-	}
 .contenuB {
 	background-image : url("images/contenuB.png");
 	margin : 0px 160px auto 160px;

@@ -20,7 +20,8 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 	if($action==1) //Ajout article
 	{ ?>
 		<!-- Barre de titre avec logo des actions possibles -->
-		<div class="contenu" style="height:50px;">
+		<div class="contenu" style="text-align:center;">
+		<div style="height:50px;">
 			<div style="float : left;font-size : 120%;font-weight:bold;">
 				<div style="float:left;">
 					<img src="ressources/design/style1/images/add_article.png" alt="add_article">
@@ -35,9 +36,8 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 				<a href="index.php?page=article" class="cancel"><img src="ressources/design/style1/images/cancel.png" alt="cancel_article">Annuler</a>
 			</div>
 		</div>
-		
 		<!-- Formulaire d'ajout d'article -->
-		<div class="contenu" style="text-align:center;">
+		
 			<?php
 			$req = mysql_query("SELECT * FROM RUBRIQUE"); // Sélection des rubriques
 			$rubriques = array();
@@ -113,8 +113,7 @@ else
 	  return false; }
 	}
 	</script>
-		
-	<div class="contenu" style="text-align:center;">
+		<div class="contenu" style="text-align:center;">
 		<h2>Gestion des	articles</h2>
 		<table id='articles'>
 			<tr class='article'><th class='article'><input type='checkbox' name="checkAll" id="checkAll" onClick="this.checked=check('checkArticle');"</th class='article'><th class='article'>Rubrique</th><th class='article'>Num Article</th><th class='article'>Titre de l'article</th></tr>
