@@ -101,6 +101,7 @@ connexionbdd();
 							<li><a href="#">Statistiques</a></li>
 							<li><a href="#">Mon profil</a></li>
 							<li><a href="#">Maintenance</a></li>
+							<li><a href="index.php?page=gestionComptes">Gestion des comptes</a></li>
 							<li><a href="index.php?page=deconnexion">Déconnexion</a></li>
 							<div class="menuB"></div>
 						</ul>

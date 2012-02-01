@@ -114,7 +114,9 @@ h1 {
 	width : 1213px;
 	min-height : 500px;
 }
-
+h1 {
+	text-align : center;
+	}
 .contenuB {
 	background-image : url("images/contenuB.png");
 	margin : 0px 160px auto 160px;
