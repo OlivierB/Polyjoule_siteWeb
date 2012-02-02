@@ -8,33 +8,34 @@ Réservé à l'administrateur du site
 <div class="contenu">
 	<h1> Gestion des comptes </h1>
 	<div align="center">
-		<table>
-			<tr>
-				<td>
-					<img width="80px" height="80px" src="ressources/design/style1/images/add_user.png" />
-				</td>
-				<td>
-					<a href="#" ><a href="#" ><h2>Inscrire un utilisateur</h2></a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<img width="80px" height="80px" src="ressources/design/style1/images/edit_user.png" />
-				</td>
-				<td>
-					<a href="#" ><a href="#" > <h2>Modifier les informations d'un utilisateur</h2></a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<img width="80px" height="80px" src="ressources/design/style1/images/delete_user.png" />
-				</td>
-				<td>
-					<a href="#" > <h2>Désinscrire un membre</h2></a>
-				</td>
-			</tr>
-		</table>
-		
+		<div style="border : 2px solid #406BA4; width : 500px; text-align : center;">
+			<table>
+				<tr>
+					<td>
+						<img width="80px" height="80px" src="ressources/design/style1/images/add_user.png" />
+					</td>
+					<td>
+						<a href="#" ><a href="#" ><h2>Inscrire un utilisateur</h2></a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img width="80px" height="80px" src="ressources/design/style1/images/edit_user.png" />
+					</td>
+					<td>
+						<a href="#" ><a href="#" > <h2>Modifier les informations d'un utilisateur</h2></a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img width="80px" height="80px" src="ressources/design/style1/images/delete_user.png" />
+					</td>
+					<td>
+						<a href="#" > <h2>Désinscrire un membre</h2></a>
+					</td>
+				</tr>
+			</table>
+		</div>
 		<table id='articles' style="margin-top:30px;">
 			<tr class='article'><th class='article'><input type='checkbox' name="checkAll" id="checkAll" onClick="this.checked=check('checkArticle');"</th class='article'><th class='article'>Pseudo</th><th class='article'>Adresse mail</th></tr>
 			<?php
