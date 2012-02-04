@@ -44,7 +44,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 					<div style="height:50px;width:300px;float:right;">
 						<a href="" class="save"><img src="ressources/design/style1/images/save.png" alt="save_article">Sauver</a>
 						<a href="" class="validate"><img src="ressources/design/style1/images/validate.png" alt="apply_article">Appliquer</a>
-						<a href="index.php?page=article" class="cancel"><img src="ressources/design/style1/images/cancel.png" alt="cancel_article">Annuler</a>
+						<a href="index.php?page=rubrique&message=procedureAnnulee" class="cancel"><img src="ressources/design/style1/images/cancel.png" alt="cancel_article">Annuler</a>
 					</div>
 				</div>
 				<div style="background-color : #f0f0ee;margin : 10px 12px 20px 13px;border : 1px solid #cccccc;text-align:left; padding-left : 20px;">
@@ -95,7 +95,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 							<div style="height:50px;width:300px;float:right;">
 								<a href="" class="save"><img src="ressources/design/style1/images/save.png" alt="save_article">Sauver</a>
 								<a href="" class="validate"><img src="ressources/design/style1/images/validate.png" alt="apply_article">Appliquer</a>
-								<a href="index.php?page=article" class="cancel"><img src="ressources/design/style1/images/cancel.png" alt="cancel_article">Annuler</a>
+								<a href="index.php?page=rubrique&message=procedureAnnulee" class="cancel"><img src="ressources/design/style1/images/cancel.png" alt="cancel_article">Annuler</a>
 							</div>
 						</div>
 						<div style="background-color : #f0f0ee;margin : 10px 12px 20px 13px;border : 1px solid #cccccc;text-align:left; padding-left : 20px;">
@@ -246,29 +246,32 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 	<?php
 	if (isset($_GET['message'])) {
 		?>
-			<h3>Message :</h3>
+			<div style="background-color : #f0f0ee;margin : 10px 12px 20px 13px;border : 1px solid #cccccc;text-align:left; padding-left : 20px;">
+				<strong>Message :</strong>
 		<?php
 		$msg=$_GET['message'];
 		if ($msg=="rubriqueAbsente") {
-			echo "La rubrique est inexistante";
+			echo "La rubrique est inexistante.";
 		} else if ($msg=="procedureAnnulee") {
-			echo "La procédure a été annulée";
+			echo "La procédure a été annulée.";
 		} else if ($msg=="rubriqueSupprimee") {
-			echo "Votre rubrique a bien été supprimée";
+			echo "Votre rubrique a bien été supprimée.";
 		} else if ($msg=="rubriqueAjoutee") {
-			echo "Votre rubrique a bien été ajoutée";
+			echo "Votre rubrique a bien été ajoutée.";
 		} else if ($msg=="erreurFormulaire") {
 			echo "Il y a une erreur dans le formulaire. Veuillez recommencez.";
 		} else if ($msg=="rubriqueMAJ") {
-			echo "Votre rubrique a bien été mise à jour";
+			echo "Votre rubrique a bien été mise à jour.";
 		} else if ($msg=="rubriqueNonSelectionnee") {
-			echo "Aucune rubrique sélectionnée";
+			echo "Aucune rubrique sélectionnée.";
 		}/* else if ($msg=="") {
 			echo "";
 		}*/ else {
 			echo $_GET['message'];
 		}
-		echo "<br /><br />";
+		?>
+			</div>
+		<?php
 	}
 	?>
 			<a href="index.php?page=rubrique&action=1"> Ajouter un rubrique </a>
