@@ -211,7 +211,6 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 			$titreEN=mysql_real_escape_string($_POST['titleEN']);
 			$rubrique=mysql_real_escape_string($_POST['rubrique_id']);
 			$rubrique_mere=mysql_real_escape_string($_POST['rubrique']);
-			//vérification de la rubrique mère
 			if ($rubrique_mere=='null') {
 				if ($baseDonnees==1) {
 					$req="UPDATE rubrique SET id_mere=NULL, titreFR_rubrique='".$titreFR."', titreEN_rubrique='".$titreEN."', descriptionFR_rubrique='".$descFR."', descriptionEN_rubrique='".$descEN."' WHERE id_rubrique=".$rubrique.";";
@@ -219,14 +218,19 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 					$req="UPDATE rubrique SET id_mere=NULL, titreFR_rubrique='".$titreFR."', titreEN_rubrique='".$titreEN."' WHERE id_rubrique=".$rubrique.";";
 				}
 			} else {
-				$req2=mysql_query("SELECT * FROM rubrique WHERE id_rubrique=$rubrique_mere");
-				$result=mysql_fetch_array($req2);
-				mysql_free_result($req2);
-				if (rubriqueExistante($result[0])) {
-					if ($baseDonnees==1) {
-						$req="UPDATE rubrique SET id_mere='".$rubrique_mere."', titreFR_rubrique='".$titreFR."', titreEN_rubrique='".$titreEN."', descriptionFR_rubrique='".$descFR."', descriptionEN_rubrique='".$descEN."' WHERE id_rubrique=".$rubrique.";";
+				header("Location: $pageRubrique&message=".verificationBoucleRubrique($rubrique,$rubrique_mere));
+				if (verificationBoucleRubrique($rubrique,$rubrique_mere)!=0) {
+					$req2=mysql_query("SELECT * FROM rubrique WHERE id_rubrique=$rubrique_mere");
+					$result=mysql_fetch_array($req2);
+					mysql_free_result($req2);
+					if (rubriqueExistante($result[0])) {
+						if ($baseDonnees==1) {
+							$req="UPDATE rubrique SET id_mere='".$rubrique_mere."', titreFR_rubrique='".$titreFR."', titreEN_rubrique='".$titreEN."', descriptionFR_rubrique='".$descFR."', descriptionEN_rubrique='".$descEN."' WHERE id_rubrique=".$rubrique.";";
+						} else {
+							$req="UPDATE rubrique SET id_mere='".$rubrique_mere."', titreFR_rubrique='".$titreFR."', titreEN_rubrique='".$titreEN."' WHERE id_rubrique=".$rubrique.";";
+						}
 					} else {
-						$req="UPDATE rubrique SET id_mere='".$rubrique_mere."', titreFR_rubrique='".$titreFR."', titreEN_rubrique='".$titreEN."' WHERE id_rubrique=".$rubrique.";";
+						header("Location: $pageRubrique&message=erreurFormulaire");
 					}
 				} else {
 					header("Location: $pageRubrique&message=erreurFormulaire");
