@@ -24,6 +24,7 @@ $actions = array(1,2,3,4,5); // Tableau des actions possibles
 	erreurFormulaire : il y a une erreur dans le formulaire. veuillez recommancez.
 	rubriqueMAJ : votre rubrique a bien été mise à jour
 	rubriqueNonSelectionnee : on est sur la page rubrique/modification mais aucune rubrique n'est selectionnée
+	sansRubrique : il n'y a pas de rubrique dans la base de données
 	default : affichage du contenu du message
 */
 if(isset($_GET['action']) && in_array($_GET['action'],$actions))
@@ -140,6 +141,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 			if (rubriqueExistante($rubr)) {
 				$req = mysql_query("DELETE FROM `rubrique` WHERE `id_rubrique`=$rubr;");
 				mysql_free_result($req);
+				miseAJourRubriqueFilles($rubr);
 				header("Location: $pageRubrique&message=rubriqueSupprimee");
 			} else {
 				header("Location: $pageRubrique&message=rubriqueAbsente");
@@ -264,6 +266,8 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 			echo "Votre rubrique a bien été mise à jour.";
 		} else if ($msg=="rubriqueNonSelectionnee") {
 			echo "Aucune rubrique sélectionnée.";
+		} else if ($msg=="sansRubrique") {
+			echo "Il n'y a aucune rubrique présente dans la base de données.";
 		}/* else if ($msg=="") {
 			echo "";
 		}*/ else {
@@ -275,6 +279,16 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 	}
 	?>
 			<a href="index.php?page=rubrique&action=1"> Ajouter un rubrique </a>
+			<?php
+				$req = mysql_query('SELECT count(*) FROM RUBRIQUE;');
+				$count=mysql_fetch_array($req);
+				if ($count[0]==0 && isset($_GET['message'])) {
+					$msg=$_GET['message'];
+					if ($msg!="sansRubrique") {
+						header("Location: $pageRubrique&message=sansRubrique");
+					}
+				} else {
+			?>
 			<table id='articles'>
 			<tr class='article'><th class='article'>Num Rubrique</th><th class='article'>Titre de la rubrique (FR)</th><th class='article'>Titre de la rubrique (EN)</th><th class='article'>Administration</th></tr>
 			<?php
@@ -295,6 +309,9 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 			?>
 			</table>
 			<a href="index.php?page=rubrique&action=1"> Ajouter un rubrique </a>
+			<?php
+				}
+			?>
 		</div>
 	<?php
 }
