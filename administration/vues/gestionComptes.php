@@ -5,17 +5,33 @@ Réservé à l'administrateur du site
 **********/
 -->
 
+<?php
+	/* Vérification du statut du membre : si admin autorisation d'accéder à cette page sinon redirection vers l'accueil */
+	if(isset($_SESSION['id_membre']) && $_SESSION['id_membre']==1)
+	{
+		$informations = Array(/*Erreur*/
+						true,
+						'Erreur',
+						'Vous n\'êtes pas autorisé à accéder à cette page...',
+						'index.php',
+						2
+						);
+	require_once('vues/informations.php');
+	exit();
+	}
+?>
+
 <div class="contenu">
 	<h1> Gestion des comptes </h1>
 	<div align="center">
-		<div style="border : 2px solid #406BA4; width : 500px; text-align : center;">
+		<div align=center>
 			<table>
 				<tr>
 					<td>
 						<img width="80px" height="80px" src="ressources/design/style1/images/add_user.png" />
 					</td>
 					<td>
-						<a href="#" ><a href="#" ><h2>Inscrire un utilisateur</h2></a>
+						<a href="#" ><a href="#" >Inscrire un utilisateur</a>
 					</td>
 				</tr>
 				<tr>
@@ -23,7 +39,7 @@ Réservé à l'administrateur du site
 						<img width="80px" height="80px" src="ressources/design/style1/images/edit_user.png" />
 					</td>
 					<td>
-						<a href="#" ><a href="#" > <h2>Modifier les informations d'un utilisateur</h2></a>
+						<a href="#" ><a href="#" >Modifier les informations d'un utilisateur</a>
 					</td>
 				</tr>
 				<tr>
@@ -31,13 +47,17 @@ Réservé à l'administrateur du site
 						<img width="80px" height="80px" src="ressources/design/style1/images/delete_user.png" />
 					</td>
 					<td>
-						<a href="#" > <h2>Désinscrire un membre</h2></a>
+						<a href="#" >Désinscrire un membre</a>
 					</td>
 				</tr>
 			</table>
 		</div>
 		<table id='articles' style="margin-top:30px;">
-			<tr class='article'><th class='article'><input type='checkbox' name="checkAll" id="checkAll" onClick="this.checked=check('checkArticle');"</th class='article'><th class='article'>Pseudo</th><th class='article'>Adresse mail</th></tr>
+			<tr class='article'>
+				<th class='article'> <input type='checkbox' name="checkAll" id="checkAll" onClick="this.checked=CheckAll('checkAll','checkArticle');"/> </th>
+				<th class='article'>Pseudo</th>
+				<th class='article'>Adresse mail</th>
+			</tr>
 			<?php
 			$req = mysql_query('SELECT id_membre,pseudo_membre,mail_membre FROM MEMBRE;');
 			$req1 = mysql_query('SELECT COUNT(*) as nbMemb FROM MEMBRE;');
@@ -49,19 +69,7 @@ Réservé à l'administrateur du site
 			?>
 		</table>
 		<script>
-			/* Fonction qui permet de sélectionner/desélectionner tout les articles */
-			function check(field) {
-			if (document.getElementById('checkAll').checked == true) {
-			  for (i = 0; i < field.length; i++) {
-			  document.getElementsByName(field)[i].checked = true;}
-			  checkflag = "true";
-			  return true; }
-			else {
-			  for (i = 0; i < field.length; i++) {
-			  document.getElementsByName(field)[i].checked = false; }
-			  checkflag = "false";
-			  return false; }
-			}
+			
 			function toDelete()
 			{
 				var toDelete;

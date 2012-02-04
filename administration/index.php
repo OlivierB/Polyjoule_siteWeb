@@ -26,7 +26,7 @@ connexionbdd();
 		<link rel="stylesheet" media="screen" type="text/css" title="design" href="ressources/design/style1/design.css"  />
 		<!-- Inclusion de tinyMCE et paramètrage -->
 		<script type="text/JavaScript" src="ressources/autres/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
-		<script type="text/JavaScript" src="ressources/autres/functions.js"></script>
+		<script type="text/JavaScript" src="modeles/functions.js"></script>
 		<script type="text/javascript">
 			tinyMCE.init({
 				// General options
