@@ -77,7 +77,7 @@ connexionbdd();
 							<div class="menuH"></div>
 							<li><a href="#">Panneau d'administration</a></li>
 							<li><a href="#">Statistiques</a></li>
-							<li><a href="#">Mon profil</a></li>
+							<li><a href="index.php?page=profil">Mon profil</a></li>
 							<li><a href="#">Maintenance</a></li>
 							<li><a href="index.php?page=gestionComptes">Gestion des comptes</a></li>
 							<li><a href="index.php?page=deconnexion">Déconnexion</a></li>

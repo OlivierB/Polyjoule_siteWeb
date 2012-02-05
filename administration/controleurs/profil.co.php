@@ -1,0 +1,1 @@
+<!-- // fichier de gestion du profiltraitements--><?php     include ('vues/profil.php');	 include ('modeles/variablesGlobales.php');?>
