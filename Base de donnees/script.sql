@@ -180,7 +180,7 @@ CREATE TABLE MEMBRE (
 	pseudo_membre VARCHAR(30),
 	mdp_membre varchar(150),
 	mail_membre varchar(100),
-	statut_membre varchar(30) CHECK statut_membre IN ('admin','user'),
+	statut_membre varchar(30) CHECK( statut_membre IN ('admin','user')),
 	PRIMARY KEY(id_membre,pseudo_membre) /* PSEUDO différent pour chaque membre*/
 );
 /*-----------------------------------------*/

@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['login']) && $_POST['login']!="" && isset($_POST['passwd']) && $_POST['passwd']!="")
 {
-	$req = mysql_query("SELECT COUNT(id_membre) AS nbr, id_membre, pseudo_membre, mdp_membre, statut_membre FROM MEMBRE WHERE pseudo_membre='".$_POST['login']."'") or die("Erreur");
+	$req = mysql_query("SELECT COUNT(id_membre) AS nbr, id_membre, pseudo_membre, mdp_membre, statut_membre FROM MEMBRE WHERE pseudo_membre='".$_POST['login']."'") or die(mysql_error());
 	$membre = mysql_fetch_array($req);
 	if($membre[0]==1)
 	{
