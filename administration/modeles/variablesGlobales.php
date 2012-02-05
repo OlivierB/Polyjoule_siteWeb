@@ -1,1 +1,1 @@
-<?php$pageRubrique="http://localhost/Polyjoule_siteWeb/administration/index.php?page=rubrique";$baseDonnees=0; //si les modifications de la base de données on été faites (descriptions rubriques par exemple) égal à 1, 0 sinon.?>
+<?php/*Rubriques*/$pageRubrique="http://localhost/Polyjoule_siteWeb/administration/index.php?page=rubrique";$baseDonnees=0; //si les modifications de la base de données on été faites (descriptions rubriques par exemple) égal à 1, 0 sinon./*Profil*/$pageProfil="http://localhost/Polyjoule_siteWeb/administration/index.php?page=profil";?>

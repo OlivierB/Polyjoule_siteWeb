@@ -249,6 +249,8 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 	?>
 		<div class="contenu" style="text-align:center;">
 			<h2>Gestion des	rubriques</h2>
+			<div style="background-color : #f0f0ee;margin : 10px 12px 20px 13px;border : 1px solid #cccccc;text-align:left; padding-left : 20px;">
+			</div>
 	<?php
 	if (isset($_GET['message'])) {
 		?>
@@ -296,20 +298,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 			<table id='articles'>
 			<tr class='article'><th class='article'>Num Rubrique</th><th class='article'>Titre de la rubrique (FR)</th><th class='article'>Titre de la rubrique (EN)</th><th class='article'>Administration</th></tr>
 			<?php
-			$req = mysql_query('SELECT * FROM RUBRIQUE;');
-			while($rubrique = mysql_fetch_array($req))
-			{
-				echo "<tr class='article'>";
-				echo "<td class='article'>".$rubrique[0]."</td>";
-				echo "<td class='article'>".$rubrique[2]."</td>";
-				echo "<td class='article'>".$rubrique[3]."</td>";
-				echo "<td class='article'>";
-				echo "<a href='index.php?page=rubrique&action=2&idRubrique=".$rubrique[0]."'>Modifier</a> - ";
-				echo "<a href='index.php?page=rubrique&action=3&idRubrique=".$rubrique[0]."'>Supprimer</a>";
-				echo "</td>";
-				echo "</tr>";
-			}
-			mysql_free_result($req);
+				affichageRubriques(null,0);
 			?>
 			</table>
 			<a href="index.php?page=rubrique&action=1"> Ajouter un rubrique </a>

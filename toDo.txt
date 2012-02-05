@@ -1,1 +1,1 @@
----- Images ----	- ajouter une image ajout rubrique avec le nom "add_rubrique.png"	- ajouter une iamge mise à jour rubrique avec le nom "MAJ_rubrique.png"---- rubrique.php ----	- vérification de la rubrique mère lors de la modification
+---- Images ----	- ajouter une image ajout rubrique avec le nom "add_rubrique.png"	- ajouter une iamge mise à jour rubrique avec le nom "MAJ_rubrique.png"---- rubrique.php ----	- présentation à améliorer---- profil.php ----
