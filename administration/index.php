@@ -105,12 +105,12 @@ connexionbdd();
 						</ul>
 					</li>
 						<li>
-						<a href="#"  >AIDE</a>
+						<a href="index.php?page=aide"  >AIDE</a>
 						<ul class="sousMenu"  >
 							<div class="menuH"></div>
-							<li><a href="#">Aide administration</a></li>
-							<li><a href="#">Contact</a></li>
-							<li><a href="#">Liens utiles</a></li>
+							<li><a href="index.php?page=aide&option=1">Aide administration</a></li>
+							<li><a href="index.php?page=aide&option=2">Contact</a></li>
+							<li><a href="index.php?page=aide&option=3">Liens utiles</a></li>
 							<div class="menuB"></div>
 						</ul>
 					</li>

@@ -180,6 +180,7 @@ CREATE TABLE MEMBRE (
 	pseudo_membre VARCHAR(30),
 	mdp_membre varchar(150),
 	mail_membre varchar(100),
+	statut_membre varchar(30) CHECK statut_membre IN ('admin','user'),
 	PRIMARY KEY(id_membre,pseudo_membre) /* PSEUDO différent pour chaque membre*/
 );
 /*-----------------------------------------*/
@@ -214,4 +215,4 @@ ALTER TABLE APPARTIENT ADD CONSTRAINT FK_APPARTIENT_id_participant FOREIGN KEY (
 ALTER TABLE APPARTIENT ADD CONSTRAINT FK_APPARTIENT_id_formation FOREIGN KEY (id_formation) REFERENCES FORMATION (id_formation);
 
 /*INSERTION DU COMPTE admin POUR LES TESTS */
-INSERT INTO MEMBRE VALUES (1,'admin','d033e22ae348aeb5660fc2140aec35850c4da997','admin@admin');
+INSERT INTO MEMBRE VALUES (1,'admin','d033e22ae348aeb5660fc2140aec35850c4da997','admin@admin','admin');

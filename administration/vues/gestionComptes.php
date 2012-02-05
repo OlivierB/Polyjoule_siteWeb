@@ -7,7 +7,7 @@ Réservé à l'administrateur du site
 
 <?php
 	/* Vérification du statut du membre : si admin autorisation d'accéder à cette page sinon redirection vers l'accueil */
-	if(isset($_SESSION['id_membre']) && $_SESSION['id_membre']==1)
+	if(isset($_SESSION['statut_membre']) && $_SESSION['statut_membre']!='admin')
 	{
 		$informations = Array(/*Erreur*/
 						true,
@@ -31,7 +31,7 @@ Réservé à l'administrateur du site
 						<img width="80px" height="80px" src="ressources/design/style1/images/add_user.png" />
 					</td>
 					<td>
-						<a href="#" ><a href="#" >Inscrire un utilisateur</a>
+						<a href="#" >Inscrire un utilisateur</a>
 					</td>
 				</tr>
 				<tr>
@@ -39,7 +39,7 @@ Réservé à l'administrateur du site
 						<img width="80px" height="80px" src="ressources/design/style1/images/edit_user.png" />
 					</td>
 					<td>
-						<a href="#" ><a href="#" >Modifier les informations d'un utilisateur</a>
+						<a href="#" >Modifier les informations d'un utilisateur</a>
 					</td>
 				</tr>
 				<tr>
