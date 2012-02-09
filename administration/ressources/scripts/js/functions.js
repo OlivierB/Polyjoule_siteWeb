@@ -54,3 +54,20 @@ function Submit_enter(myfield,e)
 		myfield.form.submit();
 	}
 }
+
+function article_toDelete(nbArt)
+{
+	alert("nbARTICLE="+nbArt);
+	var toDelete = new Array();
+	var i,j=0;
+	for(i=0;i<nbArt;i++)
+	{
+		if(document.getElementsByName('checkArticle')[i].checked == true)
+		{
+			toDelete[j]= document.getElementsByName('checkArticle')[i].value;
+			j++;
+		}
+	}
+	
+	return toDelete;
+}

@@ -6,10 +6,6 @@ body {
 	min-width:1200px;
 	height : 200px;
 	}
-
-h1 {
-	font-size : 30px;
-	}
 #entete{
 	margin : 10px auto auto auto;
 	width : 1225px;
@@ -101,6 +97,21 @@ h1 {
     display: block;
 }
 
+.section_name {
+	text-align : left;
+	font-weight : bold;
+	font-style : italic;
+	font-size : 120%;
+	color : #468093;
+	list-style-type : disc;
+}
+#editeur {
+	background-color : #f0f0ee;
+	margin : 10px 12px 20px 13px;
+	border : 1px solid #cccccc;
+	text-align:left;
+	padding-left : 20px;
+}
 .contenu {
 	background-color : #FFFFFF;
 	margin : 0px auto auto auto;
@@ -114,9 +125,6 @@ h1 {
 	min-height : 500px;
 	z-index : 0;
 }
-h1 {
-	text-align : center;
-	}
 .contenuB {
 	background-image : url("images/contenuB.png");
 	margin : 0px auto auto auto;
@@ -154,16 +162,18 @@ h1 {
 	width : 50%;
 	margin-top : -100px;
 	}
-#articles
+	
+.blue_tabular
 {
 	border-collapse:collapse;
 	margin : auto auto auto auto;
+	
 }
-.article
+.blue_tabular_cell
 {
 	text-align : center;
 	border : 2px solid #406BA4;
-	width : 20%;
+	width : 15%;
 }
 .validate{
 	font-size : 80%;

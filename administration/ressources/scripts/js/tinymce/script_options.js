@@ -3,6 +3,7 @@ tinyMCE.init (
 		// General options
 		mode : "textareas",
 		theme : "advanced",
+		skin : "o2k7",
 		plugins : "safari,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,inlinepopups",
 
 		// Theme options
@@ -12,7 +13,6 @@ tinyMCE.init (
 		theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak",
 		theme_advanced_toolbar_location : "top",
 		theme_advanced_toolbar_align : "left",
-		theme_advanced_statusbar_location : "bottom",
 		theme_advanced_resizing : false,
 
 		// Drop lists for link/image/media/template dialogs

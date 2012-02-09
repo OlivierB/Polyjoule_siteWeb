@@ -12,7 +12,7 @@
 
 <?php
 
-// Permet la connexion au jeu
+// Permet la connexion au site
 function connexion($pseudo, $passe) {
 	$req 	= mysql_query("SELECT COUNT(id_membre) AS nbr, id_membre, pseudo_membre, mdp_membre, statut_membre FROM MEMBRE WHERE pseudo_membre='".$pseudo."'") or die(mysql_error());
 	$membre = mysql_fetch_array($req);
