@@ -22,7 +22,9 @@ Réservé à l'administrateur du site
 ?>
 
 <div class="contenu">
-	<h1> Gestion des comptes </h1>
+	<?php
+		echo create_title_bar("Gestion des comptes", "ressources/design/style1/images/gestion_user.png");
+	?>
 	<div align="center">
 		<div align=center>
 			<table>

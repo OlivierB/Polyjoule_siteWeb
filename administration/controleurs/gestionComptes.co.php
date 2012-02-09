@@ -1,1 +1,1 @@
-<!-- // fichier de gestion des comptestraitements--><?php     include ('vues/gestionComptes.php');?>
+<!-- // fichier de gestion des comptestraitements--><?php     include ('vues/gestionComptes.vu.php');?>

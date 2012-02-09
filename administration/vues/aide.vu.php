@@ -16,7 +16,9 @@ Page d'aide
 	{
 		?>
 		<div class="contenu">
-			<h1> Besoin d'aide ? </h1>
+			<?php
+				echo create_title_bar("Besoin d'aide ?", "ressources/design/style1/images/help.png");
+			?>
 			<div align=center>
 			<table>
 				<tr>
@@ -54,7 +56,9 @@ Page d'aide
 		{
 			?>
 			<div class="contenu">
-				<h1> Aide Administration </h1>
+			<?php
+				echo create_title_bar("Aide administration", "ressources/design/style1/images/help.png");
+			?>
 			</div>
 			<?php
 		}
@@ -62,7 +66,9 @@ Page d'aide
 		{
 			?>
 			<div class="contenu">
-				<h1> Formulaire de contact </h1>
+			<?php
+				echo create_title_bar("Formulaire de contact", "ressources/design/style1/images/contact.png");
+			?>
 			</div>
 			<?php
 		}
@@ -70,7 +76,9 @@ Page d'aide
 		{
 			?>
 			<div class="contenu">
-				<h1> Liens utiles </h1>
+			<?php
+				echo create_title_bar("Liens utiles", "ressources/design/style1/images/web.png");
+			?>
 			</div>
 			<?php
 		}

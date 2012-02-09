@@ -189,3 +189,9 @@ footer {
 	font-family : arial;
 	font-size : 10px;
 	}
+.barre_titre {
+	font-size : 140%;
+	font-weight:bold;
+	height : 50px;
+	border-bottom : 1px solid #cccccc;
+}

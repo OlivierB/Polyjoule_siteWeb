@@ -23,4 +23,19 @@ function vidersession()
 		unset($_SESSION[$cle]);
 	}
 }
+
+function create_title_bar( $title, $icone)
+{
+	$barre ="
+		<div class='barre_titre'>
+			<div style='float:left'>
+				<img src='".$icone."' alt='icone_titre'>
+			</div>
+			<div style='float:left; margin-top:10px; margin-left:20px;'>".$title."
+			</div>
+		</div> <div style='height:40px;'></div>";
+	
+	return $barre;
+}			
+			
 ?>
