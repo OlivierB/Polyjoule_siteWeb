@@ -1,0 +1,75 @@
+body {
+	background-color : #406BA4;
+	color : white;
+	font-size : 100%;
+}
+
+label {
+	float: left;
+	text-align: right;
+}
+
+input {
+	float: right;
+	text-align: left;
+	margin-right : 50px;
+}
+
+p {
+	clear: both;
+} 
+
+.centre {
+	text-align : center;
+}
+
+#cadena {
+	margin:auto auto auto 30px;
+}
+
+#form_connexion {
+	margin:-128px auto auto 200px;
+}
+
+#connexion {
+	margin : 100px auto auto auto;
+	width:500px;
+	height:300px;
+	background-color : #406BA4;
+	border-radius : 10px;
+	border : 2px solid #FFFFFF;
+}
+
+#bouton_connexion {
+	margin-top: 70px;
+	margin-left:120px;
+}
+
+.button {
+	border-top: 1px solid #ff9500;
+	background: #ff9900;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffc800), to(#ff9900));
+	background: -webkit-linear-gradient(top, #ffc800, #ff9900);
+	background: -moz-linear-gradient(top, #ffc800, #ff9900);
+	background: -ms-linear-gradient(top, #ffc800, #ff9900);
+	background: -o-linear-gradient(top, #ffc800, #ff9900);
+	padding: 6px 12px;
+	-webkit-border-radius: 11px;
+	-moz-border-radius: 11px;
+	border-radius: 11px;
+	-webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+	-moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+	box-shadow: rgba(0,0,0,1) 0 1px 0;
+	text-shadow: rgba(0,0,0,.4) 0 1px 0;
+	color: #ffffff;
+	font-size: 17px;
+	font-family: Georgia, Serif;
+	text-decoration: none;
+	vertical-align: middle;
+	
+}
+
+.button:hover {
+	color : black;
+}
+

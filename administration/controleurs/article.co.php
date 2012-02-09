@@ -6,5 +6,5 @@ traitements
 -->
 
 <?php
-     include ('vues/article.php');
+     include ('vues/article.vu.php');
 ?>

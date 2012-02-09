@@ -6,5 +6,5 @@ traitements
 -->
 
 <?php
-     include ('vues/deconnexion.php');
+     include ('vues/deconnexion.vu.php');
 ?>

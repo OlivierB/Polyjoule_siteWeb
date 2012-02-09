@@ -36,16 +36,16 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 				<div style="height:50px;">
 					<div style="float : left;font-size : 120%;font-weight:bold;">
 						<div style="float:left;">
-							<img src="ressources/design/style1/images/add_rubrique.png" alt="add_rubrique">
+							<img src="ressources/design/style1/images/add_rubrique.png" alt="add_article">
 						</div>
 						<div style="float:right; margin-top:10px;margin-left:10px;">
 							Ajout d'une Rubrique
 						</div>
 					</div>
 					<div style="height:50px;width:300px;float:right;">
-						<a href="" class="save"><img src="ressources/design/style1/images/save.png" alt="save_rubrique">Sauver</a>
-						<a href="" class="validate"><img src="ressources/design/style1/images/validate.png" alt="apply_rubrique">Appliquer</a>
-						<a href="index.php?page=rubrique&message=procedureAnnulee" class="cancel"><img src="ressources/design/style1/images/cancel.png" alt="cancel_rubrique">Annuler</a>
+						<a href="" class="save"><img src="ressources/design/style1/images/save.png" alt="save_article">Sauver</a>
+						<a href="" class="validate"><img src="ressources/design/style1/images/validate.png" alt="apply_article">Appliquer</a>
+						<a href="index.php?page=rubrique&message=procedureAnnulee" class="cancel"><img src="ressources/design/style1/images/cancel.png" alt="cancel_article">Annuler</a>
 					</div>
 				</div>
 				<div style="background-color : #f0f0ee;margin : 10px 12px 20px 13px;border : 1px solid #cccccc;text-align:left; padding-left : 20px;">
@@ -87,16 +87,16 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 						<div style="height:50px;">
 							<div style="float : left;font-size : 120%;font-weight:bold;">
 								<div style="float:left;">
-									<img src="ressources/design/style1/images/add_rubrique.png" alt="add_rubrique">
+									<img src="ressources/design/style1/images/add_rubrique.png" alt="add_article">
 								</div>
 								<div style="float:right; margin-top:10px;margin-left:10px;">
 									Mise à jour d'une Rubrique
 								</div>
 							</div>
 							<div style="height:50px;width:300px;float:right;">
-								<a href="" class="save"><img src="ressources/design/style1/images/save.png" alt="save_rubrique">Sauver</a>
-								<a href="" class="validate"><img src="ressources/design/style1/images/validate.png" alt="apply_rubrique">Appliquer</a>
-								<a href="index.php?page=rubrique&message=procedureAnnulee" class="cancel"><img src="ressources/design/style1/images/cancel.png" alt="cancel_rubrique">Annuler</a>
+								<a href="" class="save"><img src="ressources/design/style1/images/save.png" alt="save_article">Sauver</a>
+								<a href="" class="validate"><img src="ressources/design/style1/images/validate.png" alt="apply_article">Appliquer</a>
+								<a href="index.php?page=rubrique&message=procedureAnnulee" class="cancel"><img src="ressources/design/style1/images/cancel.png" alt="cancel_article">Annuler</a>
 							</div>
 						</div>
 						<div style="background-color : #f0f0ee;margin : 10px 12px 20px 13px;border : 1px solid #cccccc;text-align:left; padding-left : 20px;">
@@ -288,12 +288,10 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 			<?php
 				$req = mysql_query('SELECT count(*) FROM RUBRIQUE;');
 				$count=mysql_fetch_array($req);
-				if ($count[0]==0) {
-					if (!isset($_GET['message'])) {
-						$msg=$_GET['message'];
-						if ($msg!="sansRubrique") {
-							header("Location: $pageRubrique&message=sansRubrique");
-						}
+				if ($count[0]==0 && isset($_GET['message'])) {
+					$msg=$_GET['message'];
+					if ($msg!="sansRubrique") {
+						header("Location: $pageRubrique&message=sansRubrique");
 					}
 				} else {
 			?>

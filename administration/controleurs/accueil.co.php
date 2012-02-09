@@ -6,5 +6,5 @@ traitements
 -->
 
 <?php
-     include ('vues/accueil.php');
+     include ('vues/accueil.vu.php');
 ?>

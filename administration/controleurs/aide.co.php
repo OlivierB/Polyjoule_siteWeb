@@ -1,1 +1,1 @@
-<!-- // fichier d'aidetraitements--><?php     include ('vues/aide.php');?>
+<!-- // fichier d'aidetraitements--><?php     include ('vues/aide.vu.php');?>
