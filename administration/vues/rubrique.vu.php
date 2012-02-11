@@ -145,7 +145,6 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 		<?php
 	}
 	?>
-		<div style="background-color : #f0f0ee;margin : 10px 12px 20px 13px;border : 1px solid #cccccc;text-align:center; padding-left : 20px;">
 			<a href="index.php?page=rubrique&action=1"> Ajouter un rubrique</a>
 			<br />
 			<?php
@@ -157,8 +156,21 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 				} else {
 			?>
 			<br />
-			<table id='articles' style="width : 100%;">
-			<tr class='article'><th class='article' style="width : 15%;">Numéro Rubrique</th><th class='article' style="width : 40%;">Titre de la rubrique (FR)</th><th class='article' style="width : 25%;">Titre de la rubrique (EN)</th><th class='article' style="width : 20%;">Administration</th></tr>
+			<table class="blue_tabular">
+			<tr class="blue_tabular_title">
+				<th class="blue_tabular_title">
+					Numéro Rubrique
+				</th>
+				<th class="blue_tabular_title">
+					Titre de la rubrique (FR)
+				</th>
+				<th class="blue_tabular_title">
+					Titre de la rubrique (EN)
+				</th>
+				<th class="blue_tabular_title">
+					Administration
+				</th>
+			</tr>
 			<?php
 				affichageRubriques(null,0);
 			?>
@@ -168,7 +180,6 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 			<?php
 				}
 			?>
-		</div>
 		</div>
 	<?php
 }

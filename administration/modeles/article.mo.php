@@ -19,9 +19,15 @@ function get_articles()
 	$req = mysql_query('SELECT * FROM ARTICLE;');
 	while($art = mysql_fetch_array($req))
 	{
-		$req1 = mysql_query("SELECT titreFR_rubrique FROM RUBRIQUE WHERE id_rubrique=".$art["id_rubrique"]);
-		$titreRub = mysql_fetch_array($req1);
-		
+		if($art["id_rubrique"]!=NULL)
+		{
+			$req1 = mysql_query("SELECT titreFR_rubrique FROM RUBRIQUE WHERE id_rubrique=".$art["id_rubrique"]);
+			$titreRub = mysql_fetch_array($req1);
+		}
+		else
+		{
+			$titreRub['titreFR_rubrique'] = "--";
+		}
 		$articles[$i] = array(
 			"id_article" => $art["id_article"],
 			"id_rubrique" => $art["id_rubrique"],
