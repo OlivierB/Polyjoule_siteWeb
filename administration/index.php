@@ -85,6 +85,25 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 						</ul>
 					</li>
 					<li>
+						<a href="">ÉQUIPE</a>
+						<ul class="sousMenu">
+							<div class="menuH"></div>
+							<li><a href="">Gestion des équipes</a></li>
+							<li><a href="">Gestion des participants</a></li>
+							<li><a href="">Gestion des participations</a></li>
+							<div class="menuB"></div>
+						</ul>
+					</li>
+					<li>
+						<a href="">FORMATIONS</a>
+						<ul class="sousMenu">
+							<div class="menuH"></div>
+							<li><a href="">Gestion des formations</a></li>
+							<li><a href="index.php?page=ecole">Gestion des écoles</a></li>
+							<div class="menuB"></div>
+						</ul>
+					</li>
+					<li>
 						<a href="index.php?page=article"  >CONTENU</a>
 						<ul class="sousMenu"  >
 							<div class="menuH"></div>

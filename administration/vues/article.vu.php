@@ -75,7 +75,7 @@ if ($action == 1)//Ajout d'un article
 		<div id="contenuEN" align="center">
 		</div>
 		<script language="javascript" type="text/javascript">
-		  with (document.getElementById ("contenuFR")) {
+		  with (document.getElementById ("contenuEN")) {
 			with (appendChild (document.createElement ("TEXTAREA"))) {
 			  name = "contenuEN";
 			  cols = 120;
