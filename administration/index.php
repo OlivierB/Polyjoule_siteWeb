@@ -66,7 +66,7 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 						<a class="Menu" href="index.php">ADMINISTRATION</a>
 						<ul class="sousMenu"  >
 							<div class="menuH"></div>
-							<li><a href="#">Panneau d'administration</a></li>
+							<li><a href="index.php">Panneau d'administration</a></li>
 							<li><a href="#">Statistiques</a></li>
 							<li><a href="index.php?page=profil">Mon profil</a></li>
 							<li><a href="#">Maintenance</a></li>
@@ -76,7 +76,7 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 						</ul>
 					</li>
 					<li>
-						<a href="#"  >MENUS</a>
+						<a href="index.php?page=rubrique"  >MENUS</a>
 						<ul class="sousMenu"  >
 							<div class="menuH"></div>
 							<li><a href="index.php?page=rubrique">Gestion des rubriques</a></li>
@@ -85,7 +85,7 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 						</ul>
 					</li>
 					<li>
-						<a href="#"  >CONTENU</a>
+						<a href="index.php?page=article"  >CONTENU</a>
 						<ul class="sousMenu"  >
 							<div class="menuH"></div>
 							<li><a href="index.php?page=article">Gestion des articles</a></li>
