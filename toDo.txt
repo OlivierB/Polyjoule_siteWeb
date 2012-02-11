@@ -1,5 +1,11 @@
-<<<<<<< HEAD
----- Images ----	- ajouter une image ajout rubrique avec le nom "add_rubrique.png"	- ajouter une iamge mise à jour rubrique avec le nom "MAJ_rubrique.png"---- rubrique.php ----	- présentation à améliorer---- profil.php ----	- faire la vérification de non existence du pseudo	- vérifier que le nouveau mail est conforme	- affichage de message propre--- gestion des articles ---	Fait !
-=======
 ---- Images ----	- ajouter une image ajout rubrique avec le nom "add_rubrique.png"	- ajouter une iamge mise à jour rubrique avec le nom "MAJ_rubrique.png"---- rubrique.php ----	- présentation à améliorer	- BUG : on peut créer des rubriques sans nom !---- profil.php ----	- faire la vérification de non existence du pseudo	- vérifier que le nouveau mail est conforme	- affichage de message propre
->>>>>>> 260992f516d49dc0eda2c23935472b033f96609c
+	
+--- gestion des articles ---
+	Fait !
+
+--- Attention à la mise en page du contenu---
+
+Pour la création des autres pages, il faudrait garder le même design que les pages gestion des articles et gestions des comptes.
+Il y a une fonction spéciale pour créer la barre de titre de chaque page en lui passant par paramètre l'icone de la page et son titre.
+
+
