@@ -24,7 +24,7 @@ function vidersession()
 	}
 }
 
-function create_title_bar( $title, $icone)
+function create_title_bar($title, $icone)
 {
 	$barre ="
 		<div class='barre_titre'>
@@ -36,6 +36,5 @@ function create_title_bar( $title, $icone)
 		</div> <div style='height:40px;'></div>";
 	
 	return $barre;
-}			
-			
+}
 ?>

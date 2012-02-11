@@ -23,21 +23,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 	if ($action==1) { //ajouter une rubrique
 		?>
 			<div class="contenu" style="text-align:center;">
-				<div style="height:50px;">
-					<div style="float : left;font-size : 120%;font-weight:bold;">
-						<div style="float:left;">
-							<img src="ressources/design/style1/images/add_rubrique.png" alt="add_article">
-						</div>
-						<div style="float:right; margin-top:10px;margin-left:10px;">
-							Ajout d'une Rubrique
-						</div>
-					</div>
-					<div style="height:50px;width:300px;float:right;">
-						<a onClick="document.forms['formAjout'].submit();" class="save"><img src="ressources/design/style1/images/save.png" alt="save_article">Sauver</a>
-						<a href="" class="validate"><img src="ressources/design/style1/images/validate.png" alt="apply_article">Appliquer</a>
-						<a href="index.php?page=rubrique&message=procedureAnnulee" class="cancel"><img src="ressources/design/style1/images/cancel.png" alt="cancel_article">Annuler</a>
-					</div>
-				</div>
+				<?php echo create_title_bar("Ajout d'une rubrique", "ressources/design/style1/images/add_rubrique.png"); ?>
 				<div style="background-color : #f0f0ee;margin : 10px 12px 20px 13px;border : 1px solid #cccccc;text-align:left; padding-left : 20px;">
 					<form name="formAjout" method="post" action="index.php?page=rubrique&action=4">
 						<table>
@@ -85,21 +71,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 				$rubrique=getRubrique($rubr);
 				?>
 					<div class="contenu" style="text-align:center;">
-						<div style="height:50px;">
-							<div style="float : left;font-size : 120%;font-weight:bold;">
-								<div style="float:left;">
-									<img src="ressources/design/style1/images/add_rubrique.png" alt="add_article">
-								</div>
-								<div style="float:right; margin-top:10px;margin-left:10px;">
-									Mise à jour d'une Rubrique
-								</div>
-							</div>
-							<div style="height:50px;width:300px;float:right;">
-								<a href="" class="save"><img src="ressources/design/style1/images/save.png" alt="save_article">Sauver</a>
-								<a href="" class="validate"><img src="ressources/design/style1/images/validate.png" alt="apply_article">Appliquer</a>
-								<a href="index.php?page=rubrique&message=procedureAnnulee" class="cancel"><img src="ressources/design/style1/images/cancel.png" alt="cancel_article">Annuler</a>
-							</div>
-						</div>
+						<?php echo create_title_bar("Mise à jour d'une rubrique", "ressources/design/style1/images/modify_rubrique.png"); ?>
 						<div style="background-color : #f0f0ee;margin : 10px 12px 20px 13px;border : 1px solid #cccccc;text-align:left; padding-left : 20px;">
 							<form method="post" action="index.php?page=rubrique&action=5">
 								<p>
@@ -160,7 +132,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 } else {
 	?>
 		<div class="contenu" style="text-align:center;">
-			<h2>Gestion des	rubriques</h2>
+			<?php echo create_title_bar("Gestion des rubriques", "ressources/design/style1/images/gestion_rubrique.png"); ?>
 		<?php
 	if (isset($_GET['message'])) {
 		?>
