@@ -7,6 +7,7 @@ Page de gestion des articles
 
 
 <?php 
+	
 $actions = array(1,2,3,4,5); // Tableau des actions possibles
 /*
 	Action 1 : Ajouter article
@@ -21,11 +22,23 @@ if(isset($_GET['action']) && in_array(securite($_GET['action']),$actions)) $acti
 else $action = 0;
 
 ?>
-	<div class="contenu" align="center">
 <?php
 if ($action == 1)//Ajout d'un article
-{ ?>
-
+{ 
+	if(countRubrique()==0)
+	{
+		$informations = Array(/*Erreur*/
+						true,
+						'Erreur',
+						'Impossible de créer un article, veuillez créer une rubrique avant.',
+						'index.php?page=rubrique&action=1',
+						4
+						);
+		require_once('vues/informations.vu.php');
+		exit();
+	}
+	?>
+	<div class="contenu" align="center">
 	<!-- Barre de titre avec logo des actions possibles -->
 	
 		<?php
@@ -99,9 +112,44 @@ if ($action == 1)//Ajout d'un article
 }
 else if ($action == 2)// Modification d'un article
 {
-	if(sizeof($_GET['id'])!=1)
-		header("Location:index.php?page=article");
+	if(countRubrique()==0)
+	{
+		$informations = Array(/*Erreur*/
+						true,
+						'Erreur',
+						'Impossible de modifier un article, veuillez créer une rubrique avant.',
+						'index.php?page=rubrique&action=1',
+						4
+						);
+		require_once('vues/informations.vu.php');
+		exit();
+	}
 	
+	if( !isset($_GET['id']) || sizeof($_GET['id'])==0)
+	{
+		$informations = Array(/*Erreur*/
+						false,
+						'Erreur',
+						'Aucun article sélectionné.',
+						'index.php?page=article',
+						4
+						);
+		require_once('vues/informations.vu.php');
+		exit();
+	}
+	if(sizeof($_GET['id'])>1)
+	{
+		$informations = Array(/*Information*/
+						true,
+						'Information',
+						'Veuillez modifier qu\'un seul article à la fois.',
+						'index.php?page=article',
+						4
+						);
+		require_once('vues/informations.vu.php');
+		exit();
+	}
+		
 	$id = securite($_GET['id'][0]);
 	
 	if(exist_article($id) && isAutorOf($id, $_SESSION['pseudo_membre']))
@@ -110,7 +158,7 @@ else if ($action == 2)// Modification d'un article
 		
 		?>
 		<!-- Barre de titre avec logo des actions possibles -->
-	
+		<div class="contenu" align="center">
 		<?php
 			echo create_title_bar("Modification d'un article", "ressources/design/style1/images/modify_article.png");
 		?>
@@ -201,6 +249,7 @@ else if ($action == 5)// Traitement de suppression d'articles
 else
 {
 ?>
+	<div class="contenu" align="center">
 	<?php
 		echo create_title_bar("Gestion des articles", "ressources/design/style1/images/gestion_article.png");
 	?>
