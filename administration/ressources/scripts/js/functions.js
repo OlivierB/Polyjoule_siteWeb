@@ -71,9 +71,17 @@ function recuperer_selection(name,nb,redirection)
 
 function valider_ajoutArticle()
 {
-  // si la valeur du champ titleFR n'est pas vide
   if(document.ajoutArticle.titleFR.value != "" && document.ajoutArticle.titleEN.value != "")
 		document.ajoutArticle.submit();
+  else
+		alert("Veuillez remplir tout les champs du formulaire.");
+}
+
+function check_form_contact()
+{
+  // si la valeur du champ titleFR n'est pas vide
+  if(document.contact.objet.value != "" && document.contact.message.value != "")
+		document.contact.submit();
   else
 		alert("Veuillez remplir tout les champs du formulaire.");
 }

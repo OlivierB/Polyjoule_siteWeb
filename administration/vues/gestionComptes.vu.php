@@ -30,11 +30,11 @@ Réservé à l'administrateur du site
 	</ul>
 	
 	<table class="blue_tabular">
-		<tr class="blue_tabular_cell">
-			<th class="blue_tabular_cell"> <input type='checkbox' name="checkAll" id="checkAll" onClick="this.checked=CheckAll('checkAll','checkArticle');"/> </th>
-			<th class="blue_tabular_cell">Pseudo</th>
-			<th class="blue_tabular_cell">Adresse mail</th>
-			<th class="blue_tabular_cell">Statut</th>
+		<tr class="blue_tabular_title">
+			<th class="blue_tabular_title"> <input type='checkbox' name="checkAll" id="checkAll" onClick="this.checked=CheckAll('checkAll','checkArticle');"/> </th>
+			<th class="blue_tabular_title">Pseudo</th>
+			<th class="blue_tabular_title">Adresse mail</th>
+			<th class="blue_tabular_title">Statut</th>
 		</tr>
 		<?php
 		for($i=0;$i<sizeof($membres);$i++)

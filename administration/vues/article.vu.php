@@ -259,26 +259,26 @@ else
 	</ul>
 	
 	<table class="blue_tabular">
-		<tr class="blue_tabular_cell">
-			<th class="blue_tabular_cell">
+		<tr class="blue_tabular_title">
+			<th class="blue_tabular_title">
 				<input type='checkbox' name="checkAll" id="checkAll" onClick="CheckAll('checkAll','checkArticle');"/>
 			</th>
-			<th class="blue_tabular_cell">
+			<th class="blue_tabular_title">
 				Titre FR
 			</th>
-			<th class="blue_tabular_cell">
+			<th class="blue_tabular_title">
 				Titre EN
 			</th >
-			<th class="blue_tabular_cell">
+			<th class="blue_tabular_title">
 				Auteur
 			</th>
-			<th class="blue_tabular_cell">
+			<th class="blue_tabular_title">
 				Rubrique
 			</th>
-			<th class="blue_tabular_cell">
+			<th class="blue_tabular_title">
 				Commentaires autorisés
 			</th>
-			<th class="blue_tabular_cell">
+			<th class="blue_tabular_title">
 				Statut
 			</th>
 		</tr>
