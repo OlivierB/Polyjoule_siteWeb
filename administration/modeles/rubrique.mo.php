@@ -115,7 +115,7 @@ function affichageRubriques($idMere,$niveau) {
 		if($rubrique[0]!=null){
 			echo "<tr class='blue_tabular_cell'>";
 			echo "<td class='blue_tabular_cell'>".$rubrique[0]."</td>";
-			echo "<td class='blue_tabular_cell'>";
+			echo "<td class='blue_tabular_cell' style='text-align:\"left\"'>";
 			for($i=1;$i<$niveau;$i++){
 				echo "---";
 			}
