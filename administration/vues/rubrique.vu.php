@@ -167,8 +167,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 			<div style="background-color : #f0f0ee;margin : 10px 12px 20px 13px;border : 1px solid #cccccc;text-align:left; padding-left : 20px;">
 				<strong>Message :</strong>
 		<?php
-		$msg=securite($_GET['message']);
-		echo getMessage($msg);
+		echo getMessage(securite($_GET['message']));
 		?>
 			</div>
 		<?php
