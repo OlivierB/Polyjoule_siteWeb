@@ -258,12 +258,41 @@ else
 		
 		?>
 	</table>
-
-	<p>
-		Pour la sélection : <a href="#" onclick="window.location.href=recuperer_selection('checkArticle',<?php echo sizeof($articles);?>,'index.php?page=article&action=2');">Modifier</a> <a href="#" onclick="window.location.href=recuperer_selection('checkArticle',<?php echo sizeof($articles);?>,'index.php?page=article&action=5');">Supprimer</a>
-	</p>
-
-	<a href="index.php?page=article&action=1"> Ajouter un article </a>
+	<div align=center>
+		<br/><br/>
+		<table>
+			<tr>
+				<td class="section_name"> Pour la sélection : </td>
+			</tr>
+			<tr>
+				<td>
+					<img src="ressources/design/style1/images/modify_article.png" />
+				</td>
+				<td>
+					<a class="liens_Action" href="#" onclick="window.location.href=recuperer_selection('checkArticle',<?php echo sizeof($articles);?>,'index.php?page=article&action=2');">Modifier</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<img src="ressources/design/style1/images/delete_article.png" />
+				</td>
+				<td>
+					<a class="liens_Action" href="#" onclick="window.location.href=recuperer_selection('checkArticle',<?php echo sizeof($articles);?>,'index.php?page=article&action=5');">Supprimer</a>
+				</td>
+			</tr>
+			<tr>
+				<td class="section_name"> Autres actions : </td>
+			</tr>
+			<tr>
+				<td>
+					<img src="ressources/design/style1/images/add_article.png" />
+				</td>
+				<td>
+					<a class="liens_Action" href="index.php?page=article&action=1">Ajouter un article </a>
+				</td>
+			</tr>
+		</table>
+	</div>	
 <?php
 }
 ?>

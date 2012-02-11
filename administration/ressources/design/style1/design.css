@@ -104,6 +104,7 @@ body {
 	font-size : 120%;
 	color : #468093;
 	list-style-type : disc;
+	margin-top : -10px;
 }
 #editeur {
 	background-color : #f0f0ee;
@@ -204,4 +205,13 @@ footer {
 	font-weight:bold;
 	height : 50px;
 	border-bottom : 1px solid #cccccc;
+}
+
+.liens_Action,.liens_Action:visited {
+	color : #468093;
+	font-size : 120%;
+}
+.liens_Action:hover {
+	color : #009de1;
+	font-size : 120%;
 }

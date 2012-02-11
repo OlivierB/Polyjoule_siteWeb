@@ -1,1 +1,1 @@
-<!-- // fichier de gestion des comptestraitements--><?php     include ('vues/gestionComptes.vu.php');?>
+<!-- // fichier de gestion des comptestraitements--><?php	include ('modeles/gestionComptes.mo.php');	$membres = get_membres();	    include ('vues/gestionComptes.vu.php');?>

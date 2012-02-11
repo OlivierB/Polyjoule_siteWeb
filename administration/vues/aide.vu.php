@@ -20,33 +20,34 @@ Page d'aide
 				echo create_title_bar("Besoin d'aide ?", "ressources/design/style1/images/help.png");
 			?>
 			<div align=center>
-			<table>
-				<tr>
-					<td>
-						<img width="50px" height="50px" src="ressources/design/style1/images/help.png" />
-					</td>
-					<td>
-						<a href="index.php?page=aide&option=1" >Obtenir de l'aide sur l'administration</a>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<img width="50px" height="50px" src="ressources/design/style1/images/contact.png" />
-					</td>
-					<td>
-						<a href="index.php?page=aide&option=2" >Envoyer un mail aux administrateurs</a>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<img width="50px" height="50px" src="ressources/design/style1/images/web.png" />
-					</td>
-					<td>
-						<a href="index.php?page=aide&option=3" >Liens utiles</a>
-					</td>
-				</tr>
-			</table>
-		</div>
+				<br/><br/>
+				<table>
+					<tr>
+						<td>
+							<img src="ressources/design/style1/images/help.png" />
+						</td>
+						<td>
+							<a class="liens_Action" href="index.php?page=aide&option=1" >Obtenir de l'aide sur l'administration</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="ressources/design/style1/images/contact.png" />
+						</td>
+						<td>
+							<a class="liens_Action" href="index.php?page=aide&option=2" >Envoyer un mail aux administrateurs</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="ressources/design/style1/images/web.png" />
+						</td>
+						<td>
+							<a class="liens_Action" href="index.php?page=aide&option=3" >Liens utiles</a>
+						</td>
+					</tr>
+				</table>
+			</div>	
 		</div>
 		<?php
 	}
