@@ -113,6 +113,8 @@ CREATE TABLE ARTICLE (
 	titreEN_article TEXT,
 	contenuFR_article TEXT,
 	contenuEN_article TEXT,
+	auteur_article VARCHAR(50),
+	statut_article BOOL,
 	autorisation_com BOOL,
 	PRIMARY KEY (id_article)
 ) ENGINE=InnoDB;

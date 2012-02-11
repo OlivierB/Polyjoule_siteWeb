@@ -20,36 +20,37 @@ $actions = array(1,2,3,4,5); // Tableau des actions possibles
 if(isset($_GET['action']) && in_array(securite($_GET['action']),$actions)) $action = securite($_GET['action']);
 else $action = 0;
 
+?>
+	<div class="contenu" align="center">
+<?php
 if ($action == 1)//Ajout d'un article
 { ?>
 
 	<!-- Barre de titre avec logo des actions possibles -->
-	<div class="contenu">
+	
 		<?php
 			echo create_title_bar("Ajout d'un article", "ressources/design/style1/images/add_article.png");
 		?>
 	<!-- Formulaire d'ajout d'article -->		
-	<form method="POST" action="index.php?page=article&action=3" name="ajout">
-		<div style="margin-left : 120px;">
+	<form method="POST" action="index.php?page=article&action=3" name="ajoutArticle" onSubmit="return valider_ajoutArticle();">
+		<div style="margin-left : 120px;" align="left">
 			<p>
 				<label for="titleFR" style="float : left;"><strong>Titre</strong> (FR) :</label>
 				<input type="text" style="margin-left:10px;" size="60" value="" name="titleFR"/> <br/><br/>
 				<label for="titleEN" style="float : left;"><strong>Titre</strong> (EN) :</label>
 				<input type="text" style="margin-left:10px;" size="60" value="" name="titleEN"/> <br/><br/>
-				<strong>Section</strong> : 
+				<strong>Rubrique</strong> : 
 				<?php
-					echo "<select name='rubrique'>";
-					echo "<option value='".$rub[0]."'>".$rub[2]."</option>";
-					echo "</select>";
+					echo listeRubrique_article(NULL);
 				?>
 				<br/><br/>
 				<strong>Publié</strong> :
-				Oui <input type="radio" name="statut" value=true/>
-				Non<input type="radio" name="statut" value=false/>
-				<br/>
+				Oui <input type="radio" checked="checked" name="statut" value="1"/>
+				Non<input type="radio" name="statut" value="0"/>
+				<br/><br/>
 				<strong>Autoriser les commentaires</strong> :
-				Oui <input type="radio" name="commentaire" value=true/>
-				Non<input type="radio" name="commentaire" value=false/>
+				Oui <input type="radio" checked="checked" name="commentaire" value="1"/>
+				Non<input type="radio" name="commentaire" value="0"/>
 			</p>
 		
 		</div>
@@ -88,27 +89,124 @@ if ($action == 1)//Ajout d'un article
 		  The editor requires scripting to be enabled.
 		</noscript>
 		<noscript>mce:3</noscript>
+		
 		<div align="center">
-			<a href="javascript:document.ajout.submit()"> Ajouter ! </a>
+			<a href="javascript:valider_ajoutArticle();"> <img src="ressources/design/style1/images/validate.png"/></a>
+			<a href="index.php?page=article"> <img src="ressources/design/style1/images/cancel.png"/></a>
 		</div>
 	</form>
 <?php
 }
+else if ($action == 2)// Modification d'un article
+{
+	if(sizeof($_GET['id'])!=1)
+		header("Location:index.php?page=article");
+	
+	$id = securite($_GET['id'][0]);
+	
+	if(exist_article($id) && isAutorOf($id, $_SESSION['pseudo_membre']))
+	{
+		$article = get_article($id);
+		
+		?>
+		<!-- Barre de titre avec logo des actions possibles -->
+	
+		<?php
+			echo create_title_bar("Modification d'un article", "ressources/design/style1/images/modify_article.png");
+		?>
+		<!-- Formulaire de modification d'un article -->		
+		<form method="POST" action="index.php?page=article&action=4" name="ajoutArticle" onSubmit="return valider_ajoutArticle();">
+			<div style="margin-left : 120px;" align="left">
+				<p>
+					<label for="titleFR" style="float : left;"><strong>Titre</strong> (FR) :</label>
+					<input type="text" style="margin-left:10px;" size="60" value="<?php echo $article['titreFR_article'];?>" name="titleFR"/> <br/><br/>
+					<label for="titleEN" style="float : left;"><strong>Titre</strong> (EN) :</label>
+					<input type="text" style="margin-left:10px;" size="60" value="<?php echo $article['titreEN_article'];?>" name="titleEN"/> <br/><br/>
+					<strong>Rubrique</strong> : 
+					<?php
+						echo listeRubrique_article($article['id_rubrique']);
+					?>
+					<br/><br/>
+					<strong>Publié</strong> :
+					Oui <input type="radio" <?php if($article['statut_article']) echo "checked='checked'";?> name="statut" value="1"/>
+					Non<input type="radio" <?php if(!$article['statut_article']) echo "checked='checked'";?> name="statut" value="0"/>
+					<br/><br/>
+					<strong>Autoriser les commentaires</strong> :
+					Oui <input type="radio" <?php if($article['autorisation_com']) echo "checked='checked'";?> name="commentaire" value="1"/>
+					Non<input type="radio"  <?php if(!$article['autorisation_com']) echo "checked='checked'";?> name="commentaire" value="0"/>
+					<input type="hidden" value="<?php echo $id;?>" name="id"/>
+				</p>
+			
+			</div>
+			<div  id="contenuFR" align="center">
+			</div>
+			<script language="javascript" type="text/javascript">
+			  with (document.getElementById ("contenuFR")) {
+				with (appendChild (document.createElement ("TEXTAREA"))) {
+				  name = "contenuFR";
+				  cols = 120;
+				  rows = 25;
+				  value = "<?php echo $article['contenuFR_article'];?>";
+				}
+			  }
+			//-->
+			</script>
+			<noscript>
+			  The editor requires scripting to be enabled.
+			</noscript>
+			<noscript>mce:3</noscript>
+			
+			<div id="contenuEN" align="center">
+			</div>
+			<script language="javascript" type="text/javascript">
+			  with (document.getElementById ("contenuFR")) {
+				with (appendChild (document.createElement ("TEXTAREA"))) {
+				  name = "contenuEN";
+				  cols = 120;
+				  rows = 25;
+				  value = "<?php echo $article['contenuEN_article'];?>";
+				}
+			  }
+			//-->
+			</script>
+			<noscript>
+			  The editor requires scripting to be enabled.
+			</noscript>
+			<noscript>mce:3</noscript>
+			
+			<div align="center">
+				<a href="javascript:valider_ajoutArticle();"> <img src="ressources/design/style1/images/validate.png"/></a>
+				<a href="index.php?page=article"> <img src="ressources/design/style1/images/cancel.png"/></a>
+			</div>
+		</form>
+	<?php
+	}
+}
 else if ($action == 3)// Traitement d'ajout d'un article
 {
-	ajouterArticle(securite($_POST['titleFR']),securite($_POST['titleEN']),securite($_POST['rubrique']),securite($_POST['statut']),securite($_POST['commentaire']),securite($_POST['contenuFR']),securite($_POST['contenuEN']));
+	ajouter_article(securite($_POST['titleFR']),securite($_POST['titleEN']),securite($_POST['rubrique']),securite($_POST['statut']),securite($_POST['commentaire']),securite($_POST['contenuFR']),securite($_POST['contenuEN']), $_SESSION['pseudo_membre']);
+	header("Location:index.php?page=article");
+}
+else if ($action == 4)// Traitement de modification d'un article
+{
+	modify_article(securite($_POST['id']),securite($_POST['titleFR']),securite($_POST['titleEN']),securite($_POST['rubrique']),securite($_POST['statut']),securite($_POST['commentaire']),securite($_POST['contenuFR']),securite($_POST['contenuEN']), $_SESSION['pseudo_membre']);
+	header("Location:index.php?page=article");
+}
+else if ($action == 5)// Traitement de suppression d'articles
+{
+	$toDelete = $_GET['id'];
+	delete_articles($toDelete);
+	header("Location:index.php?page=article");
 }
 else
 {
 ?>
-
-	<div class="contenu" style="text-align:center;">
 	<?php
 		echo create_title_bar("Gestion des articles", "ressources/design/style1/images/gestion_article.png");
 	?>
 	
 	<ul class="section_name">
-		<li>Articles en ligne</li>
+		<li>Liste des articles</li>
 	</ul>
 	
 	<table class="blue_tabular">
@@ -162,12 +260,11 @@ else
 	</table>
 
 	<p>
-		Pour la sélection : <a href="index.php?page=article&action=2" onclick="">Modifier</a> <a href="#" onclick="alert(article_toDelete(<?php echo sizeof($articles);?>));">Supprimer</a>
+		Pour la sélection : <a href="#" onclick="window.location.href=recuperer_selection('checkArticle',<?php echo sizeof($articles);?>,'index.php?page=article&action=2');">Modifier</a> <a href="#" onclick="window.location.href=recuperer_selection('checkArticle',<?php echo sizeof($articles);?>,'index.php?page=article&action=5');">Supprimer</a>
 	</p>
 
 	<a href="index.php?page=article&action=1"> Ajouter un article </a>
-</div>
 <?php
 }
-// ?>
+?>
 </div>

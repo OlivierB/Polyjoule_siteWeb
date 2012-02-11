@@ -1,1 +1,1 @@
-<!-- // fichier de gestion des rubriquestraitements--><?php     include ('vues/rubrique.vu.php');	 include ('ressources/scripts/php/variablesGlobales.php');?>
+<!-- // fichier de gestion des rubriquestraitements--><?php     include ('vues/rubrique.vu.php');	 include ('ressources/scripts/php/variablesGlobales.php');	 include("ressources/scripts/php/functionsRubriques.php");?>

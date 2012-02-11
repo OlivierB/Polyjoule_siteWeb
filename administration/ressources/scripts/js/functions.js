@@ -55,19 +55,25 @@ function Submit_enter(myfield,e)
 	}
 }
 
-function article_toDelete(nbArt)
+function recuperer_selection(name,nb,redirection)
 {
-	alert("nbARTICLE="+nbArt);
-	var toDelete = new Array();
-	var i,j=0;
-	for(i=0;i<nbArt;i++)
+	var toReturn = redirection;
+	var i;
+	for(i=0;i<nb;i++)
 	{
-		if(document.getElementsByName('checkArticle')[i].checked == true)
+		if(document.getElementsByName(name)[i].checked == true)
 		{
-			toDelete[j]= document.getElementsByName('checkArticle')[i].value;
-			j++;
+			toReturn += "&id[]="+document.getElementsByName(name)[i].value;
 		}
 	}
-	
-	return toDelete;
+	return toReturn;
+}
+
+function valider_ajoutArticle()
+{
+  // si la valeur du champ titleFR n'est pas vide
+  if(document.ajoutArticle.titleFR.value != "" && document.ajoutArticle.titleEN.value != "")
+		document.ajoutArticle.submit();
+  else
+		alert("Veuillez remplir tout les champs du formulaire.");
 }
