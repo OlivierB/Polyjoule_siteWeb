@@ -7,6 +7,8 @@ page par défaut lors de l'affichage
 -->
 
 <div class="contenu" style="z-index:0;">
+	<?php echo create_title_bar("Panneau d'administration", "ressources/design/style1/images/admin.png"); ?>
+	
 	<table id="interface">
 		<tr>
 			<td id="raccourci">
