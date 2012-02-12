@@ -38,7 +38,7 @@ if ($action == 1)//Ajout d'un article
 		exit();
 	}
 	?>
-	<div class="contenu" align="center">
+	<div class="contenu">
 	<!-- Barre de titre avec logo des actions possibles -->
 	
 		<?php
@@ -46,29 +46,33 @@ if ($action == 1)//Ajout d'un article
 		?>
 	<!-- Formulaire d'ajout d'article -->		
 	<form method="POST" action="index.php?page=article&action=3" name="ajoutArticle" onSubmit="return valider_ajoutArticle();">
-		<div style="margin-left : 120px;" align="left">
+		<div class="formulaire">
 			<p>
-				<label for="titleFR" style="float : left;"><strong>Titre</strong> (FR) :</label>
-				<input type="text" style="margin-left:10px;" size="60" value="" name="titleFR"/> <br/><br/>
-				<label for="titleEN" style="float : left;"><strong>Titre</strong> (EN) :</label>
-				<input type="text" style="margin-left:10px;" size="60" value="" name="titleEN"/> <br/><br/>
-				<strong>Rubrique</strong> : 
+				<label for="titleFR">Titre(FR) :</label>
+				<input type="text" size="60" value="" name="titleFR"/> <br/><br/>
+				
+				<label for="titleEN">Titre(EN) :</label>
+				<input type="text" size="60" value="" name="titleEN"/> <br/><br/>
+				
+				<label for="rubrique">Rubrique :</label> 
 				<?php
 					echo listeRubrique_article(NULL);
 				?>
 				<br/><br/>
-				<strong>Publié</strong> :
-				Oui <input type="radio" checked="checked" name="statut" value="1"/>
-				Non<input type="radio" name="statut" value="0"/>
-				<br/><br/>
-				<strong>Autoriser les commentaires</strong> :
-				Oui <input type="radio" checked="checked" name="commentaire" value="1"/>
-				Non<input type="radio" name="commentaire" value="0"/>
+				<label for="statut">Publié :</label>
+				<input type="radio" checked="checked" name="statut" value="1"/> Oui 
+				<input type="radio" name="statut" value="0"/> Non<br/><br/>
+				
+				<label for="commentaire">Autoriser les commentaires :</label>
+				<input type="radio" checked="checked" name="commentaire" value="1"/> Oui 
+				<input type="radio" name="commentaire" value="0"/> Non
 			</p>
 		
 		</div>
-		<div  id="contenuFR" align="center">
+		
+		<div  class="editor" id="contenuFR" align="center">
 		</div>
+		
 		<script language="javascript" type="text/javascript">
 		  with (document.getElementById ("contenuFR")) {
 			with (appendChild (document.createElement ("TEXTAREA"))) {
@@ -85,7 +89,7 @@ if ($action == 1)//Ajout d'un article
 		</noscript>
 		<noscript>mce:3</noscript>
 		
-		<div id="contenuEN" align="center">
+		<div class="editor" id="contenuEN" align="center">
 		</div>
 		<script language="javascript" type="text/javascript">
 		  with (document.getElementById ("contenuEN")) {
@@ -151,42 +155,66 @@ else if ($action == 2)// Modification d'un article
 	}
 		
 	$id = securite($_GET['id'][0]);
-	
-	if(exist_article($id) && isAutorOf($id, $_SESSION['pseudo_membre']))
+	if( !exist_article($id))
+	{
+		$error = "L'article n'existe pas dans la base.";
+	}
+	if( !isAutorOf($id, $_SESSION['pseudo_membre']))
+	{
+		$error = "Vous n'êtes pas autorisé à modifier cette article car vous en êtes pas l'auteur.";
+	}
+	if(isset($error))
+	{
+		$informations = Array(/*Erreur*/
+						false,
+						'Erreur',
+						$error,
+						'index.php?page=article',
+						4
+						);
+		require_once('vues/informations.vu.php');
+		exit();
+	}
+	else
 	{
 		$article = get_article($id);
 		
 		?>
 		<!-- Barre de titre avec logo des actions possibles -->
-		<div class="contenu" align="center">
+		<div class="contenu">
 		<?php
 			echo create_title_bar("Modification d'un article", "ressources/design/style1/images/modify_article.png");
 		?>
 		<!-- Formulaire de modification d'un article -->		
 		<form method="POST" action="index.php?page=article&action=4" name="ajoutArticle" onSubmit="return valider_ajoutArticle();">
-			<div style="margin-left : 120px;" align="left">
+			<div class="formulaire">
 				<p>
-					<label for="titleFR" style="float : left;"><strong>Titre</strong> (FR) :</label>
-					<input type="text" style="margin-left:10px;" size="60" value="<?php echo $article['titreFR_article'];?>" name="titleFR"/> <br/><br/>
-					<label for="titleEN" style="float : left;"><strong>Titre</strong> (EN) :</label>
-					<input type="text" style="margin-left:10px;" size="60" value="<?php echo $article['titreEN_article'];?>" name="titleEN"/> <br/><br/>
-					<strong>Rubrique</strong> : 
+					<label for="titleFR">Titre(FR) :</label>
+					<input type="text" size="60" value="<?php echo $article['titreFR_article'];?>" name="titleFR"/> <br/><br/>
+					
+					<label for="titleEN" >Titre(EN) :</label>
+					<input type="text" size="60" value="<?php echo $article['titreEN_article'];?>" name="titleEN"/> <br/><br/>
+					
+					<label for="rubrique">Rubrique :</label>
 					<?php
 						echo listeRubrique_article($article['id_rubrique']);
 					?>
 					<br/><br/>
-					<strong>Publié</strong> :
-					Oui <input type="radio" <?php if($article['statut_article']) echo "checked='checked'";?> name="statut" value="1"/>
-					Non<input type="radio" <?php if(!$article['statut_article']) echo "checked='checked'";?> name="statut" value="0"/>
+					
+					<label for="statut">Publié :</label>
+					<input type="radio" <?php if($article['statut_article']) echo "checked='checked'";?> name="statut" value="1"/> Oui
+					<input type="radio" <?php if(!$article['statut_article']) echo "checked='checked'";?> name="statut" value="0"/> Non
 					<br/><br/>
-					<strong>Autoriser les commentaires</strong> :
-					Oui <input type="radio" <?php if($article['autorisation_com']) echo "checked='checked'";?> name="commentaire" value="1"/>
-					Non<input type="radio"  <?php if(!$article['autorisation_com']) echo "checked='checked'";?> name="commentaire" value="0"/>
+					
+					<label for="commentaire">Autoriser les commentaires :</label>
+					<input type="radio" <?php if($article['autorisation_com']) echo "checked='checked'";?> name="commentaire" value="1"/> Oui
+					<input type="radio"  <?php if(!$article['autorisation_com']) echo "checked='checked'";?> name="commentaire" value="0"/> Non
+					
 					<input type="hidden" value="<?php echo $id;?>" name="id"/>
 				</p>
-			
 			</div>
-			<div  id="contenuFR" align="center">
+			
+			<div class="editor" id="contenuFR" align="center">
 			</div>
 			<script language="javascript" type="text/javascript">
 			  with (document.getElementById ("contenuFR")) {
@@ -204,7 +232,7 @@ else if ($action == 2)// Modification d'un article
 			</noscript>
 			<noscript>mce:3</noscript>
 			
-			<div id="contenuEN" align="center">
+			<div class="editor" id="contenuEN" align="center">
 			</div>
 			<script language="javascript" type="text/javascript">
 			  with (document.getElementById ("contenuFR")) {
@@ -232,18 +260,23 @@ else if ($action == 2)// Modification d'un article
 }
 else if ($action == 3)// Traitement d'ajout d'un article
 {
-	ajouter_article(securite($_POST['titleFR']),securite($_POST['titleEN']),securite($_POST['rubrique']),securite($_POST['statut']),securite($_POST['commentaire']),securite($_POST['contenuFR']),securite($_POST['contenuEN']), $_SESSION['pseudo_membre']);
+	if(isset($_POST['titleFR']) && isset($_POST['titleEN']) && isset($_POST['rubrique']) && isset($_POST['statut']) && isset($_POST['commentaire']) && isset($_POST['contenuFR']) && isset($_POST['contenuEN']) && isset($_SESSION['pseudo_membre']))
+		ajouter_article(securite($_POST['titleFR']),securite($_POST['titleEN']),securite($_POST['rubrique']),securite($_POST['statut']),securite($_POST['commentaire']),securite($_POST['contenuFR']),securite($_POST['contenuEN']), $_SESSION['pseudo_membre']);
 	header("Location:index.php?page=article");
 }
 else if ($action == 4)// Traitement de modification d'un article
 {
-	modify_article(securite($_POST['id']),securite($_POST['titleFR']),securite($_POST['titleEN']),securite($_POST['rubrique']),securite($_POST['statut']),securite($_POST['commentaire']),securite($_POST['contenuFR']),securite($_POST['contenuEN']), $_SESSION['pseudo_membre']);
+	if(isset($_POST['id']) && isset($_POST['titleFR']) && isset($_POST['titleEN']) && isset($_POST['rubrique']) && isset($_POST['statut']) && isset($_POST['commentaire']) && isset($_POST['contenuFR']) && isset($_POST['contenuEN']) && isset($_SESSION['pseudo_membre']))
+		modify_article(securite($_POST['id']),securite($_POST['titleFR']),securite($_POST['titleEN']),securite($_POST['rubrique']),securite($_POST['statut']),securite($_POST['commentaire']),securite($_POST['contenuFR']),securite($_POST['contenuEN']), $_SESSION['pseudo_membre']);
 	header("Location:index.php?page=article");
 }
 else if ($action == 5)// Traitement de suppression d'articles
 {
-	$toDelete = $_GET['id'];
-	delete_articles($toDelete);
+	if(isset($_GET['id']))
+	{
+		$toDelete = $_GET['id'];
+		delete_articles($toDelete);
+	}
 	header("Location:index.php?page=article");
 }
 else

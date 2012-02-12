@@ -117,8 +117,8 @@ function isAutorOf($id, $autor)
 {
 	$req = mysql_query('SELECT auteur_article FROM ARTICLE WHERE id_article	= '.$id);
 	$result = mysql_fetch_array($req);
-	
-	return (strcmp($result[0], $autor) || $_SESSION['statut_membre']=='admin');
+	if($_SESSION['statut_membre'] == 'admin') return 1;
+	else return (!strcmp($result[0], $autor));
 }
 
 function exist_article($id)
@@ -138,8 +138,22 @@ function delete_articles($toDelete)
 		}
 		else
 		{
-			echo "Impossible de supprimer l'article".$toDelete[$i]."\n";
+			$req = mysql_query('SELECT titreFR_article FROM ARTICLE WHERE id_article='.$toDelete[$i]) or die(mysql_error());
+			$titre = mysql_fetch_array($req);
+			$error ="Impossible de supprimer l'article : ".$titre[0]."<br/>";
 		}
+	}
+	if(isset($error))
+	{
+		$informations = Array(/*Erreur*/
+						false,
+						'Erreur',
+						$error,
+						'index.php?page=article',
+						4
+						);
+		require_once('vues/informations.vu.php');
+		exit();
 	}
 }
 			

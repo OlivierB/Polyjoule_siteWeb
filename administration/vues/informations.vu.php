@@ -7,15 +7,15 @@ Structure du tableau d'informations
 	$informations = Array(
 							true, // Vrai si information / Faux si erreur
 							'Erreur', // Nom de l'information
-							'Vous n\'êtes pas autorisé à accéder à cette page...', // Message d'information (ou d'erreur)
+							'Vous n\'Ãªtes pas autorisÃ© Ã  accÃ©der Ã  cette page...', // Message d'information (ou d'erreur)
 							'index.php', // URL de redirection
-							2 // Délai avant la redirection
+							2 // DÃ©lai avant la redirection
 							);
 
 **********/
 -->
 <?php
-	/* Si la variable informations n'est pas renseignée, on définie une variable d'informations par défaut. */
+	/* Si la variable informations n'est pas renseignÃ©e, on dÃ©finie une variable d'informations par dÃ©faut. */
 	if(!isset($informations))
 	{
 		$informations = Array(/*Erreur*/
@@ -51,7 +51,7 @@ Structure du tableau d'informations
 				text-align : center;
 				padding : 30px;
 				width : 400px;
-				height : 80px;
+				min-height : 80px;
 				background-color : #468093;
 				color : white;
 				margin : auto auto auto auto;
@@ -59,8 +59,6 @@ Structure du tableau d'informations
 				border : 2px solid white;
 				}
 			#img_info {
-				width : 50px;
-				height : 50px;
 				margin : -20px auto auto auto;
 				}
 		</style>

@@ -19,8 +19,8 @@
 .o2k7Skin table.mceLayout tr.mceLast td {border-bottom:1px solid #ABC6DD}
 .o2k7Skin table.mceToolbar, .o2k7Skin tr.mceFirst .mceToolbar tr td, .o2k7Skin tr.mceLast .mceToolbar tr td {border:0; margin:0; padding:0}
 .o2k7Skin .mceIframeContainer {border-top:1px solid #ABC6DD; border-bottom:1px solid #ABC6DD}
-.o2k7Skin td.mceToolbar{background:#E5EFFD}
-.o2k7Skin .mceStatusbar {background:#E5EFFD; display:block; font-family:'MS Sans Serif',sans-serif,Verdana,Arial; font-size:9pt; line-height:16px; overflow:visible; color:#000; height:20px}
+.o2k7Skin td.mceToolbar{background:#468093}
+.o2k7Skin .mceStatusbar {background:#468093; display:block; font-family:'MS Sans Serif',sans-serif,Verdana,Arial; font-size:9pt; line-height:16px; overflow:visible; color:#000; height:20px}
 .o2k7Skin .mceStatusbar div {float:left; padding:2px}
 .o2k7Skin .mceStatusbar a.mceResize {display:block; float:right; background:url(../../img/icons.gif) -800px 0; width:20px; height:20px; cursor:se-resize; outline:0}
 .o2k7Skin .mceStatusbar a:hover {text-decoration:underline}
@@ -99,7 +99,7 @@
 .o2k7Skin .mceMenu .mceIcon {position:absolute; top:0; left:0; width:22px;}
 .o2k7Skin .mceMenu .mceMenuItemEnabled a:hover, .o2k7Skin .mceMenu .mceMenuItemActive {background-color:#dbecf3}
 .o2k7Skin td.mceMenuItemSeparator {background:#DDD; height:1px}
-.o2k7Skin .mceMenuItemTitle a {border:0; background:#E5EFFD; border-bottom:1px solid #ABC6DD}
+.o2k7Skin .mceMenuItemTitle a {border:0; background:#468093; border-bottom:1px solid #ABC6DD}
 .o2k7Skin .mceMenuItemTitle span.mceText {color:#000; font-weight:bold; padding-left:4px}
 .o2k7Skin .mceMenuItemDisabled .mceText {color:#888}
 .o2k7Skin .mceMenuItemSelected .mceIcon {background:url(../default/img/menu_check.gif)}

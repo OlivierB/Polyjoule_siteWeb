@@ -219,3 +219,25 @@ footer {
 	color : #009de1;
 	font-size : 120%;
 }
+
+.formulaire {
+	padding : 20px;
+	margin : auto auto auto auto;
+	min-height : 100px;
+	width : 800px;
+	border-radius : 10px;
+	background-color : #468093;
+	color : white;
+}
+
+.formulaire label {
+	display: block;
+	width: 250px;
+	float: left;
+	font-size : 110%;
+	font-weight : bold;
+}
+
+.editor {
+	margin : 50px auto auto auto;
+}

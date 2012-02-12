@@ -118,7 +118,7 @@ Page d'aide
 							'index.php',
 							2
 							);
-			require_once('vues/informations.php');
+			require_once('vues/informations.vu.php');
 			exit();
 		}
 	}
