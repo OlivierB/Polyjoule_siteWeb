@@ -40,7 +40,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 					</div>
 						<p>
 							<!-- descFR_formation -->
-							<div  id="descFR" align="center">
+							<div class="editor" id="descFR" align="center">
 							</div>
 							<script language="javascript" type="text/javascript">
 							  with (document.getElementById ("descFR")) {
@@ -58,7 +58,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 							</noscript>
 							<noscript>mce:3</noscript>
 							<!-- descEn_formation -->
-							<div id="descEN" align="center">
+							<div class="editor" id="descEN" align="center">
 							</div>
 							<script language="javascript" type="text/javascript">
 							  with (document.getElementById ("descEN")) {
@@ -107,7 +107,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 						</div>
 							<p>
 								<!-- descFR_formation -->
-								<div  id="descFR" align="center">
+								<div class="editor" id="descFR" align="center">
 								</div>
 								<script language="javascript" type="text/javascript">
 								  with (document.getElementById ("descFR")) {
@@ -125,7 +125,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 								</noscript>
 								<noscript>mce:3</noscript>
 								<!-- descEn_formation -->
-								<div id="descEN" align="center">
+								<div class="editor" id="descEN" align="center">
 								</div>
 								<script language="javascript" type="text/javascript">
 								  with (document.getElementById ("descEN")) {
