@@ -16,6 +16,9 @@ function getMessage($idMessage) {
 /*
 	erreurFormulaire : 
 	ecoleAjoutee : 
+	ecoleNonSelectionnee : 
+	ecoleInexistante : 
+	ecoleMAJ : 
 	default : affichage du contenu du message
 */
 	$toReturn=$idMessage;
@@ -23,14 +26,32 @@ function getMessage($idMessage) {
 	return $toReturn;
 }
 
+function getEcole($idEcole) {
+	$req = mysql_query("SELECT * FROM ECOLE WHERE `id_ecole`=$idEcole;");
+	$toReturn=mysql_fetch_array($req);
+	mysql_free_result($req);
+	return $toReturn;
+}
+
+function ecoleExistante($idEcole) {
+	$req = mysql_query("SELECT * FROM ECOLE WHERE id_ecole=".$idEcole);
+	$ecole=mysql_fetch_array($req);
+	if ($ecole[0] == null) {
+		$toReturn=false;
+	} else {
+		$toReturn=true;
+	}
+	return $toReturn;
+}
+
 function affichageEcoles() {
 	$req = mysql_query("SELECT * FROM ECOLE ORDER BY `nom_ecole`");
 	while ($ecole=mysql_fetch_array($req)) {
-		echo "<tr class='article' onMouseOver='this.style.backgroundColor=\"#AAAAAA\"' onMouseOut='this.style.backgroundColor=\"\"'>";
-		echo "<td class='article'>".$ecole[0]."</td>";
-		echo "<td class='article' style='text-align:left;'>".$ecole[1]."</td>";
-		echo "<td class='article' style='text-align:left;'>".$ecole[2]."</td>";
-		echo "<td class='article'>";
+		echo "<tr class='blue_tabular_cell'>";
+		echo "<td class='blue_tabular_cell'>".$ecole[0]."</td>";
+		echo "<td class='blue_tabular_cell'>".$ecole[1]."</td>";
+		echo "<td class='blue_tabular_cell'>".$ecole[2]."</td>";
+		echo "<td class='blue_tabular_cell'>";
 		echo "<a href='index.php?page=ecole&action=2&idEcole=".$ecole[0]."'>Modifier</a> - ";
 		echo "<a href='index.php?page=ecole&action=3&idEcole=".$ecole[0]."'>Supprimer</a>";
 		echo "</td>";
@@ -47,6 +68,21 @@ function ajouterEcole($nom,$adresse,$photo,$descFR,$descEN) {
 		header("Location: index.php?page=ecole&message=ecoleAjoutee");
 	} else {
 		header("Location:index.php?page=ecole&message=erreurFormulaire");
+	}
+}
+
+function MAJEcole($id,$nom,$adresse,$photo,$descFR,$descEN) {
+	if (ecoleExistante($id)) {
+		if ($nom!="" && $adresse!="" && $descFR!="" && $descEN!="") {
+			$req="UPDATE ECOLE SET nom_ecole='".$nom."', adresse_ecole='".$adresse."', photo_ecole='".$photo."', descFR_ecole='".$descFR."', descEN_ecole='".$descEN."' WHERE id_ecole='".$id."';";
+			mysql_query($req) or die(mysql_error());
+			mysql_free_result($req);
+			header("Location: index.php?page=ecole&message=ecoleMAJ");
+		} else {
+			header("Location:index.php?page=ecole&message=puddi");
+		}
+	} else {
+		header("Location:index.php?page=ecole&message=ecoleInexistante");
 	}
 }
 ?>

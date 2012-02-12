@@ -266,7 +266,7 @@ function ajoutRubrique($titreFR,$titreEN,$rubrique,$descFR,$descEN) {
 /*fonction de mise à jour de rubrique*/
 function MAJRubrique($rubrique,$titreFR,$titreEN,$rubrique_mere,$descFR,$descEN) {
 	if ($titreFR!="" && $titreEN!="") {
-		if ($rubrique=='null') {
+		if ($rubrique_mere=='null') {
 			if ($baseDonnees==1) {
 				$req="UPDATE rubrique SET id_mere=NULL, titreFR_rubrique='".$titreFR."', titreEN_rubrique='".$titreEN."', descriptionFR_rubrique='".$descFR."', descriptionEN_rubrique='".$descEN."' WHERE id_rubrique=".$rubrique.";";
 			} else {

@@ -194,7 +194,7 @@ else if ($action == 2)// Modification d'un article
 				  name = "contenuFR";
 				  cols = 120;
 				  rows = 25;
-				  value = "<?php echo $article['contenuFR_article'];?>";
+				  value = "<?php echo mysql_real_escape_string($article['contenuFR_article']);?>";
 				}
 			  }
 			//-->
@@ -212,7 +212,7 @@ else if ($action == 2)// Modification d'un article
 				  name = "contenuEN";
 				  cols = 120;
 				  rows = 25;
-				  value = "<?php echo $article['contenuEN_article'];?>";
+				  value = "<?php echo mysql_real_escape_string($article['contenuEN_article']);?>";
 				}
 			  }
 			//-->
