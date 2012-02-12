@@ -19,6 +19,7 @@ function getMessage($idMessage) {
 	ecoleNonSelectionnee : 
 	ecoleInexistante : 
 	ecoleMAJ : 
+	ecoleSupprimee : 
 	default : affichage du contenu du message
 */
 	$toReturn=$idMessage;
@@ -53,7 +54,7 @@ function affichageEcoles() {
 		echo "<td class='blue_tabular_cell'>".$ecole[2]."</td>";
 		echo "<td class='blue_tabular_cell'>";
 		echo "<a href='index.php?page=ecole&action=2&idEcole=".$ecole[0]."'>Modifier</a> - ";
-		echo "<a href='index.php?page=ecole&action=3&idEcole=".$ecole[0]."'>Supprimer</a>";
+		echo "<a href='index.php?page=ecole&action=6&idEcole=".$ecole[0]."'>Supprimer</a>";
 		echo "</td>";
 		echo "</tr>";
 	}
@@ -61,7 +62,7 @@ function affichageEcoles() {
 }
 
 function ajouterEcole($nom,$adresse,$photo,$descFR,$descEN) {
-	if ($nom!="" && $adresse!="" && $descFR!="" && $descEN!="") {
+	if ($nom!="" && $adresse!="") {
 		$req="INSERT INTO ecole VALUES (NULL,'".$nom."','".$adresse."',NULL,'".$descFR."','".$descEN."')";
 		mysql_query($req) or die(mysql_error());
 		mysql_free_result($req);
@@ -73,16 +74,34 @@ function ajouterEcole($nom,$adresse,$photo,$descFR,$descEN) {
 
 function MAJEcole($id,$nom,$adresse,$photo,$descFR,$descEN) {
 	if (ecoleExistante($id)) {
-		if ($nom!="" && $adresse!="" && $descFR!="" && $descEN!="") {
+		if ($nom!="" && $adresse!="") {
 			$req="UPDATE ECOLE SET nom_ecole='".$nom."', adresse_ecole='".$adresse."', photo_ecole='".$photo."', descFR_ecole='".$descFR."', descEN_ecole='".$descEN."' WHERE id_ecole='".$id."';";
 			mysql_query($req) or die(mysql_error());
 			mysql_free_result($req);
 			header("Location: index.php?page=ecole&message=ecoleMAJ");
 		} else {
-			header("Location:index.php?page=ecole&message=puddi");
+			header("Location:index.php?page=ecole&message=erreurFormulaire");
 		}
 	} else {
 		header("Location:index.php?page=ecole&message=ecoleInexistante");
+	}
+}
+
+function supprimerEcole($id) {
+	if (ecoleExistante($id)) {
+		supprimerFormations($id);
+		$req = mysql_query("DELETE FROM ECOLE WHERE `id_ecole`=$id;");
+		mysql_free_result($req);
+		header("Location: index.php?page=ecole&message=ecoleSupprimee");
+	} else {
+		header("Location: index.php?page=ecole&message=erreurFormulaire");
+	}
+}
+
+function supprimerFormations($idEcole) {
+	if (ecoleExistante($id)) {
+		$req = mysql_query("DELETE FROM FORMATION WHERE `id_ecole`=$idEcole;");
+		mysql_free_result($req);
 	}
 }
 ?>

@@ -6,4 +6,4 @@
 --- Attention à la mise en page du contenu---
 
 Pour la création des autres pages, il faudrait garder le même design que les pages gestion des articles et gestions des comptes.
-Il y a une fonction spéciale pour créer la barre de titre de chaque page en lui passant par paramètre l'icone de la page et son titre.--- Amélioration possible --- (ne pas hésiter à faire part de ses commentaires)	- Page article : afficher le nombre de commentaire associés à l'article
+Il y a une fonction spéciale pour créer la barre de titre de chaque page en lui passant par paramètre l'icone de la page et son titre.--- Amélioration possible --- (ne pas hésiter à faire part de ses commentaires)	- Page article : afficher le nombre de commentaire associés à l'article	- Page rubrique : Prévoir un message de confirmation pour la suppression	- Page école : Prévoir un message de confirmation pour la suppression
