@@ -161,8 +161,6 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 		} else {
 			header("Location: index.php?page=ecole&message=ecoleNonSelectionnee");
 		}
-	} else if ($action==3) { //supprimer école
-		
 	} else if ($action==4) { //traitement d'ajout de école
 		if (isset($_POST['nom']) && isset($_POST['adresse']) && isset($_POST['photo']) && isset($_POST['descFR']) && isset($_POST['descEN'])) {
 			ajouterEcole(securite($_POST['nom']),securite($_POST['adresse']),securite($_POST['photo']),securite($_POST['descFR']),securite($_POST['descEN']));
@@ -201,7 +199,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 	}
 	?>
 		<div style="background-color : #f0f0ee;margin : 10px 12px 20px 13px;border : 1px solid #cccccc;text-align:center; padding-left : 20px;">
-			<a href="index.php?page=ecole&action=1">Ajouter un école</a>
+			<a href="index.php?page=ecole&action=1">Ajouter une école</a>
 			<br /><br />
 			<table class="blue_tabular">
 				<tr class="blue_tabular_title">
@@ -223,7 +221,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 			?>
 			</table>
 			<br />
-			<a href="index.php?page=ecole&action=1">Ajouter un école</a>
+			<a href="index.php?page=ecole&action=1">Ajouter une école</a>
 		</div>
 		</div>
 	<?php

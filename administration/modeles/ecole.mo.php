@@ -22,17 +22,17 @@ function getMessage($idMessage) {
 	ecoleSupprimee : L'école a bien été supprimée.
 	default : affichage du contenu du message
 */
-	if ($idMessage="erreurFormulaire") {
+	if ($idMessage=="erreurFormulaire") {
 		$toReturn="Il y a une erreur dans le formulaire. Veuillez recommencez.";
-	} else if (idMessage=="ecoleAjoutee") {
+	} else if ($idMessage=="ecoleAjoutee") {
 		$toReturn="L'école a bien été ajoutée.";
-	} else if (idMessage=="ecoleNonSelectionnee") {
+	} else if ($idMessage=="ecoleNonSelectionnee") {
 		$toReturn="Aucune école n'a été sélectionnée.";
-	} else if (idMessage=="ecoleInexistante") {
+	} else if ($idMessage=="ecoleInexistante") {
 		$toReturn="L'école est inexistante.";
-	} else if (idMessage=="ecoleMAJ") {
+	} else if ($idMessage=="ecoleMAJ") {
 		$toReturn="L'école a bien été mise à jour.";
-	} else if (idMessage=="ecoleSupprimee") {
+	} else if ($idMessage=="ecoleSupprimee") {
 		$toReturn="L'école a bien été supprimée.";
 	} else {
 		$toReturn=$idMessage;
@@ -112,9 +112,7 @@ function supprimerEcole($id) {
 }
 
 function supprimerFormations($idEcole) {
-	if (ecoleExistante($id)) {
-		$req = mysql_query("DELETE FROM FORMATION WHERE `id_ecole`=$idEcole;");
-		mysql_free_result($req);
-	}
+	$req = mysql_query("DELETE FROM FORMATION WHERE id_ecole=$idEcole;");
+	mysql_free_result($req);
 }
 ?>
