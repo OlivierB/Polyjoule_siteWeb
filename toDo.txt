@@ -1,4 +1,4 @@
----- Images ----	- ajouter une image ajout rubrique avec le nom "add_rubrique.png"	- ajouter une iamge mise à jour rubrique avec le nom "modify_rubrique.png"	- ajouter gestion_rubrique.png	- ajouter add/modify/gestion_ecole.png---- rubrique.php ----	- présentation à améliorer---- ecole.php ----	- s'occuper de l'upload des images (http://www.commentcamarche.net/faq/889-php-upload-de-fichiers)---- profil.php ----	- 
+---- Images ----	- ajouter une image ajout rubrique avec le nom "add_rubrique.png" --> FAIT	- ajouter une iamge mise à jour rubrique avec le nom "modify_rubrique.png" --> FAIT	- ajouter gestion_rubrique.png --> FAIT	- ajouter add/modify/gestion_ecole.png --> FAIT---- rubrique.php ----	- présentation à améliorer --> FAIT---- ecole.php ----	- s'occuper de l'upload des images (http://www.commentcamarche.net/faq/889-php-upload-de-fichiers)---- profil.php ----	- 
 	
 --- gestion des articles ---
 	Fait !
