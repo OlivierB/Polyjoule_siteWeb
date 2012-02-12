@@ -14,16 +14,29 @@
 
 function getMessage($idMessage) {
 /*
-	erreurFormulaire : 
-	ecoleAjoutee : 
-	ecoleNonSelectionnee : 
-	ecoleInexistante : 
-	ecoleMAJ : 
-	ecoleSupprimee : 
+	erreurFormulaire : Il y a une erreur dans le formulaire. Veuillez recommencez.
+	ecoleAjoutee : L'école a bien été ajoutée.
+	ecoleNonSelectionnee : Aucune école n'a été sélectionnée.
+	ecoleInexistante : L'école est inexistante.
+	ecoleMAJ : L'école a bien été mise à jour.
+	ecoleSupprimee : L'école a bien été supprimée.
 	default : affichage du contenu du message
 */
-	$toReturn=$idMessage;
-	
+	if ($idMessage="erreurFormulaire") {
+		$toReturn="Il y a une erreur dans le formulaire. Veuillez recommencez.";
+	} else if (idMessage="ecoleAjoutee") {
+		$toReturn="L'école a bien été ajoutée.";
+	} else if (idMessage="ecoleNonSelectionnee") {
+		$toReturn="Aucune école n'a été sélectionnée.";
+	} else if (idMessage="ecoleInexistante") {
+		$toReturn="L'école est inexistante.";
+	} else if (idMessage="ecoleMAJ") {
+		$toReturn="L'école a bien été mise à jour.";
+	} else if (idMessage="ecoleSupprimee") {
+		$toReturn="L'école a bien été supprimée.";
+	} else {
+		$toReturn=$idMessage;
+	}
 	return $toReturn;
 }
 

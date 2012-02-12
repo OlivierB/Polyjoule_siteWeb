@@ -194,7 +194,7 @@ function getMessage($idMessage) {
 	}/* else if ($idMessage=="") {
 		return "";
 	}*/ else {
-		echo $idMessage;
+		return $idMessage;
 	}
 }
 
