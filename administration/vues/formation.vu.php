@@ -21,31 +21,23 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 	$action = securite($_GET['action']);
 	if ($action==1) { //ajouter une formation
 		?>
-			<div class="contenu" align="center">
+			<div class="contenu">
 		<?php
 			echo create_title_bar("Ajout d'une formation","ressources/design/style1/images/add_formation.png");
 		?>
-				<form method="POST" action="index.php?page=formation&action=4" name="ajoutFormation">
-					<div style="margin-left : 120px;" align="left">
-						<table>
-							<tr><!-- titreFR_formation -->
-								<td><label for="titreFR" style="float : left;"><strong>Nom de la formation (FR)</strong> :</label></td>
-								<td><input type="text" style="margin-left:10px;" size="60" value="" name="nomFR"/></td>
-							</tr>
-							<tr><!-- titreEN_formation -->
-								<td><label for="titreEN" style="float : left;"><strong>Nom de la formation (EN)</strong> :</label></td>
-								<td><input type="text" style="margin-left:10px;" size="60" value="" name="nomEN"/></td>
-							</tr>
-							<tr><!-- id_ecole -->
-								<td><label for="idEcole" style="float : left;"><strong>Nom de l'école</strong> :</label></td>
-								<td><?php listeEcole(); ?></td>
-							</tr>
-							<tr><!-- lien_formation -->
-								<td><label for="lien" style="float : left;"><strong>Lien externe vers la formation</strong> :</label></td>
-								<td><input type="url" style="margin-left:10px;" size="60" value="" name="lien"/></td>
-							</tr>
-						</table>
-						<br />
+				<form method="POST" action="index.php?page=formation&action=4" name="formAjout">
+					<div class="formulaire">
+						<p>
+							<label for="titreFR"><strong>Nom (FR)</strong> :</label>
+							<input type="text" size="60" value="" name="nomFR"/><br/><br/>
+							<label for="titreEN"><strong>Nom (EN)</strong> :</label>
+							<input type="text" size="60" value="" name="nomEN"/><br/><br/>
+							<label for="idEcole"><strong>Nom de l'école</strong> :</label>
+							<?php listeEcole(); ?><br/><br/>
+							<label for="lien"><strong>Site internet</strong> :</label>
+							<input type="url" size="60" value="" name="lien"/>
+						</p>
+					</div>
 						<p>
 							<!-- descFR_formation -->
 							<div  id="descFR" align="center">
@@ -84,41 +76,35 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 							</noscript>
 							<noscript>mce:3</noscript>
 						</p>
-					</div>
-					<input type="submit" value="Envoyer !" />
 				</form>
+				<div align="center">
+					<a href="javascript:document.formAjout.submit();"> <img src="ressources/design/style1/images/validate.png"/></a>
+					<a href="index.php?page=formation"> <img src="ressources/design/style1/images/cancel.png"/></a>
+				</div>
 			</div>
 		<?php
 	} else if ($action==2) { //modification d'une formation
 		if (isset($_GET['idformation'])) {
 			?>
-				<div class="contenu" align="center">
+				<div class="contenu">
 			<?php
 				echo create_title_bar("Mise à jour d'une formation","ressources/design/style1/images/modify_formation.png");
 				$formation=getFormation(securite($_GET['idformation']));
 			?>
-					<form method="POST" action="index.php?page=formation&action=5" name="MAJFormation">
-						<div style="margin-left : 120px;" align="left">
-							<input type="text" name="id" hidden="hidden" value="<?php echo $formation[0]; ?>" />
-							<table>
-								<tr><!-- titreFR_formation -->
-									<td><label for="titreFR" style="float : left;"><strong>Nom de la formation (FR)</strong> :</label></td>
-									<td><input type="text" style="margin-left:10px;" size="60" value="<?php echo $formation[2]; ?>" name="nomFR"/></td>
-								</tr>
-								<tr><!-- titreEN_formation -->
-									<td><label for="titreEN" style="float : left;"><strong>Nom de la formation (EN)</strong> :</label></td>
-									<td><input type="text" style="margin-left:10px;" size="60" value="<?php echo $formation[3]; ?>" name="nomEN"/></td>
-								</tr>
-								<tr><!-- id_ecole -->
-									<td><label for="idEcole" style="float : left;"><strong>Nom de l'école</strong> :</label></td>
-									<td><?php listeEcoleSelect($formation[1]); ?></td>
-								</tr>
-								<tr><!-- lien_formation -->
-									<td><label for="lien" style="float : left;"><strong>Lien externe vers la formation</strong> :</label></td>
-									<td><input type="url" style="margin-left:10px;" size="60" value="<?php echo $formation[4]; ?>" name="lien"/></td>
-								</tr>
-							</table>
-							<br />
+					<form method="POST" action="index.php?page=formation&action=5" name="formMAJ">
+						<div class="formulaire">
+							<p>
+								<input type="text" name="id" hidden="hidden" value="<?php echo $formation[0]; ?>" />
+								<label for="titreFR" style="float : left;"><strong>Nom (FR)</strong> :</label>
+								<input type="text" style="margin-left:10px;" size="60" value="<?php echo $formation[2]; ?>" name="nomFR"/><br/><br/>
+								<label for="titreEN" style="float : left;"><strong>Nom (EN)</strong> :</label>
+								<input type="text" style="margin-left:10px;" size="60" value="<?php echo $formation[3]; ?>" name="nomEN"/><br/><br/>
+								<label for="idEcole" style="float : left;"><strong>Nom de l'école</strong> :</label>
+								<?php listeEcoleSelect($formation[1]); ?><br/><br/>
+								<label for="lien" style="float : left;"><strong>Site internet</strong> :</label>
+								<input type="url" style="margin-left:10px;" size="60" value="<?php echo $formation[4]; ?>" name="lien"/>
+							</p>
+						</div>
 							<p>
 								<!-- descFR_formation -->
 								<div  id="descFR" align="center">
@@ -157,9 +143,11 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 								</noscript>
 								<noscript>mce:3</noscript>
 							</p>
-						</div>
-						<input type="submit" value="Envoyer !" />
 					</form>
+					<div align="center">
+						<a href="javascript:document.formMAJ.submit();"> <img src="ressources/design/style1/images/validate.png"/></a>
+						<a href="index.php?page=formation"> <img src="ressources/design/style1/images/cancel.png"/></a>
+					</div>
 				</div>
 			<?php
 		} else {
@@ -202,9 +190,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 		<?php
 	}
 	?>
-		<div style="background-color : #f0f0ee;margin : 10px 12px 20px 13px;border : 1px solid #cccccc;text-align:center; padding-left : 20px;">
-			<a href="index.php?page=formation&action=1">Ajouter une formation</a>
-			<br /><br />
+			<br />
 			<table class="blue_tabular">
 				<tr class="blue_tabular_title">
 					<th class="blue_tabular_title">
@@ -224,9 +210,22 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 				affichageFormations();
 			?>
 			</table>
-			<br />
-			<a href="index.php?page=formation&action=1">Ajouter une formation</a>
-		</div>
+			<div align=center>
+				<br/><br/>
+				<table>
+					<tr>
+						<td class="section_name"> Autres actions : </td>
+					</tr>
+					<tr>
+						<td>
+							<img src="ressources/design/style1/images/add_formation.png" />
+						</td>
+						<td>
+							<a class="liens_Action"href="index.php?page=formation&action=1"> Ajouter une formation </a>
+						</td>
+					</tr>
+				</table>
+			</div>
 		</div>
 	<?php
 }

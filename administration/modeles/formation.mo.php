@@ -47,7 +47,7 @@ function listeEcole() {
 	$count=mysql_fetch_array($req);
 	mysql_free_result($req);
 	if ($count[0]>0) {
-		echo "<select name='ecole' style='margin-left:10px;'>";
+		echo "<select name='ecole'>";
 		$req2 = mysql_query("SELECT * FROM ECOLE;");
 		while($ecole=mysql_fetch_array($req2))
 		{
@@ -56,7 +56,7 @@ function listeEcole() {
 		echo "</select>";
 		mysql_free_result($req2);
 	} else {
-		echo "<p style='margin-left:10px;'>Vous devez d'abord créer une école avant de pouvoir ajouter une formation.</p>";
+		echo "<p>Vous devez d'abord créer une école avant de pouvoir ajouter une formation.</p>";
 	}
 }
 
@@ -65,7 +65,7 @@ function listeEcoleSelect($id) {
 	$count=mysql_fetch_array($req);
 	mysql_free_result($req);
 	if ($count[0]>0) {
-		echo "<select name='ecole' style='margin-left:10px;'>";
+		echo "<select name='ecole'>";
 		$req2 = mysql_query("SELECT * FROM ECOLE;");
 		while($ecole=mysql_fetch_array($req2))
 		{

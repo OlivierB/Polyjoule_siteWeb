@@ -21,31 +21,24 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 	$action = securite($_GET['action']);
 	if ($action==1) { //ajouter une école
 		?>
-			<div class="contenu" align="center">
+			<div class="contenu">
 		<?php
 			echo create_title_bar("Ajout d'une école","ressources/design/style1/images/add_ecole.png");
 		?>
-				<form method="POST" action="index.php?page=ecole&action=4" name="ajoutEcole">
-					<div style="margin-left : 120px;" align="left">
-						<table>
-							<tr><!-- nom -->
-								<td><label for="nom" style="float : left;"><strong>Nom de l'école</strong> :</label></td>
-								<td><input type="text" style="margin-left:10px;" size="60" value="" name="nom"/></td>
-							</tr>
-							<tr><!-- adresse -->
-								<td><label for="adresse" style="float : left;"><strong>Adresse de l'école</strong> :</label></td>
-								<td><input type="text" style="margin-left:10px;" size="60" value="" name="adresse"/></td>
-							</tr>
-							<tr><!-- photo -->
-								<td><label for="photo" style="float : left;"><strong>Photo de l'école</strong> : </label></td>
-								<td><input type="file" name="photo"/></td>
-								<input type="text" hidden="hidden" name="photo" value=""/>
-							</tr>
-						</table>
-						<br />
+			
+				<form method="POST" action="index.php?page=ecole&action=4" name="formAjout">
+					<div class="formulaire">
+						<label for="nom"><strong>Nom de l'école</strong> :</label>
+						<input type="text" size="60" value="" name="nom"/>
+						<label for="adresse"><strong>Adresse de l'école</strong> :</label>
+						<input type="text" size="60" value="" name="adresse"/>
+						<label for="photo"><strong>Photo de l'école</strong> : </label>
+						<input type="file" name="photo"/>
+						<input type="text" hidden="hidden" name="photo" value=""/>
+					</div>
 						<p>
 							<!-- descFR -->
-							<div  id="descFR" align="center">
+							<div class="editor" id="descFR" align="center">
 							</div>
 							<script language="javascript" type="text/javascript">
 							  with (document.getElementById ("descFR")) {
@@ -63,7 +56,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 							</noscript>
 							<noscript>mce:3</noscript>
 							<!-- descEN -->
-							<div id="descEN" align="center">
+							<div class="editor" id="descEN" align="center">
 							</div>
 							<script language="javascript" type="text/javascript">
 							  with (document.getElementById ("descEN")) {
@@ -82,7 +75,10 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 							<noscript>mce:3</noscript>
 						</p>
 					</div>
-					<input type="submit" value="Envoyer !" />
+					<div align="center">
+						<a href="javascript:document.formAjout.submit();"> <img src="ressources/design/style1/images/validate.png"/></a>
+						<a href="index.php?page=rubrique"> <img src="ressources/design/style1/images/cancel.png"/></a>
+					</div>
 				</form>
 			</div>
 		<?php
