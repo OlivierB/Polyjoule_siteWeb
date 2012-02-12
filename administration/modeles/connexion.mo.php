@@ -22,6 +22,7 @@ function connexion($pseudo, $passe) {
 		{
 			$_SESSION['id_membre'] 		= $membre['id_membre'];
 			$_SESSION['pseudo_membre'] 	= $membre['pseudo_membre'];
+			$_SESSION['mail_membre'] 	= $membre['mail_membre'];
 			$_SESSION['statut_membre'] 	= $membre['statut_membre'];
 			
 			return true;

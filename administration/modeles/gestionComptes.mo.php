@@ -34,7 +34,7 @@ function checkmail($email)
 {
 	/*Deux cas de non validation :
 		Mauvais format
-		Email dÈj‡ pris
+		Email d√©j√† pris
 	*/
 	if($email == '') return 'Mail vide';
 	else if(!preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#is', $email)) return 'Mauvais format du mail';
@@ -43,7 +43,7 @@ function checkmail($email)
 	{
 		$req = mysql_query("SELECT COUNT(*) AS nbr FROM MEMBRE WHERE mail_membre = '".securite($email)."'");		
 		$result = mysql_fetch_array($req);
-		if($result['nbr'] > 0) return 'Mail dÈj‡ existant';
+		if($result['nbr'] > 0) return 'Mail d√©j√† existant';
 		else return 'ok';
 	}
 }
@@ -54,7 +54,7 @@ function checkpseudo($pseudo)
 	Trois cas de non validation :
 			pseudo trop court
 			pseudo trop long
-			pseudo dÈj‡ pris
+			pseudo d√©j√† pris
 	*/
 	if($pseudo == '') return 'Pseudo vide';
 	else if(strlen($pseudo) < 3) return 'Pseudo trop court';
@@ -64,7 +64,7 @@ function checkpseudo($pseudo)
 		$req = mysql_query("SELECT COUNT(*) AS nbr FROM MEMBRE WHERE pseudo_membre = '".securite($pseudo)."'");
 		$result = mysql_fetch_array($req);
 		
-		if($result['nbr'] > 0 || $pseudo=='admin') return 'Pseudo dÈj‡ pris';
+		if($result['nbr'] > 0 || $pseudo=='admin') return 'Pseudo d√©j√† pris';
 		else return 'ok';
 	}
 }
@@ -76,10 +76,9 @@ function send_mail($mail, $subject, $message)
 	//headers principaux.
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-	//headers supplÈmentaires
-	$headers .= 'From: "ParionsFoot" <parionsfoot@olympe-network.com>' . "\r\n";
-	$headers .= 'From: "ParionsFoot" <parionsfoot@olympe-network.com>' . "\r\n";
-	ini_set('sendmail_from' , 'parionsfoot@olympe-network.com'); 
+	//headers suppl√©mentaires
+	$headers .= 'From: "Administration Polyjoule" <'.$_SESSION['mail_membre'].'>' . "\r\n";
+	ini_set('sendmail_from' , ''.$_SESSION['mail_membre'].''); 
 	$mail = mail($to, $subject, $message, $headers);
 	if($mail) return true;
 	return false;
@@ -108,14 +107,14 @@ function register($pseudo, $mail, $statut)
 					
 					<body>
 						<div>Bienvenue cher membre de Polyjoule !<br/><br/>
-						Un administrateur vient de vous inscrire au systËme d\'administration du site Polyjoule.<br/>
+						Un administrateur vient de vous inscrire au syst√®me d\'administration du site Polyjoule.<br/>
 						Voici vos identifiants de connexion :<br/>
 						Pseudo : '.htmlspecialchars($pseudo, ENT_QUOTES).'<br/>
 						Mot de passe : '.htmlspecialchars($passwd, ENT_QUOTES).'.<br/>
-						Ce mot de passe a ÈtÈ gÈnÈrÈ automatiquement, vous pouvez le changer ‡ partir de votre espace profil.<br/><br/>
+						Ce mot de passe a √©t√© g√©n√©r√© automatiquement, vous pouvez le changer √† partir de votre espace profil.<br/><br/>
 						
 						En vous remerciant de votre contribution.<br/><br/>
-						L\'Èquipe Polyjoule.
+						L\'√©quipe Polyjoule.
 					</body>
 				</html>';
 		if(!send_mail($mail, $subject, $message))
@@ -123,7 +122,7 @@ function register($pseudo, $mail, $statut)
 			$informations = Array(/*Erreur*/
 						false,
 						'Erreur',
-						'L\'inscription a ÈchouÈ, veuillez retenter.',
+						'L\'inscription a √©chou√©, veuillez retenter.',
 						'index.php?page=gestionComptes&action=1',
 						4
 						);
@@ -136,7 +135,7 @@ function register($pseudo, $mail, $statut)
 		$informations = Array(/*Erreur*/
 						false,
 						'Erreur',
-						'L\'inscription a ÈchouÈ : <br/>'.$error,
+						'L\'inscription a √©chou√© : <br/>'.$error,
 						'index.php?page=gestionComptes&action=1',
 						4
 						);
@@ -151,7 +150,7 @@ function generate_passwd()
 	$tpass=array();
 	$id=0;
 	$taille=6;
-	// rÈcupÈration des chiffres et lettre
+	// r√©cup√©ration des chiffres et lettre
 	for($i=48;$i<58;$i++) $tpass[$id++]=chr($i);
 	for($i=65;$i<91;$i++) $tpass[$id++]=chr($i);
 	for($i=97;$i<123;$i++) $tpass[$id++]=chr($i);

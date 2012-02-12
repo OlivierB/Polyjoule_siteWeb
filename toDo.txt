@@ -1,8 +1,8 @@
----- Images ----	- ajouter une image ajout rubrique avec le nom "add_rubrique.png" --> FAIT	- ajouter une iamge mise à jour rubrique avec le nom "modify_rubrique.png" --> FAIT	- ajouter gestion_rubrique.png --> FAIT	- ajouter add/modify/gestion_ecole.png --> FAIT	- ajouter add/modify/gestion_formation.png---- rubrique.php ----	- présentation à améliorer --> FAIT---- ecole.php ----	- s'occuper de l'upload des images (http://www.commentcamarche.net/faq/889-php-upload-de-fichiers)---- profil.php ----	- 
+---- Images ----	- ajouter une image ajout rubrique avec le nom "add_rubrique.png" --> FAIT	- ajouter une iamge mise à jour rubrique avec le nom "modify_rubrique.png" --> FAIT	- ajouter gestion_rubrique.png --> FAIT	- ajouter add/modify/gestion_ecole.png --> FAIT	- ajouter add/modify/gestion_formation.png --> FAIT---- rubrique.php ----	- présentation à améliorer --> Ajouter système de sélection multiple comme la gestion des articles?---- ecole.php ----	- s'occuper de l'upload des images (http://www.commentcamarche.net/faq/889-php-upload-de-fichiers)---- profil.php ----	- 
 	
 --- gestion des articles ---
-	Fait !
-
+	FAIT
+	--- gestion des membres ---	- page de gestion --> FAIT	- inscription membre --> FAIT	- désinscription	- modifier info sur membre	
 --- Attention à la mise en page du contenu---
 
 Pour la création des autres pages, il faudrait garder le même design que les pages gestion des articles et gestions des comptes.
