@@ -76,7 +76,7 @@ function affichageEcoles() {
 
 function ajouterEcole($nom,$adresse,$photo,$descFR,$descEN) {
 	if ($nom!="" && $adresse!="") {
-		$req="INSERT INTO ecole VALUES (NULL,'".$nom."','".$adresse."',NULL,'".$descFR."','".$descEN."')";
+		$req="INSERT INTO ECOLE VALUES (NULL,'".$nom."','".$adresse."',NULL,'".$descFR."','".$descEN."')";
 		mysql_query($req) or die(mysql_error());
 		mysql_free_result($req);
 		header("Location: index.php?page=ecole&message=ecoleAjoutee");
@@ -104,7 +104,6 @@ function supprimerEcole($id) {
 	if (ecoleExistante($id)) {
 		supprimerFormations($id);
 		$req = mysql_query("DELETE FROM ECOLE WHERE `id_ecole`=$id;");
-		mysql_free_result($req);
 		header("Location: index.php?page=ecole&message=ecoleSupprimee");
 	} else {
 		header("Location: index.php?page=ecole&message=erreurFormulaire");
@@ -113,6 +112,5 @@ function supprimerEcole($id) {
 
 function supprimerFormations($idEcole) {
 	$req = mysql_query("DELETE FROM FORMATION WHERE id_ecole=$idEcole;");
-	mysql_free_result($req);
 }
 ?>

@@ -45,7 +45,7 @@ function getChildRubrique($idRubrique,$niveau) {
 
 /*Vérifie l'existence d'une rubrique*/
 function rubriqueExistante($id) {
-	$req = mysql_query("SELECT * FROM RUBRIQUE WHERE id_rubrique=".$id);
+	$req = mysql_query("SELECT * FROM RUBRIQUE WHERE id_rubrique='".$id."';");
 	$rubrique=mysql_fetch_array($req);
 	if ($rubrique[0] == null) {
 		$toReturn=false;
@@ -138,7 +138,7 @@ function affichageRubriques($idMere,$niveau) {
 function miseAJourRubriqueFilles($idRubriqueMere) {
 	$req = mysql_query("SELECT * FROM RUBRIQUE WHERE id_mere=".$idRubriqueMere);
 	while ($rubrique=mysql_fetch_array($req)) {
-		$req2="UPDATE rubrique SET id_mere=null WHERE id_rubrique=".$rubrique[0].";";
+		$req2="UPDATE RUBRIQUE SET id_mere=null WHERE id_rubrique=".$rubrique[0].";";
 		mysql_query($req2) or die(mysql_error());
 		mysql_free_result($req2);
 	}
@@ -154,7 +154,7 @@ function verificationBoucleRubrique($idRubrique,$idRubriqueMereNew) {
 	} else if ($idRubriqueMereNew==$idRubrique) {
 		$toReturn=0;
 	} else {
-		$req=mysql_query("SELECT id_mere FROM rubrique WHERE id_rubrique=".$idRubriqueMereNew);
+		$req=mysql_query("SELECT id_mere FROM RUBRIQUE WHERE id_rubrique=".$idRubriqueMereNew);
 		$idRubriqueMereNew2=mysql_fetch_array($req);
 		$toReturn=verificationBoucleRubrique($idRubrique,$idRubriqueMereNew2[0]);
 	}
@@ -200,7 +200,7 @@ function getMessage($idMessage) {
 
 /*fonction qui renvoie un tableau avec les informations de la rubrique idRubrique*/
 function getRubrique($idRubrique) {
-	$req = mysql_query("SELECT * FROM `rubrique` WHERE `id_rubrique`=$idRubrique;");
+	$req = mysql_query("SELECT * FROM RUBRIQUE WHERE id_rubrique='".$idRubrique."';");
 	$toReturn=mysql_fetch_array($req);
 	mysql_free_result($req);
 	return $toReturn;
@@ -218,7 +218,7 @@ function countRubrique() {
 function supprimerRubrique($idRubrique) {
 	if(isset($idRubrique)) {
 		if (rubriqueExistante($idRubrique)) {
-			$req = mysql_query("DELETE FROM `rubrique` WHERE `id_rubrique`=$idRubrique;");
+			$req = mysql_query("DELETE FROM RUBRIQUE WHERE `id_rubrique`=$idRubrique;");
 			mysql_free_result($req);
 			miseAJourRubriqueFilles($idRubrique);
 			header("Location: index.php?page=rubrique&message=rubriqueSupprimee");
@@ -235,24 +235,23 @@ function ajoutRubrique($titreFR,$titreEN,$rubrique,$descFR,$descEN) {
 	if ($titreFR!="" && $titreEN!="") {
 		if ($rubrique=='null') {
 			if ($baseDonnees==1) {
-				$req="INSERT INTO `rubrique` VALUES (NULL,NULL,'".$titreFR."','".$titreEN."','".$descFR."','".$descEN."')";
+				$req="INSERT INTO RUBRIQUE VALUES (NULL,NULL,'".$titreFR."','".$titreEN."','".$descFR."','".$descEN."')";
 			} else {
-				$req="INSERT INTO `rubrique` VALUES (NULL,NULL,'".$titreFR."','".$titreEN."')";
+				$req="INSERT INTO RUBRIQUE VALUES (NULL,NULL,'".$titreFR."','".$titreEN."')";
 			}
 			mysql_query($req) or die(mysql_error());
 			mysql_free_result($req);
 			header("Location: index.php?page=rubrique&message=rubriqueAjoutee");
 		} else {
-			$req=mysql_query("SELECT * FROM rubrique WHERE id_rubrique=$rubrique");
+			$req=mysql_query("SELECT * FROM RUBRIQUE WHERE id_rubrique='".$rubrique."';");
 			$result=mysql_fetch_array($req);
 			if (rubriqueExistante($result[0])) {
 				if ($baseDonnees==1) {
-					$req ="INSERT INTO rubrique  VALUES (NULL,'".$rubrique."','".$titreFR."','".$titreEN."','".$descFR."','".$descEN."')";
+					$req ="INSERT INTO RUBRIQUE  VALUES (NULL,'".$rubrique."','".$titreFR."','".$titreEN."','".$descFR."','".$descEN."')";
 				} else {
-					$req ="INSERT INTO rubrique  VALUES (NULL,'".$rubrique."','".$titreFR."','".$titreEN."')";
+					$req ="INSERT INTO RUBRIQUE  VALUES (NULL,'".$rubrique."','".$titreFR."','".$titreEN."')";
 				}
 				mysql_query($req) or die(mysql_error());
-				mysql_free_result($req);
 				header("Location: index.php?page=rubrique&message=rubriqueAjoutee");
 			} else {
 				header("Location: index.php?page=rubrique&message=erreurFormulaire");
@@ -268,24 +267,23 @@ function MAJRubrique($rubrique,$titreFR,$titreEN,$rubrique_mere,$descFR,$descEN)
 	if ($titreFR!="" && $titreEN!="") {
 		if ($rubrique_mere=='null') {
 			if ($baseDonnees==1) {
-				$req="UPDATE rubrique SET id_mere=NULL, titreFR_rubrique='".$titreFR."', titreEN_rubrique='".$titreEN."', descriptionFR_rubrique='".$descFR."', descriptionEN_rubrique='".$descEN."' WHERE id_rubrique=".$rubrique.";";
+				$req="UPDATE RUBRIQUE SET id_mere=NULL, titreFR_rubrique='".$titreFR."', titreEN_rubrique='".$titreEN."', descriptionFR_rubrique='".$descFR."', descriptionEN_rubrique='".$descEN."' WHERE id_rubrique=".$rubrique.";";
 			} else {
-				$req="UPDATE rubrique SET id_mere=NULL, titreFR_rubrique='".$titreFR."', titreEN_rubrique='".$titreEN."' WHERE id_rubrique=".$rubrique.";";
+				$req="UPDATE RUBRIQUE SET id_mere=NULL, titreFR_rubrique='".$titreFR."', titreEN_rubrique='".$titreEN."' WHERE id_rubrique=".$rubrique.";";
 			}
 			mysql_query($req) or die(mysql_error());
 			mysql_free_result($req);
 			header("Location: index.php?page=rubrique&message=rubriqueMAJ");
 		} else {
-			$req=mysql_query("SELECT * FROM rubrique WHERE id_rubrique=$rubrique");
+			$req=mysql_query("SELECT * FROM RUBRIQUE WHERE id_rubrique=$rubrique");
 			$result=mysql_fetch_array($req);
 			if (rubriqueExistante($result[0])) {
 				if ($baseDonnees==1) {
-					$req ="UPDATE rubrique SET id_mere='".$rubrique_mere."', titreFR_rubrique='".$titreFR."', titreEN_rubrique='".$titreEN."', descriptionFR_rubrique='".$descFR."', descriptionEN_rubrique='".$descEN."' WHERE id_rubrique=".$rubrique.";";
+					$req ="UPDATE RUBRIQUE SET id_mere='".$rubrique_mere."', titreFR_rubrique='".$titreFR."', titreEN_rubrique='".$titreEN."', descriptionFR_rubrique='".$descFR."', descriptionEN_rubrique='".$descEN."' WHERE id_rubrique=".$rubrique.";";
 				} else {
-					$req ="UPDATE rubrique SET id_mere='".$rubrique_mere."', titreFR_rubrique='".$titreFR."', titreEN_rubrique='".$titreEN."' WHERE id_rubrique=".$rubrique.";";
+					$req ="UPDATE RUBRIQUE SET id_mere='".$rubrique_mere."', titreFR_rubrique='".$titreFR."', titreEN_rubrique='".$titreEN."' WHERE id_rubrique=".$rubrique.";";
 				}
 				mysql_query($req) or die(mysql_error());
-				mysql_free_result($req);
 				header("Location: index.php?page=rubrique&message=rubriqueMAJ");
 			} else {
 				header("Location: index.php?page=rubrique&message=erreurFormulaire");
