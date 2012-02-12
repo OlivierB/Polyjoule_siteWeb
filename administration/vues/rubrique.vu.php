@@ -22,45 +22,43 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 	$action = securite($_GET['action']);
 	if ($action==1) { //ajouter une rubrique
 		?>
-			<div class="contenu" style="text-align:center;">
+			<div class="contenu">
 				<?php echo create_title_bar("Ajout d'une rubrique", "ressources/design/style1/images/add_rubrique.png"); ?>
-				<div style="background-color : #f0f0ee;margin : 10px 12px 20px 13px;border : 1px solid #cccccc;text-align:left; padding-left : 20px;">
+				<div class="formulaire">
 					<form name="formAjout" method="post" action="index.php?page=rubrique&action=4">
-						<table>
-							<tr>
-								<td><label for="titleFR" style="float : left;"><strong>Titre</strong> (FR) :</label></td>
-								<td><input type="text" style="margin-left:10px;" size="60" value="" name="titleFR"/> <br/><br/></td>
-							</tr>
-							<tr>
-								<td><label for="titleEN" style="float : left;"><strong>Titre</strong> (EN) :</label></td>
-								<td><input type="text" style="margin-left:10px;" size="60" value="" name="titleEN"/> <br/><br/></td>
-							</tr>
-							<tr>
-								<td><label for="rubriqueMère" style="float : left;"><strong>Rubrique mère</strong> :</label></td>
-								<td><?php listeRubrique(); ?></td>
-							</tr>
-							<?php
-								if ($baseDonnees==1) {
-							?>
-									<tr>
-										<td><label for="descriptionFR" style="float : left;"><strong>Description</strong> (FR) :</label></td>
-										<td><input type="text" style="margin-left:10px;" size="80" value="" name="descriptionFR"/></td>
-									</tr>
-									<tr>
-										<td><label for="descriptionEN" style="float : left;"><strong>Description</strong> (EN) :</label></td>
-										<td><input type="text" style="margin-left:10px;" size="80" value="" name="descriptionEN"/></td>
-									</tr>
-							<?php
-								} else {
-							?>
-									<input type="text" style="margin-left:10px;" hidden="hidden" size="80" value="" name="descriptionFR"/>
-									<input type="text" style="margin-left:10px;" hidden="hidden" size="80" value="" name="descriptionEN"/>
-							<?php
-								}
-							?>
-						</table>
-						<input type="submit" value="Envoyer !" />
+						<label for="titleFR" >Titre(FR) :</label>
+						<input type="text" size="60" value="" name="titleFR"/> <br/><br/>
+						
+						<label for="titleEN" >Titre(EN) :</label>
+						<input type="text" size="60" value="" name="titleEN"/> <br/><br/>
+						
+						<label for="rubriqueMère" >Rubrique mère :</label>
+						<?php listeRubrique(); ?>
+						<?php
+							if ($baseDonnees==1)
+							{
+								?>
+								<label for="descriptionFR" >Description(FR) :</label>
+								<input type="text"  size="80" value="" name="descriptionFR"/>
+								
+								<label for="descriptionEN" >Description(EN) :</label>
+								<input type="text"  size="80" value="" name="descriptionEN"/>
+
+								<?php
+							}
+							else
+							{
+								?>
+								<input type="text" hidden="hidden" size="80" value="" name="descriptionFR"/>
+								<input type="text" hidden="hidden" size="80" value="" name="descriptionEN"/>
+								<?php
+							}
+						?>
 					</form>
+				</div>
+				<div align="center">
+						<a href="javascript:document.formAjout.submit();"> <img src="ressources/design/style1/images/validate.png"/></a>
+						<a href="index.php?page=rubrique"> <img src="ressources/design/style1/images/cancel.png"/></a>
 				</div>
 			</div>
 		<?php
@@ -70,39 +68,49 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 			if (rubriqueExistante($rubr)) { //vérification de l'existence de la rubrique
 				$rubrique=getRubrique($rubr);
 				?>
-					<div class="contenu" style="text-align:center;">
+					<div class="contenu">
 						<?php echo create_title_bar("Mise à jour d'une rubrique", "ressources/design/style1/images/modify_rubrique.png"); ?>
-						<div style="background-color : #f0f0ee;margin : 10px 12px 20px 13px;border : 1px solid #cccccc;text-align:left; padding-left : 20px;">
-							<form method="post" action="index.php?page=rubrique&action=5">
+						<div class="formulaire">
+							<form method="post" name="formAjout" action="index.php?page=rubrique&action=5">
 								<p>
 									<input type="hidden" name="rubrique_id" value="<?php echo $rubrique[0]; ?>"/>
-									<label for="titleFR" style="float : left;"><strong>Titre</strong> (FR) :</label>
-									<input type="text" style="margin-left:10px;" size="60" value="<?php echo $rubrique[2]; ?>" name="titleFR"/> <br/><br/>
-									<label for="titleEN" style="float : left;"><strong>Titre</strong> (EN) :</label>
-									<input type="text" style="margin-left:10px;" size="60" value="<?php echo $rubrique[3]; ?>" name="titleEN"/> <br/><br/>
-									<strong>Rubrique mère</strong> : 
+									
+									<label for="titleFR">Titre(FR) :</label>
+									<input type="text"  size="60" value="<?php echo $rubrique[2]; ?>" name="titleFR"/> <br/><br/>
+									
+									<label for="titleEN" >Titre(EN) :</label>
+									<input type="text"  size="60" value="<?php echo $rubrique[3]; ?>" name="titleEN"/> <br/><br/>
+									
+									<label for="rubrique"> Rubrique mère: </label>
 									<?php
 										listeRubriqueSelected($rubrique[1],$rubrique[0]);
 									?>
 									<?php
-										if ($baseDonnees==1) {
-									?>
-									<br/><br/>
-									<label for="descriptionFR" style="float : left;"><strong>Description</strong> (FR) :</label>
-									<input type="text" style="margin-left:10px;" size="80" value="<?php echo $rubrique[4]; ?>" name="descriptionFR"/> <br/><br/>
-									<label for="descriptionEN" style="float : left;"><strong>Description</strong> (EN) :</label>
-									<input type="text" style="margin-left:10px;" size="80" value="<?php echo $rubrique[5]; ?>" name="descriptionEN"/>
-									<?php
-										} else {
-									?>
-									<input type="text" hidden="hidden" style="margin-left:10px;" size="80" value="" name="descriptionFR"/>
-									<input type="text" hidden="hidden" style="margin-left:10px;" size="80" value="" name="descriptionEN"/>
-									<?php
+										if ($baseDonnees==1)
+										{
+											?>
+											<br/><br/>
+											<label for="descriptionFR" >Description(FR) :</label>
+											<input type="text"  size="80" value="<?php echo $rubrique[4]; ?>" name="descriptionFR"/> <br/><br/>
+											
+											<label for="descriptionEN" >Description(EN) :</label>
+											<input type="text"  size="80" value="<?php echo $rubrique[5]; ?>" name="descriptionEN"/>
+											<?php
+										}
+										else
+										{
+											?>
+											<input type="text" hidden="hidden"  size="80" value="" name="descriptionFR"/>
+											<input type="text" hidden="hidden"  size="80" value="" name="descriptionEN"/>
+											<?php
 										}
 									?>
 								</p>
-								<input type="submit" value="Envoyer !" />
 							</form>
+						</div>
+						<div align="center">
+							<a href="javascript:document.formAjout.submit();"> <img src="ressources/design/style1/images/validate.png"/></a>
+							<a href="index.php?page=rubrique"> <img src="ressources/design/style1/images/cancel.png"/></a>
 						</div>
 					</div>
 				<?php
@@ -145,8 +153,6 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 		<?php
 	}
 	?>
-			<a href="index.php?page=rubrique&action=1"> Ajouter un rubrique</a>
-			<br />
 			<?php
 				if (!countRubrique() && isset($_GET['message'])) {
 					$msg=securite($_GET['message']);
@@ -175,8 +181,22 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 				affichageRubriques(null,0);
 			?>
 			</table>
-			<br />
-			<a href="index.php?page=rubrique&action=1"> Ajouter un rubrique </a>
+			<div align=center>
+				<br/><br/>
+				<table>
+					<tr>
+						<td class="section_name"> Autres actions : </td>
+					</tr>
+					<tr>
+						<td>
+							<img src="ressources/design/style1/images/add_rubrique.png" />
+						</td>
+						<td>
+							<a class="liens_Action"href="index.php?page=rubrique&action=1"> Ajouter une rubrique </a>
+						</td>
+					</tr>
+				</table>
+			</div>	
 			<?php
 				}
 			?>
