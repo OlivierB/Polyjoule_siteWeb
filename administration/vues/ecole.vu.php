@@ -170,12 +170,11 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 			header("Location:index.php?page=ecole&message=erreurFormulaire");
 		}
 	} else if ($action==5) { //traitement de mise à jour de école
-		/*foreach($_POST as $key => $val) echo '$_POST["'.$key.'"]='.$val.'<br />';/**/
 		if (isset($_POST['idEcole']) && isset($_POST['nom']) && isset($_POST['adresse']) && isset($_POST['photo']) && isset($_POST['descFR']) && isset($_POST['descEN'])) {
 			MAJEcole(securite($_POST['idEcole']),securite($_POST['nom']),securite($_POST['adresse']),securite($_POST['photo']),securite($_POST['descFR']),securite($_POST['descEN']));
 		} else {
 			header("Location:index.php?page=ecole&message=erreurFormulaire");
-		}/**/
+		}
 	} else if ($action==6) { //traitement de suppression de école
 		if (isset($_GET['idEcole'])) {
 			supprimerEcole(securite($_GET['idEcole']));
