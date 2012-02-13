@@ -33,7 +33,7 @@ page par défaut lors de l'affichage
 						</td>
 						<td>
 							<div class="icone_gestion" onclick="window.location.href='#';">
-								<img class="img_icone" src="ressources/design/style1/images/gestion_cat.png"/><br/>
+								<img class="img_icone" src="ressources/design/style1/images/gestion_rubrique.png"/><br/>
 								Gestion des catégories</a>
 							</div>
 						</td>

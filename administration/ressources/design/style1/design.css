@@ -267,8 +267,9 @@ footer {
 
 /* Erreurs et succès */
 ul#errors {
+	list-style-type: none;
 	margin: 10px 40px 20px 40px;
-	padding: 5px;
+	padding: 5px 5px 5px 15px;
 	border: 1px solid #FF3838;
 	background: #FF8585;
 }
@@ -280,9 +281,11 @@ ul#errors li {
 	list-style-position: inside;
 	text-align : left;
 }
+
 ul#succes {
+	list-style-type: none;
 	margin: 10px 40px 20px 40px;
-	padding: 5px;
+	padding: 5px 5px 5px 15px;
 	border: 1px solid #25C43B;
 	background: #85FF95;
 }

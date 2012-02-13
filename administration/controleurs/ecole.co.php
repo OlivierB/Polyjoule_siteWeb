@@ -1,4 +1,4 @@
-<!-- // fichier de gestion des écoles
+<!-- // fichier de gestion des Ã©coles
 
 
 traitements
