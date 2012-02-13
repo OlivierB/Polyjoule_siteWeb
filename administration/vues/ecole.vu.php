@@ -25,7 +25,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 		<?php
 			echo create_title_bar("Ajout d'une école","ressources/design/style1/images/add_ecole.png");
 		?>
-				<form method="POST" action="index.php?page=ecole&action=4" name="formAjout">
+				<form method="POST" action="index.php?page=ecole&action=4" name="formAjout" enctype="multipart/form-data">
 					<div class="formulaire">
 						<label for="nom"><strong>Nom de l'école</strong> :</label>
 						<input type="text" size="60" value="" name="nom"/><br /><br />

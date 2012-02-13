@@ -14,6 +14,7 @@
 
 function send_mail($objet, $message)
 {
+
 }
 ?>
 

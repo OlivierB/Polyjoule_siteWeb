@@ -126,7 +126,7 @@ switch ($action)
 }
 
 
-     include ('vues/article_'.$sousPage.'.vu.php');
+     include ('vues/article/article_'.$sousPage.'.vu.php');
 ?>
 
 
