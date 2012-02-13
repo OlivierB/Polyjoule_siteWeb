@@ -56,7 +56,7 @@ if(isset($_POST['login']) && $_POST['login']!="" && isset($_POST['passwd']) && $
 			</div>
 			
 			<div id="cadena">
-				<img src="ressources/design/classique/images/lock.png"/>
+				<img src="ressources/design/style1/images/lock.png"/>
 			</div>
 			
 			<div id="form_connexion">
