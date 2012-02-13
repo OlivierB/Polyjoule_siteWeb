@@ -10,7 +10,6 @@ traitements
 	include("modeles/article.mo.php");
 	include("modeles/rubrique.mo.php"); // Appel à certaines fonctions concernant les rubriques
 	
-	$articles = get_articles();
 
 
 $actions = array(1,2,3,4,5); // Tableau des actions possibles
@@ -87,33 +86,50 @@ switch ($action)
 		} else
 		{
 			$article = get_article($id);
-			$sousPage 	= "mofifier";
+			$sousPage 	= "modifier";
 		}
 	break;
 
 	case 3: 
 		if(isset($_POST['titleFR']) && isset($_POST['titleEN']) && isset($_POST['rubrique']) && isset($_POST['statut']) && isset($_POST['commentaire']) && isset($_POST['contenuFR']) && isset($_POST['contenuEN']) && isset($_SESSION['pseudo_membre']))
+		{
+			// verifications :
+			// ...
 			ajouter_article(securite($_POST['titleFR']),securite($_POST['titleEN']),securite($_POST['rubrique']),securite($_POST['statut']),securite($_POST['commentaire']),securite($_POST['contenuFR']),securite($_POST['contenuEN']), $_SESSION['pseudo_membre']);
-		$sousPage 	= "defaut";
+			$infos->addSucces ("Ajout de l'article effectué");
+			$sousPage 	= "defaut";
+		} else
+		{
+			$infos->addError ("Les champs ne sont pas tous renseignés");
+			$sousPage 	= "ajouter";
+		}
+		
 	break;
 
 	case 4: 
 		if(isset($_POST['id']) && isset($_POST['titleFR']) && isset($_POST['titleEN']) && isset($_POST['rubrique']) && isset($_POST['statut']) && isset($_POST['commentaire']) && isset($_POST['contenuFR']) && isset($_POST['contenuEN']) && isset($_SESSION['pseudo_membre']))
+		{
 			modify_article(securite($_POST['id']),securite($_POST['titleFR']),securite($_POST['titleEN']),securite($_POST['rubrique']),securite($_POST['statut']),securite($_POST['commentaire']),securite($_POST['contenuFR']),securite($_POST['contenuEN']), $_SESSION['pseudo_membre']);
-		$sousPage 	= "defaut";
+			$infos->addSucces ("Modification de l'article effectué");
+			$sousPage 	= "defaut";
+		} else
+		{
+			$infos->addError ("Les champs ne sont pas tous renseignés");
+			$sousPage 	= "modifier";
+		}
+		
 	break;
 
 	case 5:
 		if(isset($_GET['id']) && $_GET['id'] != "")
 		{
 			
-			$toDelete = securite($_GET['id']);
-			$tmpVar = delete_articles($toDelete);
+			$toDelete 	= securite($_GET['id']);
+			$tmpVar 	= delete_articles($toDelete);
 
 			if ($tmpVar != "")
 			{
 				$infos->addError ("Impossible de supprimer l'article : ".$tmpVar." (<a href='index.php?page=article'>Acces rapide</a>)");
-				$error = true; // pas utile ici -> respect de la convention
 			}
 		}
 		$sousPage 	= "defaut";
@@ -124,7 +140,8 @@ switch ($action)
 	break;
 
 }
-
+if (strcmp ( $sousPage , "defaut" ) == 0)
+	$articles = get_articles();
 
      include ('vues/article/article_'.$sousPage.'.vu.php');
 ?>
