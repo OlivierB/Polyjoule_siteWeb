@@ -99,8 +99,38 @@ class Informations
 	}
 }
 
+// ecrire une date 
+function formatDateJ($date) 
+{
+	$date = date('d - m - Y', $date);
+	return $date;
+}
+// ecrire une date et l'heure
+function formatDateJH($date) 
+{
+	$date = date('d/m/y H:i:s', $date);
+	return $date;
+}
 
+// ecrire une date et l'heure
+function formatDate($date) 
+{
+	$positionEspace = stripos($date, " ");
+	$date 			= substr($date, 0, $positionEspace);
+	
+	return $date;
+}
 
+function coupeChaine($text, $max) 
+{
+	if (strlen($text) >= $max) {
+		$text = ereg_replace("<[^>]*>", "", $text);
+		$text = substr($text, 0, $max);
+		$positionEspace = strrpos($text, " ");
+		$text = substr($text, 0, $positionEspace)."...";
+	}
+	return $text;
+}
 
 
 

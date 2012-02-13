@@ -267,7 +267,7 @@ footer {
 
 /* Erreurs et succès */
 ul#errors {
-	margin: 10px 10px 10px 10px;
+	margin: 10px 40px 20px 40px;
 	padding: 5px;
 	border: 1px solid #FF3838;
 	background: #FF8585;
@@ -278,9 +278,10 @@ ul#errors li {
 	margin: 0px 0px 0px 10px;
 	color: #8A1515;
 	list-style-position: inside;
+	text-align : left;
 }
 ul#succes {
-	margin: 10px 10px 10px 10px;
+	margin: 10px 40px 20px 40px;
 	padding: 5px;
 	border: 1px solid #25C43B;
 	background: #85FF95;
@@ -291,11 +292,12 @@ ul#succes li {
 	margin: 0px 0px 0px 10px;
 	color: #0D6919;
 	list-style-position: inside;
+	text-align : left;
 }
 
 /* Infos */
 ul#infos {
-	margin: 10px 10px 10px 10px;
+	margin: 10px 40px 20px 40px;
 	padding: 5px;
 	border: 1px solid #4057DB;
 	background: #8FA0FF;
@@ -306,5 +308,6 @@ ul#infos li {
 	margin: 0px 0px 0px 10px;
 	color: #3245B3;
 	list-style-position: inside;
+	text-align : left;
 }
 
