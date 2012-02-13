@@ -240,7 +240,6 @@ function ajoutRubrique($titreFR,$titreEN,$rubrique,$descFR,$descEN) {
 				$req="INSERT INTO RUBRIQUE VALUES (NULL,NULL,'".$titreFR."','".$titreEN."')";
 			}
 			mysql_query($req) or die(mysql_error());
-			mysql_free_result($req);
 			header("Location: index.php?page=rubrique&message=rubriqueAjoutee");
 		} else {
 			$req=mysql_query("SELECT * FROM RUBRIQUE WHERE id_rubrique='".$rubrique."';");
