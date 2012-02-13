@@ -105,12 +105,16 @@ function ajouter_article($titreFR, $titreEN, $rubrique, $statut, $commentaire, $
 {
 	$req = "INSERT INTO ARTICLE VALUES (NULL,".$rubrique.",'".$titreFR."','".$titreEN."','".$contenuFR."','".$contenuEN."','".$auteur."',".$statut.",".$commentaire.")";
 	mysql_query($req) or die(mysql_error());
+	
+	return true;
 }
 
 function modify_article($id, $titreFR, $titreEN, $rubrique, $statut, $commentaire, $contenuFR, $contenuEN, $auteur)
 {
 	$req = "UPDATE ARTICLE SET id_rubrique=".$rubrique.",titreFR_article='".$titreFR."',titreEN_article='".$titreEN."',contenuFR_article='".$contenuFR."',contenuEN_article='".$contenuEN."',auteur_article='".$auteur."',statut_article=".$statut.",autorisation_com=".$commentaire." WHERE id_article=".$id;
 	mysql_query($req) or die(mysql_error());
+	
+	return true;
 }
 
 function isAutorOf($id, $autor)
