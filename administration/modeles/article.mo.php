@@ -140,21 +140,14 @@ function delete_articles($toDelete)
 		{
 			$req = mysql_query('SELECT titreFR_article FROM ARTICLE WHERE id_article='.$toDelete[$i]) or die(mysql_error());
 			$titre = mysql_fetch_array($req);
-			$error ="Impossible de supprimer l'article : ".$titre[0]."<br/>";
+			
+			// erreur -> retour du titre pour identification
+			return $titre[0];
+			
 		}
 	}
-	if(isset($error))
-	{
-		$informations = Array(/*Erreur*/
-						false,
-						'Erreur',
-						$error,
-						'index.php?page=article',
-						4
-						);
-		require_once('vues/informations.vu.php');
-		exit();
-	}
+
+	return "";
 }
 			
 ?>

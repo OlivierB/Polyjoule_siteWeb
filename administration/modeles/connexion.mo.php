@@ -13,7 +13,7 @@
 <?php
 
 // Permet la connexion au site
-function connexion($pseudo, $passe) {
+function connexion($pseudo, $passe, &$infos) {
 	$req 	= mysql_query("SELECT COUNT(id_membre) AS nbr, id_membre, pseudo_membre, mdp_membre, statut_membre FROM MEMBRE WHERE pseudo_membre='".$pseudo."'") or die(mysql_error());
 	$membre = mysql_fetch_array($req);
 	if($membre[0]==1)
@@ -29,13 +29,13 @@ function connexion($pseudo, $passe) {
 		}
 		else
 		{
-			$erreur="Erreur de mot de passe";
+			$infos->addError ("Erreur de mot de passe");
 			return false;
 		}
 	}
 	else
 	{
-		$erreur="Erreur de login";
+		$infos->addError("Erreur de login");
 		return false;
 	}
 }

@@ -18,6 +18,8 @@ include ("bdd/bdd_connexion.php");
 // fonctions de base
 include ("ressources/scripts/php/functions.php");
 
+// création d'un objet pour stoker les informations (erreurs et succes)
+$infos = new Informations ();
 
 // calcul de la page à afficher
 if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre'])) 
