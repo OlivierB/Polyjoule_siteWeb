@@ -94,7 +94,7 @@ function affichageProfil() {
 
 /*vérifie si un pseudo est déjà utilisé (retourne 1) ou non (0)*/
 function pseudoUtilise($pseudo) {
-	$req = mysql_query("SELECT count(*) FROM MEMBRE WHERE pseudo_membre=".$pseudo.";");
+	$req = mysql_query("SELECT count(*) FROM MEMBRE WHERE pseudo_membre='".$pseudo."';");
 	$result=mysql_fetch_array($req) or die(mysql_error());
 	if ($result[0]==0) {
 		$toReturn=0;
@@ -102,6 +102,28 @@ function pseudoUtilise($pseudo) {
 		$toReturn=1;
 	}
 	mysql_free_result($req);
+	return $toReturn;
+}
+
+function getPseudo() {
+	$profil=getProfil(securite($_SESSION['id_membre']));
+	$toReturn=$profil[1];
+	return $toReturn;
+}
+
+function changementPseudo() {
+	$profil=getProfil(securite($_SESSION['id_membre']));
+	if ($profil[1]=="admin") {//Si c'est l'admin
+		$toReturn="Changement de pseudo impossible pour l'administrateur.";
+	} else {//Si ce n'est pas l'admin
+		$toReturn="<a href='index.php?page=profil&action=1'>Changement du pseudo</a>";
+	}
+	return $toReturn;
+}
+
+function getMail() {
+	$profil=getProfil(securite($_SESSION['id_membre']));
+	$toReturn=$profil[3];
 	return $toReturn;
 }
 
@@ -116,7 +138,7 @@ function MAJPseudo($pseudo) {
 				if (!pseudoUtilise($pseudo)) {
 					$req="UPDATE MEMBRE SET pseudo_membre='".$pseudo."' WHERE id_membre=".$_SESSION['id_membre'].";";
 					mysql_query($req) or die(mysql_error());
-					header("Location: $pageDeconnexion");
+					header("Location: index.php?page=deconnexion");
 				} else {
 					header("Location: index.php?page=profil&message=pseudoDejaUtilise");
 				}
@@ -134,7 +156,7 @@ function MAJMotDePasse($ancien,$mdp,$mdp2) {
 		if ($mdp==$mdp2) {
 			$req2="UPDATE MEMBRE SET mdp_membre='".$mdp."' WHERE id_membre=".$_SESSION['id_membre'].";";
 			mysql_query($req2) or die(mysql_error());
-			header("Location: $pageDeconnexion");
+			header("Location: index.php?page=deconnexion");
 		} else {
 			header("Location: index.php?page=profil&message=motDePasseDifferent");
 		}
