@@ -37,4 +37,72 @@ function create_title_bar($title, $icone)
 	
 	return $barre;
 }
+
+
+
+
+
+
+
+
+
+// Classe pour gérer les erreurs
+
+class Informations
+{
+
+	private $errors;
+	private $succes;
+
+	public function __construct()
+	{
+		$this->errors = array();
+		$this->succes = array();
+	}
+	
+	public function addError	($error)
+	{
+		$this->errors[] = $error;
+	}
+	
+	public function addSucces	($succes)
+	{
+		$this->succes[] = $succes;
+	}
+	
+	public function reset		()
+	{
+		unset($this->succes);
+		unset($this->errors);
+	}
+	
+	public function printInfos	()
+	{
+		if (!empty($this->succes)) 
+		{
+			echo '<ul id="succes">';
+			foreach($this->succes as $cle) 
+			{
+				echo '<li>'.$cle.'</li>';
+			}
+			echo "</ul>";
+		}
+		if (!empty($this->errors)) 
+		{
+			echo '<ul id="errors">';
+			foreach($this->errors as $cle) 
+			{
+				echo '<li>'.$cle.'</li>';
+			}
+			echo "</ul>";
+		}
+	}
+}
+
+
+
+
+
+
+
 ?>

@@ -73,3 +73,46 @@ p {
 	color : black;
 }
 
+/* Erreurs et succès */
+ul#errors {
+	margin: 10px 10px 10px 10px;
+	padding: 5px;
+	border: 1px solid #FF3838;
+	background: #FF8585;
+}
+
+ul#errors li {
+	padding: 0px;
+	margin: 0px 0px 0px 10px;
+	color: #8A1515;
+	list-style-position: inside;
+}
+ul#succes {
+	margin: 10px 10px 10px 10px;
+	padding: 5px;
+	border: 1px solid #25C43B;
+	background: #85FF95;
+}
+
+ul#succes li {
+	padding: 0px;
+	margin: 0px 0px 0px 10px;
+	color: #0D6919;
+	list-style-position: inside;
+}
+
+/* Infos */
+ul#infos {
+	margin: 10px 10px 10px 10px;
+	padding: 5px;
+	border: 1px solid #4057DB;
+	background: #8FA0FF;
+}
+
+ul#infos li {
+	padding: 0px;
+	margin: 0px 0px 0px 10px;
+	color: #3245B3;
+	list-style-position: inside;
+}
+

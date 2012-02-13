@@ -19,13 +19,15 @@ include ("bdd/bdd_connexion.php");
 include ("ressources/scripts/php/functions.php");
 include ("modeles/connexion.mo.php");
 
+// création d'un objet pour stoker les informations (erreurs et succes)
+$infos = new Informations ();
 
 // gestion de l'identification d'un admin
 if(isset($_POST['login']) && $_POST['login']!="" && isset($_POST['passwd']) && $_POST['passwd']!="")
 {
 	$pseudo = securite ($_POST['login']);
 	$passe	= securite ($_POST['passwd']);
-	if (connexion ($pseudo, $passe))
+	if (connexion ($pseudo, $passe, $infos))
 		header('Location: index.php');
 }
 
@@ -74,8 +76,11 @@ if(isset($_POST['login']) && $_POST['login']!="" && isset($_POST['passwd']) && $
 				</form>
 				
 				<?php
+				// affichage des erreurs
+				$infos->printInfos();
+				/*
 				if(isset($erreur))
-					echo $erreur;
+					echo $erreur;*/
 				?>
 			</div>
 		</div>
