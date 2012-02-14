@@ -38,7 +38,8 @@ function get_articles()
 			"contenuEN_article" => $art["contenuEN_article"],
 			"auteur_article" => $art["auteur_article"],
 			"statut_article" => $art["statut_article"],
-			"autorisation_com" => $art["autorisation_com"] );
+			"autorisation_com" => $art["autorisation_com"],
+			"date_article" => $art["date_article"] );
 		$i++;
 	}
 	return $articles;
@@ -103,7 +104,7 @@ function is_boolean($bit)
 
 function ajouter_article($titreFR, $titreEN, $rubrique, $statut, $commentaire, $contenuFR, $contenuEN, $auteur)
 {
-	$req = "INSERT INTO ARTICLE VALUES (NULL,".$rubrique.",'".$titreFR."','".$titreEN."','".$contenuFR."','".$contenuEN."','".$auteur."',".$statut.",".$commentaire.")";
+	$req = "INSERT INTO ARTICLE VALUES (NULL,".$rubrique.",'".$titreFR."','".$titreEN."','".$contenuFR."','".$contenuEN."','".$auteur."',".$statut.",".$commentaire.",".time().")";
 	mysql_query($req) or die(mysql_error());
 	
 	return true;
@@ -111,7 +112,7 @@ function ajouter_article($titreFR, $titreEN, $rubrique, $statut, $commentaire, $
 
 function modify_article($id, $titreFR, $titreEN, $rubrique, $statut, $commentaire, $contenuFR, $contenuEN, $auteur)
 {
-	$req = "UPDATE ARTICLE SET id_rubrique=".$rubrique.",titreFR_article='".$titreFR."',titreEN_article='".$titreEN."',contenuFR_article='".$contenuFR."',contenuEN_article='".$contenuEN."',auteur_article='".$auteur."',statut_article=".$statut.",autorisation_com=".$commentaire." WHERE id_article=".$id;
+	$req = "UPDATE ARTICLE SET id_rubrique=".$rubrique.",titreFR_article='".$titreFR."',titreEN_article='".$titreEN."',contenuFR_article='".$contenuFR."',contenuEN_article='".$contenuEN."',auteur_article='".$auteur."',statut_article=".$statut.",autorisation_com=".$commentaire.",".time()." WHERE id_article=".$id;
 	mysql_query($req) or die(mysql_error());
 	
 	return true;

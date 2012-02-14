@@ -124,7 +124,7 @@ traitements
 			if(isset($_GET['id']) && $_GET['id'] != "")
 			{
 			
-				$toDelete 	= securite($_GET['id']);
+				$toDelete 	= $_GET['id'];
 				$tmpVar 	= delete_articles($toDelete);
 
 				if ($tmpVar != "")

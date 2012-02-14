@@ -134,5 +134,8 @@ function coupeChaine($text, $max)
 
 
 
-
+function convert_timestamp($time)
+{
+	return date("d-n-Y à H:i:s", $time);
+}
 ?>

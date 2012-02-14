@@ -42,6 +42,9 @@ Page de gestion des articles
 			<th class="blue_tabular_title">
 				Statut
 			</th>
+			<th class="blue_tabular_title">
+				Date d'ajout
+			</th>
 		</tr>
 		
 		<?php
@@ -63,7 +66,8 @@ Page de gestion des articles
 				echo "<td class='blue_tabular_cell'>En ligne</td>";
 			else
 				echo "<td class='blue_tabular_cell'> -- </td>";
-			echo "</tr>";
+			echo "<td class='blue_tabular_cell'>".convert_timestamp($articles[$i]["date_article"])."</td></tr>";
+			
 		}
 		
 		?>

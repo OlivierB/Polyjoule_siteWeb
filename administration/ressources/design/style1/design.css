@@ -181,17 +181,15 @@ body {
 .blue_tabular
 {
 	border-collapse:collapse;
-	margin : auto auto auto auto;
-	
+	margin : auto auto auto auto;	
 }
 
 .blue_tabular_cell, .blue_tabular_title
 {
 	text-align : center;
 	border : 2px solid #406BA4;
-	width : 15%;
+	width : 5%;
 }
-
 .blue_tabular_cell:hover
 {
 	background-color : #63bdff;
