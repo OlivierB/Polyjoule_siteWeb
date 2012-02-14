@@ -102,23 +102,18 @@ class Informations
 // ecrire une date 
 function formatDateJ($date) 
 {
-	$date = date('d - m - Y', $date);
-	return $date;
+	return $date->format('Y-m-d');
 }
 // ecrire une date et l'heure
 function formatDateJH($date) 
 {
-	$date = date('d/m/y H:i:s', $date);
-	return $date;
+	return $date->format('Y-m-d H:i:s');
 }
 
 // ecrire une date et l'heure
 function formatDate($date) 
 {
-	$positionEspace = stripos($date, " ");
-	$date 			= substr($date, 0, $positionEspace);
-	
-	return $date;
+	return $date->format('Y-m-d');
 }
 
 function coupeChaine($text, $max) 
