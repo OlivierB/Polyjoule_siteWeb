@@ -63,30 +63,33 @@ traitements
 				$infos->addError ('Aucun article sélectionné. (<a href="index.php?page=article">Acces rapide</a>)');
 				$error = true;
 			}
-			if(sizeof($_GET['id'])>1)
+			else if(sizeof($_GET['id'])>1)
 			{
 				$infos->addError ('Veuillez modifier qu\'un seul article à la fois. (<a href="index.php?page=article">Acces rapide</a>)');
 				$error = true;
 			}
-			$id = securite($_GET['id'][0]);
-			if( !exist_article($id))
+			else
 			{
-				$infos->addError ("L'article n'existe pas dans la base.");
-				$error = true;
-			}
-			if( !isAutorOf($id, $_SESSION['pseudo_membre']))
-			{
-				$infos->addError ("Vous n'êtes pas autorisé à modifier cette article car vous en êtes pas l'auteur.");
-				$error = true;
-			}
-			// calcul de la sous-page
-			if ($error)
-			{
-				$sousPage 	= "defaut";
-			} else
-			{
-				$article = get_article($id);
-				$sousPage 	= "modifier";
+				$id = securite($_GET['id'][0]);
+				if( !exist_article($id))
+				{
+					$infos->addError ("L'article n'existe pas dans la base.");
+					$error = true;
+				}
+				if( !isAutorOf($id, $_SESSION['pseudo_membre']))
+				{
+					$infos->addError ("Vous n'êtes pas autorisé à modifier cette article car vous en êtes pas l'auteur.");
+					$error = true;
+				}
+				// calcul de la sous-page
+				if ($error)
+				{
+					$sousPage 	= "defaut";
+				} else
+				{
+					$article = get_article($id);
+					$sousPage 	= "modifier";
+				}
 			}
 		break;
 

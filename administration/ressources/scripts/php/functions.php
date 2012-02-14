@@ -119,7 +119,7 @@ function formatDate($date)
 function coupeChaine($text, $max) 
 {
 	if (strlen($text) >= $max) {
-		$text = ereg_replace("<[^>]*>", "", $text);
+		//$text = ereg_replace("<[^>]*>", "", $text); BUG !!!
 		$text = substr($text, 0, $max);
 		$positionEspace = strrpos($text, " ");
 		$text = substr($text, 0, $positionEspace)."...";
