@@ -127,10 +127,4 @@ function coupeChaine($text, $max)
 	return $text;
 }
 
-
-
-function convert_timestamp($time)
-{
-	return date("d-n-Y à H:i:s", $time);
-}
 ?>

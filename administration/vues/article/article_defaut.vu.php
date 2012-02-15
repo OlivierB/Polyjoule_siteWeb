@@ -66,7 +66,7 @@ Page de gestion des articles
 				echo "<td class='blue_tabular_cell'>En ligne</td>";
 			else
 				echo "<td class='blue_tabular_cell'> -- </td>";
-			echo "<td class='blue_tabular_cell'>".convert_timestamp($articles[$i]["date_article"])."</td></tr>";
+			echo "<td class='blue_tabular_cell'>".$articles[$i]["date_article"]."</td></tr>";
 			
 		}
 		
