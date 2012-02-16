@@ -80,18 +80,17 @@ function save_picture($pict, $width, $height, $dest, $pict_name)
 	$ext = explode('.', $pict['name']);
 	$ext = strtolower($ext[count($ext)-1]);
 	
-	$img_dest = imagecreate($width , $height);
-	imagecolorallocatealpha($img_dest, 0, 0, 0, 0);
-	
+	$img_dest = imagecreatetruecolor($width , $height);
+	$fond_noir = imagecolorallocate($img_dest, 0, 0, 0);
 	$taille = getimagesize($pict['tmp_name']);
 	
 	switch ($ext)
 	{
 		case "jpg":
 		case "jpeg": //pour le cas où l'extension est "jpeg"
-			$img_src = imagecreatefromjpeg( $pict['tmp_name'] );
+			$img_src = imagecreatefromjpeg( $pict['tmp_name']);
 			imagecopyresampled($img_dest , $img_src, 0, 0, 0, 0, $width, $height, $taille[0], $taille[1]);
-			imagejpeg($img_dest , $dest.$pict_name.'.'.$ext);
+			imagejpeg($img_dest , $dest.$pict_name.'.'.$ext, 100);
 			break;
 
 		case "gif":
@@ -102,8 +101,9 @@ function save_picture($pict, $width, $height, $dest, $pict_name)
 
 		case "png":
 			$img_src = imagecreatefrompng( $pict['tmp_name'] );
+			imagecolortransparent($img_dest, $fond_noir);
 			imagecopyresampled($img_dest , $img_src, 0, 0, 0, 0, $width, $height, $taille[0], $taille[1]);
-			imagepng($img_dest , $dest.$pict_name.'.'.$ext);
+			imagepng($img_dest , $dest.$pict_name.'.'.$ext, 0, PNG_ALL_FILTERS);
 			break;
 	}
 
