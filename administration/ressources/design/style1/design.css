@@ -297,3 +297,23 @@ ul#infos li {
 	text-align : left;
 }
 
+.info {
+	min-height : 80px;
+}
+
+.message{
+	border : 3px solid white;
+	border-radius : 10px;
+	min-height : 30px;
+	width : 600px;
+	margin : auto auto auto auto;
+	text-align : center;
+	font-weight : bold;
+}
+.info img{
+	float : left;
+	margin-left : 40px;
+	margin-top : -5px;
+}
+
+

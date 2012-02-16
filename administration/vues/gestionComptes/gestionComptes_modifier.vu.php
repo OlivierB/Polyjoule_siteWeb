@@ -28,8 +28,9 @@ Réservé aux administrateurs
 				<input type="radio" value="admin" <?php if($membre['statut_membre']=='admin') echo "checked='checked'";?> name="statut"/> Administrateur
 				<input type="radio" <?php if($membre['statut_membre']=='user') echo "checked='checked'";?> value="user" name="statut"/> Utilisateur<br/><br/>
 				
-				<label for="photo_membre" >Changer la photo membre :</label>
-				<input type="file" name="photo_membre" maxlength="1048576" accept="image/*" id="photo_membre" /> ( Taille limitée à 1Mo et format image uniquement )
+				<?php echo create_information("Taille limitée à 1Mo et format image uniquement.");?>
+				<label for="photo_membre" >Changer la photo du membre :</label>
+				<input type="file" name="photo_membre" maxlength="1048576" accept="image/*" id="photo_membre" />
 				
 				<input type="hidden" value="<?php echo $membre['id_membre'];?>" name="id"/>
 			</p>

@@ -38,6 +38,16 @@ function create_title_bar($title, $icone)
 	return $barre;
 }
 
+function create_information($string)
+{
+	return "<div class='info'>
+				<img src='".$_SESSION['design_path']."/images/info.png' />
+				<div class='message'>"
+					.$string.
+				"</div>
+			</div>";
+}
+				
 function verify_picture($pict, $size_max)
 {
 	$ListeExtension = array('jpg' => 'image/jpg', 'jpeg' => 'image/jpeg', 'png' => 'image/png', 'gif' => 'image/gif');
