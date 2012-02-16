@@ -15,7 +15,7 @@ Réservé aux administrateurs
 	<div class="photo_membre">
 		<img src="<?php echo $membre['photo_membre']; ?>" />
 	</div>
-	<form name="modifyUser" method="POST" action="index.php?page=gestionComptes&action=4">
+	<form name="modifyUser" method="POST" action="index.php?page=gestionComptes&action=4" enctype="multipart/form-data">
 		<div class="formulaire">
 			<p>
 				<label for="pseudo" >Pseudo : </label>
@@ -29,9 +29,8 @@ Réservé aux administrateurs
 				<input type="radio" <?php if($membre['statut_membre']=='user') echo "checked='checked'";?> value="user" name="statut"/> Utilisateur<br/><br/>
 				
 				<label for="photo_membre" >Changer la photo membre :</label>
-				<input type="hidden" name="MAX_FILE_SIZE" value="2097152" />
-            <input type="file" name="photo_membre" id="photo_membre" />
-                
+				<input type="file" name="photo_membre" maxlength="1048576" accept="image/*" id="photo_membre" /> ( Taille limitée à 1Mo et format image uniquement )
+				
 				<input type="hidden" value="<?php echo $membre['id_membre'];?>" name="id"/>
 			</p>
 		</div>

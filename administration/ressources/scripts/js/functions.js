@@ -85,4 +85,3 @@ function check_form_contact()
   else
 		alert("Veuillez remplir tout les champs du formulaire.");
 }
-

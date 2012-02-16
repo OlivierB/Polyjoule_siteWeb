@@ -124,7 +124,7 @@ function add_member($pseudo, $mail, $statut)
 					Un administrateur vient de vous inscrire au système d\'administration du site Polyjoule.<br/>
 					Voici vos identifiants de connexion :<br/>
 					Pseudo : '.htmlspecialchars($pseudo, ENT_QUOTES).'<br/>
-					Mot de passe : '.htmlspecialchars(sha1($passwd), ENT_QUOTES).'.<br/>
+					Mot de passe : '.htmlspecialchars($passwd, ENT_QUOTES).'<br/>
 					Ce mot de passe a été généré automatiquement, vous pouvez le changer à partir de votre espace profil.<br/><br/>
 					
 					En vous remerciant de votre contribution.<br/><br/>
@@ -176,14 +176,20 @@ function exist_member($id)
 	return ($nb[0]==1);
 }
 
-function modify_member($id, $pseudo, $mail, $statut)
+function modify_member($id, $pseudo, $mail, $statut, $photo)
 {
 	if(exist_member($id))
 	{
 		$membre = get_member($id);
-		/* Construction du mail */
-		$subject = 'Inscription Administration Polyjoule';
-		$message = '<html>
+		
+		if(strtolower($pseudo) == $membre['pseudo_membre'] && $mail == $membre['mail_membre'] && $statut == $membre['statut_membre'] && $photo=="") // Si pas de modif à effectuer
+			return "";
+		else
+		{				
+			/* Construction du mail */
+			$subject = 'Administration Polyjoule - Changement d\'identifiants';
+			
+			$message = '<html>
 					<head>
 						<title></title>
 					</head>
@@ -193,7 +199,7 @@ function modify_member($id, $pseudo, $mail, $statut)
 						Un administrateur vient de procéder à un changement de vos identifiants<br/>
 						Voici vos nouveaux identifiants de connexion :<br/>
 						Pseudo : '.htmlspecialchars($pseudo, ENT_QUOTES).'<br/>
-						Mot de passe : '.htmlspecialchars($membre['mdp_membre'], ENT_QUOTES).'.<br/>
+						Staut : '.htmlspecialchars($statut, ENT_QUOTES).'<br/>
 						Vous pouvez changer vos identifiants à partir de votre espace profil.<br/><br/>
 						
 						En nous excusant de la gène occasionnée.<br/><br/>
@@ -201,15 +207,18 @@ function modify_member($id, $pseudo, $mail, $statut)
 					</body>
 				</html>';
 				
-		if(send_mail($mail, $subject, $message))
-		{
-			$req = "UPDATE MEMBRE SET pseudo_membre='".strtolower($pseudo)."',mail_membre='".$mail."',statut_membre='".$statut."' WHERE id_membre=".$id;
-			mysql_query($req) or die(mysql_error());
-			return "";
-		}
-		else
-		{
-			return "La modification a échoué.(<a href='index.php?page=gestionComptes&action=3&id[]=".$id."'>Retenter</a>)";
+			if(send_mail($mail, $subject, $message))
+			{
+				if($photo == "")
+					$photo = $membre['photo_membre'];
+				$req = "UPDATE MEMBRE SET pseudo_membre='".strtolower($pseudo)."',mail_membre='".$mail."',statut_membre='".$statut."', photo_membre='".$photo."' WHERE id_membre=".$id;
+				mysql_query($req) or die(mysql_error());
+				return "";
+			}
+			else
+			{
+				return "La modification a échoué.(<a href='index.php?page=gestionComptes&action=3&id[]=".$id."'>Retenter</a>)";
+			}
 		}
 	}
 	else

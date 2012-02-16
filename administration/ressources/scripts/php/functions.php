@@ -38,10 +38,78 @@ function create_title_bar($title, $icone)
 	return $barre;
 }
 
-
-function resize_picture($pict, $width, $height)
+function verify_picture($pict, $size_max)
 {
+	$ListeExtension = array('jpg' => 'image/jpg', 'jpeg' => 'image/jpeg', 'png' => 'image/png', 'gif' => 'image/gif');
+	$ListeExtensionIE = array('jpg' => 'image/pjpg', 'jpeg'=>'image/pjpeg');
+	
+	if (!empty($pict))
+	{
+		if ($pict['error'] <= 0)
+		{
+			if ($pict['size'] <= $size_max)
+			{
+				$ext = explode('.', $pict['name']);
+				$ext = strtolower($ext[count($ext)-1]);
+				if( in_array('image/'.$ext,$ListeExtension) || in_array('image/'.$ext,$ListeExtensionIE))
+				{
+					return "";
+				}
+				else
+					return "Mauvais format d'image.";
+			}
+			else
+				return "Taille de l'image trop élevée";
+		}
+		else
+			return "Erreur lors du transfert de l'image.";
+	}
+	else
+		return "Erreur lors du transfert de l'image.";
+}
 
+function delete_file($directory, $file_name)
+{
+	$dir = opendir ($directory);
+	unlink($directory."/".$file_name);	
+	closedir ($dir);
+}
+
+function save_picture($pict, $width, $height, $dest, $pict_name)
+{
+	$ext = explode('.', $pict['name']);
+	$ext = strtolower($ext[count($ext)-1]);
+	
+	$img_dest = imagecreate($width , $height);
+	imagecolorallocatealpha($img_dest, 0, 0, 0, 0);
+	
+	$taille = getimagesize($pict['tmp_name']);
+	
+	switch ($ext)
+	{
+		case "jpg":
+		case "jpeg": //pour le cas où l'extension est "jpeg"
+			$img_src = imagecreatefromjpeg( $pict['tmp_name'] );
+			imagecopyresampled($img_dest , $img_src, 0, 0, 0, 0, $width, $height, $taille[0], $taille[1]);
+			imagejpeg($img_dest , $dest.$pict_name.'.'.$ext);
+			break;
+
+		case "gif":
+			$img_src = imagecreatefromgif( $pict['tmp_name'] );
+			imagecopyresampled($img_dest , $img_src, 0, 0, 0, 0, $width, $height, $taille[0], $taille[1]);
+			imagegif($img_dest , $dest.$pict_name.'.'.$ext);
+			break;
+
+		case "png":
+			$img_src = imagecreatefrompng( $pict['tmp_name'] );
+			imagecopyresampled($img_dest , $img_src, 0, 0, 0, 0, $width, $height, $taille[0], $taille[1]);
+			imagepng($img_dest , $dest.$pict_name.'.'.$ext);
+			break;
+	}
+
+	imagedestroy($img_src);
+	imagedestroy($img_dest);
+	return $dest.$pict_name.'.'.$ext;
 
 }
 
