@@ -30,12 +30,12 @@ Structure du tableau d'informations
 	if($informations[0] === true)
 	{
 		$type = 'erreur';
-		$src = "ressources/design/style1/images/info.png";
+		$src = $_SESSION['design_path']."images/info.png";
 	}
 	else
 	{
 		$type = 'information';
-		$src = "ressources/design/style1/images/error.png";
+		$src = $_SESSION['design_path']."images/error.png";
 	}
 
 ?>

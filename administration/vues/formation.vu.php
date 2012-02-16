@@ -23,7 +23,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 		?>
 			<div class="contenu">
 		<?php
-			echo create_title_bar("Ajout d'une formation","ressources/design/style1/images/add_formation.png");
+			echo create_title_bar("Ajout d'une formation","add_formation.png");
 		?>
 				<form method="POST" action="index.php?page=formation&action=4" name="formAjout">
 					<div class="formulaire">
@@ -78,8 +78,8 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 						</p>
 				</form>
 				<div align="center">
-					<a href="javascript:document.formAjout.submit();"> <img src="ressources/design/style1/images/validate.png"/></a>
-					<a href="index.php?page=formation"> <img src="ressources/design/style1/images/cancel.png"/></a>
+					<a href="javascript:document.formAjout.submit();"> <img src="<?php echo $_SESSION['design_path']; ?>images/validate.png"/></a>
+					<a href="index.php?page=formation"> <img src="<?php echo $_SESSION['design_path']; ?>images/cancel.png"/></a>
 				</div>
 			</div>
 		<?php
@@ -88,7 +88,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 			?>
 				<div class="contenu">
 			<?php
-				echo create_title_bar("Mise à jour d'une formation","ressources/design/style1/images/modify_formation.png");
+				echo create_title_bar("Mise à jour d'une formation","modify_formation.png");
 				$formation=getFormation(securite($_GET['idformation']));
 			?>
 					<form method="POST" action="index.php?page=formation&action=5" name="formMAJ">
@@ -145,8 +145,8 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 							</p>
 					</form>
 					<div align="center">
-						<a href="javascript:document.formMAJ.submit();"> <img src="ressources/design/style1/images/validate.png"/></a>
-						<a href="index.php?page=formation"> <img src="ressources/design/style1/images/cancel.png"/></a>
+						<a href="javascript:document.formMAJ.submit();"> <img <?php echo $_SESSION['design_path']; ?>images/validate.png"/></a>
+						<a href="index.php?page=formation"> <img src="<?php echo $_SESSION['design_path']; ?>images/cancel.png"/></a>
 					</div>
 				</div>
 			<?php
@@ -177,7 +177,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 } else {
 	?>
 		<div class="contenu">
-			<?php echo create_title_bar("Gestion des formations", "ressources/design/style1/images/gestion_formation.png"); ?>
+			<?php echo create_title_bar("Gestion des formations", "gestion_formation.png"); ?>
 		<?php
 	if (isset($_GET['message'])) {
 		?>
@@ -218,7 +218,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 					</tr>
 					<tr>
 						<td>
-							<img src="ressources/design/style1/images/add_formation.png" />
+							<img src="<?php echo $_SESSION['design_path']; ?>images/add_formation.png" />
 						</td>
 						<td>
 							<a class="liens_Action"href="index.php?page=formation&action=1"> Ajouter une formation </a>

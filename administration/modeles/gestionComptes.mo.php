@@ -24,7 +24,8 @@ function get_members()
 			"pseudo_membre" => $membre["pseudo_membre"],
 			"mdp_membre" => $membre["mdp_membre"],
 			"mail_membre" => $membre["mail_membre"],
-			"statut_membre" => $membre["statut_membre"]);
+			"statut_membre" => $membre["statut_membre"],
+			"photo_membre" => $membre["photo_membre"]);
 		$i++;
 	}
 	return $membres;
@@ -81,16 +82,12 @@ function checkpseudo($pseudo)
 	}
 	else
 	{
-		$req = mysql_query("SELECT COUNT(*) AS nbr FROM MEMBRE WHERE pseudo_membre = '".securite($pseudo)."'");
-		$result = mysql_fetch_array($req);
+		$req = mysql_query("SELECT COUNT(*) AS nbr FROM MEMBRE WHERE pseudo_membre = '".strtolower(securite($pseudo))."'");
+		$result = mysql_fetch_assoc($req);
 		
 		if($result['nbr'] > 0)
 		{
 			return "Erreur de pseudo : déjà pris.";
-		}
-		if($pseudo=='admin')
-		{
-			return "Impossible d'utiliser le pseudo admin.";
 		}
 	}
 	return "";
@@ -127,7 +124,7 @@ function add_member($pseudo, $mail, $statut)
 					Un administrateur vient de vous inscrire au système d\'administration du site Polyjoule.<br/>
 					Voici vos identifiants de connexion :<br/>
 					Pseudo : '.htmlspecialchars($pseudo, ENT_QUOTES).'<br/>
-					Mot de passe : '.htmlspecialchars($passwd, ENT_QUOTES).'.<br/>
+					Mot de passe : '.htmlspecialchars(sha1($passwd), ENT_QUOTES).'.<br/>
 					Ce mot de passe a été généré automatiquement, vous pouvez le changer à partir de votre espace profil.<br/><br/>
 					
 					En vous remerciant de votre contribution.<br/><br/>
@@ -137,7 +134,7 @@ function add_member($pseudo, $mail, $statut)
 			
 	if(send_mail($mail, $subject, $message))
 	{
-		$req = mysql_query("INSERT INTO MEMBRE VALUES (NULL,'".$pseudo."','".sha1($passwd)."','".$mail."','".$statut."')");
+		$req = mysql_query("INSERT INTO MEMBRE VALUES (NULL,'".strtolower($pseudo)."','".sha1($passwd)."','".$mail."','".$statut."','ressources/data/Membres/defaut.png')") or die(mysql_error());
 		return "";
 	}
 	else
@@ -206,7 +203,7 @@ function modify_member($id, $pseudo, $mail, $statut)
 				
 		if(send_mail($mail, $subject, $message))
 		{
-			$req = "UPDATE MEMBRE SET pseudo_membre='".$pseudo."',mail_membre='".$mail."',statut_membre='".$statut."' WHERE id_membre=".$id;
+			$req = "UPDATE MEMBRE SET pseudo_membre='".strtolower($pseudo)."',mail_membre='".$mail."',statut_membre='".$statut."' WHERE id_membre=".$id;
 			mysql_query($req) or die(mysql_error());
 			return "";
 		}
@@ -250,7 +247,7 @@ function delete_members($toDelete)
 
 	return "";
 }
-?>
 
+?>
 
 

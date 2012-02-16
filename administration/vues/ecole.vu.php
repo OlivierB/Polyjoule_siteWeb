@@ -23,7 +23,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 		?>
 			<div class="contenu">
 		<?php
-			echo create_title_bar("Ajout d'une école","ressources/design/style1/images/add_ecole.png");
+			echo create_title_bar("Ajout d'une école","add_ecole.png");
 		?>
 				<form method="POST" action="index.php?page=ecole&action=4" name="formAjout" enctype="multipart/form-data">
 					<div class="formulaire">
@@ -75,8 +75,8 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 						</p>
 				</form>
 				<div align="center">
-					<a href="javascript:document.formAjout.submit();"> <img src="ressources/design/style1/images/validate.png"/></a>
-					<a href="index.php?page=ecole"> <img src="ressources/design/style1/images/cancel.png"/></a>
+					<a href="javascript:document.formAjout.submit();"> <img src="<?php echo $_SESSION['design_path']; ?>images/validate.png"/></a>
+					<a href="index.php?page=ecole"> <img src="<?php echo $_SESSION['design_path']; ?>images/cancel.png"/></a>
 				</div>
 			</div>
 		<?php
@@ -87,7 +87,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 				$ecole=getEcole($idEcole);
 				?>
 					<div class="contenu">
-						<?php echo create_title_bar("Mise à jour d'une école","ressources/design/style1/images/modify_ecole.png"); ?>
+						<?php echo create_title_bar("Mise à jour d'une école","modify_ecole.png"); ?>
 						<form method="POST" action="index.php?page=ecole&action=5" name="formMAJ">
 							<div class="formulaire">
 								<p>
@@ -141,8 +141,8 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 							</p>
 						</form>
 						<div align="center">
-							<a href="javascript:document.formMAJ.submit();"> <img src="ressources/design/style1/images/validate.png"/></a>
-							<a href="index.php?page=ecole"> <img src="ressources/design/style1/images/cancel.png"/></a>
+							<a href="javascript:document.formMAJ.submit();"> <img src="<?php echo $_SESSION['design_path']; ?>images/validate.png"/></a>
+							<a href="index.php?page=ecole"> <img src="<?php echo $_SESSION['design_path']; ?>images/cancel.png"/></a>
 						</div>
 					</div>
 				<?php
@@ -176,7 +176,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 } else {
 	?>
 		<div class="contenu">
-			<?php echo create_title_bar("Gestion des écoles", "ressources/design/style1/images/gestion_ecole.png"); ?>
+			<?php echo create_title_bar("Gestion des écoles", "gestion_ecole.png"); ?>
 		<?php
 	if (isset($_GET['message'])) {
 		?>
@@ -217,7 +217,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions)) {
 					</tr>
 					<tr>
 						<td>
-							<img src="ressources/design/style1/images/add_ecole.png" />
+							<img src="<?php echo $_SESSION['design_path']; ?>images/add_ecole.png" />
 						</td>
 						<td>
 							<a class="liens_Action"href="index.php?page=ecole&action=1"> Ajouter une école </a>

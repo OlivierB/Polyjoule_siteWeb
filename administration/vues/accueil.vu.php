@@ -7,7 +7,7 @@ page par défaut lors de l'affichage
 -->
 
 <div class="contenu" style="z-index:0;">
-	<?php echo create_title_bar("Panneau d'administration", "ressources/design/style1/images/admin.png"); 
+	<?php echo create_title_bar("Panneau d'administration", "admin.png"); 
 	
 	// affichage des erreurs ou succes
 	$infos->printInfos();

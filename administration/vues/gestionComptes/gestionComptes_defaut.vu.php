@@ -7,7 +7,7 @@ Réservé aux administrateurs
 
 <div class="contenu">
 	<?php
-		echo create_title_bar("Gestion des comptes", "ressources/design/style1/images/gestion_user.png");
+		echo create_title_bar("Gestion des comptes", "gestion_user.png");
 		
 		// affichage succès ou erreurs
 		$infos->printInfos();
@@ -52,7 +52,7 @@ Réservé aux administrateurs
 			</tr>
 			<tr>
 				<td>
-					<img src="ressources/design/style1/images/edit_user.png" />
+					<img src="<?php echo $_SESSION['design_path']; ?>images/edit_user.png" />
 				</td>
 				<td>
 					<a class="liens_Action"  href="#" onclick="window.location.href=recuperer_selection('checkMembre',<?php echo sizeof($membres);?>,'index.php?page=gestionComptes&action=3');" >Modifier les informations d'un utilisateur</a>
@@ -60,7 +60,7 @@ Réservé aux administrateurs
 			</tr>
 			<tr>
 				<td>
-					<img src="ressources/design/style1/images/delete_user.png" />
+					<img src="<?php echo $_SESSION['design_path']; ?>images/delete_user.png" />
 				</td>
 				<td>
 					<a class="liens_Action" href="#" onclick="window.location.href=recuperer_selection('checkMembre',<?php echo sizeof($membres);?>,'index.php?page=gestionComptes&action=5');" >Désinscrire un membre</a>
@@ -71,7 +71,7 @@ Réservé aux administrateurs
 			</tr>
 			<tr>
 				<td>
-					<img src="ressources/design/style1/images/add_user.png" />
+					<img src="<?php echo $_SESSION['design_path']; ?>images/add_user.png" />
 				</td>
 				<td>
 					<a class="liens_Action" href="index.php?page=gestionComptes&action=1" >Inscrire un utilisateur</a>

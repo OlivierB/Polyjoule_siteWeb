@@ -14,7 +14,7 @@
 
 // Permet la connexion au site
 function connexion($pseudo, $passe, &$infos) {
-	$req 	= mysql_query("SELECT COUNT(id_membre) AS nbr, id_membre, pseudo_membre, mdp_membre, statut_membre FROM MEMBRE WHERE pseudo_membre='".$pseudo."'") or die(mysql_error());
+	$req 	= mysql_query("SELECT COUNT(id_membre) AS nbr, id_membre, pseudo_membre, mdp_membre, statut_membre FROM MEMBRE WHERE pseudo_membre='".strtolower($pseudo)."'") or die(mysql_error());
 	$membre = mysql_fetch_array($req);
 	if($membre[0]==1)
 	{

@@ -9,7 +9,7 @@ Page d'aide
 
 <div class="contenu" align="center">
 				<?php
-					echo create_title_bar("Formulaire de contact", "ressources/design/style1/images/contact.png");
+					echo create_title_bar("Formulaire de contact", "contact.png");
 				?>
 				<form name="contact" action="index.php?page=aide&action=4" method="POST">
 					<label for="objet"><strong>Objet :</strong></label>

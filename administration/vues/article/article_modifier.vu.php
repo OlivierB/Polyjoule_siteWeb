@@ -8,7 +8,7 @@ Page de gestion des articles
 <!-- Barre de titre avec logo des actions possibles -->
 <div class="contenu">
 	<?php
-		echo create_title_bar("Modification d'un article", "ressources/design/style1/images/modify_article.png");
+		echo create_title_bar("Modification d'un article", "modify_article.png");
 		
 		// affichage succès ou erreurs
 		$infos->printInfos();
@@ -79,8 +79,8 @@ Page de gestion des articles
 		<noscript>mce:3</noscript>
 		
 		<div align="center">
-			<a href="javascript:valider_ajoutArticle();"> <img src="ressources/design/style1/images/validate.png"/></a>
-			<a href="index.php?page=article"> <img src="ressources/design/style1/images/cancel.png"/></a>
+			<a href="javascript:valider_ajoutArticle();"> <img src="<?php echo $_SESSION['design_path']; ?>images/validate.png"/></a>
+			<a href="index.php?page=article"> <img src="<?php echo $_SESSION['design_path']; ?>images/cancel.png"/></a>
 		</div>
 	</form>
 </div>

@@ -34,7 +34,7 @@ p {
 #connexion {
 	margin : 100px auto auto auto;
 	width:500px;
-	height:300px;
+	min-height:300px;
 	background-color : #406BA4;
 	border-radius : 10px;
 	border : 2px solid #FFFFFF;

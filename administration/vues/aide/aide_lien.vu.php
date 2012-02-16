@@ -9,6 +9,6 @@ Page d'aide
 
 <div class="contenu">
 	<?php
-	echo create_title_bar("Liens utiles", "ressources/design/style1/images/web.png");
+	echo create_title_bar("Liens utiles", "web.png");
 	?>
 </div>

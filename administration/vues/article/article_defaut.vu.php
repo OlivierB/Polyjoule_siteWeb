@@ -8,7 +8,7 @@ Page de gestion des articles
 
 <div class="contenu" align="center">
 	<?php
-		echo create_title_bar("Gestion des articles", "ressources/design/style1/images/gestion_article.png");
+		echo create_title_bar("Gestion des articles", "gestion_article.png");
 		
 		// affichage succès ou erreurs
 		$infos->printInfos();
@@ -80,7 +80,7 @@ Page de gestion des articles
 			</tr>
 			<tr>
 				<td>
-					<img src="ressources/design/style1/images/modify_article.png" />
+					<img src="<?php echo $_SESSION['design_path']; ?>images/modify_article.png" />
 				</td>
 				<td>
 					<a class="liens_Action" href="#" onclick="window.location.href=recuperer_selection('checkArticle',<?php echo sizeof($articles);?>,'index.php?page=article&action=2');">Modifier</a>
@@ -88,7 +88,7 @@ Page de gestion des articles
 			</tr>
 			<tr>
 				<td>
-					<img src="ressources/design/style1/images/delete_article.png" />
+					<img src="<?php echo $_SESSION['design_path']; ?>images/delete_article.png" />
 				</td>
 				<td>
 					<a class="liens_Action" href="#" onclick="window.location.href=recuperer_selection('checkArticle',<?php echo sizeof($articles);?>,'index.php?page=article&action=5');">Supprimer</a>
@@ -99,7 +99,7 @@ Page de gestion des articles
 			</tr>
 			<tr>
 				<td>
-					<img src="ressources/design/style1/images/add_article.png" />
+					<img src="<?php echo $_SESSION['design_path']; ?>images/add_article.png" />
 				</td>
 				<td>
 					<a class="liens_Action" href="index.php?page=article&action=1">Ajouter un article </a>

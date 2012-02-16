@@ -7,7 +7,7 @@ Réservé aux administrateurs
 	
 <div class="contenu">
 	<?php
-		echo create_title_bar("Inscription d'un membre", "ressources/design/style1/images/add_user.png");
+		echo create_title_bar("Inscription d'un membre", "add_user.png");
 		
 		// affichage succès ou erreurs
 		$infos->printInfos();
@@ -28,8 +28,8 @@ Réservé aux administrateurs
 		</div>
 	
 		<div align="center">
-			<a href="javascript:document.addUser.submit();"> <img src="ressources/design/style1/images/validate.png"/></a>
-			<a href="index.php?page=gestionComptes"> <img src="ressources/design/style1/images/cancel.png"/></a>
+			<a href="javascript:document.addUser.submit();"> <img src="<?php echo $_SESSION['design_path']; ?>images/validate.png"/></a>
+			<a href="index.php?page=gestionComptes"> <img src="<?php echo $_SESSION['design_path']; ?>images/cancel.png"/></a>
 		</div>
 		
 	</form>

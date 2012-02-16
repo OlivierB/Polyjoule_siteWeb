@@ -12,7 +12,7 @@ Page d'aide
 
 <div class="contenu">
 	<?php
-		echo create_title_bar("Besoin d'aide ?", "ressources/design/style1/images/help.png");
+		echo create_title_bar("Besoin d'aide ?", "help.png");
 	?>
 	<div align=center>
 		<br/><br/>

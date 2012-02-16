@@ -68,19 +68,20 @@ body {
 }
 
 #menuDeroulant .sousMenu {
-    border: 0 none;
-    display: none;
+	border: 0 none;
+	display: none;
 	margin : -10px auto auto 10px;
+	width : 160px;
 	
 }
 
 #menuDeroulant .sousMenu li {
-    border-left: 1px solid #FFFFFF;
+	border-left: 1px solid #FFFFFF;
 	border-right: 1px solid #FFFFFF;
-    float: none;
-    margin: 0;
-    padding: 0;
-    width: 148px;
+	float: none;
+	margin: 0;
+	padding: 0;
+	width: 148px;
 	font-size:80%;
 	text-align: center;
 	font-weight:normal;
@@ -88,13 +89,12 @@ body {
 }
 
 #menuDeroulant .sousMenu li a:link, #menuDeroulant .sousMenu li a:visited {
-    background: #1e2021;
-    border: 0 none;
-    color: black;
-    display: block;
-    margin: 0;
+	background: #1e2021;
+	border: 0 none;
+	color: black;
+	display: block;
+	margin: 0;
 	color : white;
-	z-index : 1;
 }
 #menuDeroulant .sousMenu li a:hover{
 	background-color : #63bdff;
@@ -112,7 +112,6 @@ body {
 	font-size : 120%;
 	color : #468093;
 	list-style-type : disc;
-	margin-top : -10px;
 }
 
 #editeur {
@@ -125,7 +124,7 @@ body {
 
 .contenu {
 	background-color : #FFFFFF;
-	margin : 0px auto auto auto;
+	margin : 10px auto auto auto;
 	border-left : 2px solid #468093;
 	border-right : 2px solid #468093;
 	border-top : 2px solid #468093;
@@ -194,7 +193,7 @@ body {
 {
 	background-color : #63bdff;
 }
-
+/*
 .validate{
 	font-size : 80%;
 	font-weight : normal;
@@ -215,7 +214,7 @@ body {
 	width : 50px;
 	height : 50px;
 }
-
+*/
 footer {
 	text-align : center;
 	font-family : arial;
@@ -294,6 +293,14 @@ ul#succes li {
 	color: #0D6919;
 	list-style-position: inside;
 	text-align : left;
+}
+
+.photo_membre {
+	background-color : #468093;
+	width : 80px;
+	height : 100px;
+	border : 2px solid #468093;
+	margin : auto auto 30px auto;
 }
 
 /* Infos */

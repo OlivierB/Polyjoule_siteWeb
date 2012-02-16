@@ -9,6 +9,6 @@ Page d'aide
 -->
 <div class="contenu">
 	<?php
-	echo create_title_bar("Aide administration", "ressources/design/style1/images/help.png");
+	echo create_title_bar("Aide administration", "help.png");
 	?>
 </div>

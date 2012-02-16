@@ -10,7 +10,7 @@ Page de gestion des articles -> ajout d'un article
 	
 	<!-- Barre de titre avec logo des actions possibles -->
 		<?php
-			echo create_title_bar("Ajout d'un article", "ressources/design/style1/images/add_article.png");
+			echo create_title_bar("Ajout d'un article", "add_article.png");
 			
 			// affichage succès ou erreurs
 			$infos->printInfos();
@@ -80,8 +80,8 @@ Page de gestion des articles -> ajout d'un article
 		<noscript>mce:3</noscript>
 		
 		<div align="center">
-			<a href="javascript:valider_ajoutArticle();"> <img src="ressources/design/style1/images/validate.png"/></a>
-			<a href="index.php?page=article"> <img src="ressources/design/style1/images/cancel.png"/></a>
+			<a href="javascript:valider_ajoutArticle();"> <img src="<?php echo $_SESSION['design_path']; ?>images/validate.png"/></a>
+			<a href="index.php?page=article"> <img src="<?php echo $_SESSION['design_path']; ?>images/cancel.png"/></a>
 		</div>
 	</form>
 </div>

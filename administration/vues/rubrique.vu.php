@@ -23,7 +23,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 	if ($action==1) { //ajouter une rubrique
 		?>
 			<div class="contenu">
-				<?php echo create_title_bar("Ajout d'une rubrique", "ressources/design/style1/images/add_rubrique.png"); ?>
+				<?php echo create_title_bar("Ajout d'une rubrique", "add_rubrique.png"); ?>
 				<div class="formulaire">
 					<form name="formAjout" method="post" action="index.php?page=rubrique&action=4">
 						<label for="titleFR" >Titre(FR) :</label>
@@ -57,8 +57,8 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 					</form>
 				</div>
 				<div align="center">
-						<a href="javascript:document.formAjout.submit();"> <img src="ressources/design/style1/images/validate.png"/></a>
-						<a href="index.php?page=rubrique"> <img src="ressources/design/style1/images/cancel.png"/></a>
+						<a href="javascript:document.formAjout.submit();"> <img src="<?php echo $_SESSION['design_path']; ?>images/validate.png"/></a>
+						<a href="index.php?page=rubrique"> <img src="<?php echo $_SESSION['design_path']; ?>images/cancel.png"/></a>
 				</div>
 			</div>
 		<?php
@@ -69,7 +69,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 				$rubrique=getRubrique($rubr);
 				?>
 					<div class="contenu">
-						<?php echo create_title_bar("Mise à jour d'une rubrique", "ressources/design/style1/images/modify_rubrique.png"); ?>
+						<?php echo create_title_bar("Mise à jour d'une rubrique", "modify_rubrique.png"); ?>
 						<div class="formulaire">
 							<form method="post" name="formAjout" action="index.php?page=rubrique&action=5">
 								<p>
@@ -109,8 +109,8 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 							</form>
 						</div>
 						<div align="center">
-							<a href="javascript:document.formAjout.submit();"> <img src="ressources/design/style1/images/validate.png"/></a>
-							<a href="index.php?page=rubrique"> <img src="ressources/design/style1/images/cancel.png"/></a>
+							<a href="javascript:document.formAjout.submit();"> <img src="<?php echo $_SESSION['design_path']; ?>images/validate.png"/></a>
+							<a href="index.php?page=rubrique"> <img src="<?php echo $_SESSION['design_path']; ?>images/cancel.png"/></a>
 						</div>
 					</div>
 				<?php
@@ -140,7 +140,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 } else {
 	?>
 		<div class="contenu" style="text-align:center;">
-			<?php echo create_title_bar("Gestion des rubriques", "ressources/design/style1/images/gestion_rubrique.png"); ?>
+			<?php echo create_title_bar("Gestion des rubriques", "gestion_rubrique.png"); ?>
 		<?php
 	if (isset($_GET['message'])) {
 		?>
@@ -189,7 +189,7 @@ if(isset($_GET['action']) && in_array($_GET['action'],$actions))
 					</tr>
 					<tr>
 						<td>
-							<img src="ressources/design/style1/images/add_rubrique.png" />
+							<img src="<?php echo $_SESSION['design_path']; ?>images/add_rubrique.png" />
 						</td>
 						<td>
 							<a class="liens_Action"href="index.php?page=rubrique&action=1"> Ajouter une rubrique </a>

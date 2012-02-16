@@ -29,7 +29,7 @@ function create_title_bar($title, $icone)
 	$barre ="
 		<div class='barre_titre'>
 			<div style='float:left'>
-				<img src='".$icone."' alt='icone_titre'>
+				<img src='".$_SESSION['design_path']."/images/".$icone."' alt='icone_titre'>
 			</div>
 			<div style='float:left; margin-top:10px; margin-left:20px;'>".$title."
 			</div>
@@ -39,11 +39,11 @@ function create_title_bar($title, $icone)
 }
 
 
+function resize_picture($pict, $width, $height)
+{
 
 
-
-
-
+}
 
 
 // Classe pour gérer les erreurs

@@ -15,11 +15,17 @@ session_start();
 // /!\ cette page doit être légère : elle est rechargée à chaque appel
 // script de co à la bdd
 include ("bdd/bdd_connexion.php");
+
+// création du PATH pour le style
+$_SESSION['design_path'] = "ressources/design/style1/";
+
 // fonctions de base
 include ("ressources/scripts/php/functions.php");
 
 // création d'un objet pour stoker les informations (erreurs et succes)
 $infos = new Informations ();
+
+
 
 // calcul de la page à afficher
 if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre'])) 
@@ -47,7 +53,7 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 	<head>
 		<meta charset="utf-8">
 		
-		<link rel="stylesheet" media="screen" type="text/css" title="design" href="ressources/design/style1/design.css"  />
+		<link rel="stylesheet" media="screen" type="text/css" title="design" href="<?php echo $_SESSION['design_path']; ?>/design.css"  />
 		<script type="text/JavaScript" src="ressources/scripts/js/functions.js"></script>
 		
 		<!-- Inclusion de tinyMCE et paramètrage -->
