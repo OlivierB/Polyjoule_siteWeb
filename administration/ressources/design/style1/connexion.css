@@ -116,3 +116,14 @@ ul#infos li {
 	list-style-position: inside;
 }
 
+a {
+	color : white;
+}
+
+a:hover{
+	color : #ff9900;
+}
+
+footer {
+	text-align : center;
+}

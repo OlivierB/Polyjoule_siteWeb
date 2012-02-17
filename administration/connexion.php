@@ -8,32 +8,13 @@
 * page de connexion de la partie admin
 *
 -->
-
 <?php
-
-// ouverure d'une session (ou reprise)
-session_start();
-
-// inclusion des fichiers de scripts
-include ("bdd/bdd_connexion.php");
-include ("ressources/scripts/php/functions.php");
-include ("modeles/connexion.mo.php");
-
-// création d'un objet pour stoker les informations (erreurs et succes)
-$infos = new Informations ();
-
-// gestion de l'identification d'un admin
-if(isset($_POST['login']) && $_POST['login']!="" && isset($_POST['passwd']) && $_POST['passwd']!="")
-{
-	$pseudo = securite ($_POST['login']);
-	$passe	= securite ($_POST['passwd']);
-	if (connexion ($pseudo, $passe, $infos))
-		header('Location: index.php');
-}
-
+	// calcul de la page à afficher
+	if (isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre'])) 
+	{	
+		header("Location : index.php");
+	}
 ?>
-
-
 
 <!DOCTYPE html>
 <html>
@@ -46,44 +27,13 @@ if(isset($_POST['login']) && $_POST['login']!="" && isset($_POST['passwd']) && $
 
 	<body>
 	
-		<div id='connexion'>
+		<?php
+			include("controleurs/connexion.co.php");
+		?>
 		
-			<div class="centre">
-				<h2>Service d'authentification du site Polyjoule</h2>
-				
-				<p>Pour vous identifier et accéder à l'interface d'administration, veuillez entrer 
-					vos codes personnels et valider en cliquant sur le bouton connexion.</p>
-			</div>
-			
-			<div id="cadena">
-				<img src="ressources/design/style1/images/lock.png"/>
-			</div>
-			
-			<div id="form_connexion">
-			
-				<form name="connexion" method="post" action="connexion.php">
-					<p>
-						<strong><label for="login">Login :</label></strong>
-						<input id="login" type="text" value="" name="login" onKeyPress="Submit_enter(this,event);"/>
-					</p>
-					<p>
-						<strong><label for="passwd">Password : </label></strong>
-						<input id="passwd" type="password" value="" name="passwd" onKeyPress="Submit_enter(this,event);"/>
-					</p>
-					<p id="bouton_connexion">
-						<a class="button" href="javascript:document.connexion.submit()" >Connexion</a>
-					</p>
-				</form>
-				
-				<?php
-				// affichage des erreurs
-				$infos->printInfos();
-				/*
-				if(isset($erreur))
-					echo $erreur;*/
-				?>
-			</div>
-		</div>
+		<footer>
+			Copyright &copy; Polyjoule 2012 - Tous droits réservés.
+		</footer>
 
 	</body>
 

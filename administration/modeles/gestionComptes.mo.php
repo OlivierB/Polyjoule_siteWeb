@@ -80,9 +80,13 @@ function checkpseudo($pseudo)
 	{
 		return "Erreur de pseudo : trop long.";
 	}
+	else if(strtolower($pseudo) == "admin")
+	{
+		return "Erreur de pseudo : déjà pris.";
+	}
 	else
 	{
-		$req = mysql_query("SELECT COUNT(*) AS nbr FROM MEMBRE WHERE pseudo_membre = '".strtolower(securite($pseudo))."'");
+		$req = mysql_query("SELECT COUNT(*) AS nbr FROM MEMBRE WHERE pseudo_membre = '".securite($pseudo)."'");
 		$result = mysql_fetch_assoc($req);
 		
 		if($result['nbr'] > 0)
@@ -101,8 +105,15 @@ function send_mail($mail, $subject, $message)
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 	//headers supplémentaires
-	$headers .= 'From: "Administration Polyjoule" <'.$_SESSION['mail_membre'].'>' . "\r\n";
-	ini_set('sendmail_from' , ''.$_SESSION['mail_membre'].''); 
+	if(isset($_SESSION['mail_membre']))
+	{
+		$headers .= 'From: "Administration Polyjoule" <'.$_SESSION['mail_membre'].'>' . "\r\n";
+		ini_set('sendmail_from' , ''.$_SESSION['mail_membre'].''); 
+	}
+	else
+	{
+		$headers .= 'From: Administration Polyjoule';
+	}
 	$mail = mail($to, $subject, $message, $headers);
 	if($mail) return true;
 	return false;
@@ -134,7 +145,7 @@ function add_member($pseudo, $mail, $statut)
 			
 	if(send_mail($mail, $subject, $message))
 	{
-		$req = mysql_query("INSERT INTO MEMBRE VALUES (NULL,'".strtolower($pseudo)."','".sha1($passwd)."','".$mail."','".$statut."','ressources/data/Membres/defaut.png')") or die(mysql_error());
+		$req = mysql_query("INSERT INTO MEMBRE VALUES (NULL,'".$pseudo."','".sha1($passwd)."','".$mail."','".$statut."','ressources/data/Membres/defaut.png')") or die(mysql_error());
 		return "";
 	}
 	else
@@ -182,7 +193,7 @@ function modify_member($id, $pseudo, $mail, $statut, $photo)
 	{
 		$membre = get_member($id);
 		
-		if(strtolower($pseudo) == $membre['pseudo_membre'] && $mail == $membre['mail_membre'] && $statut == $membre['statut_membre'] && $photo=="") // Si pas de modif à effectuer
+		if($pseudo == $membre['pseudo_membre'] && $mail == $membre['mail_membre'] && $statut == $membre['statut_membre'] && $photo=="") // Si pas de modif à effectuer
 			return "";
 		else
 		{				
@@ -211,7 +222,7 @@ function modify_member($id, $pseudo, $mail, $statut, $photo)
 			{
 				if($photo == "")
 					$photo = $membre['photo_membre'];
-				$req = "UPDATE MEMBRE SET pseudo_membre='".strtolower($pseudo)."',mail_membre='".$mail."',statut_membre='".$statut."', photo_membre='".$photo."' WHERE id_membre=".$id;
+				$req = "UPDATE MEMBRE SET pseudo_membre='".$pseudo."',mail_membre='".$mail."',statut_membre='".$statut."', photo_membre='".$photo."' WHERE id_membre=".$id;
 				mysql_query($req) or die(mysql_error());
 				return "";
 			}
