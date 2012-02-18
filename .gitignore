@@ -2,3 +2,8 @@
 *~
 rapport/rapport.tex
 *.log
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
