@@ -126,6 +126,8 @@ CREATE TABLE RUBRIQUE (
 	id_mere INT DEFAULT NULL, /* Une rubrique principale a null comme id_mere alors qu'une sous rubrique possede l'id de la rubrique mere ce qui crée une arborescence*/
 	titreFR_rubrique VARCHAR(100),
 	titreEN_rubrique VARCHAR(100),
+	descFR_rubrique TEXT,
+	descEN_rubrique TEXT,
 	PRIMARY KEY (id_rubrique)
 ) ENGINE=InnoDB;
 
