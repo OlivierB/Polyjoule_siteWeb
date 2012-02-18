@@ -1,42 +1,42 @@
 <!--
 /**********
-Page de gestion des rubriques
+Page de gestion des écoles
 
 **********/
 -->
 
 <div class="contenu" align="center">
 	<?php
-		echo create_title_bar("Gestion des rubriques","gestion_rubrique.png");
+		echo create_title_bar("Gestion des écoles","gestion_ecole.png");
 		
 		//affichage succès ou erreurs
 		$infos->printInfos();
 	?>
 	
 	<ul class="section_name">
-		<li>Liste des rubriques</li>
+		<li>Liste des écoles</li>
 	</ul>
 	
 	<table class="blue_tabular">
 		<tr class="blue_tabular_title">
 			<th class="blue_tabular_title">
-				Num Rubrique
+				Num école
 			</th> 
 			<th class="blue_tabular_title">
-				Titre de la rubrique (FR)
+				Nom de l'école
 			</th>
 			<th class="blue_tabular_title">
-				Titre de la rubrique (EN)
+				Adresse de l'école
 			</th>
 			<th class="blue_tabular_title">
-				Nb articles
+				Nb formations
 			</th>
 			<th class="blue_tabular_title">
 				Administration
 			</th>
 		</tr>
 		<?php
-			affichageRubriques(null,0);
+			affichageEcoles();
 		?>
 	</table>
 	<div align=center>
@@ -47,10 +47,10 @@ Page de gestion des rubriques
 			</tr>
 			<tr>
 				<td>
-					<img src="<?php echo $_SESSION['design_path']; ?>images/add_rubrique.png" />
+					<img src="<?php echo $_SESSION['design_path']; ?>images/add_ecole.png" />
 				</td>
 				<td>
-					<a class="liens_Action"href="index.php?page=rubrique&action=1"> Ajouter une rubrique </a>
+					<a class="liens_Action"href="index.php?page=ecole&action=1"> Ajouter une école </a>
 				</td>
 			</tr>
 		</table>

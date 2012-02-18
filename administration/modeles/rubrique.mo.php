@@ -164,42 +164,6 @@ function verificationBoucleRubrique($idRubrique,$idRubriqueMereNew) {
 	return $toReturn;
 }
 
-/*fonction qui renvoit le message en fonction du code de message*/
-function getMessage($idMessage) {
-/*
-	rubriqueAbsente : la rubrique est inexistante
-	procedureAnnulee : la procédure a été annulée
-	rubriqueSupprimee : votre rubrique a bien été supprimée
-	rubriqueAjoutee : votre rubrique a bien été ajoutée
-	erreurFormulaire : il y a une erreur dans le formulaire. veuillez recommancez.
-	rubriqueMAJ : votre rubrique a bien été mise à jour
-	rubriqueNonSelectionnee : on est sur la page rubrique/modification mais aucune rubrique n'est selectionnée
-	sansRubrique : il n'y a pas de rubrique dans la base de données
-	default : affichage du contenu du message
-*/
-	if ($idMessage=="rubriqueAbsente") {
-		return "La rubrique est inexistante.";
-	} else if ($idMessage=="procedureAnnulee") {
-		return "La procédure a été annulée.";
-	} else if ($idMessage=="rubriqueSupprimee") {
-		return "Votre rubrique a bien été supprimée.";
-	} else if ($idMessage=="rubriqueAjoutee") {
-		return "Votre rubrique a bien été ajoutée";
-	} else if ($idMessage=="erreurFormulaire") {
-		return "Il y a une erreur dans le formulaire. Veuillez recommencez.";
-	} else if ($idMessage=="rubriqueMAJ") {
-		return "Votre rubrique a bien été mise à jour.";
-	} else if ($idMessage=="rubriqueNonSelectionnee") {
-		return "Aucune rubrique sélectionnée.";
-	} else if ($idMessage=="sansRubrique") {
-		return "Il n'y a aucune rubrique présente dans la base de données.";
-	}/* else if ($idMessage=="") {
-		return "";
-	}*/ else {
-		return $idMessage;
-	}
-}
-
 /*fonction qui renvoie un tableau avec les informations de la rubrique idRubrique*/
 function getRubrique($idRubrique) {
 	$req = mysql_query("SELECT * FROM RUBRIQUE WHERE id_rubrique='".$idRubrique."';");
