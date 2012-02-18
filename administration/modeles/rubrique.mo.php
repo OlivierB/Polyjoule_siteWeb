@@ -112,6 +112,8 @@ function affichageRubriques($idMere,$niveau) {
 	}
 	$niveau++;
 	while ($rubrique=mysql_fetch_array($req)) {
+		$req2 = mysql_query("SELECT count(*) FROM ARTICLE WHERE id_rubrique='".$rubrique['id_rubrique']."'") or die(mysql_error());
+		$cpt=mysql_fetch_array($req2);
 		if($rubrique[0]!=null){
 			echo "<tr class='blue_tabular_cell'>";
 			echo "<td class='blue_tabular_cell'>".$rubrique[0]."</td>";
@@ -123,6 +125,7 @@ function affichageRubriques($idMere,$niveau) {
 			echo $rubrique[2];
 			echo "</td>";
 			echo "<td class='blue_tabular_cell'>".$rubrique[3]."</td>";
+			echo "<td class='blue_tabular_cell'>".$cpt[0]."</td>";
 			echo "<td class='blue_tabular_cell'>";
 			echo "<a href='index.php?page=rubrique&action=2&idRubrique=".$rubrique[0]."'>Modifier</a> - ";
 			echo "<a href='index.php?page=rubrique&action=3&idRubrique=".$rubrique[0]."'>Supprimer</a>";
@@ -140,7 +143,6 @@ function miseAJourRubriqueFilles($idRubriqueMere) {
 	while ($rubrique=mysql_fetch_array($req)) {
 		$req2="UPDATE RUBRIQUE SET id_mere=null WHERE id_rubrique=".$rubrique[0].";";
 		mysql_query($req2) or die(mysql_error());
-		mysql_free_result($req2);
 	}
 	mysql_free_result($req);
 }
@@ -216,80 +218,45 @@ function countRubrique() {
 
 /*fonction de suppression de rubrique*/
 function supprimerRubrique($idRubrique) {
-	if(isset($idRubrique)) {
-		if (rubriqueExistante($idRubrique)) {
-			$req = mysql_query("DELETE FROM RUBRIQUE WHERE `id_rubrique`=$idRubrique;");
-			mysql_free_result($req);
-			miseAJourRubriqueFilles($idRubrique);
-			header("Location: index.php?page=rubrique&message=rubriqueSupprimee");
-		} else {
-			header("Location: index.php?page=rubrique&message=rubriqueAbsente");
-		}
-	} else {
-		header("Location: index.php?page=rubrique");
-	}
+	$req = mysql_query("DELETE FROM RUBRIQUE WHERE `id_rubrique`=$idRubrique;");
+	miseAJourRubriqueFilles($idRubrique);
 }
 
 /*fonction d'ajout de rubrique*/
 function ajoutRubrique($titreFR,$titreEN,$rubrique,$descFR,$descEN) {
-	if ($titreFR!="" && $titreEN!="") {
-		if ($rubrique=='null') {
-			if ($baseDonnees==1) {
-				$req="INSERT INTO RUBRIQUE VALUES (NULL,NULL,'".$titreFR."','".$titreEN."','".$descFR."','".$descEN."')";
-			} else {
-				$req="INSERT INTO RUBRIQUE VALUES (NULL,NULL,'".$titreFR."','".$titreEN."')";
-			}
-			mysql_query($req) or die(mysql_error());
-			header("Location: index.php?page=rubrique&message=rubriqueAjoutee");
-		} else {
-			$req=mysql_query("SELECT * FROM RUBRIQUE WHERE id_rubrique='".$rubrique."';");
-			$result=mysql_fetch_array($req);
-			if (rubriqueExistante($result[0])) {
-				if ($baseDonnees==1) {
-					$req ="INSERT INTO RUBRIQUE  VALUES (NULL,'".$rubrique."','".$titreFR."','".$titreEN."','".$descFR."','".$descEN."')";
-				} else {
-					$req ="INSERT INTO RUBRIQUE  VALUES (NULL,'".$rubrique."','".$titreFR."','".$titreEN."')";
-				}
-				mysql_query($req) or die(mysql_error());
-				header("Location: index.php?page=rubrique&message=rubriqueAjoutee");
-			} else {
-				header("Location: index.php?page=rubrique&message=erreurFormulaire");
-			}
-		}
+	if ($rubrique=='null') {
+		$req="INSERT INTO RUBRIQUE VALUES (NULL,NULL,'".$titreFR."','".$titreEN."','".$descFR."','".$descEN."')";
+		mysql_query($req) or die(mysql_error());
 	} else {
-		header("Location: index.php?page=rubrique&message=erreurFormulaire");
+		$req=mysql_query("SELECT * FROM RUBRIQUE WHERE id_rubrique='".$rubrique."';");
+		$result=mysql_fetch_array($req);
+		if (rubriqueExistante($result[0])) {
+			$req ="INSERT INTO RUBRIQUE  VALUES (NULL,'".$rubrique."','".$titreFR."','".$titreEN."','".$descFR."','".$descEN."')";
+			mysql_query($req) or die(mysql_error());
+		} else {
+			$infos->addError ("La rubrique mère est inexistante.");
+			$error = true;
+			$sousPage="ajouter";
+		}
 	}
 }
 
 /*fonction de mise à jour de rubrique*/
 function MAJRubrique($rubrique,$titreFR,$titreEN,$rubrique_mere,$descFR,$descEN) {
-	if ($titreFR!="" && $titreEN!="") {
-		if ($rubrique_mere=='null') {
-			if ($baseDonnees==1) {
-				$req="UPDATE RUBRIQUE SET id_mere=NULL, titreFR_rubrique='".$titreFR."', titreEN_rubrique='".$titreEN."', descriptionFR_rubrique='".$descFR."', descriptionEN_rubrique='".$descEN."' WHERE id_rubrique=".$rubrique.";";
-			} else {
-				$req="UPDATE RUBRIQUE SET id_mere=NULL, titreFR_rubrique='".$titreFR."', titreEN_rubrique='".$titreEN."' WHERE id_rubrique=".$rubrique.";";
-			}
-			mysql_query($req) or die(mysql_error());
-			mysql_free_result($req);
-			header("Location: index.php?page=rubrique&message=rubriqueMAJ");
-		} else {
-			$req=mysql_query("SELECT * FROM RUBRIQUE WHERE id_rubrique=$rubrique");
-			$result=mysql_fetch_array($req);
-			if (rubriqueExistante($result[0])) {
-				if ($baseDonnees==1) {
-					$req ="UPDATE RUBRIQUE SET id_mere='".$rubrique_mere."', titreFR_rubrique='".$titreFR."', titreEN_rubrique='".$titreEN."', descriptionFR_rubrique='".$descFR."', descriptionEN_rubrique='".$descEN."' WHERE id_rubrique=".$rubrique.";";
-				} else {
-					$req ="UPDATE RUBRIQUE SET id_mere='".$rubrique_mere."', titreFR_rubrique='".$titreFR."', titreEN_rubrique='".$titreEN."' WHERE id_rubrique=".$rubrique.";";
-				}
-				mysql_query($req) or die(mysql_error());
-				header("Location: index.php?page=rubrique&message=rubriqueMAJ");
-			} else {
-				header("Location: index.php?page=rubrique&message=erreurFormulaire");
-			}
-		}
+	if ($rubrique_mere=='null') {
+		$req="UPDATE RUBRIQUE SET id_mere=NULL, titreFR_rubrique='".$titreFR."', titreEN_rubrique='".$titreEN."', descFR_rubrique='".$descFR."', descEN_rubrique='".$descEN."' WHERE id_rubrique=".$rubrique.";";
+		mysql_query($req) or die(mysql_error());
 	} else {
-		header("Location: index.php?page=rubrique&message=erreurFormulaire");
+		$req=mysql_query("SELECT * FROM RUBRIQUE WHERE id_rubrique=$rubrique");
+		$result=mysql_fetch_array($req);
+		if (rubriqueExistante($result[0])) {
+			$req ="UPDATE RUBRIQUE SET id_mere='".$rubrique_mere."', titreFR_rubrique='".$titreFR."', titreEN_rubrique='".$titreEN."', descFR_rubrique='".$descFR."', descEN_rubrique='".$descEN."' WHERE id_rubrique=".$rubrique.";";
+			mysql_query($req) or die(mysql_error());
+		} else {
+			$infos->addError ("La rubrique mère est inexistante.");
+			$error = true;
+			$sousPage="modifier";
+		}
 	}
 }
 ?>
