@@ -36,7 +36,7 @@ traitements
 			if (countEcole()>0) {
 				$sousPage = "ajouter";
 			} else {
-				$infos->addError ('Un école doit être crée avant de pouvoir créer une formation. (<a href="index.php?page=ecole&action=1">Accès rapide</a>)');
+				$infos->addError ('Une école doit être crée avant de pouvoir créer une formation. (<a href="index.php?page=ecole&action=1">Accès rapide</a>)');
 				$error = true;
 				$sousPage="defaut";
 			}

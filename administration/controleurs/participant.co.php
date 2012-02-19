@@ -34,7 +34,13 @@ traitements
 	switch ($action) {
 		/***** Ajouter un participant *****/
 		case 1 :
-			$sousPage="ajouter";
+			if (countEquipe()>0) {
+				$sousPage="ajouter";
+			} else {
+				$infos->addError ('Une équipe doit être crée avant de pouvoir ajouter un participant. (<a href="index.php?page=equipe&action=1">Accès rapide</a>)');
+				$error = true;
+				$sousPage="defaut";
+			}
 			break;
 		
 		/***** Modifier un participant *****/
@@ -110,6 +116,13 @@ traitements
 				$infos->addError ("Les champs ne sont pas tous renseignés.");
 				$error = true;
 				$sousPage="ajouter";
+			}
+			if ($error!=true) {
+				if (isset($_POST['equipe'])) {
+					$ecole=securite($_POST['equipe']);
+					$idPart=searchPart($nom,$prenom,$mail);
+					ajouterParticipation($idPart,$ecole);
+				}	
 			}
 			break;
 		

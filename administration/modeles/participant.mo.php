@@ -32,6 +32,40 @@ function affichageParticipant () {
 	mysql_free_result($req);
 }
 
+function searchPart($nom,$prenom,$mail) {
+	$req=mysql_query("SELECT * FROM PARTICIPANT WHERE nom_participant='".$nom."' AND prenom_participant='".$prenom."' AND mail_participant='".$mail."'  ORDER BY id_participant DESC;");
+	$toReturn=mysql_fetch_array($req);
+	mysql_free_result($req);
+	return $toReturn[0];
+}
+
+function ajouterParticipation($idPart,$ecole) {
+	$req="INSERT INTO COMPOSE VALUES ('".$idPart."','".$ecole."');";
+	mysql_query($req) or die(mysql_error());
+}
+
+function countEquipe(){
+	$req = mysql_query("SELECT count(*) FROM EQUIPE;");
+	$count=mysql_fetch_array($req);
+	mysql_free_result($req);
+	return $count[0];
+}
+
+function listeEquipe() {
+	if (countEquipe()>0) {
+		echo "<select name='equipe'>";
+		$req = mysql_query("SELECT * FROM EQUIPE;");
+		while($equipe=mysql_fetch_array($req))
+		{
+			echo "<option value='".$equipe[0]."'>- ".$equipe[1]."</option>";
+		}
+		echo "</select>";
+		mysql_free_result($req);
+	} else {
+		echo "<p>Vous devez d'abord créer une équipe afin de l'intégrer à une équipe.</p>";
+	}
+}
+
 function participantExistant($id) {
 	$req = mysql_query("SELECT * FROM PARTICIPANT WHERE `id_participant`=$id;");
 	$part=mysql_fetch_array($req);
@@ -70,6 +104,7 @@ function supprimerImageParticipant($id) {
 
 function supprimerParticipant($id) {
 	supprimerImageParticipant($id);
+	$req = mysql_query("DELETE FROM COMPOSE WHERE id_participant=$id;") or die(mysql_error());
 	$req = mysql_query("DELETE FROM PARTICIPANT WHERE id_participant=$id;") or die(mysql_error());
 }
 

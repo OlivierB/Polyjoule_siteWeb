@@ -65,14 +65,14 @@ function countEquipeParticipant($idPart) {
 }
 
 function supprimerEquipe($id) {
-	$req="DELETE FROM EQUIPE WHERE id_equipe='".$id."';";
-	mysql_query($req) or die(mysql_error());
 	$req=mysql_query("SELECT * FROM COMPOSE WHERE id_equipe='".$id."';") or die(mysql_error());
 	while ($compose=mysql_fetch_array($req)) {
 		if (countEquipeParticipant($compose['id_participant'])==1) {
 			supprimerParticipant($compose['id_participant']);
 		}
 	}
+	$req="DELETE FROM EQUIPE WHERE id_equipe='".$id."';";
+	mysql_query($req) or die(mysql_error());
 }
 
 ?>

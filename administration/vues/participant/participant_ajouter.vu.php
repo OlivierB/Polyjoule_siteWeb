@@ -25,6 +25,9 @@ Page d'inscription d'un participant
 				<label for="role" >Rôle : </label>
 				<input type="text" size="50" value="" name="role"/><br/>
 				
+				<label for="equipe" >Équipe : </label>
+				<?php listeEquipe(); ?><br />
+				
 				<label for="photo">Photo : </label>
 				<input type="file" name="photo" maxlength="1048576" accept="image/*"/>
 		</div>
