@@ -39,12 +39,32 @@ function get_articles()
 			"auteur_article" => $art["auteur_article"],
 			"statut_article" => $art["statut_article"],
 			"autorisation_com" => $art["autorisation_com"],
-			"date_article" => $art["date_article"] );
+			"date_article" => $art["date_article"],
+			"commentaires" => get_commentaires($art["id_article"]));
 		$i++;
 	}
 	return $articles;
 }
 
+function get_commentaires($id)
+{
+	$coms = array();
+	$i = 0;
+	$req = mysql_query('SELECT * FROM COMMENTAIRE WHERE id_article='.$id);
+	while($com = mysql_fetch_array($req))
+	{
+		$coms[$i] = array(
+			"id_commentaire" => $com["id_commentaire"],
+			"id_article" => $com["id_article"],
+			"date_commentaire" => $com["date_commentaire"],
+			"posteur_commentaire" => $com["posteur_commentaire"],
+			"mail_commentaire" => $com["mail_commentaire"],
+			"message_commentaire" => $com["message_commentaire"]);
+		$i++;
+	}
+	return $coms;
+}
+	
 function get_article($id)
 {
 	$req = mysql_query('SELECT * FROM ARTICLE WHERE id_article='.$id);

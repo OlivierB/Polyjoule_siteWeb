@@ -81,7 +81,8 @@ function verify_picture($pict, $size_max)
 function delete_file($directory, $file_name)
 {
 	$dir = opendir ($directory);
-	unlink($directory."/".$file_name);	
+	if(file_exists($directory."/".$file_name))
+		unlink($directory."/".$file_name);	
 	closedir ($dir);
 }
 

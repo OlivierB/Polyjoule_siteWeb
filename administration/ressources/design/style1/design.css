@@ -204,17 +204,17 @@ footer {
 	font-size : 140%;
 	font-weight:bold;
 	height : 50px;
-	border-bottom : 1px solid #cccccc;
+	border-bottom : 1px solid #468093;
 }
 
 .liens_Action,.liens_Action:visited {
 	color : #468093;
-	font-size : 120%;
+	font-size : 110%;
 }
 
 .liens_Action:hover {
 	color : #009de1;
-	font-size : 120%;
+	font-size : 110%;
 }
 
 .formulaire {
@@ -240,7 +240,32 @@ footer {
 }
 
 
+.commentaire {
+	text-align : left;
+	padding : 10px;
+	margin : auto auto auto auto;
+	width : 800px;
+	border-bottom : 1px solid #468093;
+}
 
+.commentaire .posteur{
+	color : #468093;
+	font-size : 110%;
+	font-weight : bold;
+}
+.commentaire .mail{
+	margin-left : 20px;
+	font-style : italic;
+}
+.commentaire .message{
+	margin-left : 50px;
+	font-style : italic;
+}
+.commentaire .date{
+	margin-left : 20px;
+	margin-right : 20px;
+	color : grey;
+}
 /* Erreurs et succès */
 ul#errors {
 	list-style-type: none;

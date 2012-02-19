@@ -12,14 +12,15 @@ traitements
 	
 
 
-	$actions = array(1,2,3,4,5); // Tableau des actions possibles
+	$actions = array(1,2,3,4,5,6); // Tableau des actions possibles
 	/*
 		Action 1 : Ajouter article
 		Action 2 : Modifier article
 		Action 3 : Traitement d'ajout d'un article
 		Action 4 : Traitement de mise à jour d'un article
 		Action 5 : Traitement de suppression d'un article
-		Defaut 	 : Gestion des rubriques
+		Action 6 : Gestion des commentaires
+		Defaut 	 : Gestion des articles
 	*/
 
 
@@ -53,11 +54,6 @@ traitements
 		break;
 
 		case 2: 
-			if(countRubrique()==0)
-			{
-				$infos->addError ('Impossible de créer un article, veuillez créer une rubrique avant ! (<a href="index.php?page=rubrique&action=1">Acces rapide</a>)');
-				$error = true;
-			}
 			if( !isset($_GET['id']) || sizeof($_GET['id'])==0 )
 			{
 				$infos->addError ('Aucun article sélectionné. (<a href="index.php?page=article">Acces rapide</a>)');
@@ -113,7 +109,7 @@ traitements
 			if(isset($_POST['id']) && isset($_POST['titleFR']) && isset($_POST['titleEN']) && isset($_POST['rubrique']) && isset($_POST['statut']) && isset($_POST['commentaire']) && isset($_POST['contenuFR']) && isset($_POST['contenuEN']) && isset($_SESSION['pseudo_membre']))
 			{
 				modify_article(securite($_POST['id']),securite($_POST['titleFR']),securite($_POST['titleEN']),securite($_POST['rubrique']),securite($_POST['statut']),securite($_POST['commentaire']),securite($_POST['contenuFR']),securite($_POST['contenuEN']), $_SESSION['pseudo_membre']);
-				$infos->addSucces ("Modification de l'article effectué");
+				$infos->addSucces ("Modification de l'article effectuée");
 				$sousPage 	= "defaut";
 			} else
 			{
@@ -140,7 +136,38 @@ traitements
 			}
 			$sousPage 	= "defaut";
 		break;
-
+		
+		case 6:
+			if( !isset($_GET['id']) || sizeof($_GET['id'])==0 )
+			{
+				$infos->addError ('Aucun article sélectionné. (<a href="index.php?page=article">Acces rapide</a>)');
+				$error = true;
+			}
+			else if(sizeof($_GET['id'])>1)
+			{
+				$infos->addError ('Veuillez sélectionner qu\'un seul article à la fois. (<a href="index.php?page=article">Acces rapide</a>)');
+				$error = true;
+			}
+			else
+			{
+				$id = securite($_GET['id'][0]);
+				if( !exist_article($id))
+				{
+					$infos->addError ("L'article n'existe pas dans la base.");
+					$error = true;
+				}
+				// calcul de la sous-page
+				if ($error)
+				{
+					$sousPage = "defaut";
+				}
+				else
+				{
+					header("Location: index.php?page=commentaire&id_article=".$id);
+				}
+			}
+		break;
+		
 		default:
 			$sousPage 	= "defaut";
 		break;

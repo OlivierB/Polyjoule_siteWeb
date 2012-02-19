@@ -45,6 +45,9 @@ Page de gestion des articles
 			<th class="blue_tabular_title">
 				Date d'ajout
 			</th>
+			<th class="blue_tabular_title">
+				Nombre de commentaires
+			</th>
 		</tr>
 		
 		<?php
@@ -66,7 +69,9 @@ Page de gestion des articles
 				echo "<td class='blue_tabular_cell'>En ligne</td>";
 			else
 				echo "<td class='blue_tabular_cell'> -- </td>";
-			echo "<td class='blue_tabular_cell'>".$articles[$i]["date_article"]."</td></tr>";
+			echo "<td class='blue_tabular_cell'>".$articles[$i]["date_article"]."</td>";
+			
+			echo"<td class='blue_tabular_cell'>".sizeof($articles[$i]["commentaires"])."</td></tr>";
 			
 		}
 		
@@ -92,6 +97,14 @@ Page de gestion des articles
 				</td>
 				<td>
 					<a class="liens_Action" href="#" onclick="window.location.href=recuperer_selection('checkArticle',<?php echo sizeof($articles);?>,'index.php?page=article&action=5');">Supprimer</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<img src="<?php echo $_SESSION['design_path']; ?>images/gestion_comment.png" />
+				</td>
+				<td>
+					<a class="liens_Action" href="#" onclick="window.location.href=recuperer_selection('checkArticle',<?php echo sizeof($articles);?>,'index.php?page=article&action=6');">Gerer les commentaires</a>
 				</td>
 			</tr>
 			<tr>

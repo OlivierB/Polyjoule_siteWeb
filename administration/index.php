@@ -64,7 +64,7 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 		<title>Polyjoule-Administration</title>
 	</head>
 
-	<body>
+	<body id="body">
 		<div id="entete">
 		</div>
 		<div id="menu">	
