@@ -7,3 +7,4 @@ rapport/rapport.tex
 *.out
 *.toc
 *.synctex.gz
+administration/bdd/bdd_connexion.php
