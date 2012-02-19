@@ -18,9 +18,9 @@ function affichageParticipant () {
 		$req2 = mysql_query("SELECT count(*) FROM COMPOSE WHERE id_participant='".$part[0]."'") or die(mysql_error());
 		$cpt=mysql_fetch_array($req2);
 		echo "<tr class='blue_tabular_cell'>";
+			echo "<td class='blue_tabular_cell'>".$part[1]."</td>";
 			echo "<td class='blue_tabular_cell'>".$part[2]."</td>";
-			echo "<td class='blue_tabular_cell'>".$part[3]."</td>";
-			echo "<td class='blue_tabular_cell'>".$part[6]."</td>";
+			echo "<td class='blue_tabular_cell'>".$part[5]."</td>";
 			echo "<td class='blue_tabular_cell'>".$cpt[0]."</td>";
 			echo "<td class='blue_tabular_cell'>";
 			echo "<a href='index.php?page=participant&action=2&idParticipant=".$part[0]."'>Modifier</a> - ";
@@ -51,13 +51,11 @@ function getParticipant($id) {
 }
 
 function ajouterParticipant($nom,$prenom,$mail,$role,$path,$bioFR,$bioEN) {
-	$equipe=1;
-	$req="INSERT INTO PARTICIPANT VALUES (NULL,'".$equipe."','".$nom."','".$prenom."','".$path."','".$mail."','".$role."','".$bioFR."','".$bioEN."');";
+	$req="INSERT INTO PARTICIPANT VALUES (NULL,'".$nom."','".$prenom."','".$path."','".$mail."','".$role."','".$bioFR."','".$bioEN."');";
 	mysql_query($req) or die(mysql_error());
 }
 
 function MAJParticipant($id,$nom,$prenom,$mail,$role,$bioFR,$bioEN) {
-	$equipe=1;//`id_equipe`='".$equipe."',
 	$req="UPDATE PARTICIPANT SET nom_participant='".$nom."',prenom_participant='".$prenom."',mail_participant='".$mail."',role_participant='".$role."',bioFR_participant='".$bioFR."',bioEN_participant='".$bioEN."' WHERE id_participant='".$id."';";
 	mysql_query($req) or die(mysql_error());
 }

@@ -15,12 +15,12 @@ Page de modification d'un participant
 		<div class="formulaire">
 			<input type="text" hidden="hidden" name="id" value="<?php echo $idPart; ?>" />
 			
-			<label for="nom" >Nom : </label><?php echo $part[2]; ?><br /><br />
+			<label for="nom" >Nom : </label><?php echo $part[1]; ?><br /><br />
 			
-			<label for="prenom" >Prénom : </label><?php echo $part[3]; ?><br /><br />
+			<label for="prenom" >Prénom : </label><?php echo $part[2]; ?><br /><br />
 			
 			<label for="anciennePhoto">Photo : </label>
-			<img src="<?php echo $part[4]; ?>"/><br />
+			<img src="<?php echo $part[3]; ?>"/><br />
 			<input type="file" name="photo" maxlength="1048576" accept="image/*"/>
 			
 		</div>

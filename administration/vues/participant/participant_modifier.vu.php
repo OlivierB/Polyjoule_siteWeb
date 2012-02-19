@@ -16,19 +16,19 @@ Page de modification d'un participant
 			<input type="text" hidden="hidden" name="id" value="<?php echo $idPart; ?>" />
 			
 			<label for="nom" >Nom : </label>
-			<input type="text" size="50" value="<?php echo $part[2]; ?>" name="nom"/><br/>
+			<input type="text" size="50" value="<?php echo $part[1]; ?>" name="nom"/><br/>
 			
 			<label for="prenom" >Prénom : </label>
-			<input type="text" size="50" value="<?php echo $part[3]; ?>" name="prenom"/><br/>
+			<input type="text" size="50" value="<?php echo $part[2]; ?>" name="prenom"/><br/>
 			
 			<label for="mail" >Mail : </label>
-			<input type="email" size="50" value="<?php echo $part[5]; ?>" name="mail"/><br/>
+			<input type="email" size="50" value="<?php echo $part[4]; ?>" name="mail"/><br/>
 			
 			<label for="role" >Rôle : </label>
-			<input type="text" size="50" value="<?php echo $part[6]; ?>" name="role"/><br/>
+			<input type="text" size="50" value="<?php echo $part[5]; ?>" name="role"/><br/>
 			
 			<label for="photo">Photo : </label>
-			<img src="<?php echo $part[4]; ?>"/>
+			<img src="<?php echo $part[3]; ?>"/>
 		</div>
 		
 		<div  class="editor" id="bioFR" name="bioFR" align="center">
@@ -40,7 +40,7 @@ Page de modification d'un participant
 			  name = "bioFR";
 			  cols = 120;
 			  rows = 25;
-			  value = "<?php echo mysql_real_escape_string($part[7]);?>";
+			  value = "<?php echo mysql_real_escape_string($part[6]);?>";
 			}
 		  }
 		//-->
@@ -59,7 +59,7 @@ Page de modification d'un participant
 			  name = "bioEN";
 			  cols = 120;
 			  rows = 25;
-			  value = "<?php echo mysql_real_escape_string($part[8]);?>";
+			  value = "<?php echo mysql_real_escape_string($part[7]);?>";
 			}
 		  }
 		//-->
