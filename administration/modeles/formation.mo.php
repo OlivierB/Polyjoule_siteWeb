@@ -11,29 +11,6 @@
 -->
 
 <?php
-function getMessage($idMessage) {
-/*
-	erreurFormulaire : Il y a une erreur dans le formulaire. Veuillez recommencez.
-	formationAjoutee : La formation a bien été ajoutée.
-	formationSupprimee : La formation a bien été supprimée.
-	formationMAJ : La formation a bien été mise à jour.
-	default : affichage du contenu du message
-*/
-	
-	if ($idMessage=="erreurFormulaire") {
-		$toReturn = "Il y a une erreur dans le formulaire. Veuillez recommencez.";
-	} else if ($idMessage=="formationAjoutee") {
-		$toReturn = "La formation a bien été ajoutée.";
-	} else if ($idMessage=="formationSupprimee") {
-		$toReturn = "La formation a bien été supprimée.";
-	} else if ($idMessage=="formationMAJ") {
-		$toReturn = "La formation a bien été mise à jour.";
-	} else {
-		$toReturn = $idMessage;
-	}
-	
-	return $toReturn;
-}
 
 function getFormation ($id) {
 	$req = mysql_query("SELECT * FROM FORMATION WHERE id_formation=$id;");
