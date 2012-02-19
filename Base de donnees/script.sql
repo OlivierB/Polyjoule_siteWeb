@@ -11,7 +11,6 @@ CREATE TABLE EQUIPE (
 DROP TABLE IF EXISTS PARTICIPANT ;
 CREATE TABLE PARTICIPANT (
 	id_participant INT AUTO_INCREMENT NOT NULL,
-	id_equipe INT NOT NULL,
 	nom_participant VARCHAR(30),
 	prenom_participant VARCHAR(30),
 	photo_participant VARCHAR(100),

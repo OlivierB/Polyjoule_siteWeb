@@ -31,39 +31,39 @@ traitements
 	
 	switch ($action) {
 		/***** Ajout d'une equipe *****/
-		case  :
+		case 1 :
 			
 			break;
 		
 		/***** Modification d'une equipe *****/
-		case  :
+		case 2 :
 			
 			break;
 		
 		/***** Suppression d'une equipe *****/
-		case  :
+		case 3 :
 			
 			break;
 		
 		/***** Traitement ajout *****/
-		case  :
+		case 4 :
 			
 			break;
 		
 		/***** Traitement MAJ *****/
-		case  :
+		case 5 :
 			
 			break;
 		
 		/***** Traitement suppression *****/
-		case  :
+		case 6 :
 			
 			break;
 		
 		/***** Affichage page d'accueil *****/
-		default  :
-			
+		default :
+			$sousPage="defaut";
 			break;
 	}
-	
+	include ('vues/equipe/equipe_'.$sousPage.'.vu.php');
 ?>
