@@ -8,14 +8,14 @@
 		<div class="formulaire">
 			<p>
 				<input type="text" name="id" hidden="hidden" value="<?php echo $formation[0]; ?>" />
-				<label for="titreFR" style="float : left;"><strong>Nom (FR)</strong> :</label>
-				<input type="text" style="margin-left:10px;" size="60" value="<?php echo $formation[2]; ?>" name="nomFR"/><br/><br/>
-				<label for="titreEN" style="float : left;"><strong>Nom (EN)</strong> :</label>
-				<input type="text" style="margin-left:10px;" size="60" value="<?php echo $formation[3]; ?>" name="nomEN"/><br/><br/>
-				<label for="idEcole" style="float : left;"><strong>Nom de l'école</strong> :</label>
+				<label for="titreFR"><strong>Nom (FR)</strong> :</label>
+				<input type="text" size="60" value="<?php echo $formation[2]; ?>" name="nomFR"/><br/><br/>
+				<label for="titreEN"><strong>Nom (EN)</strong> :</label>
+				<input type="text" size="60" value="<?php echo $formation[3]; ?>" name="nomEN"/><br/><br/>
+				<label for="idEcole"><strong>Nom de l'école</strong> :</label>
 				<?php listeEcoleSelect($formation[1]); ?><br/><br/>
-				<label for="lien" style="float : left;"><strong>Site internet</strong> :</label>
-				<input type="url" style="margin-left:10px;" size="60" value="<?php echo $formation[4]; ?>" name="lien"/>
+				<label for="lien"><strong>Site internet</strong> :</label>
+				<input type="url" size="60" value="<?php echo $formation[4]; ?>" name="lien"/>
 			</p>
 		</div>
 		<p>
