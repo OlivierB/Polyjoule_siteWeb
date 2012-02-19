@@ -19,11 +19,15 @@ function getFormation ($id) {
 	return $toReturn;
 }
 
-function listeEcole() {
+function countEcole() {
 	$req = mysql_query("SELECT count(*) FROM ECOLE;");
 	$count=mysql_fetch_array($req);
 	mysql_free_result($req);
-	if ($count[0]>0) {
+	return $count[0];
+}
+
+function listeEcole() {
+	if (countEcole()>0) {
 		echo "<select name='ecole'>";
 		$req2 = mysql_query("SELECT * FROM ECOLE;");
 		while($ecole=mysql_fetch_array($req2))
@@ -38,10 +42,7 @@ function listeEcole() {
 }
 
 function listeEcoleSelect($id) {
-	$req = mysql_query("SELECT count(*) FROM ECOLE;");
-	$count=mysql_fetch_array($req);
-	mysql_free_result($req);
-	if ($count[0]>0) {
+	if (countEcole()>0) {
 		echo "<select name='ecole'>";
 		$req2 = mysql_query("SELECT * FROM ECOLE;");
 		while($ecole=mysql_fetch_array($req2))
