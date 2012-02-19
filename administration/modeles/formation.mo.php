@@ -107,13 +107,16 @@ function formationExistante($id) {
 function affichageFormations() {
 	$req = mysql_query("SELECT * FROM FORMATION NATURAL JOIN ECOLE ORDER BY `id_formation`");
 	while ($formation=mysql_fetch_array($req)) {
+		$req2 = mysql_query("SELECT count(*) FROM APPARTIENT WHERE id_formation='".$formation['id_formation']."'") or die(mysql_error());
+		$cpt=mysql_fetch_array($req2);
 		echo "<tr class='blue_tabular_cell'>";
 		echo "<td class='blue_tabular_cell'>".$formation['id_formation']."</td>";
 		echo "<td class='blue_tabular_cell'>".$formation['titreFR_formation']."</td>";
 		echo "<td class='blue_tabular_cell'>".$formation['nom_ecole']."</td>";
+		echo "<td class='blue_tabular_cell'>".$cpt[0]."</td>";
 		echo "<td class='blue_tabular_cell'>";
 		echo "<a href='index.php?page=formation&action=2&idformation=".$formation['id_formation']."'>Modifier</a> - ";
-		echo "<a href='index.php?page=formation&action=6&idformation=".$formation['id_formation']."'>Supprimer</a>";
+		echo "<a href='index.php?page=formation&action=3&idformation=".$formation['id_formation']."'>Supprimer</a>";
 		echo "</td>";
 		echo "</tr>";
 	}
@@ -121,42 +124,16 @@ function affichageFormations() {
 }
 
 function ajouterFormation($nomFR,$nomEN,$idEcole,$lien,$descFR,$descEN) {
-	if (ecoleExistante($idEcole)) {
-		if ($nomFR!="" && $nomEN!="" && $idEcole!="") {
-			$req="INSERT INTO FORMATION VALUES (NULL,'".$idEcole."','".$nomFR."','".$nomEN."','".$lien."','".$descFR."','".$descEN."')";
-			mysql_query($req) or die(mysql_error());
-			mysql_free_result($req);
-			header("Location: index.php?page=formation&message=formationAjoutee");
-		} else {
-			header("Location:index.php?page=formation&message=erreurFormulaire");
-		}
-	} else {
-		header("Location:index.php?page=formation&message=erreurFormulaire");
-	}
+	$req="INSERT INTO FORMATION VALUES (NULL,'".$idEcole."','".$nomFR."','".$nomEN."','".$lien."','".$descFR."','".$descEN."')";
+	mysql_query($req) or die(mysql_error());
 }
 
 function MAJFormation($id,$nomFR,$nomEN,$idEcole,$lien,$descFR,$descEN) {
-	if (ecoleExistante($idEcole) && formationExistante($id)) {
-		if ($nomFR!="" && $nomEN!="" && $idEcole!="") {
-			$req="UPDATE FORMATION SET id_ecole='".$idEcole."', titreFR_formation='".$nomFR."', titreEN_formation='".$nomEN."', lien_formation='".$lien."', descFR_formation='".$descFR."', descEN_formation='".$descEN."' WHERE id_formation='".$id."';";
-			mysql_query($req) or die(mysql_error());
-			mysql_free_result($req);
-			header("Location: index.php?page=formation&message=formationMAJ");
-		} else {
-			header("Location:index.php?page=formation&message=erreurFormulaire");
-		}
-	} else {
-		header("Location:index.php?page=formation&message=erreurFormulaire");
-	}
+	$req="UPDATE FORMATION SET id_ecole='".$idEcole."', titreFR_formation='".$nomFR."', titreEN_formation='".$nomEN."', lien_formation='".$lien."', descFR_formation='".$descFR."', descEN_formation='".$descEN."' WHERE id_formation='".$id."';";
+	mysql_query($req) or die(mysql_error());
 }
 
 function supprimerFormation($id) {
-	if ($id!="") {
-		$req = mysql_query("DELETE FROM FORMATION WHERE id_formation=$id;");
-		mysql_free_result($req);
-		header("Location: index.php?page=formation&message=formationSupprimee");
-	} else {
-		header("Location: index.php?page=formation&message=erreurFormulaire");
-	}
+	$req = mysql_query("DELETE FROM FORMATION WHERE id_formation=$id;") or die(mysql_error());
 }
 ?>

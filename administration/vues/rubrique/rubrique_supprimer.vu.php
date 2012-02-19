@@ -7,7 +7,7 @@ Page de gestion des rubriques -> suppression d'une rubrique
 
 <div class="contenu">
 	<?php
-		echo create_title_bar("Ajout d'une rubrique", "modify_rubrique.png"); 
+		echo create_title_bar("Supprimession d'une rubrique", "modify_rubrique.png"); 
 		$infos->printInfos();
 	?>
 	<div class="formulaire">
