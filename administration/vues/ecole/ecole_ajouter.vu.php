@@ -11,7 +11,6 @@
 			<input type="text" size="60" value="" name="adresse"/><br /><br />
 			<label for="photo"><strong>Photo de l'école</strong> : </label>
 			<input type="file" name="photo" maxlength="1048576" accept="image/*"/><br /><br />
-			<input type="text" hidden="hidden" name="photo" value=""/>
 		</div>
 			<p>
 				<!-- descFR -->

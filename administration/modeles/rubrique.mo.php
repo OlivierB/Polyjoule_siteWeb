@@ -11,7 +11,6 @@
 -->
 
 <?php
-$baseDonnees=0; //si les modifications de la base de données ont été faites (descriptions rubriques par exemple) égal à 1, 0 sinon.
 
 /*Fait la liste des rubriques*/
 function listeRubrique(){
