@@ -88,7 +88,7 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 							<div class="menuH"></div>
 								<li><a href="index.php?page=equipe">Gestion des équipes</a></li>
 								<li><a href="index.php?page=participant">Gestion des participants</a></li>
-								<li><a href="#">#Gestion des participations</a></li>
+								<li><a href="index.php?page=participation">Gestion des participations</a></li>
 							<div class="menuB"></div>
 						</ul>
 					</li>
