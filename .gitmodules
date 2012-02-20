@@ -1,0 +1,3 @@
+[submodule "administration/ressources/manuals"]
+	path = administration/ressources/manuals
+	url = git@github.com:siwon/manuelUtilisation
