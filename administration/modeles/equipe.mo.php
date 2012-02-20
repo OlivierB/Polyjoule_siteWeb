@@ -30,6 +30,47 @@ function affichageEquipe() {
 	mysql_free_result($req);
 }
 
+function countEquipe(){
+	$req = mysql_query("SELECT count(*) FROM EQUIPE;");
+	$count=mysql_fetch_array($req);
+	mysql_free_result($req);
+	return $count[0];
+}
+
+function listeEquipe() {
+	if (countEquipe()>0) {
+		echo "<select name='equipe'>";
+		$req = mysql_query("SELECT * FROM EQUIPE ORDER BY annee_equipe DESC;");
+		while($equipe=mysql_fetch_array($req))
+		{
+			echo "<option value='".$equipe[0]."'>- ".$equipe[1]."</option>";
+		}
+		echo "</select>";
+		mysql_free_result($req);
+	} else {
+		echo "<p>Vous devez d'abord créer une équipe afin de l'intégrer à une équipe.</p>";
+	}
+}
+
+function listeEquipeSelected($id) {
+	if (countEquipe()>0) {
+		echo "<select name='equipe'>";
+		$req = mysql_query("SELECT * FROM EQUIPE ORDER BY annee_equipe DESC;");
+		while($equipe=mysql_fetch_array($req))
+		{
+			if ($id==$equipe[0]) {
+				echo "<option value='".$equipe[0]."' selected='selected'>- ".$equipe[1]."</option>";
+			} else {
+				echo "<option value='".$equipe[0]."'>- ".$equipe[1]."</option>";
+			}
+		}
+		echo "</select>";
+		mysql_free_result($req);
+	} else {
+		echo "<p>Vous devez d'abord créer une équipe afin de l'intégrer à une équipe.</p>";
+	}
+}
+
 function equipeExistante($id) {
 	$req = mysql_query("SELECT * FROM EQUIPE WHERE id_equipe=".$id);
 	$equipe=mysql_fetch_array($req);

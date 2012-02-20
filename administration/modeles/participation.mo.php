@@ -23,7 +23,9 @@ function affichageEquipe2() {
 	//echo "<ul class='section_name'>";
 	$req = mysql_query("SELECT * FROM EQUIPE ORDER BY annee_equipe DESC");
 	while ($equipe=mysql_fetch_array($req)) {
-		echo "<ul class='section_name'><li>Année ".$equipe['annee_equipe']."</li></ul>";
+		$cpt=countParticipation($equipe['id_equipe']);
+		$s= ($cpt!=1) ? "s" : "";
+		echo "<ul class='section_name'><li>Année ".$equipe['annee_equipe']." (".$cpt." participant".$s.")</li></ul>";
 		?>
 			<table class="blue_tabular">
 				<tr class="blue_tabular_title">
@@ -65,6 +67,13 @@ function affichageEquipe2() {
 	mysql_free_result($req);
 }
 
+function countParticipation($idEquipe) {
+	$req = mysql_query("SELECT count(*) FROM COMPOSE WHERE id_equipe=$idEquipe;");
+	$count=mysql_fetch_array($req);
+	mysql_free_result($req);
+	return $count[0];
+}
+
 function participationExistante($idPart,$equipe) {
 	$req = mysql_query("SELECT count(*) FROM COMPOSE WHERE id_participant='".$idPart."' AND id_equipe='".$equipe."';");
 	$count=mysql_fetch_array($req);
@@ -86,7 +95,9 @@ function supprimerParticipation($equipe,$part) {
 }
 
 function MAJParticipation($equipe,$part,$newEquipe,$newPart) {
-
+	$req="DELETE FROM COMPOSE WHERE id_participant='".$part."' AND id_equipe='".$equipe."';";
+	mysql_query($req) or die(mysql_error());
+	ajouterParticipation($newPart,$newEquipe);
 }
 
 ?>

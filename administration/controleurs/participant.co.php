@@ -8,6 +8,7 @@ traitements
 <?php
 	include ('modeles/participant.mo.php');
 	include ('modeles/participation.mo.php');
+	include ('modeles/equipe.mo.php');
 	
 	$actions = array(1,2,3,4,5,6,7,8); // Tableau des actions possibles
 	/*

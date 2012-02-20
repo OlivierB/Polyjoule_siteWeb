@@ -51,7 +51,31 @@ traitements
 		
 		/***** Modification d'une participation *****/
 		case 2 :
-			
+			if (isset($_GET['idEquipe']) && isset($_GET['idParticipant'])) {
+				$equipe=securite($_GET['idEquipe']);
+				$part=securite($_GET['idParticipant']);
+				if (!equipeExistante($equipe)) {
+					$infos->addError ('L\'équipe sélectionnée n\'existe pas ou a été supprimée.');
+					$error = true;
+				}
+				if (!participantExistant($part)) {
+					$infos->addError ('Le participant sélectionné n\'existe pas ou a été supprimé.');
+					$error = true;
+				}
+				if (!participationExistante($part,$equipe)) {
+					$infos->addError ('La participation sélectionnée n\'existe pas ou a été supprimée.');
+					$error = true;
+				}
+			} else {
+				$infos->addError ('Les champs ne sont pas renseignés.');
+				$error = true;
+			}
+			if ($error==true) {
+				$sousPage="defaut";
+			} else {
+				$participation=getParticipation($part,$equipe);
+				$sousPage="modifier";
+			}
 			break;
 		
 		/***** Suppression d'une participation *****/
@@ -71,16 +95,15 @@ traitements
 					$infos->addError ('La participation sélectionnée n\'existe pas ou a été supprimée.');
 					$error = true;
 				}
-				if ($error==true) {
-					$sousPage="defaut";
-				} else {
-					$participation=getParticipation($part,$equipe);
-					$sousPage="supprimer";
-				}
 			} else {
 				$infos->addError ('Les champs ne sont pas renseignés.');
 				$error = true;
+			}
+			if ($error==true) {
 				$sousPage="defaut";
+			} else {
+				$participation=getParticipation($part,$equipe);
+				$sousPage="supprimer";
 			}
 			break;
 		
@@ -118,7 +141,41 @@ traitements
 		
 		/***** Traitement MAJ *****/
 		case 5 :
-			
+			if (isset($_POST['equipe']) && isset($_POST['participant']) && isset($_POST['ancienneEquipe']) && isset($_POST['ancienPart'])) {
+				$equipe=securite($_POST['equipe']);
+				$part=securite($_POST['participant']);
+				$ancienneEquipe=securite($_POST['ancienneEquipe']);
+				$ancienPart=securite($_POST['ancienPart']);
+				if (!equipeExistante($ancienneEquipe) || !equipeExistante($equipe)) {
+					$infos->addError ('L\'équipe sélectionnée n\'existe pas ou a été supprimée.');
+					$error = true;
+					$sousPage="defaut";
+				}
+				if (!participantExistant($ancienPart) || !participantExistant($part)) {
+					$infos->addError ('Le participant sélectionné n\'existe pas ou a été supprimé.');
+					$error = true;
+					$sousPage="defaut";
+				}
+				if (!participationExistante($ancienPart,$ancienneEquipe)) {
+					$infos->addError ('La participation sélectionnée n\'existe pas ou a été supprimée.');
+					$error = true;
+					$sousPage="defaut";
+				}
+				if (participationExistante($part,$equipe)) {
+					$infos->addError ('La nouvelle participation a déjà été enregistrée.');
+					$error = true;
+					$sousPage="defaut";
+				}
+			} else {
+				$infos->addError ('Les champs ne sont pas renseignés.');
+				$error = true;
+				$sousPage="defaut";
+			}
+			if ($error!=true) {
+				MAJParticipation($ancienneEquipe,$ancienPart,$equipe,$part);
+				$infos->addSucces ("Mise à jour de la participation effectuée.");
+				$sousPage="defaut";
+			}
 			break;
 		
 		/***** Traitement suppression *****/
