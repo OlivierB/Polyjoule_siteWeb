@@ -13,7 +13,7 @@
 <?php
 
 function affichageEquipe() {
-	$req = mysql_query("SELECT * FROM EQUIPE ORDER BY annee_equipe,id_equipe");
+	$req = mysql_query("SELECT * FROM EQUIPE ORDER BY annee_equipe DESC");
 	while ($equipe=mysql_fetch_array($req)) {
 		$req2 = mysql_query("SELECT count(*) FROM COMPOSE WHERE id_equipe='".$equipe['id_equipe']."'") or die(mysql_error());
 		$cpt=mysql_fetch_array($req2);
@@ -67,9 +67,7 @@ function countEquipeParticipant($idPart) {
 function supprimerEquipe($id) {
 	$req=mysql_query("SELECT * FROM COMPOSE WHERE id_equipe='".$id."';") or die(mysql_error());
 	while ($compose=mysql_fetch_array($req)) {
-		if (countEquipeParticipant($compose['id_participant'])==1) {
-			supprimerParticipant($compose['id_participant']);
-		}
+		supprimerParticipation($id,$compose['id_participant']);
 	}
 	$req="DELETE FROM EQUIPE WHERE id_equipe='".$id."';";
 	mysql_query($req) or die(mysql_error());

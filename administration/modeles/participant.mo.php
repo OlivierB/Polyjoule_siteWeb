@@ -32,16 +32,29 @@ function affichageParticipant () {
 	mysql_free_result($req);
 }
 
+function countParticipant() {
+	$req = mysql_query("SELECT count(*) FROM COMPOSE;");
+	$count=mysql_fetch_array($req);
+	mysql_free_result($req);
+	return $count[0];
+}
+
+function listeParticipant() {
+	echo "<select name='participant'>";
+	$req = mysql_query("SELECT * FROM PARTICIPANT ORDER BY nom_participant, prenom_participant DESC;");
+	while($participant=mysql_fetch_array($req))
+	{
+		echo "<option value='".$participant[0]."'>- ".strtoupper($participant[1])." ".$participant[2]." (".$participant['role_participant'].")</option>";
+	}
+	echo "</select>";
+	mysql_free_result($req);
+}
+
 function searchPart($nom,$prenom,$mail) {
 	$req=mysql_query("SELECT * FROM PARTICIPANT WHERE nom_participant='".$nom."' AND prenom_participant='".$prenom."' AND mail_participant='".$mail."'  ORDER BY id_participant DESC;");
 	$toReturn=mysql_fetch_array($req);
 	mysql_free_result($req);
 	return $toReturn[0];
-}
-
-function ajouterParticipation($idPart,$ecole) {
-	$req="INSERT INTO COMPOSE VALUES ('".$idPart."','".$ecole."');";
-	mysql_query($req) or die(mysql_error());
 }
 
 function countEquipe(){
@@ -54,7 +67,7 @@ function countEquipe(){
 function listeEquipe() {
 	if (countEquipe()>0) {
 		echo "<select name='equipe'>";
-		$req = mysql_query("SELECT * FROM EQUIPE;");
+		$req = mysql_query("SELECT * FROM EQUIPE ORDER BY annee_equipe DESC;");
 		while($equipe=mysql_fetch_array($req))
 		{
 			echo "<option value='".$equipe[0]."'>- ".$equipe[1]."</option>";
