@@ -115,7 +115,7 @@ CREATE TABLE ARTICLE (
 	auteur_article VARCHAR(50),
 	statut_article BOOL,
 	autorisation_com BOOL,
-	date_article INT,
+	date_article DATETIME,
 	PRIMARY KEY (id_article)
 ) ENGINE=InnoDB;
 
@@ -186,6 +186,7 @@ CREATE TABLE MEMBRE (
 	mail_membre varchar(100),
 	statut_membre varchar(30) CHECK( statut_membre IN ('admin','user')),
 	photo_membre varchar(150),
+	date_inscription DATETIME,
 	PRIMARY KEY(id_membre,pseudo_membre) /* PSEUDO différent pour chaque membre*/
 );
 /*-----------------------------------------*/
@@ -218,4 +219,4 @@ ALTER TABLE APPARTIENT ADD CONSTRAINT FK_APPARTIENT_id_participant FOREIGN KEY (
 ALTER TABLE APPARTIENT ADD CONSTRAINT FK_APPARTIENT_id_formation FOREIGN KEY (id_formation) REFERENCES FORMATION (id_formation);
 
 /*INSERTION DU COMPTE admin POUR LES TESTS */
-INSERT INTO MEMBRE VALUES (1,'admin','d033e22ae348aeb5660fc2140aec35850c4da997','admin@admin','admin','ressources/data/Membres/defaut.png');
+INSERT INTO MEMBRE VALUES (1,'admin','d033e22ae348aeb5660fc2140aec35850c4da997','admin@admin','admin','ressources/data/Membres/defaut.png',now());

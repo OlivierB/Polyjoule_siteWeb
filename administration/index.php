@@ -74,7 +74,7 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 						<ul class="sousMenu"  >
 							<div class="menuH"></div>
 								<li><a href="index.php">Panneau d'administration</a></li>
-								<li><a href="#">#Statistiques</a></li>
+								<li><a href="index.php?page=statistiques">Statistiques</a></li>
 								<li><a href="index.php?page=profil">Mon profil</a></li>
 								<li><a href="#">#Maintenance</a></li>
 								<li><a href="index.php?page=gestionComptes">Gestion des comptes</a></li>
