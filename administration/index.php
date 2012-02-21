@@ -83,7 +83,7 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 						</ul>
 					</li>
 					<li>
-						<a href="#">ÉQUIPE</a>
+						<a href="index.php?page=participation">ÉQUIPE</a>
 						<ul class="sousMenu">
 							<div class="menuH"></div>
 								<li><a href="index.php?page=equipe">Gestion des équipes</a></li>
@@ -93,7 +93,7 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 						</ul>
 					</li>
 					<li>
-						<a href="#">FORMATIONS</a>
+						<a href="index.php?page=formation">FORMATIONS</a>
 						<ul class="sousMenu">
 							<div class="menuH"></div>
 								<li><a href="index.php?page=ecole">Gestion des écoles</a></li>
@@ -114,12 +114,12 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 						</ul>
 					</li>
 					<li>
-						<a href="index.php?page=aide"  >PROFIL</a>
+						<a href="index.php?page=profil"  >PROFIL</a>
 						<ul class="sousMenu"  >
 							<div class="menuH"></div>
 								<li><a href="index.php?page=profil&action=1">Changer le pseudo</a></li>
 								<li><a href="index.php?page=profil&action=2">Changer le password</a></li>
-								<li><a href="index.php?page=profil&action=3">Changer l'email'</a></li>
+								<li><a href="index.php?page=profil&action=3">Changer l'email</a></li>
 							<div class="menuB"></div>
 						</ul>
 					</li>
