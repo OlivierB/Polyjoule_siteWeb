@@ -25,7 +25,8 @@ function get_members()
 			"mdp_membre" => $membre["mdp_membre"],
 			"mail_membre" => $membre["mail_membre"],
 			"statut_membre" => $membre["statut_membre"],
-			"photo_membre" => $membre["photo_membre"]);
+			"photo_membre" => $membre["photo_membre"],
+			"date_inscription" => $membre["date_inscription"]);
 		$i++;
 	}
 	return $membres;
@@ -145,7 +146,7 @@ function add_member($pseudo, $mail, $statut)
 			
 	if(send_mail($mail, $subject, $message))
 	{
-		$req = mysql_query("INSERT INTO MEMBRE VALUES (NULL,'".$pseudo."','".sha1($passwd)."','".$mail."','".$statut."','ressources/data/Membres/defaut.png')") or die(mysql_error());
+		$req = mysql_query("INSERT INTO MEMBRE VALUES (NULL,'".$pseudo."','".sha1($passwd)."','".$mail."','".$statut."','ressources/data/Membres/defaut.png',now())") or die(mysql_error());
 		return "";
 	}
 	else

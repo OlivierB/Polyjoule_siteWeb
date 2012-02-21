@@ -22,6 +22,7 @@ Réservé aux administrateurs
 			<th class="blue_tabular_title">Pseudo</th>
 			<th class="blue_tabular_title">Adresse mail</th>
 			<th class="blue_tabular_title">Statut</th>
+			<th class="blue_tabular_title">Date d'inscription</th>
 		</tr>
 		<?php
 		for($i=0;$i<sizeof($membres);$i++)
@@ -39,6 +40,9 @@ Réservé aux administrateurs
 					</td>
 					<td class='blue_tabular_cell'>
 						".$membres[$i]['statut_membre']."
+					</td>
+					<td class='blue_tabular_cell'>
+						".$membres[$i]['date_inscription']."
 					</td>
 				</tr>";
 		}
