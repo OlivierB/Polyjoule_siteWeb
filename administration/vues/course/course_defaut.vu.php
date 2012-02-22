@@ -50,7 +50,7 @@ Page de gestion des écoles
 					<img src="<?php echo $_SESSION['design_path']; ?>images/add_course.png" />
 				</td>
 				<td>
-					<a class="liens_Action"href="index.php?page=course&action=1"> Ajouter une course </a>
+					<a class="liens_Action"href="index.php?page=course&action=1">Ajouter une course</a>
 				</td>
 			</tr>
 		</table>

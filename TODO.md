@@ -18,6 +18,7 @@
 ## En cas d'erreur de la fonction php mail()
 
 Il faut configurer php.ini en modifiant les lignes :
+
 	[mail function]
 	SMTP = /*ici adresse serveur smtp ex : smtp.bbox.fr Voir : http://www.commentcamarche.net/faq/893-adresses-des-serveurs-pop-et-smtp-des-principaux-fai pour la liste */
 	; http://php.net/smtp-port
@@ -66,3 +67,4 @@ Il faut configurer php.ini en modifiant les lignes :
 
 	* Faire une vérification sur la date lors de l'ajout (Siwon)
 	* Modifier la fonction de suppression d'une équipe pour que lorsqu'une équipe est supprimée, les courses associées aussi.
+	* Ajouter le numéro de la course dans le nom de la photo, afin d'avoir au moins un identifiant unique

@@ -106,6 +106,7 @@ function countEquipeParticipant($idPart) {
 }
 
 function supprimerEquipe($id) {
+	supprimerCourseParEquipe($id);
 	$req=mysql_query("SELECT * FROM COMPOSE WHERE id_equipe='".$id."';") or die(mysql_error());
 	while ($compose=mysql_fetch_array($req)) {
 		supprimerParticipation($id,$compose['id_participant']);

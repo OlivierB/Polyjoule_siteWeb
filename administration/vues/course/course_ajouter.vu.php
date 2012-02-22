@@ -55,6 +55,6 @@
 	</form>
 	<div align="center">
 		<a href="javascript:document.formAjout.submit();"> <img src="<?php echo $_SESSION['design_path']; ?>images/validate.png"/></a>
-		<a href="index.php?page=ecole"> <img src="<?php echo $_SESSION['design_path']; ?>images/cancel.png"/></a>
+		<a href="index.php?page=course"> <img src="<?php echo $_SESSION['design_path']; ?>images/cancel.png"/></a>
 	</div>
 </div>
