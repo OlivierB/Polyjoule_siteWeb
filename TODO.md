@@ -60,8 +60,8 @@ Il y a une fonction spéciale pour créer la barre de titre de chaque page en lu
 
 * Statistiques
 
-** Début des pages de stats avec intégration de graphiques (Bibizz)
+	Début des pages de stats avec intégration de graphiques (Bibizz)
 
 * Course
 
-** Faire une vérification sur la date lors de l'ajout (Siwon)
+	Faire une vérification sur la date lors de l'ajout (Siwon)
