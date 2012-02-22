@@ -6,20 +6,23 @@ Pour la création des autres pages, il faudrait garder le même design que les p
 Il y a une fonction spéciale pour créer la barre de titre de chaque page en lui passant par paramètre l'icone de la page et son titre.
 
 ## Améliorations possibles
+
 * Page article : afficher le nombre de commentaire associés à l'article --> FAIT
 * Page rubrique : Prévoir un message de confirmation pour la suppression --> FAIT
 * Page école : Prévoir un message de confirmation pour la suppression --> FAIT
 	
 ## Informations sur base
+
 * Pseudo stocké dans la base sensible à la casse pour pouvoir les afficher dans le profil ( vu avec Simon ) --> FAIT
 	
 ## En cas d'erreur de la fonction php mail()
+
 	Il faut configurer php.ini en modifiant les lignes :
 		[mail function]
 		SMTP = /*ici adresse serveur smtp ex : smtp.bbox.fr Voir : http://www.commentcamarche.net/faq/893-adresses-des-serveurs-pop-et-smtp-des-principaux-fai pour la liste */
 		; http://php.net/smtp-port
 		smtp_port = 25
-	
+
 		; http://php.net/sendmail-from
 		sendmail_from = /* ici votre adresse mail */
 
@@ -27,8 +30,8 @@ Il y a une fonction spéciale pour créer la barre de titre de chaque page en lu
 # Fichiers
 
 ## Statistiques
-Je commence les pages de stats avec intégration de graphiques ....
 
+Je commence les pages de stats avec intégration de graphiques ....
 
 ## Images
 
@@ -44,9 +47,11 @@ Je commence les pages de stats avec intégration de graphiques ....
 * ajouter add/modify/gestion_course.png
 
 ## Général
+
 	FAIT
 
 ## Rubrique
+
 	FAIT
 
 ## Ecole
@@ -78,7 +83,13 @@ Je commence les pages de stats avec intégration de graphiques ....
 	FAIT EN DIRECT DE LA CREUSE
 	
 ## Connexion
+
 	FAIT
 	
 ## Membre
+
 	FAIT
+
+## Course
+
+	En cours ...
