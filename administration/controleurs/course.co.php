@@ -7,6 +7,7 @@ traitements
 
 <?php
 	include ('modeles/course.mo.php');
+	include ('modeles/equipe.mo.php');
 	
 	$actions = array(1,2,3,4,5,6); // Tableau des actions possibles
 	/*
@@ -32,7 +33,15 @@ traitements
 	switch ($action) {
 		/***** Ajout d'une course *****/
 		case 1 :
-			
+			if (countEquipe()==0) {
+				$infos->addError ('Une équipe doit être crée avant de pouvoir créer une course. (<a href="index.php?page=equipe&action=1">Accès rapide</a>)');
+				$error = true;
+			}
+			if ($error==true) {
+				$sousPage="defaut";
+			} else {
+				$sousPage="ajouter";
+			}
 			break;
 		
 		/***** Modification d'une course *****/
@@ -66,4 +75,4 @@ traitements
 			break;
 	}
 	include ('vues/course/course_'.$sousPage.'.vu.php');
-}
+?>

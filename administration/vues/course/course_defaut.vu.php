@@ -20,23 +20,23 @@ Page de gestion des écoles
 	<table class="blue_tabular">
 		<tr class="blue_tabular_title">
 			<th class="blue_tabular_title">
-				Num école
+				Num
 			</th> 
 			<th class="blue_tabular_title">
-				Nom de l'école
+				Équipe
 			</th>
 			<th class="blue_tabular_title">
-				Adresse de l'école
+				Date
 			</th>
 			<th class="blue_tabular_title">
-				Nb formations
+				Lieu
 			</th>
 			<th class="blue_tabular_title">
 				Administration
 			</th>
 		</tr>
 		<?php
-			affichageEcoles();
+			affichageCourses();
 		?>
 	</table>
 	<div align=center>
@@ -47,10 +47,10 @@ Page de gestion des écoles
 			</tr>
 			<tr>
 				<td>
-					<img src="<?php echo $_SESSION['design_path']; ?>images/add_ecole.png" />
+					<img src="<?php echo $_SESSION['design_path']; ?>images/add_course.png" />
 				</td>
 				<td>
-					<a class="liens_Action"href="index.php?page=ecole&action=1"> Ajouter une école </a>
+					<a class="liens_Action"href="index.php?page=course&action=1"> Ajouter une course </a>
 				</td>
 			</tr>
 		</table>
