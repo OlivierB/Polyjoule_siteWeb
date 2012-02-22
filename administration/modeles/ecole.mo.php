@@ -6,7 +6,7 @@
 *****************************/
 *
 * Gestion des requetes de la
-* page de gestion des articles
+* page de gestion des écoles
 *
 -->
 
