@@ -2,8 +2,8 @@
 
 ## Attention à la mise en page du contenu
 
-Pour la création des autres pages, il faudrait garder le même design que les pages gestion des articles et gestions des comptes.
-Il y a une fonction spéciale pour créer la barre de titre de chaque page en lui passant par paramètre l'icone de la page et son titre.
+* Pour la création des autres pages, il faudrait garder le même design que les pages gestion des articles et gestions des comptes.
+* Il y a une fonction spéciale pour créer la barre de titre de chaque page en lui passant par paramètre l'icone de la page et son titre.
 
 ## Améliorations possibles
 
@@ -17,14 +17,14 @@ Il y a une fonction spéciale pour créer la barre de titre de chaque page en lu
 	
 ## En cas d'erreur de la fonction php mail()
 
-	Il faut configurer php.ini en modifiant les lignes :
-		[mail function]
-		SMTP = /*ici adresse serveur smtp ex : smtp.bbox.fr Voir : http://www.commentcamarche.net/faq/893-adresses-des-serveurs-pop-et-smtp-des-principaux-fai pour la liste */
-		; http://php.net/smtp-port
-		smtp_port = 25
+Il faut configurer php.ini en modifiant les lignes :
+	[mail function]
+	SMTP = /*ici adresse serveur smtp ex : smtp.bbox.fr Voir : http://www.commentcamarche.net/faq/893-adresses-des-serveurs-pop-et-smtp-des-principaux-fai pour la liste */
+	; http://php.net/smtp-port
+	smtp_port = 25
 
-		; http://php.net/sendmail-from
-		sendmail_from = /* ici votre adresse mail */
+	; http://php.net/sendmail-from
+	sendmail_from = /* ici votre adresse mail */
 
 
 # Fichiers
@@ -60,8 +60,9 @@ Il y a une fonction spéciale pour créer la barre de titre de chaque page en lu
 
 * Statistiques
 
-	Début des pages de stats avec intégration de graphiques (Bibizz)
+	* Début des pages de stats avec intégration de graphiques (Bibizz)
 
 * Course
 
-	Faire une vérification sur la date lors de l'ajout (Siwon)
+	* Faire une vérification sur la date lors de l'ajout (Siwon)
+	* Modifier la fonction de suppression d'une équipe pour que lorsqu'une équipe est supprimée, les courses associées aussi.
