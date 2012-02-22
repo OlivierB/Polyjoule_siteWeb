@@ -29,10 +29,6 @@ Il y a une fonction spéciale pour créer la barre de titre de chaque page en lu
 
 # Fichiers
 
-## Statistiques
-
-Je commence les pages de stats avec intégration de graphiques ....
-
 ## Images
 
 * ajouter une image ajout rubrique avec le nom "add_rubrique.png" --> FAIT
@@ -46,52 +42,26 @@ Je commence les pages de stats avec intégration de graphiques ....
 * ajouter add/modify/gestion_participation.png
 * ajouter add/modify/gestion_course.png
 
-## Général
+## Terminés
 
-	FAIT
+* Général
+* Rubrique
+* Ecole
+* Formation
+* Participant
+* Equipe
+* Profil
+* Article
+* Commentaire (EN DIRECT DE LA CREUSE)
+* Connexion
+* Membre
 
-## Rubrique
+## En cours ...
 
-	FAIT
+* Statistiques
 
-## Ecole
+** Début des pages de stats avec intégration de graphiques (Bibizz)
 
-	FAIT
+* Course
 
-## Formation
-
-	FAIT
-
-## Participant
-
-	FAIT
-
-## Equipe
-
-	FAIT
-
-## Profil
-
-	FAIT
-	
-## Article
-
-	FAIT
-	
-## Commentaire
-
-	FAIT EN DIRECT DE LA CREUSE
-	
-## Connexion
-
-	FAIT
-	
-## Membre
-
-	FAIT
-
-## Course
-
-	En cours ...
-	
-* Faire une vérification sur la date lors de l'ajout
+** Faire une vérification sur la date lors de l'ajout (Siwon)
