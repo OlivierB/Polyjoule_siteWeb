@@ -1,1 +1,84 @@
-# Informations## Attention ‡ la mise en page du contenuPour la crÈation des autres pages, il faudrait garder le mÍme design que les pages gestion des articles et gestions des comptes.Il y a une fonction spÈciale pour crÈer la barre de titre de chaque page en lui passant par paramËtre l'icone de la page et son titre.## AmÈliorations possibles* Page article : afficher le nombre de commentaire associÈs ‡ l'article --> FAIT* Page rubrique : PrÈvoir un message de confirmation pour la suppression --> FAIT* Page Ècole : PrÈvoir un message de confirmation pour la suppression --> FAIT	## Informations sur base* Pseudo stockÈ dans la base sensible ‡ la casse pour pouvoir les afficher dans le profil ( vu avec Simon ) --> FAIT	## En cas d'erreur de la fonction php mail()	Il faut configurer php.ini en modifiant les lignes :		[mail function]		SMTP = /*ici adresse serveur smtp ex : smtp.bbox.fr Voir : http://www.commentcamarche.net/faq/893-adresses-des-serveurs-pop-et-smtp-des-principaux-fai pour la liste */		; http://php.net/smtp-port		smtp_port = 25			; http://php.net/sendmail-from		sendmail_from = /* ici votre adresse mail */# Fichiers## StatistiquesJe commence les pages de stats avec intÈgration de graphiques ....## Images* ajouter une image ajout rubrique avec le nom "add_rubrique.png" --> FAIT* ajouter une iamge mise ‡ jour rubrique avec le nom "modify_rubrique.png" --> FAIT* ajouter gestion_rubrique.png --> FAIT* ajouter add/modify/gestion_ecole.png --> FAIT* ajouter add/modify/gestion_formation.png --> FAIT* ajouter modify/gestion_profil.png --> FAIT* ajouter add/modify/gestion_participant.png* ajouter add/modify/gestion_equipe.png* ajouter add/modify/gestion_participation.png* ajouter add/modify/gestion_course.png## GÈnÈral	FAIT## Rubrique	FAIT## Ecole	FAIT## Formation	FAIT## Participant	FAIT## Equipe	FAIT## Profil	FAIT	## Article	FAIT	## Commentaire	FAIT EN DIRECT DE LA CREUSE	## Connexion	FAIT	## Membre	FAIT
+# Informations
+
+## Attention √† la mise en page du contenu
+
+Pour la cr√©ation des autres pages, il faudrait garder le m√™me design que les pages gestion des articles et gestions des comptes.
+Il y a une fonction sp√©ciale pour cr√©er la barre de titre de chaque page en lui passant par param√®tre l'icone de la page et son titre.
+
+## Am√©liorations possibles
+* Page article : afficher le nombre de commentaire associ√©s √† l'article --> FAIT
+* Page rubrique : Pr√©voir un message de confirmation pour la suppression --> FAIT
+* Page √©cole : Pr√©voir un message de confirmation pour la suppression --> FAIT
+	
+## Informations sur base
+* Pseudo stock√© dans la base sensible √† la casse pour pouvoir les afficher dans le profil ( vu avec Simon ) --> FAIT
+	
+## En cas d'erreur de la fonction php mail()
+	Il faut configurer php.ini en modifiant les lignes :
+		[mail function]
+		SMTP = /*ici adresse serveur smtp ex : smtp.bbox.fr Voir : http://www.commentcamarche.net/faq/893-adresses-des-serveurs-pop-et-smtp-des-principaux-fai pour la liste */
+		; http://php.net/smtp-port
+		smtp_port = 25
+	
+		; http://php.net/sendmail-from
+		sendmail_from = /* ici votre adresse mail */
+
+
+# Fichiers
+
+## Statistiques
+Je commence les pages de stats avec int√©gration de graphiques ....
+
+
+## Images
+
+* ajouter une image ajout rubrique avec le nom "add_rubrique.png" --> FAIT
+* ajouter une iamge mise √† jour rubrique avec le nom "modify_rubrique.png" --> FAIT
+* ajouter gestion_rubrique.png --> FAIT
+* ajouter add/modify/gestion_ecole.png --> FAIT
+* ajouter add/modify/gestion_formation.png --> FAIT
+* ajouter modify/gestion_profil.png --> FAIT
+* ajouter add/modify/gestion_participant.png
+* ajouter add/modify/gestion_equipe.png
+* ajouter add/modify/gestion_participation.png
+* ajouter add/modify/gestion_course.png
+
+## G√©n√©ral
+	FAIT
+
+## Rubrique
+	FAIT
+
+## Ecole
+
+	FAIT
+
+## Formation
+
+	FAIT
+
+## Participant
+
+	FAIT
+
+## Equipe
+
+	FAIT
+
+## Profil
+
+	FAIT
+	
+## Article
+
+	FAIT
+	
+## Commentaire
+
+	FAIT EN DIRECT DE LA CREUSE
+	
+## Connexion
+	FAIT
+	
+## Membre
+	FAIT
