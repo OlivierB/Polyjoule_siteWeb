@@ -53,7 +53,12 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 		<meta charset="utf-8">
 		
 		<link rel="stylesheet" media="screen" type="text/css" title="design" href="<?php echo $_SESSION['design_path']; ?>/design.css"  />
+		<link type="text/css" rel="stylesheet" href="ressources/scripts/js/jscalendar/dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen"></link>
+		
 		<script type="text/JavaScript" src="ressources/scripts/js/functions.js"></script>
+		
+		<!-- Inclusion de JScalendar -->
+		<script type="text/javascript" src="ressources/scripts/js/jscalendar/dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118"></script>
 		
 		<!-- Inclusion de tinyMCE et paramètrage -->
 		<script type="text/JavaScript" src="ressources/scripts/js/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>

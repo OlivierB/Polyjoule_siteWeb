@@ -1,4 +1,4 @@
 AuthName "Page d'administration protégée"
 AuthType Basic
-AuthUserFile "/var/www/administration/ressources/.htpassword"
+AuthUserFile "/www/administration/ressources/.htpassword"
 Require valid-user

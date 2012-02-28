@@ -8,7 +8,9 @@
 			<label for="equipe"><strong>Équipe</strong> :</label>
 			<?php listeEquipe(); ?><br /><br />
 			<label for="date"><strong>Date de la course</strong> :</label>
-			<input type="date" size="7" value="" name="date"/><br /><br />
+			<input type="hidden" value="<?php echo date('d.m.Y'); ?>" readonly name="date">
+			<input type="button" value="Sélectionner" onclick="displayCalendar(document.forms[0].date,'dd.mm.yyyy',this)"><br /><br />
+		
 			<label for="lieu"><strong>Lieu de la course</strong> :</label>
 			<input type="text" size="60" value="" name="lieu"/><br /><br />
 			<label for="photo"><strong>Photo de la course</strong> : </label>

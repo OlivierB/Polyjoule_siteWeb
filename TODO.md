@@ -53,7 +53,7 @@ Il faut configurer php.ini en modifiant les lignes :
 * Equipe
 * Profil
 * Article
-* Commentaire (EN DIRECT DE LA CREUSE)
+* Commentaire
 * Connexion
 * Membre
 
