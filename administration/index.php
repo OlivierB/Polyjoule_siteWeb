@@ -106,6 +106,7 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 							<div class="menuH"></div>
 								<li><a href="index.php?page=article">Gestion des articles</a></li>
 								<li><a href="index.php?page=rubrique">Gestion des rubriques</a></li>
+								<li><a href="index.php?page=livreOr">Livre d'Or</a></li>
 								<li><a href="#">#Gestion des catégories</a></li>
 								<li><a href="#">#Articles en vedette</a></li>
 								<li><a href="#">#Gestion des médias</a></li>
