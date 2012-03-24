@@ -9,7 +9,6 @@ traitements
 	include ('modeles/participant.mo.php');
 	include ('modeles/participation.mo.php');
 	include ('modeles/equipe.mo.php');
-	include ('modeles/course.mo.php');
 	
 	$actions = array(1,2,3,4,5,6);
 	/*

@@ -25,7 +25,6 @@ $infos = new Informations ();
 // création du PATH pour le style
 $_SESSION['design_path'] = "ressources/design/style1/";
 
-
 // calcul de la page à afficher
 if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre'])) 
 {	// non connecté -> page de co
@@ -53,12 +52,7 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 		<meta charset="utf-8">
 		
 		<link rel="stylesheet" media="screen" type="text/css" title="design" href="<?php echo $_SESSION['design_path']; ?>/design.css"  />
-		<link type="text/css" rel="stylesheet" href="ressources/scripts/js/jscalendar/dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen"></link>
-		
 		<script type="text/JavaScript" src="ressources/scripts/js/functions.js"></script>
-		
-		<!-- Inclusion de JScalendar -->
-		<script type="text/javascript" src="ressources/scripts/js/jscalendar/dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118"></script>
 		
 		<!-- Inclusion de tinyMCE et paramètrage -->
 		<script type="text/JavaScript" src="ressources/scripts/js/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
@@ -88,22 +82,21 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 						</ul>
 					</li>
 					<li>
-						<a href="index.php?page=participation">ÉQUIPE</a>
+						<a href="#">ÉQUIPE</a>
 						<ul class="sousMenu">
 							<div class="menuH"></div>
 								<li><a href="index.php?page=equipe">Gestion des équipes</a></li>
 								<li><a href="index.php?page=participant">Gestion des participants</a></li>
 								<li><a href="index.php?page=participation">Gestion des participations</a></li>
-								<li><a href="index.php?page=course">Gestion des courses</a></li>
 							<div class="menuB"></div>
 						</ul>
 					</li>
 					<li>
-						<a href="index.php?page=formation">FORMATIONS</a>
+						<a href="#">FORMATIONS</a>
 						<ul class="sousMenu">
 							<div class="menuH"></div>
-								<li><a href="index.php?page=ecole">Gestion des écoles</a></li>
 								<li><a href="index.php?page=formation">Gestion des formations</a></li>
+								<li><a href="index.php?page=ecole">Gestion des écoles</a></li>
 							<div class="menuB"></div>
 						</ul>
 					</li>
@@ -120,12 +113,12 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 						</ul>
 					</li>
 					<li>
-						<a href="index.php?page=profil"  >PROFIL</a>
+						<a href="index.php?page=aide"  >PROFIL</a>
 						<ul class="sousMenu"  >
 							<div class="menuH"></div>
 								<li><a href="index.php?page=profil&action=1">Changer le pseudo</a></li>
 								<li><a href="index.php?page=profil&action=2">Changer le password</a></li>
-								<li><a href="index.php?page=profil&action=3">Changer l'email</a></li>
+								<li><a href="index.php?page=profil&action=3">Changer l'email'</a></li>
 							<div class="menuB"></div>
 						</ul>
 					</li>
