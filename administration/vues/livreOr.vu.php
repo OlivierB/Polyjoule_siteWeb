@@ -44,10 +44,11 @@ Page de gestion du contenu du livre d'Or
 			<td class='blue_tabular_cell'>
 				<?php  if ($val['accept_post'] == 0)
 				{ ?>
-					<a href="index.php?page=livreOr&action=1&idPost=<?php  echo $val['id_post']; ?> &numPage=<?php  echo $numPage; ?>">Accecpter</a>
+					<a style="text-decoration:none;color:green;" href="index.php?page=livreOr&action=1&idPost=<?php  echo $val['id_post']; ?> &numPage=<?php  echo $numPage; ?>">Accecpter</a>
+				-
 				<?php 
 				} ?>
-				<a href="index.php?page=livreOr&action=2&idPost=<?php  echo $val['id_post']; ?> &numPage=<?php  echo $numPage; ?>">Supprimer</a>
+				<a style="text-decoration:none;color:red;" href="index.php?page=livreOr&action=2&idPost=<?php  echo $val['id_post']; ?> &numPage=<?php  echo $numPage; ?>">Supprimer</a>
 			</td>
 		</tr>
 		<?php

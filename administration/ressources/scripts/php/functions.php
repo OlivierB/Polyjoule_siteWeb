@@ -86,6 +86,166 @@ function delete_file($directory, $file_name)
 	closedir ($dir);
 }
 
+
+
+function uploadImg (&$infos, $file, $directory, $maxSize, $extensions, $maxPixel)
+{
+// récupération des informations sur le fichier
+	$fichier = basename($file['name']);
+	$taille = filesize($file['tmp_name']);
+	$extension = strtolower(strrchr($file['name'], '.'));
+	
+// variables
+	$retour = "";
+	$mini = 1;	// pour vérifier si on peut creer une miniature
+	
+// Vérifications de base
+	if(!in_array($extension, $extensions)) 
+	{
+		$infos->addError("Type de fichier non accepté !");
+	} else if($taille>$maxSize)
+	{
+		$infos->addError("Le fichier a une taille trop importante !");
+	} else 
+	{
+	// Création du nom de l'image (miniature ET taille réelle)
+		$newName = time();
+		
+		$fileMaxi = $newName.$extension;
+		$fileMini = $newName.'_'.$extension;
+		
+		// UPLOAD DE L'IMAGE
+		if(move_uploaded_file($file['tmp_name'], $directory . $fileMaxi)) 
+		{
+			$infos->addSucces("Upload effectué avec succès !");
+			$retour = $fileMini;
+			
+		// CREATION DE LA MINIATURE
+			// chargement de la surface selon le type d'image
+			switch ( $extension ) {
+				case ".jpg":
+				case ".jpeg":
+					$img_src_resource = imagecreatefromjpeg( $directory . $fileMaxi );
+					break;
+
+				case ".png":
+					$img_src_resource = imagecreatefrompng( $directory . $fileMaxi );
+					break;
+
+				default:
+					$mini = 0;
+					break;
+			}
+			
+			if ($mini == 1)
+			{ // creation de la mini
+				
+				// calcul de la taille pour le respect des proportions
+				$TailleImageChoisie = getimagesize($directory . $fileMaxi);
+				$largeur = $TailleImageChoisie[0];
+				$hauteur = $TailleImageChoisie[1];
+				
+				if ($largeur > $hauteur)
+				{
+					$NouvelleLargeur = $maxPixel;
+					$NouvelleHauteur = $hauteur * $maxPixel / $largeur;
+				} else if ($largeur < $hauteur)
+				{
+					$NouvelleLargeur = $largeur * $maxPixel / $hauteur;
+					$NouvelleHauteur = $maxPixel;
+				} else
+				{
+					$NouvelleLargeur = $maxPixel;
+					$NouvelleHauteur = $maxPixel;
+				}
+				
+				// création d'une nouyvelle surface
+				$NouvelleImage = imagecreatetruecolor($NouvelleLargeur , $NouvelleHauteur) or die ("Erreur");
+				// remplissage de la surface
+				imagecopyresampled($NouvelleImage , $img_src_resource  , 0,0, 0,0, $NouvelleLargeur, $NouvelleHauteur, $TailleImageChoisie[0],$TailleImageChoisie[1]);
+				// liberation de la memoire
+				imagedestroy($img_src_resource);
+				
+				// enregistrement de l'image
+				switch ( $extension ) {
+					case ".jpg":
+					case ".jpeg":
+						imagejpeg( $NouvelleImage , $directory.$fileMini );
+						break;
+
+					case ".png":
+						imagepng( $NouvelleImage , $directory.$fileMini );
+						break;
+
+					default:
+						$mini = 0;
+						break;
+				}
+				
+				// nom du fichier
+				$retour = $fileMini;
+			} else
+			{ // pas de cration de mini possible -> on envoie l'image taille réelle.
+				$infos->addError("Pas de création de miniature possible !");
+				$retour = $fileMaxi; // nom du fichier
+			}
+			
+		}
+		else 
+		{
+			$infos->addError("Echec de l'upload !");
+		}
+	}
+	
+	return $retour;
+}
+
+
+function uploadFile (&$infos, $file, $directory, $maxSize, $extensions)
+{
+	
+	$fichier = basename($file['name']);
+	$taille = filesize($file['tmp_name']);
+	$extension = strtolower(strrchr($file['name'], '.'));
+	
+	$retour = "";
+	
+	if(!in_array($extension, $extensions)) 
+	{
+		$infos->addError("Type de fichier non accepté !");
+	}
+	if($taille>$maxSize)
+	{
+		$infos->addError("Le fichier a une taille trop importante !");
+	}
+	if(!isset($erreur)) 
+	{
+		$newName = time();
+		/*$fichier = strtr($fichier, 
+		  'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 
+		  'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
+		$fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);*/
+		
+		$fileMaxi = $newName.$extension;
+		
+		
+		if(move_uploaded_file($file['tmp_name'], $directory . $fileMaxi)) 
+		{
+			$infos->addSucces("Upload effectué avec succès !");
+			
+			$retour = $fileMaxi;
+		}
+		else 
+		{
+			$infos->addError("Echec de l'upload !");
+		}
+	}
+	
+	return $retour;
+
+}
+
+
 function save_picture($pict, $width, $height, $dest, $pict_name)
 {
 	$ext = explode('.', $pict['name']);
