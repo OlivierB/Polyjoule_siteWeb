@@ -25,9 +25,6 @@ Page de gestion du contenu du livre d'Or
 				Posteur
 			</th>
 			<th class="blue_tabular_title">
-				Mail
-			</th>
-			<th class="blue_tabular_title">
 				Message
 			</th>
 			<th class="blue_tabular_title">
@@ -38,16 +35,19 @@ Page de gestion du contenu du livre d'Or
 		foreach ($listPost as $val)
 		{ ?>
 		<tr class='blue_tabular_cell'>
-			<td class='blue_tabular_cell'><?php  echo $val['posteur_post'] ?></td>
-			<td class='blue_tabular_cell'><?php  echo $val['mail_post'] ?></td>
+			<td class='blue_tabular_cell'><?php  echo $val['posteur_post'] ?><br/>(<?php  echo $val['mail_post'] ?>)</td>
 			<td class='blue_tabular_cell'><?php  echo $val['message_post'] ?></td>
 			<td class='blue_tabular_cell'>
 				<?php  if ($val['accept_post'] == 0)
 				{ ?>
 					<a style="text-decoration:none;color:green;" href="index.php?page=livreOr&action=1&idPost=<?php  echo $val['id_post']; ?> &numPage=<?php  echo $numPage; ?>">Accecpter</a>
-				-
+				
 				<?php 
-				} ?>
+				} else
+				{
+					echo 'Accecpter';
+				}?>
+				-
 				<a style="text-decoration:none;color:red;" href="index.php?page=livreOr&action=2&idPost=<?php  echo $val['id_post']; ?> &numPage=<?php  echo $numPage; ?>">Supprimer</a>
 			</td>
 		</tr>

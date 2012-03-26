@@ -72,55 +72,46 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 						<a class="Menu" href="index.php">ADMINISTRATION</a>
 						<ul class="sousMenu"  >
 							<div class="menuH"></div>
-								<li><a href="index.php">Panneau d'administration</a></li>
+								<li><a style="color:green;" href="index.php">Panneau d'administration</a></li>
+								<li><a href="index.php?page=gestionComptes">Gestion membres Polyjoule</a></li>
+								<li><a href="index.php?page=equipe">Equipe Polyjoule</a></li>
 								<li><a href="index.php?page=statistiques">Statistiques</a></li>
 								<li><a href="index.php?page=profil">Mon profil</a></li>
-								<li><a href="#">#Maintenance</a></li>
-								<li><a href="index.php?page=gestionComptes">Gestion des comptes</a></li>
 								<li><a href="index.php?page=deconnexion">Déconnexion</a></li>
 							<div class="menuB"></div>
 						</ul>
 					</li>
 					<li>
-						<a href="#">ÉQUIPE</a>
+						<a href="#">INTERVENANTS</a>
 						<ul class="sousMenu">
 							<div class="menuH"></div>
-								<li><a href="index.php?page=equipe">Gestion des équipes</a></li>
+								
 								<li><a href="index.php?page=participant">Gestion des participants</a></li>
 								<li><a href="index.php?page=participation">Gestion des participations</a></li>
-							<div class="menuB"></div>
-						</ul>
-					</li>
-					<li>
-						<a href="#">FORMATIONS</a>
-						<ul class="sousMenu">
-							<div class="menuH"></div>
-								<li><a href="index.php?page=formation">Gestion des formations</a></li>
 								<li><a href="index.php?page=ecole">Gestion des écoles</a></li>
+								<li><a href="index.php?page=formation">Gestion des formations</a></li>
 							<div class="menuB"></div>
 						</ul>
 					</li>
+					
 					<li>
-						<a href="index.php?page=article"  >CONTENU</a>
+						<a href="#"  >CONTENU</a>
 						<ul class="sousMenu"  >
 							<div class="menuH"></div>
 								<li><a href="index.php?page=article">Gestion des articles</a></li>
 								<li><a href="index.php?page=rubrique">Gestion des rubriques</a></li>
-								<li><a href="index.php?page=livreOr">Gestion livre d'Or</a></li>
-								<li><a href="index.php?page=album">Gestion Album</a></li>
-								<li><a href="#">#Gestion des catégories</a></li>
-								<li><a href="#">#Articles en vedette</a></li>
-								<li><a href="#">#Gestion des médias</a></li>
+								<li><a href="index.php?page=album">Gestion de l'album</a></li>
+								<li><a href="index.php?page=livreOr">Gestion du livre d'Or</a></li>
 							<div class="menuB"></div>
 						</ul>
 					</li>
 					<li>
-						<a href="index.php?page=aide"  >PROFIL</a>
+						<a href="#"  >PROFIL</a>
 						<ul class="sousMenu"  >
 							<div class="menuH"></div>
 								<li><a href="index.php?page=profil&action=1">Changer le pseudo</a></li>
 								<li><a href="index.php?page=profil&action=2">Changer le password</a></li>
-								<li><a href="index.php?page=profil&action=3">Changer l'email'</a></li>
+								<li><a href="index.php?page=profil&action=3">Changer l'email</a></li>
 							<div class="menuB"></div>
 						</ul>
 					</li>
@@ -133,6 +124,10 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 								<li><a href="index.php?page=aide&option=3">Liens utiles</a></li>
 							<div class="menuB"></div>
 						</ul>
+					</li>
+					<li>
+						<a style="color:red;" href="index.php?page=deconnexion"">Déconnexion</a>
+
 					</li>
 				</ul>
 			</div>

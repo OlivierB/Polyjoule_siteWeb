@@ -74,13 +74,7 @@ page par défaut lors de l'affichage
 					}
 					?>
 					
-					<hr/>
-					<h3> Les 5 articles les plus consultés </h3>
-					
-					<p>...</p>
-					
-					<hr/>
-					
+					<hr/>	
 					
 					<h3> Les 5 derniers messages du livre d'or </h3>
 					

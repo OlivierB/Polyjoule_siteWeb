@@ -10,7 +10,7 @@ traitements
 	
 	$actions = array(1,2,3,4,5,6,7);
 	
-	$DirPhoto = 'ressources/';
+	$DirPhoto = 'ressources/data/Photo/';
 
 	/*
 		Action 1 : Affichage de la liste des photos d'un album

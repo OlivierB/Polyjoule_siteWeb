@@ -17,7 +17,9 @@ Page de gestion du contenu d'un album
 	
 	<ul class="section_name">
 		<li>Liste des photo de l'album</li>
+		
 	</ul>
+	<a style="text-decoration:none;color:green;" href="index.php?page=album"><p>Retour sur la liste des albums</p></a>
 	
 	<table class="blue_tabular">
 		<tr class="blue_tabular_title">
