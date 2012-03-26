@@ -54,11 +54,11 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 		<link rel="stylesheet" media="screen" type="text/css" title="design" href="<?php echo $_SESSION['design_path']; ?>/design.css"  />
 		<script type="text/JavaScript" src="ressources/scripts/js/functions.js"></script>
 		
-		<!-- Inclusion de tinyMCE et paramètrage -->
-		<script type="text/JavaScript" src="ressources/scripts/js/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
-		<script type="text/JavaScript" src="ressources/scripts/js/tinymce/script_options.js"></script>
-		<!-- Fin tinyMCE -->
-		
+		<!-- Inclusion de l'éditeur ckeditor et ckfinder -->
+		<script type="text/javascript" src="ressources/scripts/js/ckeditor/ckeditor.js"></script>
+		<script type="text/javascript" src="ressources/scripts/js/ckfinder/ckfinder.js"></script>
+
+	
 		<title>Polyjoule-Administration</title>
 	</head>
 
@@ -106,7 +106,8 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 							<div class="menuH"></div>
 								<li><a href="index.php?page=article">Gestion des articles</a></li>
 								<li><a href="index.php?page=rubrique">Gestion des rubriques</a></li>
-								<li><a href="index.php?page=livreOr">Livre d'Or</a></li>
+								<li><a href="index.php?page=livreOr">Gestion livre d'Or</a></li>
+								<li><a href="index.php?page=album">Gestion Album</a></li>
 								<li><a href="#">#Gestion des catégories</a></li>
 								<li><a href="#">#Articles en vedette</a></li>
 								<li><a href="#">#Gestion des médias</a></li>

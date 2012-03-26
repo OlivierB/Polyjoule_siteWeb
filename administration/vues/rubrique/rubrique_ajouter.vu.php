@@ -21,42 +21,36 @@ Page de gestion des rubriques -> ajout d'une rubrique
 			<label for="rubriqueMère" >Rubrique mère :</label>
 			<?php listeRubrique(); ?>
 		</div>
-		<div  class="editor" id="descriptionFR" name="descriptionFR" align="center">
-		</div>
-	
-		<script language="javascript" type="text/javascript">
-		  with (document.getElementById ("descriptionFR")) {
-			with (appendChild (document.createElement ("TEXTAREA"))) {
-			  name = "descriptionFR";
-			  cols = 120;
-			  rows = 25;
-			  value = "Votre article en français ici...";
-			}
-		  }
-		//-->
+		
+		<h3> Description en français : </h3>
+		<textarea cols="80" class="ckeditor" id="descriptionFR" name="descriptionFR" rows="10"></textarea>
+		<h3> Description en anglais : </h3>
+		<textarea cols="80" class="ckeditor" id="descriptionEN" name="descriptionEN" rows="10"></textarea>
+		<script>
+			CKEDITOR.replace( 'descriptionFR',
+			{
+				toolbar : 'Full',
+				uiColor : '#468093',
+				filebrowserBrowseUrl : "ressources/scripts/js//ckfinder/ckfinder.html?Type=Files",
+				filebrowserImageBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Images",
+				filebrowserFlashBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Flash",
+				filebrowserUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files",
+				filebrowserImageUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images",
+				filebrowserFlashUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash"
+			});
+			CKEDITOR.replace( 'descriptionEN',
+			{
+				toolbar : 'Full',
+				uiColor : '#468093',
+				filebrowserBrowseUrl : "ressources/scripts/js//ckfinder/ckfinder.html?Type=Files",
+				filebrowserImageBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Images",
+				filebrowserFlashBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Flash",
+				filebrowserUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files",
+				filebrowserImageUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images",
+				filebrowserFlashUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash"
+			});
 		</script>
-		<noscript>
-		  The editor requires scripting to be enabled.
-		</noscript>
-		<noscript>mce:3</noscript>
-	
-		<div class="editor" id="descriptionEN" name="descriptionEN" align="center">
-		</div>
-		<script language="javascript" type="text/javascript">
-		  with (document.getElementById ("descriptionEN")) {
-			with (appendChild (document.createElement ("TEXTAREA"))) {
-			  name = "descriptionEN";
-			  cols = 120;
-			  rows = 25;
-			  value = "Here, your article in english...";
-			}
-		  }
-		//-->
-		</script>
-		<noscript>
-		  The editor requires scripting to be enabled.
-		</noscript>
-		<noscript>mce:3</noscript>
+		
 		<div align="center">
 				<a href="javascript:document.formAjout.submit();"> <img src="<?php echo $_SESSION['design_path']; ?>images/validate.png"/></a>
 				<a href="index.php?page=rubrique"> <img src="<?php echo $_SESSION['design_path']; ?>images/cancel.png"/></a>

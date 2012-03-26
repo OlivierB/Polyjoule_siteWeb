@@ -18,44 +18,35 @@
 				<input type="url" size="60" value="<?php echo $formation[4]; ?>" name="lien"/>
 			</p>
 		</div>
-		<p>
-			<!-- descFR_formation -->
-			<div class="editor" id="descFR" align="center">
-			</div>
-			<script language="javascript" type="text/javascript">
-			  with (document.getElementById ("descFR")) {
-				with (appendChild (document.createElement ("TEXTAREA"))) {
-				  name = "descFR";
-				  cols = 120;
-				  rows = 25;
-				  value = "<?php echo mysql_real_escape_string($formation[5]);?>";
-				}
-			  }
-			//-->
-			</script>
-			<noscript>
-			  The editor requires scripting to be enabled.
-			</noscript>
-			<noscript>mce:3</noscript>
-			<!-- descEn_formation -->
-			<div class="editor" id="descEN" align="center">
-			</div>
-			<script language="javascript" type="text/javascript">
-			  with (document.getElementById ("descEN")) {
-				with (appendChild (document.createElement ("TEXTAREA"))) {
-				  name = "descEN";
-				  cols = 120;
-				  rows = 25;
-				  value = "<?php echo mysql_real_escape_string($formation[6]);?>";
-				}
-			  }
-			//-->
-			</script>
-			<noscript>
-			  The editor requires scripting to be enabled.
-			</noscript>
-			<noscript>mce:3</noscript>
-		</p>
+		<h3> Description en français : </h3>
+		<textarea cols="80" class="ckeditor" id="descFR" name="descFR" rows="10"><?php echo $formation[5];?></textarea>
+		<h3> Description en anglais : </h3>
+		<textarea cols="80" class="ckeditor" id="descEN" name="descEN" rows="10"><?php echo $formation[6];?></textarea>
+		<script>
+			CKEDITOR.replace( 'descFR',
+			{
+				toolbar : 'Full',
+				uiColor : '#468093',
+				filebrowserBrowseUrl : "ressources/scripts/js//ckfinder/ckfinder.html?Type=Files",
+				filebrowserImageBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Images",
+				filebrowserFlashBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Flash",
+				filebrowserUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files",
+				filebrowserImageUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images",
+				filebrowserFlashUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash"
+			});
+			CKEDITOR.replace( 'descEN',
+			{
+				toolbar : 'Full',
+				uiColor : '#468093',
+				filebrowserBrowseUrl : "ressources/scripts/js//ckfinder/ckfinder.html?Type=Files",
+				filebrowserImageBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Images",
+				filebrowserFlashBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Flash",
+				filebrowserUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files",
+				filebrowserImageUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images",
+				filebrowserFlashUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash"
+			});
+		</script>
+		
 		<div align="center">
 			<a href="javascript:document.formAjout.submit();"> <img src="<?php echo $_SESSION['design_path']; ?>images/validate.png"/></a>
 			<a href="index.php?page=formation"> <img src="<?php echo $_SESSION['design_path']; ?>images/cancel.png"/></a>

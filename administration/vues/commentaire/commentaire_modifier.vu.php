@@ -68,7 +68,15 @@ Page de modification d'un commentaire
 				<form name="ajoutCom" method="POST" action="index.php?page=commentaire&id_article=<?php echo $id_article;?>&action=5">
 					<div align="center">
 						<p>
-							<textarea name="message"><?php echo $commentaires[$i]['message_commentaire'] ?></textarea>
+							<textarea id="message" name="message"><?php echo $commentaires[$i]['message_commentaire'] ?></textarea>
+							<script>
+								CKEDITOR.replace( 'message',
+								{
+									toolbar : 'Basic',
+									uiColor : '#468093',
+									height:"150", width:"600",
+								});
+							</script>
 							<input type="hidden" value="<?php echo $commentaires[$i]['id_commentaire']; ?>" name="id_com"/>
 						</p>
 					

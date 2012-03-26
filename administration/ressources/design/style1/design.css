@@ -121,7 +121,9 @@ body {
 	text-align:left;
 	padding-left : 20px;
 }
-
+h3 {
+	margin-left : 50px;
+	}
 .contenu {
 	background-color : #FFFFFF;
 	margin : 10px auto auto auto;

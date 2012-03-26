@@ -30,44 +30,34 @@ Page de modification d'un participant
 			<label for="photo">Photo : </label>
 			<img src="<?php echo $part[3]; ?>"/>
 		</div>
-		
-		<div  class="editor" id="bioFR" name="bioFR" align="center">
-		</div>
-	
-		<script language="javascript" type="text/javascript">
-		  with (document.getElementById ("bioFR")) {
-			with (appendChild (document.createElement ("TEXTAREA"))) {
-			  name = "bioFR";
-			  cols = 120;
-			  rows = 25;
-			  value = "<?php echo mysql_real_escape_string($part[6]);?>";
-			}
-		  }
-		//-->
+		<h3> Biographie en français : </h3>
+		<textarea  class="editor" id="bioFR" name="bioFR"><?php echo $part[6];?></textarea>
+		<h3> Biographie en anglais : </h3>
+		<textarea  class="editor" id="bioEN" name="bioEN"><?php echo $part[7];?></textarea>
+		<script>
+			CKEDITOR.replace( 'bioFR',
+			{
+				toolbar : 'Full',
+				uiColor : '#468093',
+				filebrowserBrowseUrl : "ressources/scripts/js//ckfinder/ckfinder.html?Type=Files",
+				filebrowserImageBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Images",
+				filebrowserFlashBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Flash",
+				filebrowserUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files",
+				filebrowserImageUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images",
+				filebrowserFlashUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash"
+			});
+			CKEDITOR.replace( 'bioEN',
+			{
+				toolbar : 'Full',
+				uiColor : '#468093',
+				filebrowserBrowseUrl : "ressources/scripts/js//ckfinder/ckfinder.html?Type=Files",
+				filebrowserImageBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Images",
+				filebrowserFlashBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Flash",
+				filebrowserUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files",
+				filebrowserImageUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images",
+				filebrowserFlashUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash"
+			});
 		</script>
-		<noscript>
-		  The editor requires scripting to be enabled.
-		</noscript>
-		<noscript>mce:3</noscript>
-	
-		<div class="editor" id="bioEN" name="bioEN" align="center">
-		</div>
-		
-		<script language="javascript" type="text/javascript">
-		  with (document.getElementById ("bioEN")) {
-			with (appendChild (document.createElement ("TEXTAREA"))) {
-			  name = "bioEN";
-			  cols = 120;
-			  rows = 25;
-			  value = "<?php echo mysql_real_escape_string($part[7]);?>";
-			}
-		  }
-		//-->
-		</script>
-		<noscript>
-		  The editor requires scripting to be enabled.
-		</noscript>
-		<noscript>mce:3</noscript>
 		<div align="center">
 			<a href="javascript:document.editUser.submit();"> <img src="<?php echo $_SESSION['design_path']; ?>images/validate.png"/></a>
 			<a href="index.php?page=participant"> <img src="<?php echo $_SESSION['design_path']; ?>images/cancel.png"/></a>

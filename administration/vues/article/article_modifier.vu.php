@@ -41,43 +41,36 @@ Page de gestion des articles
 				<input type="hidden" value="<?php echo $id;?>" name="id"/>
 			</p>
 		</div>
-		
-		<div class="editor" id="contenuFR" align="center">
-		</div>
-		<script language="javascript" type="text/javascript">
-		  with (document.getElementById ("contenuFR")) {
-			with (appendChild (document.createElement ("TEXTAREA"))) {
-			  name = "contenuFR";
-			  cols = 120;
-			  rows = 25;
-			  value = "<?php echo mysql_real_escape_string($article['contenuFR_article']);?>";
-			}
-		  }
-		//-->
+		<h3> Contenu de l'article en français : </h3>
+		<textarea cols="80" class="ckeditor" id="contenuFR" name="contenuFR" rows="10"> <?php echo $article['contenuFR_article'];?> </textarea>
+		<h3> Contenu de l'article en anglais : </h3>
+		<textarea cols="80" class="ckeditor" id="contenuEN" name="contenuEN" rows="10"> <?php echo $article['contenuEN_article'];?> </textarea>
+		<script>
+			CKEDITOR.replace( 'contenuFR',
+			{
+				toolbar : 'Full',
+				uiColor : '#468093',
+				filebrowserBrowseUrl : "ressources/scripts/js//ckfinder/ckfinder.html?Type=Files",
+				filebrowserImageBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Images",
+				filebrowserFlashBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Flash",
+				filebrowserUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files",
+				filebrowserImageUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images",
+				filebrowserFlashUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash"
+			});
+			CKEDITOR.replace( 'contenuEN',
+			{
+				toolbar : 'Full',
+				uiColor : '#468093',
+				filebrowserBrowseUrl : "ressources/scripts/js//ckfinder/ckfinder.html?Type=Files",
+				filebrowserImageBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Images",
+				filebrowserFlashBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Flash",
+				filebrowserUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files",
+				filebrowserImageUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images",
+				filebrowserFlashUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash"
+			});
 		</script>
-		<noscript>
-		  The editor requires scripting to be enabled.
-		</noscript>
-		<noscript>mce:3</noscript>
 		
-		<div class="editor" id="contenuEN" align="center">
-		</div>
-		<script language="javascript" type="text/javascript">
-		  with (document.getElementById ("contenuFR")) {
-			with (appendChild (document.createElement ("TEXTAREA"))) {
-			  name = "contenuEN";
-			  cols = 120;
-			  rows = 25;
-			  value = "<?php echo mysql_real_escape_string($article['contenuEN_article']);?>";
-			}
-		  }
-		//-->
-		</script>
-		<noscript>
-		  The editor requires scripting to be enabled.
-		</noscript>
-		<noscript>mce:3</noscript>
-		
+
 		<div align="center">
 			<a href="javascript:valider_ajoutArticle();"> <img src="<?php echo $_SESSION['design_path']; ?>images/validate.png"/></a>
 			<a href="index.php?page=article"> <img src="<?php echo $_SESSION['design_path']; ?>images/cancel.png"/></a>
