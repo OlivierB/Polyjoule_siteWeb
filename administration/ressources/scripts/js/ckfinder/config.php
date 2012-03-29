@@ -60,7 +60,7 @@ Examples:
 
 ATTENTION: The trailing slash is required.
 */
-$baseUrl = '/Polyjoule_siteWeb/administration/Photos/';
+$baseUrl = '/Polyjoule_siteWeb/administration/ressources/data/Photo/';
 
 /*
 $baseDir : the path to the local directory (in the server) which points to the
@@ -154,7 +154,7 @@ following definition, leaving the above one:
 $config['AccessControl'][] = Array(
 		'role' => '*',
 		'resourceType' => 'Images',
-		'folder' => '/Logos',
+		'folder' => '/Polyjoule_siteWeb/administration/',
 
 		'folderView' => true,
 		'folderCreate' => true,
@@ -165,7 +165,7 @@ $config['AccessControl'][] = Array(
 		'fileUpload' => false,
 		'fileRename' => false,
 		'fileDelete' => false);
-*/
+
 
 /*
 ResourceType : defines the "resource types" handled in CKFinder. A resource
@@ -188,24 +188,24 @@ $config['DefaultResourceTypes'] = '';
 
 $config['ResourceType'][] = Array(
 		'name' => 'Files',				// Single quotes not allowed
-		'url' => $baseUrl . 'files',
-		'directory' => $baseDir . 'files',
+		'url' => $baseUrl,
+		'directory' => $baseDir,
 		'maxSize' => 0,
 		'allowedExtensions' => '7z,aiff,asf,avi,bmp,csv,doc,docx,fla,flv,gif,gz,gzip,jpeg,jpg,mid,mov,mp3,mp4,mpc,mpeg,mpg,ods,odt,pdf,png,ppt,pptx,pxd,qt,ram,rar,rm,rmi,rmvb,rtf,sdc,sitd,swf,sxc,sxw,tar,tgz,tif,tiff,txt,vsd,wav,wma,wmv,xls,xlsx,zip',
 		'deniedExtensions' => '');
 
 $config['ResourceType'][] = Array(
 		'name' => 'Images',
-		'url' => $baseUrl . 'images',
-		'directory' => $baseDir . 'images',
+		'url' => $baseUrl,
+		'directory' => $baseDir,
 		'maxSize' => 0,
 		'allowedExtensions' => 'bmp,gif,jpeg,jpg,png',
 		'deniedExtensions' => '');
 
 $config['ResourceType'][] = Array(
 		'name' => 'Flash',
-		'url' => $baseUrl . 'flash',
-		'directory' => $baseDir . 'flash',
+		'url' => $baseUrl,
+		'directory' => $baseDir,
 		'maxSize' => 0,
 		'allowedExtensions' => 'swf,flv',
 		'deniedExtensions' => '');

@@ -58,7 +58,7 @@ Page de gestion des albums
 			</tr>
 			<tr>
 				<td>
-					<img src="<?php echo $_SESSION['design_path']; ?>images/add_participant.png" />
+					<img src="<?php echo $_SESSION['design_path']; ?>images/add_album.png" />
 				</td>
 				<td>
 					<a class="liens_Action"href="index.php?page=album&action=2"> Ajouter un album </a>
