@@ -77,7 +77,6 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 								<li><a href="index.php?page=equipe">Equipe Polyjoule</a></li>
 								<li><a href="index.php?page=statistiques">Statistiques</a></li>
 								<li><a href="index.php?page=profil">Mon profil</a></li>
-								<li><a href="index.php?page=deconnexion">Déconnexion</a></li>
 							<div class="menuB"></div>
 						</ul>
 					</li>

@@ -5,9 +5,9 @@
 	?>
 	<form method="post" action="index.php?page=album&action=3&idAlbum=<?php echo $idAlbum; ?>" name="formAjout" enctype="multipart/form-data">
 		<div class="formulaire">
-			<label for="nomFr"><strong>Nom (FR) :</strong> :</label>
+			<label for="nomFr"><strong>Nom (FR) :</strong></label>
 			<input type="text" size="60" value="" name="nomFr"/><br/><br/>
-			<label for="nomEn"><strong>Nom (EN) :</strong> :</label>
+			<label for="nomEn"><strong>Nom (EN) :</strong></label>
 			<input type="text" size="60" value="" name="nomEn"/><br/><br/>
 			<input type="hidden" name="MAX_FILE_SIZE" value="4000000">
 			<label for="photo"><strong>Image</strong> : </label>

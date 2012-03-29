@@ -7,7 +7,7 @@ Page de gestion des équipes -> ajout d'une équipe
 
 <div class="contenu">
 	<?php
-		echo create_title_bar("Ajout d'une équipe", "add_formation.png"); 
+		echo create_title_bar("Ajout d'une équipe", "add_equipe.png"); 
 		$infos->printInfos();
 	?>
 	<form name="formAjout" method="post" action="index.php?page=equipe&action=4">

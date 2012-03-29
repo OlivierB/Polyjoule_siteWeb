@@ -70,7 +70,7 @@ Page de gestion du contenu d'un album
 			</tr>
 			<tr>
 				<td>
-					<img src="<?php echo $_SESSION['design_path']; ?>images/add_participant.png" />
+					<img src="<?php echo $_SESSION['design_path']; ?>images/add_photo.png" />
 				</td>
 				<td>
 					<a class="liens_Action"href="index.php?page=album&action=3&idAlbum=<?php  echo $idAlbum; ?>"> Ajouter une photo </a>

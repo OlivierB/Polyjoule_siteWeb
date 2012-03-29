@@ -7,7 +7,7 @@ Page de gestion des équipes -> ajout d'une équipe
 
 <div class="contenu">
 	<?php
-		echo create_title_bar("Suppresion d'un album'", "add_formation.png"); 
+		echo create_title_bar("Suppresion d'un album'", "add_album.png"); 
 		$infos->printInfos();
 	?>
 	<form name="formAjout" method="post" action="index.php?page=album&action=5&idAlbum=<?php echo $idAlbum; ?>&nomAlbum=<?php echo $nomAlbum; ?>>">
