@@ -56,6 +56,7 @@ traitements
 				if ($nom != "")
 				{
 					addAlbum($nom);
+					//mkdir ($DirPhoto.);
 					$infos->addSucces ("Album ajouté !");
 					$listAlbum = getListAlbum();
 					$sousPage = "defaut";
@@ -79,14 +80,14 @@ traitements
 				$idAlbum = securite($_GET['idAlbum']);
 				$sousPage="ajouterPhoto";
 				
-				if (isset($_POST['nomFr']) && isset($_POST['nomEn']) && isset($_FILES['photo']) ) {
+				if (isset($_POST['nomFr']) && isset($_POST['nomEn']) && isset($_FILES['photo']) && isset($_POST['desciptionFR']) && isset($_POST['desciptionEN'])) {
 					
-					if ($_POST['nomFr'] != "" && $_POST['nomEn'] != "")
+					if ($_POST['nomFr'] != "" && $_POST['nomEn'] != "" && $_POST['desciptionFR'] != "" && $_POST['desciptionEN'] != "")
 					{
 						$res = uploadImg ($infos, $_FILES['photo'], $DirPhoto, 3000000, array('.png', '.jpg', '.jpeg'), 100);
 						if ($res != "")
 						{
-							addPhoto($idAlbum, securite($_POST['nomFr']), securite($_POST['nomEn']), $res);
+							addPhoto($idAlbum, securite($_POST['nomFr']), securite($_POST['nomEn']), $res, securite($_POST['desciptionFR']), securite($_POST['desciptionEN']));
 							$listPhoto = getListPhoto($idAlbum);
 							$sousPage = "photo";
 						}
@@ -198,6 +199,7 @@ traitements
 			$sousPage = "defaut";
 			break;
 		
+		/*****  Supprimer une photo   *****/
 		case 7 :
 			if (isset($_GET['idAlbum']))
 			{

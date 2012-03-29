@@ -6,7 +6,7 @@
 *****************************/
 *
 * Gestion des requetes de la
-* page de gestion des formations
+* page de gestion de l'album
 *
 -->
 
@@ -88,9 +88,9 @@ function updatePhoto($id, $tfr, $ten) {
 	mysql_query($req) or die(mysql_error());
 }
 
-function addPhoto($idAlbum, $nfr, $nen, $nomfichier) {
+function addPhoto($idAlbum, $nfr, $nen, $nomfichier, $destFR, $destEN) {
 	$today = date('Y-m-d');
- 	$req="INSERT INTO PHOTO VALUES (NULL, '".$idAlbum."', '".$nfr."', '".$nen."', '".$nomfichier."', '".$today."');";
+ 	$req="INSERT INTO PHOTO VALUES (NULL, '".$idAlbum."', '".$nfr."', '".$nen."', '".$nomfichier."', '".$today."' );";  //, '".$destFR."', '".$destEN."');";
 	mysql_query($req) or die(mysql_error());
 }
 

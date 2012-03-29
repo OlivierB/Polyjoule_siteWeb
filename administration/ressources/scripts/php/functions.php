@@ -94,7 +94,7 @@ function uploadImg (&$infos, $file, $directory, $maxSize, $extensions, $maxPixel
 	$fichier = basename($file['name']);
 	$taille = filesize($file['tmp_name']);
 	$extension = strtolower(strrchr($file['name'], '.'));
-	
+	$directory = $directory."";
 // variables
 	$retour = "";
 	$mini = 1;	// pour vérifier si on peut creer une miniature
