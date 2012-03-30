@@ -343,5 +343,9 @@ ul#infos li {
 	margin-left : 40px;
 	margin-top : -5px;
 }
-
+#photo_article {
+	width : 100px;
+	height : 100px;
+	border : 2px solid white;
+	}
 

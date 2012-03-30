@@ -14,7 +14,7 @@ Page de gestion des articles
 		$infos->printInfos();
 	?>
 	<!-- Formulaire de modification d'un article -->		
-	<form method="POST" action="index.php?page=article&action=4" name="ajoutArticle" onSubmit="return valider_ajoutArticle();">
+	<form method="POST" action="index.php?page=article&action=4" name="ajoutArticle" onSubmit="return valider_ajoutArticle();"  enctype="multipart/form-data">
 		<div class="formulaire">
 			<p>
 				<label for="titleFR">Titre(FR) :</label>
@@ -31,12 +31,25 @@ Page de gestion des articles
 				
 				<label for="statut">Publié :</label>
 				<input type="radio" <?php if($article['statut_article']) echo "checked='checked'";?> name="statut" value="1"/> Oui
-				<input type="radio" <?php if(!$article['statut_article']) echo "checked='checked'";?> name="statut" value="0"/> Non
+				<input type="radio" <?php if(!$article['statut_article']) echo "checked='checked'";?> name="statut" value="0"/> Non<br/><br/>
 				<br/><br/>
 				
 				<label for="commentaire">Autoriser les commentaires :</label>
 				<input type="radio" <?php if($article['autorisation_com']) echo "checked='checked'";?> name="commentaire" value="1"/> Oui
-				<input type="radio"  <?php if(!$article['autorisation_com']) echo "checked='checked'";?> name="commentaire" value="0"/> Non
+				<input type="radio"  <?php if(!$article['autorisation_com']) echo "checked='checked'";?> name="commentaire" value="0"/> Non<br/><br/>
+				
+				<label for="visible_home">A la une  ?</label>
+				
+				<input type="radio"  <?php if($article['visible_home']) echo "checked='checked'";?>  name="visible_home" value="1"/> Oui 
+				<input type="radio" <?php if(!$article['visible_home']) echo "checked='checked'";?>  name="visible_home" value="0"/> Non<br/><br/>
+			
+				<label for="">Photo principale :</label><br/>
+				<div align="center">
+					<img id="photo_article" src="<?php echo $article['url_photo_principale']; ?>" /><br/><br/>
+				</div>
+				<?php echo create_information("Taille limitée à 5Mo et format image uniquement.");?>
+				<label for="url_photo_principale" >Changer la photo principale	:</label>
+				<input type="file" name="url_photo_principale" maxlength="5242880" accept="image/*" id="url_photo_principale" />
 				
 				<input type="hidden" value="<?php echo $id;?>" name="id"/>
 			</p>

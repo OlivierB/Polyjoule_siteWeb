@@ -90,13 +90,23 @@ traitements
 		break;
 
 		case 3: 
-			if(isset($_POST['titleFR']) && isset($_POST['titleEN']) && isset($_POST['rubrique']) && isset($_POST['statut']) && isset($_POST['commentaire']) && isset($_POST['contenuFR']) && isset($_POST['contenuEN']) && isset($_SESSION['pseudo_membre']))
+			if(isset($_POST['titleFR']) && isset($_POST['titleEN']) && isset($_POST['rubrique']) && isset($_POST['statut']) && isset($_POST['commentaire']) && isset($_POST['contenuFR']) && isset($_POST['contenuEN']) && isset($_SESSION['pseudo_membre']) && isset($_FILES['url_photo_principale']) && $_FILES['url_photo_principale']['name']!="" && isset($_POST['visible_home']))
 			{
 				// verifications :
 				// ...
-				ajouter_article(securite($_POST['titleFR']),securite($_POST['titleEN']),securite($_POST['rubrique']),securite($_POST['statut']),securite($_POST['commentaire']),securite($_POST['contenuFR']),securite($_POST['contenuEN']), $_SESSION['pseudo_membre']);
-				$infos->addSucces ("Ajout de l'article effectué");
-				$sousPage 	= "defaut";
+				$error_pict = verify_picture($_FILES['url_photo_principale'],5242880);
+				if($error_pict == "")
+				{
+					$path = save_picture($_FILES['url_photo_principale'],300,300,'ressources/data/Photo/',securite($_POST['titleFR']));
+					ajouter_article(securite($_POST['titleFR']),securite($_POST['titleEN']),securite($_POST['rubrique']),securite($_POST['statut']),securite($_POST['commentaire']),securite($_POST['contenuFR']),securite($_POST['contenuEN']), $_SESSION['pseudo_membre'],securite($_POST['visible_home']), $path);
+					$infos->addSucces ("Ajout de l'article effectué");
+					$sousPage 	= "defaut";
+				}
+				else
+				{
+					$infos->addError ($error_pict);
+					$sousPage 	= "ajouter";
+				}
 			} else
 			{
 				$infos->addError ("Les champs ne sont pas tous renseignés");
@@ -106,11 +116,27 @@ traitements
 		break;
 
 		case 4: 
-			if(isset($_POST['id']) && isset($_POST['titleFR']) && isset($_POST['titleEN']) && isset($_POST['rubrique']) && isset($_POST['statut']) && isset($_POST['commentaire']) && isset($_POST['contenuFR']) && isset($_POST['contenuEN']) && isset($_SESSION['pseudo_membre']))
+			if(isset($_POST['id']) && isset($_POST['titleFR']) && isset($_POST['titleEN']) && isset($_POST['rubrique']) && isset($_POST['statut']) && isset($_POST['commentaire']) && isset($_POST['contenuFR']) && isset($_POST['contenuEN']) && isset($_SESSION['pseudo_membre'])  && isset($_POST['visible_home']))
 			{
-				modify_article(securite($_POST['id']),securite($_POST['titleFR']),securite($_POST['titleEN']),securite($_POST['rubrique']),securite($_POST['statut']),securite($_POST['commentaire']),securite($_POST['contenuFR']),securite($_POST['contenuEN']), $_SESSION['pseudo_membre']);
-				$infos->addSucces ("Modification de l'article effectuée");
-				$sousPage 	= "defaut";
+				$error_pict = "";
+				$article = get_article($_POST['id']);
+				$path = $article['url_photo_principale'];
+				if( isset($_FILES['url_photo_principale']) && $_FILES['url_photo_principale']['name']!="")
+				{
+					$error_pict = verify_picture($_FILES['url_photo_principale'],5242880);
+					if($error_pict == "") $path = save_picture($_FILES['url_photo_principale'],300,300,'ressources/data/Photo/',securite($_POST['titleFR']));
+				}
+				if($error_pict == "")
+				{
+					modify_article(securite($_POST['id']),securite($_POST['titleFR']),securite($_POST['titleEN']),securite($_POST['rubrique']),securite($_POST['statut']),securite($_POST['commentaire']),securite($_POST['contenuFR']),securite($_POST['contenuEN']), $_SESSION['pseudo_membre'], $_POST['visible_home'],$path);
+					$infos->addSucces ("Modification de l'article effectuée");
+					$sousPage 	= "defaut";
+				}
+				else
+				{
+					$infos->addError ($error_pict);
+					$sousPage 	= "modifier";
+				}
 			} else
 			{
 				$infos->addError ("Les champs ne sont pas tous renseignés");

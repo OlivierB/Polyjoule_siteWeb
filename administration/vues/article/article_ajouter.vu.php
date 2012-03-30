@@ -17,7 +17,7 @@ Page de gestion des articles -> ajout d'un article
 		?>
 		
 	<!-- Formulaire d'ajout d'article -->		
-	<form method="POST" action="index.php?page=article&action=3" name="ajoutArticle" onSubmit="return valider_ajoutArticle();">
+	<form method="POST" action="index.php?page=article&action=3" name="ajoutArticle" onSubmit="return valider_ajoutArticle();"  enctype="multipart/form-data">
 		<div class="formulaire">
 			<p>
 				<label for="titleFR">Titre(FR) :</label>
@@ -35,9 +35,17 @@ Page de gestion des articles -> ajout d'un article
 				<input type="radio" checked="checked" name="statut" value="1"/> Oui 
 				<input type="radio" name="statut" value="0"/> Non<br/><br/>
 				
-				<label for="commentaire">Autoriser les commentaires :</label>
+				<label for="commentaire">Autoriser les commentaires ?</label>
 				<input type="radio" checked="checked" name="commentaire" value="1"/> Oui 
-				<input type="radio" name="commentaire" value="0"/> Non
+				<input type="radio" name="commentaire" value="0"/> Non <br/><br/>
+				
+				<label for="visible_home">A la une  ?</label>
+				<input type="radio" checked="checked" name="visible_home" value="1"/> Oui 
+				<input type="radio" name="visible_home" value="0"/> Non <br/><br/>
+				
+				<?php echo create_information("Taille limitée à 5Mo et format image uniquement.");?>
+				<label for="url_photo_principale" >Photo principale	:</label>
+				<input type="file" name="url_photo_principale" maxlength="5242880" accept="image/*" id="url_photo_principale" />
 			</p>
 		
 		</div>

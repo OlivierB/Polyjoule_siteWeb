@@ -48,6 +48,9 @@ Page de gestion des articles
 			<th class="blue_tabular_title">
 				Nombre de commentaires
 			</th>
+			<th class="blue_tabular_title">
+				A la une
+			</th>
 		</tr>
 		
 		<?php
@@ -71,7 +74,12 @@ Page de gestion des articles
 				echo "<td class='blue_tabular_cell'> -- </td>";
 			echo "<td class='blue_tabular_cell'>".$articles[$i]["date_article"]."</td>";
 			
-			echo"<td class='blue_tabular_cell'>".sizeof($articles[$i]["commentaires"])."</td></tr>";
+			echo"<td class='blue_tabular_cell'>".sizeof($articles[$i]["commentaires"])."</td>";
+			
+			if ($articles[$i]["visible_home"])
+				echo "<td class='blue_tabular_cell'>Oui</td></tr>";
+			else
+				echo "<td class='blue_tabular_cell'> Non</td></tr>";
 			
 		}
 		
