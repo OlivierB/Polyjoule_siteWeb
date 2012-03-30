@@ -78,6 +78,7 @@ function verify_picture($pict, $size_max)
 		return "Erreur lors du transfert de l'image.";
 }
 
+
 function delete_file($directory, $file_name)
 {
 	$dir = opendir ($directory);
@@ -365,5 +366,29 @@ function coupeChaine($text, $max)
 	}
 	return $text;
 }
+
+function formatString ($fichier)
+{
+	//On formate le nom du fichier
+     $fichier = strtr($fichier, 
+          'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 
+          'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
+     $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
+	return $fichier;
+}
+
+
+// ensure $dir ends with a slash 
+function delTree($dir) { 
+    $files = glob( $dir . '*', GLOB_MARK ); 
+    foreach( $files as $file ){ 
+        if( substr( $file, -1 ) == '/' ) 
+            delTree( $file ); 
+        else 
+            unlink( $file ); 
+    } 
+    if (is_dir($dir)) rmdir( $dir );
+} 
+
 
 ?>
