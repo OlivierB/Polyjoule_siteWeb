@@ -309,7 +309,7 @@ CREATE TABLE IF NOT EXISTS `PARTICIPANT` (
   `role_participant` varchar(100) DEFAULT NULL,
   `bioFR_participant` text,
   `bioEN_participant` text,
-  `isProf`` boolean NOT NULL,
+  `isProf` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_participant`),
   KEY `FK_PARTICIPANT_id_equipe` (`id_equipe`)
 ) ENGINE=Xeround DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
