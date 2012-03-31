@@ -185,7 +185,9 @@ CKFinder.lang['fi'] =
 
 	// Size and Speed
 	Kb				: '%1 kt',
-	KbPerSecond		: '%1 kt/s',
+	Mb				: '%1 Mt',
+	Gb				: '%1 Gt',
+	SizePerSecond	: '%1/s',
 
 	// Connector Error Messages.
 	ErrorUnknown	: 'Pyyntöä ei voitu suorittaa. (Virhe %1)',
@@ -271,5 +273,10 @@ CKFinder.lang['fi'] =
 	{
 		maximize : 'Suurenna',
 		minimize : 'Pienennä'
+	},
+
+	Gallery :
+	{
+		current : 'Kuva {current} / {total}'
 	}
 };

@@ -47,12 +47,14 @@ class CKFinder_Connector_ErrorHandler_FileUpload extends CKFinder_Connector_Erro
         $oRegistry = & CKFinder_Connector_Core_Factory :: getInstance("Core_Registry");
         $sFileName = $oRegistry->get("FileUpload_fileName");
         $sFileUrl = $oRegistry->get("FileUpload_url");
+        $sEncodedFileName = CKFinder_Connector_Utils_FileSystem::convertToConnectorEncoding($sFileName);
 
         header('Content-Type: text/html; charset=utf-8');
 
-        $errorMessage = CKFinder_Connector_Utils_Misc :: getErrorMessage($number, $sFileName);
+        $errorMessage = CKFinder_Connector_Utils_Misc :: getErrorMessage($number, $sEncodedFileName);
         if (!$uploaded) {
             $sFileName = "";
+            $sEncodedFileName = "";
         }
         if (!empty($_GET['response_type']) && $_GET['response_type'] == 'txt') {
             echo $sFileName."|".$errorMessage;
@@ -71,7 +73,7 @@ class CKFinder_Connector_ErrorHandler_FileUpload extends CKFinder_Connector_Erro
                 echo "window.parent.CKFinder.tools.callFunction($funcNum, '" . str_replace("'", "\\'", $sFileUrl . $sFileName) . "', '" .str_replace("'", "\\'", $errorMessage). "');";
             }
             else {
-                echo "window.parent.OnUploadCompleted('" . str_replace("'", "\\'", $sFileName) . "', '" . str_replace("'", "\\'", $errorMessage) . "') ;";
+                echo "window.parent.OnUploadCompleted('" . str_replace("'", "\\'", $sEncodedFileName) . "', '" . str_replace("'", "\\'", $errorMessage) . "') ;";
             }
             echo "</script>";
         }

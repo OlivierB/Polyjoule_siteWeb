@@ -65,6 +65,7 @@ require_once CKFINDER_CONNECTOR_LIB_DIR . "/Core/Hooks.php";
  */
 function resolveUrl($baseUrl) {
     $fileSystem =& CKFinder_Connector_Core_Factory::getInstance("Utils_FileSystem");
+    $baseUrl = preg_replace("|^http(s)?://[^/]+|i", "", $baseUrl);
     return $fileSystem->getDocumentRootPath() . $baseUrl;
 }
 

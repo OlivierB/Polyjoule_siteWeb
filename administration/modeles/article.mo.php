@@ -126,7 +126,10 @@ function is_boolean($bit)
 
 function ajouter_article($titreFR, $titreEN, $rubrique, $statut, $commentaire, $contenuFR, $contenuEN, $auteur,$visible_home,$photo)
 {
-	$req = "INSERT INTO ARTICLE VALUES (NULL,".$rubrique.",'".$titreFR."','".$titreEN."','".$contenuFR."','".$contenuEN."','".$auteur."',".$statut.",".$commentaire.",now(),'".$photo."',".$visible_home.")";
+	$contenuFR = str_replace("/Polyjoule\_siteWeb/administration/","",$contenuFR);
+	$contenuEN = str_replace("/Polyjoule\_siteWeb/administration/","",$contenuEN);
+	
+	$req = "INSERT INTO ARTICLE VALUES (NULL,".$rubrique.",'".$auteur."','".$titreFR."','".$titreEN."','".$contenuFR."','".$contenuEN."','".$commentaire."',".$statut.",now(),'".$photo."',".$visible_home.")";
 	mysql_query($req) or die(mysql_error());
 	
 	return true;

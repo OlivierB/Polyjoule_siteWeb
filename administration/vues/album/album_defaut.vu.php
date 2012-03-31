@@ -41,9 +41,9 @@ Page de gestion des albums
 				</a> </td>
 			<td class='blue_tabular_cell'><?php  echo $val['date_album'] ?></td>
 			<td class='blue_tabular_cell'>
-				<a style="text-decoration:none;color:green;" href="index.php?page=album&action=4&idAlbum=<?php  echo $val['id_album']; ?>">Modifier</a>
+				<a style="text-decoration:none;color:green;" href="index.php?page=album&action=4&idAlbum=<?php  echo $val['id_album']; ?>&nomAlbum=<?php  echo $val['nom_album']; ?>">Modifier</a>
 				-
-				<a style="text-decoration:none;color:red;" href="index.php?page=album&action=5&idAlbum=<?php  echo $val['id_album']; ?>">Supprimer</a>
+				<a style="text-decoration:none;color:red;" href="index.php?page=album&action=5&idAlbum=<?php  echo $val['id_album']; ?>&nomAlbum=<?php  echo $val['nom_album']; ?>">Supprimer</a>
 			</td>
 		</tr>
 		<?php

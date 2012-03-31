@@ -151,7 +151,7 @@ class CKFinder
 		$url = $this->BasePath ;
 
 		// If it is a path relative to the current page.
-		if ( isset($url[0]) && $url[0] != '/' )
+		if ( isset($url[0]) && $url[0] != '/' && strpos($url, "://") === false )
 		{
 			$url = substr( $_SERVER[ 'REQUEST_URI' ], 0, strrpos( $_SERVER[ 'REQUEST_URI' ], '/' ) + 1 ) . $url ;
 		}
@@ -200,7 +200,7 @@ class CKFinder
 		$url = $this->BasePath ;
 
 		// If it is a path relative to the current page.
-		if ( isset($url[0]) && $url[0] != '/' )
+		if ( isset($url[0]) && $url[0] != '/' && strpos($url, "://") === false )
 		{
 			$url = substr( $_SERVER[ 'REQUEST_URI' ], 0, strrpos( $_SERVER[ 'REQUEST_URI' ], '/' ) + 1 ) . $url ;
 		}

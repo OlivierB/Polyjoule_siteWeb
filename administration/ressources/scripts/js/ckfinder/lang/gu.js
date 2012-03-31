@@ -183,8 +183,10 @@ CKFinder.lang['gu'] =
 	FilesCountMany	: '%1 ફાઈલો',
 
 	// Size and Speed
-	Kb				: '%1 kB',
-	KbPerSecond		: '%1 kB/s',
+	Kb				: '%1 KB',
+	Mb				: '%1 MB',
+	Gb				: '%1 GB',
+	SizePerSecond	: '%1/s',
 
 	// Connector Error Messages.
 	ErrorUnknown	: 'તમારી રીક્વેસ્ટ માન્ય નથી. (એરર %1)',
@@ -270,5 +272,10 @@ CKFinder.lang['gu'] =
 	{
 		maximize : 'મેક્ષિમાઈઝ',
 		minimize : 'મિનીમાઈઝ'
+	},
+
+	Gallery :
+	{
+		current : 'ઈમેજ {current} બધામાંથી {total}'
 	}
 };

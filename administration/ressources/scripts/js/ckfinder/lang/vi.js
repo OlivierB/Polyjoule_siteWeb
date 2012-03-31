@@ -183,8 +183,10 @@ CKFinder.lang['vi'] =
 	FilesCountMany	: '%1 tập tin',
 
 	// Size and Speed
-	Kb				: '%1 kB',
-	KbPerSecond		: '%1 kB/s',
+	Kb				: '%1 KB',
+	Mb				: '%1 MB',
+	Gb				: '%1 GB',
+	SizePerSecond	: '%1/s',
 
 	// Connector Error Messages.
 	ErrorUnknown	: 'Không thể hoàn tất yêu cầu. (Lỗi %1)',
@@ -270,5 +272,10 @@ CKFinder.lang['vi'] =
 	{
 		maximize : 'Cực đại hóa',
 		minimize : 'Cực tiểu hóa'
+	},
+
+	Gallery :
+	{
+		current : 'Hình thứ {current} trên {total}'
 	}
 };

@@ -183,8 +183,10 @@ CKFinder.lang['hr'] =
 	FilesCountMany	: '%1 datoteka',
 
 	// Size and Speed
-	Kb				: '%1 kB',
-	KbPerSecond		: '%1 kB/s',
+	Kb				: '%1 KB',
+	Mb				: '%1 MB',
+	Gb				: '%1 GB',
+	SizePerSecond	: '%1/s',
 
 	// Connector Error Messages.
 	ErrorUnknown	: 'Nije moguće završiti zahtjev. (Greška %1)',
@@ -270,5 +272,10 @@ CKFinder.lang['hr'] =
 	{
 		maximize : 'Povećaj',
 		minimize : 'Smanji'
+	},
+
+	Gallery :
+	{
+		current : 'Slika {current} od {total}'
 	}
 };

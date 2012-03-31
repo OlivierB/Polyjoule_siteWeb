@@ -183,8 +183,10 @@ CKFinder.lang['et'] =
 	FilesCountMany	: '%1 faili',
 
 	// Size and Speed
-	Kb				: '%1 kB',
-	KbPerSecond		: '%1 kB/s',
+	Kb				: '%1 KB',
+	Mb				: '%1 MB',
+	Gb				: '%1 GB',
+	SizePerSecond	: '%1/s',
 
 	// Connector Error Messages.
 	ErrorUnknown	: 'Päringu täitmine ei olnud võimalik. (Viga %1)',
@@ -270,5 +272,10 @@ CKFinder.lang['et'] =
 	{
 		maximize : 'Maksimeeri',
 		minimize : 'Minimeeri'
+	},
+
+	Gallery :
+	{
+		current : 'Pilt {current}, kokku {total}'
 	}
 };

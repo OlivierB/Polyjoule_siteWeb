@@ -39,4 +39,7 @@
 		$infos->printInfos();
 		?>
 	</div>
+	<div class="centre">
+		<a href="index.php" > Retour </a>
+	</div>
 </div>

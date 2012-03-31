@@ -124,6 +124,13 @@ class CKFinder_Connector_Core_Config
      */
     var $_checkDoubleExtension = true;
     /**
+     * Disallow unsafe characters in file and folder names
+     *
+     * @var boolean
+     * @access private
+     */
+    var $_disallowUnsafeCharacters = false;
+    /**
      * If set to true, validate image size
      *
      * @var boolean
@@ -303,6 +310,17 @@ class CKFinder_Connector_Core_Config
     }
 
     /**
+	 * Get "Disallow unsafe characters" value
+	 *
+	 * @access public
+	 * @return boolean
+	 */
+    function getDisallowUnsafeCharacters()
+    {
+        return $this->_disallowUnsafeCharacters;
+    }
+
+    /**
 	 * Get default resource types
 	 *
 	 * @access public
@@ -479,6 +497,9 @@ class CKFinder_Connector_Core_Config
         }
         if (isset($GLOBALS['config']['CheckDoubleExtension'])) {
             $this->_checkDoubleExtension = CKFinder_Connector_Utils_Misc::booleanValue($GLOBALS['config']['CheckDoubleExtension']);
+        }
+        if (isset($GLOBALS['config']['DisallowUnsafeCharacters'])) {
+            $this->_disallowUnsafeCharacters = CKFinder_Connector_Utils_Misc::booleanValue($GLOBALS['config']['DisallowUnsafeCharacters']);
         }
         if (isset($GLOBALS['config']['SecureImageUploads'])) {
             $this->_secureImageUploads = CKFinder_Connector_Utils_Misc::booleanValue($GLOBALS['config']['SecureImageUploads']);

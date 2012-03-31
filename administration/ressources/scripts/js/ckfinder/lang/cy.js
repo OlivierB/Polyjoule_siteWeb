@@ -183,8 +183,10 @@ CKFinder.lang['cy'] =
 	FilesCountMany	: '%1 ffeil',
 
 	// Size and Speed
-	Kb				: '%1 kB',
-	KbPerSecond		: '%1 kB/s',
+	Kb				: '%1 KB',
+	Mb				: '%1 MB', // MISSING
+	Gb				: '%1 GB', // MISSING
+	SizePerSecond	: '%1/s', // MISSING
 
 	// Connector Error Messages.
 	ErrorUnknown	: 'Does dim modd cwblhau\'r cais. (Gwall %1)',
@@ -270,5 +272,10 @@ CKFinder.lang['cy'] =
 	{
 		maximize : 'Uchafu',
 		minimize : 'Isafu'
+	},
+
+	Gallery :
+	{
+		current : 'Image {current} of {total}' // MISSING
 	}
 };

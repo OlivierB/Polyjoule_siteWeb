@@ -56,6 +56,9 @@ class CKFinder_Connector_CommandHandler_FileUpload extends CKFinder_Connector_Co
 
         $sUnsafeFileName = CKFinder_Connector_Utils_FileSystem::convertToFilesystemEncoding(CKFinder_Connector_Utils_Misc::mbBasename($uploadedFile['name']));
         $sFileName = str_replace(array(":", "*", "?", "|", "/"), "_", $sUnsafeFileName);
+        if ($_config->getDisallowUnsafeCharacters()) {
+          $sFileName = str_replace(";", "_", $sFileName);
+        }
         if ($_config->forceAscii()) {
             $sFileName = CKFinder_Connector_Utils_FileSystem::convertToAscii($sFileName);
         }

@@ -183,8 +183,10 @@ CKFinder.lang['lv'] =
 	FilesCountMany	: '%1 faili',
 
 	// Size and Speed
-	Kb				: '%1 kB',
-	KbPerSecond		: '%1 kB/s',
+	Kb				: '%1 KB',
+	Mb				: '%1 MB',
+	Gb				: '%1 GB',
+	SizePerSecond	: '%1/s',
 
 	// Connector Error Messages.
 	ErrorUnknown	: 'Nebija iespējams pabeigt pieprasījumu. (Kļūda %1)',
@@ -270,5 +272,10 @@ CKFinder.lang['lv'] =
 	{
 		maximize : 'Maximize', // MISSING
 		minimize : 'Minimize' // MISSING
+	},
+
+	Gallery :
+	{
+		current : 'Image {current} of {total}' // MISSING
 	}
 };

@@ -13,17 +13,17 @@ Ce fichier contient uniquement la connexion à la bdd
 <?php
 /*Connexion à la BDD*/
 
-/* En local Linux, Windows *//*
+/* En local Linux, Windows */
 $bd_nom_serveur	='localhost';
 $bd_login		='root';
 $bd_mot_de_passe='';
 $bd_nom_bd		='Polyjoule'; /**/
 
-/* En local Mac */
+/* En local Mac *//*
 $bd_nom_serveur	='localhost';
 $bd_login		='root';
 $bd_mot_de_passe='root';
-$bd_nom_bd		='PolyjouleUT'; /**/
+$bd_nom_bd		='Polyjoule'; /**/
 
 
 //Connexion à la base de données

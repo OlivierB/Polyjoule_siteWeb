@@ -183,8 +183,10 @@ CKFinder.lang['eo'] =
 	FilesCountMany	: '%1 dosieroj',
 
 	// Size and Speed
-	Kb				: '%1 kB',
-	KbPerSecond		: '%1 kB/s',
+	Kb				: '%1 KB',
+	Mb				: '%1 MB',
+	Gb				: '%1 GB',
+	SizePerSecond	: '%1/s',
 
 	// Connector Error Messages.
 	ErrorUnknown	: 'Ne eblis plenumi la peton. (Eraro %1)',
@@ -270,5 +272,10 @@ CKFinder.lang['eo'] =
 	{
 		maximize : 'Pligrandigi',
 		minimize : 'Malpligrandigi'
+	},
+
+	Gallery :
+	{
+		current : 'Bildo {current} el {total}'
 	}
 };

@@ -175,7 +175,7 @@ CKFinder.lang['no'] =
 	SetSortName		: 'Filnavn',
 	SetSortDate		: 'Dato',
 	SetSortSize		: 'Størrelse',
-	SetSortExtension		: 'by Extension', // MISSING
+	SetSortExtension		: 'Filetternavn',
 
 	// Status Bar
 	FilesCountEmpty : '<Tom Mappe>',
@@ -183,8 +183,10 @@ CKFinder.lang['no'] =
 	FilesCountMany	: '%1 filer',
 
 	// Size and Speed
-	Kb				: '%1 kB',
-	KbPerSecond		: '%1 kB/s',
+	Kb				: '%1 KB',
+	Mb				: '%1 MB',
+	Gb				: '%1 GB',
+	SizePerSecond	: '%1/s',
 
 	// Connector Error Messages.
 	ErrorUnknown	: 'Det var ikke mulig å utføre forespørselen. (Feil %1)',
@@ -236,7 +238,7 @@ CKFinder.lang['no'] =
 	Imageresize :
 	{
 		dialogTitle		: 'Endre størrelse %s',
-		sizeTooBig		: 'Cannot set image height or width to a value bigger than the original size (%size).', // MISSING
+		sizeTooBig		: 'Kan ikke sette høyde og bredde til større enn orginalstørrelse (%size).',
 		resizeSuccess	: 'Endring av bildestørrelse var vellykket.',
 		thumbnailNew	: 'Lag ett nytt miniatyrbilde',
 		thumbnailSmall	: 'Liten (%s)',
@@ -270,5 +272,10 @@ CKFinder.lang['no'] =
 	{
 		maximize : 'Maksimer',
 		minimize : 'Minimer'
+	},
+
+	Gallery :
+	{
+		current : 'Bilde {current} av {total}'
 	}
 };

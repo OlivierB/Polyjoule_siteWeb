@@ -150,17 +150,17 @@ CKFinder.lang['da'] =
 	UploadExtIncorrect	: 'Denne filtype er ikke tilladt i denne mappe.',
 
 	// Flash Uploads
-	UploadLabel			: 'Files to Upload', // MISSING
-	UploadTotalFiles	: 'Total Files:', // MISSING
-	UploadTotalSize		: 'Total Size:', // MISSING
-	UploadSend			: 'Upload', // MISSING
-	UploadAddFiles		: 'Add Files', // MISSING
-	UploadClearFiles	: 'Clear Files', // MISSING
-	UploadCancel		: 'Cancel Upload', // MISSING
-	UploadRemove		: 'Remove', // MISSING
-	UploadRemoveTip		: 'Remove !f', // MISSING
-	UploadUploaded		: 'Uploaded !n%', // MISSING
-	UploadProcessing	: 'Processing...', // MISSING
+	UploadLabel			: 'Files to Upload',
+	UploadTotalFiles	: 'Total antal filer:',
+	UploadTotalSize		: 'Total størrelse:',
+	UploadSend			: 'Upload',
+	UploadAddFiles		: 'Tilføj filer',
+	UploadClearFiles	: 'Nulstil filer',
+	UploadCancel		: 'Annuller upload',
+	UploadRemove		: 'Fjern',
+	UploadRemoveTip		: 'Fjern !f',
+	UploadUploaded		: 'Uploadede !n%',
+	UploadProcessing	: 'Udfører...',
 
 	// Settings Panel
 	SetTitle		: 'Indstillinger',
@@ -175,7 +175,7 @@ CKFinder.lang['da'] =
 	SetSortName		: 'efter filnavn',
 	SetSortDate		: 'efter dato',
 	SetSortSize		: 'efter størrelse',
-	SetSortExtension		: 'by Extension', // MISSING
+	SetSortExtension		: 'efter filtype',
 
 	// Status Bar
 	FilesCountEmpty : '<tom mappe>',
@@ -183,8 +183,10 @@ CKFinder.lang['da'] =
 	FilesCountMany	: '%1 filer',
 
 	// Size and Speed
-	Kb				: '%1 kB',
-	KbPerSecond		: '%1 kB/s',
+	Kb				: '%1 KB',
+	Mb				: '%1 MB',
+	Gb				: '%1 GB',
+	SizePerSecond	: '%1/s',
 
 	// Connector Error Messages.
 	ErrorUnknown	: 'Det var ikke muligt at fuldføre handlingen. (Fejl: %1)',
@@ -227,9 +229,9 @@ CKFinder.lang['da'] =
 		FolderInvChar	: 'Mappenavnet må ikke indeholde et af følgende tegn: \n\\ / : * ? " < > |',
 
 		PopupBlockView	: 'Det var ikke muligt at åbne filen i et nyt vindue. Kontrollér konfigurationen i din browser, og deaktivér eventuelle popup-blokkere for denne hjemmeside.',
-		XmlError		: 'It was not possible to properly load the XML response from the web server.', // MISSING
-		XmlEmpty		: 'It was not possible to load the XML response from the web server. The server returned an empty response.', // MISSING
-		XmlRawResponse	: 'Raw response from the server: %s' // MISSING
+		XmlError		: 'Det var ikke muligt at hente den korrekte XML kode fra serveren.',
+		XmlEmpty		: 'Det var ikke muligt at hente den korrekte XML kode fra serveren. Serveren returnerede et tomt svar.',
+		XmlRawResponse	: 'Serveren returenede følgende output: %s'
 	},
 
 	// Imageresize plugin
@@ -269,6 +271,11 @@ CKFinder.lang['da'] =
 	Maximize :
 	{
 		maximize : 'Maximér',
-		minimize : 'Minimize' // MISSING
+		minimize : 'Minimér'
+	},
+
+	Gallery :
+	{
+		current : 'Billede {current} ud af {total}'
 	}
 };

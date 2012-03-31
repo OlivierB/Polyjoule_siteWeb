@@ -183,8 +183,10 @@ CKFinder.lang['zh-tw'] =
 	FilesCountMany	: '%1 個檔案',
 
 	// Size and Speed
-	Kb				: '%1 kB',
-	KbPerSecond		: '%1 kB/s',
+	Kb				: '%1 KB',
+	Mb				: '%1 MB', // MISSING
+	Gb				: '%1 GB', // MISSING
+	SizePerSecond	: '%1/s', // MISSING
 
 	// Connector Error Messages.
 	ErrorUnknown	: '無法連接到伺服器 ! (錯誤代碼 %1)',
@@ -270,5 +272,10 @@ CKFinder.lang['zh-tw'] =
 	{
 		maximize : 'Maximize', // MISSING
 		minimize : 'Minimize' // MISSING
+	},
+
+	Gallery :
+	{
+		current : 'Image {current} of {total}' // MISSING
 	}
 };

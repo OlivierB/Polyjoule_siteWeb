@@ -3,6 +3,32 @@ CKFinder Changelog
 http://ckfinder.com
 Copyright (C) 2007-2012, CKSource - Frederico Knabben. All rights reserved.
 
+### Version 2.2
+Security Release: fixed filtering of unsafe characters for IIS6 web server.
+- HTML5 multiple file uploads introduced.
+- Files can now be uploaded by using the drag&drop in Firefox and Chrome.
+- Added a read-only mode (config.readOnly), which if enabled, lets the user browse the files but not upload or modify them.
+- CKFinder now supports common lightbox plugins by default when viewing files, and will use Colorbox to show images if no other lightbox plugin is loaded.
+- "Upload" button in the toolbar now remains active after a file has been uploaded if the Upload Pane is still open.
+- Improved formatting of file sizes.
+- Dialog window definition now contains a new connectorResponse property which can use raw data sent from the server inside plugins.
+- Added support for full URLs in the SetupCKEditor() method.
+- Configuration objects passed to the SetupCKEditor() method are now in fact being used.
+- Improved support for Android and iOS tablets.
+- Updated translations: Slovak; minor updates in all other localizations.
+- Fixed: Permission denied to set property Window.onbeforeunload.
+- Fixed: ckfinder_v1.js: SetupCKEditor() and SetupFCKeditor() methods are causing a JavaScript error.
+- Fixed: IE, Opera: Double clicking a file causes CKFinder to try to close the browser tab.
+- Fixed: IE, Opera: CKFinder closes the browser tab after the tab which linked to it was closed.
+- Fixed: IE, Opera: CKFinder tries to close the browser tab after pressing the F5 key (Refresh).
+- Fixed: When CKFinder is integrated with CKEditor, the URL that is sent back from the Upload tab after a successful file upload is not being encoded properly.
+- Fixed: It is impossible to view a file with a special character in its name.
+- Fixed: IE8: Selecting a file requires a double click instead of a single one.
+- Fixed High Contrast mode detection.
+- Fixed: Flash uploader is unable to deal with unexpected errors.
+[PHP] - Fixed: Incorrect encoding of file names returned after the file upload.
+[PHP] - Added: Support full URLs in resolveUrl() to resolve to correct $baseDir.
+
 ### Version 2.1.1
 - Sorting by file extension is now available.
 - Clear Basket button is now only active when applicable.

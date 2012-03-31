@@ -79,6 +79,8 @@ class CKFinder_Connector_Utils_FileSystem
      */
     function checkFileName($fileName)
     {
+        $_config =& CKFinder_Connector_Core_Factory::getInstance("Core_Config");
+
         if (is_null($fileName) || !strlen($fileName) || substr($fileName,-1,1)=="." || false!==strpos($fileName, "..")) {
             return false;
         }
@@ -87,7 +89,34 @@ class CKFinder_Connector_Utils_FileSystem
             return false;
         }
 
+        if ($_config->getDisallowUnsafeCharacters()) {
+            if (strpos($fileName, ";") !== false) {
+                return false;
+            }
+        }
+
         return true;
+    }
+
+    /**
+     * Check whether $folderName is a valid folder name, return true on success
+     *
+     * @static
+     * @access public
+     * @param string $folderName
+     * @return boolean
+     */
+    function checkFolderName($folderName)
+    {
+        $_config =& CKFinder_Connector_Core_Factory::getInstance("Core_Config");
+
+        if ($_config->getDisallowUnsafeCharacters()) {
+            if (strpos($folderName, ".") !== false) {
+                return false;
+            }
+        }
+
+        return CKFinder_Connector_Utils_FileSystem::checkFileName($folderName);
     }
 
     /**

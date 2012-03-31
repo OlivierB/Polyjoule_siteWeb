@@ -183,8 +183,10 @@ CKFinder.lang['fa'] =
 	FilesCountMany	: '%1 فایل',
 
 	// Size and Speed
-	Kb				: '%1 kB',
-	KbPerSecond		: '%1 kB/s',
+	Kb				: '%1KB',
+	Mb				: '%1MB',
+	Gb				: '%1GB',
+	SizePerSecond	: '%1/s',
 
 	// Connector Error Messages.
 	ErrorUnknown	: 'امکان تکمیل درخواست فوق وجود ندارد (خطا: %1)',
@@ -270,5 +272,10 @@ CKFinder.lang['fa'] =
 	{
 		maximize : 'بیشینه',
 		minimize : 'کمینه'
+	},
+
+	Gallery :
+	{
+		current : 'Image {current} of {total}' // MISSING
 	}
 };

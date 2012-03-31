@@ -67,7 +67,7 @@ class CKFinder_Connector_CommandHandler_RenameFolder extends CKFinder_Connector_
             $newFolderName = CKFinder_Connector_Utils_FileSystem::convertToAscii($newFolderName);
         }
 
-        if (!CKFinder_Connector_Utils_FileSystem::checkFileName($newFolderName) || $resourceTypeInfo->checkIsHiddenFolder($newFolderName)) {
+        if (!CKFinder_Connector_Utils_FileSystem::checkFolderName($newFolderName) || $resourceTypeInfo->checkIsHiddenFolder($newFolderName)) {
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_INVALID_NAME);
         }
 

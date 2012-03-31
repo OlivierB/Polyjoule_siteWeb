@@ -183,8 +183,10 @@ CKFinder.lang['hi'] =
 	FilesCountMany	: '%1 फाएल',
 
 	// Size and Speed
-	Kb				: '%1 kB',
-	KbPerSecond		: '%1 kB/s',
+	Kb				: '%1 KB',
+	Mb				: '%1 MB',
+	Gb				: '%1 GB',
+	SizePerSecond	: '%1/s',
 
 	// Connector Error Messages.
 	ErrorUnknown	: 'आपकी रिक्वेस्ट क्मप्लित नही कर सकते. (एरर %1)',
@@ -270,5 +272,10 @@ CKFinder.lang['hi'] =
 	{
 		maximize : 'मैक्सीमईज',
 		minimize : 'मिनीमाईज'
+	},
+
+	Gallery :
+	{
+		current : 'इमेज {current} कुल्मिलाके {total}'
 	}
 };

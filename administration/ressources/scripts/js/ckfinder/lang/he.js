@@ -64,7 +64,7 @@ CKFinder.lang['he'] =
 	//		MM   : Minute (padding zero)
 	//		a    : Firt char of AM/PM
 	//		aa   : AM/PM
-	DateTime : 'm/d/yyyy h:MM aa',
+	DateTime : 'd/m/yyyy HH:MM',
 	DateAmPm : ['AM', 'PM'],
 
 	// Folders
@@ -183,8 +183,10 @@ CKFinder.lang['he'] =
 	FilesCountMany	: '%1 קבצים',
 
 	// Size and Speed
-	Kb				: '%1 kB',
-	KbPerSecond		: '%1 kB/s',
+	Kb				: '%1KB',
+	Mb				: '%1MB',
+	Gb				: '%1GB',
+	SizePerSecond	: '%1/s',
 
 	// Connector Error Messages.
 	ErrorUnknown	: 'לא היה ניתן להשלים את הבקשה. (שגיאה %1)',
@@ -270,5 +272,10 @@ CKFinder.lang['he'] =
 	{
 		maximize : 'הגדלה למקסימום',
 		minimize : 'הקטנה למינימום'
+	},
+
+	Gallery :
+	{
+		current : 'תמונה {current} מתוך {total}'
 	}
 };

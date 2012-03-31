@@ -183,8 +183,10 @@ CKFinder.lang['sl'] =
 	FilesCountMany	: '%1 datotek(e)',
 
 	// Size and Speed
-	Kb				: '%1 kB',
-	KbPerSecond		: '%1 kB/sek',
+	Kb				: '%1 KB',
+	Mb				: '%1 MB',
+	Gb				: '%1 GB',
+	SizePerSecond	: '%1/s',
 
 	// Connector Error Messages.
 	ErrorUnknown	: 'Prišlo je do napake. (Napaka %1)',
@@ -270,5 +272,10 @@ CKFinder.lang['sl'] =
 	{
 		maximize : 'Maksimiraj',
 		minimize : 'Minimiraj'
+	},
+
+	Gallery :
+	{
+		current : 'Slika {current} od {total}'
 	}
 };

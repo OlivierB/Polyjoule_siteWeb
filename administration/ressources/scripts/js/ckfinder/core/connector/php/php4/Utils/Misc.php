@@ -45,6 +45,19 @@ class CKFinder_Connector_Utils_Misc
     }
 
     /**
+     * Simulate the encodeURIComponent() function available in JavaScript
+     * @static
+     * @access public
+     * @param string $str
+     * @return string
+     */
+    public static function encodeURIComponent($str)
+    {
+        $revert = array('%21'=>'!', '%2A'=>'*', '%27'=>"'", '%28'=>'(', '%29'=>')');
+        return strtr(rawurlencode($str), $revert);
+    }
+
+    /**
      * Convert any value to boolean, strings like "false", "FalSE" and "off" are also considered as false
      *
      * @static

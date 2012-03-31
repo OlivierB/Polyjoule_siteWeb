@@ -63,7 +63,7 @@ class CKFinder_Connector_CommandHandler_CreateFolder extends CKFinder_Connector_
             $sNewFolderName = CKFinder_Connector_Utils_FileSystem::convertToAscii($sNewFolderName);
         }
 
-        if (!CKFinder_Connector_Utils_FileSystem::checkFileName($sNewFolderName) || $_resourceTypeConfig->checkIsHiddenFolder($sNewFolderName)) {
+        if (!CKFinder_Connector_Utils_FileSystem::checkFolderName($sNewFolderName) || $_resourceTypeConfig->checkIsHiddenFolder($sNewFolderName)) {
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_INVALID_NAME);
         }
 
