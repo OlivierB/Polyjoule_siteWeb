@@ -92,20 +92,29 @@ traitements
 		case 3: 
 			if(isset($_POST['titleFR']) && isset($_POST['titleEN']) && isset($_POST['rubrique']) && isset($_POST['statut']) && isset($_POST['commentaire']) && isset($_POST['contenuFR']) && isset($_POST['contenuEN']) && isset($_SESSION['pseudo_membre']) && isset($_FILES['url_photo_principale']) && $_FILES['url_photo_principale']['name']!="" && isset($_POST['visible_home']))
 			{
-				// verifications :
-				// ...
-				$error_pict = verify_picture($_FILES['url_photo_principale'],5242880);
-				if($error_pict == "")
+			
+				if( exist_title($_POST['titleFR'], $_POST['titleEN']))
 				{
-					$path = save_picture($_FILES['url_photo_principale'],300,300,'ressources/data/Photo/',securite($_POST['titleFR']));
-					ajouter_article(securite($_POST['titleFR']),securite($_POST['titleEN']),securite($_POST['rubrique']),securite($_POST['statut']),securite($_POST['commentaire']),securite($_POST['contenuFR']),securite($_POST['contenuEN']), $_SESSION['pseudo_membre'],securite($_POST['visible_home']), $path);
-					$infos->addSucces ("Ajout de l'article effectué");
-					$sousPage 	= "defaut";
+					$infos->addError ("Un article possèdant le même titre existe déjà.");
+					$sousPage 	= "ajouter";
 				}
 				else
 				{
-					$infos->addError ($error_pict);
-					$sousPage 	= "ajouter";
+					// verifications :
+					// ...
+					$error_pict = verify_picture($_FILES['url_photo_principale'],5242880);
+					if($error_pict == "")
+					{
+						$path = save_picture($_FILES['url_photo_principale'],300,300,'ressources/data/Articles/',securite($_POST['titleFR']));
+						ajouter_article(securite($_POST['titleFR']),securite($_POST['titleEN']),securite($_POST['rubrique']),securite($_POST['statut']),securite($_POST['commentaire']),securite($_POST['contenuFR']),securite($_POST['contenuEN']), $_SESSION['pseudo_membre'],securite($_POST['visible_home']), $path);
+						$infos->addSucces ("Ajout de l'article effectué");
+						$sousPage 	= "defaut";
+					}
+					else
+					{
+						$infos->addError ($error_pict);
+						$sousPage 	= "ajouter";
+					}
 				}
 			} else
 			{

@@ -124,6 +124,13 @@ function is_boolean($bit)
 	return (($bit == 0) || ($bit == 1));
 }
 
+function exist_title($titleFR, $titleEN)
+{
+	$req = mysql_query('SELECT COUNT(*) FROM ARTICLE WHERE titreFR_article ="'.$titleFR.'" OR titreEN_article="'.$titleEN.'"');
+	$nb = mysql_fetch_array($req);
+	echo $nb[0];
+	return ($nb[0]==1);
+}
 function ajouter_article($titreFR, $titreEN, $rubrique, $statut, $commentaire, $contenuFR, $contenuEN, $auteur,$visible_home,$photo)
 {
 	$contenuFR = str_replace("/Polyjoule\_siteWeb/administration/","",$contenuFR);
@@ -164,7 +171,10 @@ function delete_articles($toDelete)
 	{
 		if(isAutorOf($toDelete[$i],$_SESSION['pseudo_membre']) && exist_article($toDelete[$i]))
 		{
+			$article = get_article($toDelete[$i]);
+			delete_file('.', $article['url_photo_principale']);
 			mysql_query('DELETE FROM ARTICLE WHERE id_article='.$toDelete[$i]) or die(mysql_error());
+			
 		}
 		else
 		{
