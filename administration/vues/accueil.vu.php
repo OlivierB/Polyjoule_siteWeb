@@ -75,11 +75,11 @@ page par défaut lors de l'affichage
 						echo "...";
 					}
 					?>
-					
+					<!--
 					<hr/>	
 					
 					<h3> Derniers messages du livre d'or : </h3>
-					<!--
+					
 					<?php
 					if (!empty($livre))
 					{
