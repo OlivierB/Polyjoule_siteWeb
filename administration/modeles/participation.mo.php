@@ -54,8 +54,8 @@ function affichageEquipe2() {
 						echo "<td class='blue_tabular_cell'>".$part['prenom_participant']."</td>";
 						echo "<td class='blue_tabular_cell'>".$part['role_participant']."</td>";
 						echo "<td class='blue_tabular_cell'>";
-						echo "<a href='index.php?page=participation&action=2&idEquipe=".$equipe['id_equipe']."&idParticipant=".$part['id_participant']."'>Modifier</a> - ";
-						echo "<a href='index.php?page=participation&action=3&idEquipe=".$equipe['id_equipe']."&idParticipant=".$part['id_participant']."'>Supprimer</a>";
+						echo "<a style='text-decoration:none;color:green;' href='index.php?page=participation&action=2&idEquipe=".$equipe['id_equipe']."&idParticipant=".$part['id_participant']."'>Modifier</a> - ";
+						echo "<a style='text-decoration:none;color:red;' href='index.php?page=participation&action=3&idEquipe=".$equipe['id_equipe']."&idParticipant=".$part['id_participant']."'>Supprimer</a>";
 						echo "</td>";
 						echo "</tr>";
 					}

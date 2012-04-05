@@ -23,9 +23,9 @@ function affichageParticipant () {
 			echo "<td class='blue_tabular_cell'>".$part[5]."</td>";
 			echo "<td class='blue_tabular_cell'>".$cpt[0]."</td>";
 			echo "<td class='blue_tabular_cell'>";
-			echo "<a href='index.php?page=participant&action=2&idParticipant=".$part[0]."'>Modifier</a> - ";
-			echo "<a href='index.php?page=participant&action=3&idParticipant=".$part[0]."'>Supprimer</a><br />";
-			echo "<a href='index.php?page=participant&action=7&idParticipant=".$part[0]."'>Modifier photo</a>";
+			echo "<a style='text-decoration:none;color:green;' href='index.php?page=participant&action=2&idParticipant=".$part[0]."'>Modifier</a> - ";
+			echo "<a style='text-decoration:none;color:red;' href='index.php?page=participant&action=3&idParticipant=".$part[0]."'>Supprimer</a><br />";
+			echo "<a style='text-decoration:none;color:blue;' href='index.php?page=participant&action=7&idParticipant=".$part[0]."'>Modifier photo</a>";
 			echo "</td>";
 		echo "</tr>";
 	}

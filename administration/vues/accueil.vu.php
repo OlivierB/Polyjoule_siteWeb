@@ -79,7 +79,7 @@ page par défaut lors de l'affichage
 					<hr/>	
 					
 					<h3> Derniers messages du livre d'or : </h3>
-					
+					<!--
 					<?php
 					if (!empty($livre))
 					{
@@ -96,7 +96,7 @@ page par défaut lors de l'affichage
 						echo "...";
 					}
 					?>
-	
+				-->
 			</td>
 		</tr>
 	</table>

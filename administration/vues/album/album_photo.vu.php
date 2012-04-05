@@ -37,9 +37,9 @@ Page de gestion du contenu d'un album
 		foreach ($listPhoto as $val)
 		{ 
 			$myFile = $val['lien_photo'];
-			$nomFmin = $DirPhoto.$myFile;
+			$nomFmin = $DirPhoto.$nameAlbum."/".$myFile;
 			$myFile = str_replace ('_', '', $myFile);
-			$nomFmax = $DirPhoto.$myFile;
+			$nomFmax = $DirPhoto.$nameAlbum."/".$myFile;
 			
 		?>
 		<tr class='blue_tabular_cell'>
@@ -53,9 +53,9 @@ Page de gestion du contenu d'un album
 				
 			</td>
 			<td class='blue_tabular_cell'>
-				<a style="text-decoration:none;color:green;" href="index.php?page=album&action=6&idPhoto=<?php  echo $val['id_photo']; ?> &idAlbum=<?php  echo $idAlbum; ?>">Modifier</a>
+				<a style="text-decoration:none;color:green;" href="index.php?page=album&action=6&idPhoto=<?php  echo $val['id_photo']; ?>&idAlbum=<?php  echo $idAlbum; ?>">Modifier</a>
 				-
-				<a style="text-decoration:none;color:red;" href="index.php?page=album&action=7&idPhoto=<?php  echo $val['id_photo']; ?> &idAlbum=<?php  echo $idAlbum; ?>">Supprimer</a>
+				<a style="text-decoration:none;color:red;" href="index.php?page=album&action=7&idPhoto=<?php  echo $val['id_photo']; ?>&idAlbum=<?php  echo $idAlbum; ?>">Supprimer</a>
 			</td>
 		</tr>
 		<?php

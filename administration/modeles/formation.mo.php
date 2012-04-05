@@ -93,8 +93,8 @@ function affichageFormations() {
 		echo "<td class='blue_tabular_cell'>".$formation['nom_ecole']."</td>";
 		echo "<td class='blue_tabular_cell'>".$cpt[0]."</td>";
 		echo "<td class='blue_tabular_cell'>";
-		echo "<a href='index.php?page=formation&action=2&idformation=".$formation['id_formation']."'>Modifier</a> - ";
-		echo "<a href='index.php?page=formation&action=3&idformation=".$formation['id_formation']."'>Supprimer</a>";
+		echo "<a style='text-decoration:none;color:green;' href='index.php?page=formation&action=2&idformation=".$formation['id_formation']."'>Modifier</a> - ";
+		echo "<a style='text-decoration:none;color:red;' href='index.php?page=formation&action=3&idformation=".$formation['id_formation']."'>Supprimer</a>";
 		echo "</td>";
 		echo "</tr>";
 	}

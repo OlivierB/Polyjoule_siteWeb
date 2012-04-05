@@ -9,7 +9,7 @@ traitements
 	
 	include ('modeles/accueil.mo.php');
 	
-	$livre 		= livreOr();
+	//$livre 		= livreOr();
 	$article 	= articles();
 
 	include ('vues/accueil.vu.php');

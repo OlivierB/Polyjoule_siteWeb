@@ -22,8 +22,8 @@ function affichageEquipe() {
 		echo "<td class='blue_tabular_cell'>".$equipe['annee_equipe']."</td>";
 		echo "<td class='blue_tabular_cell'>".$cpt[0]."</td>";
 		echo "<td class='blue_tabular_cell'>";
-		echo "<a href='index.php?page=equipe&action=2&idEquipe=".$equipe['id_equipe']."'>Modifier</a> - ";
-		echo "<a href='index.php?page=equipe&action=3&idEquipe=".$equipe['id_equipe']."'>Supprimer</a>";
+		echo "<a style='text-decoration:none;color:green;' href='index.php?page=equipe&action=2&idEquipe=".$equipe['id_equipe']."'>Modifier</a> - ";
+		echo "<a style='text-decoration:none;color:red;' href='index.php?page=equipe&action=3&idEquipe=".$equipe['id_equipe']."'>Supprimer</a>";
 		echo "</td>";
 		echo "</tr>";
 	}
