@@ -367,36 +367,34 @@ CREATE TABLE IF NOT EXISTS `RESULTAT` (
 -- Structure de la table `rubrique`
 --
 
-CREATE TABLE IF NOT EXISTS `RUBRIQUE` (
+CREATE TABLE `RUBRIQUE` (
   `id_rubrique` int(11) NOT NULL AUTO_INCREMENT,
   `id_mere` int(11) DEFAULT NULL,
+  `id_template` int(11) DEFAULT '1',
   `titreFR_rubrique` varchar(100) DEFAULT NULL,
   `titreEN_rubrique` varchar(100) DEFAULT NULL,
   `descFR_rubrique` text,
   `descEN_rubrique` text,
-  `albumId` int(11) DEFAULT NULL,
-  `personneId` int(11) DEFAULT NULL,
-  `isLivreOr` int(1) unsigned NOT NULL,
   PRIMARY KEY (`id_rubrique`)
-) ENGINE=Xeround DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Contenu de la table `rubrique`
 --
 
-INSERT INTO `RUBRIQUE` (`id_rubrique`, `id_mere`, `titreFR_rubrique`, `titreEN_rubrique`, `descFR_rubrique`, `descEN_rubrique`, `albumId`, `personneId`, `isLivreOr`) VALUES
-(12, 1, 'Personnages Clés', 'Key Persons', NULL, NULL, NULL, 1, 0),
-(1, NULL, 'Notre association', 'Our association', NULL, NULL, NULL, NULL, 0),
-(5, 3, 'sous-sous-categorie1-3-1', 'sub-sub-category1-3-1', NULL, NULL, NULL, NULL, 0),
-(2, NULL, 'Shell Eco 2012', 'Shell Eco 2012', NULL, NULL, NULL, NULL, 0),
-(3, 1, 'sous-categorie1-1', 'sub-category1-1', NULL, NULL, NULL, NULL, 0),
-(7, NULL, 'Actualites H2', 'News H2', NULL, NULL, NULL, NULL, 0),
-(9, NULL, 'Actu Polyjoule', 'News Polyjoule', NULL, NULL, NULL, NULL, 0),
-(4, 1, 'sous-categorie1-2', 'sub-category1-2', NULL, NULL, NULL, NULL, 0),
-(8, NULL, 'Urban Concept', 'Urban Concept', NULL, NULL, NULL, NULL, 0),
-(11, NULL, 'Album photo', 'Photograph album', NULL, NULL, 1, NULL, 0),
-(6, NULL, 'Partenaires', 'Partners', NULL, NULL, NULL, NULL, 0),
-(10, 1, 'Livre d''or', 'Guest book', NULL, NULL, NULL, NULL, 1);
+INSERT INTO `RUBRIQUE` VALUES(1, NULL, 1, 'Notre association', 'Our association', NULL, NULL);
+INSERT INTO `RUBRIQUE` VALUES(2, NULL, 1, 'Shell Eco 2012', 'Shell Eco 2012', NULL, NULL);
+INSERT INTO `RUBRIQUE` VALUES(3, 1, 1, 'sous-categorie1-1', 'sub-category1-1', NULL, NULL);
+INSERT INTO `RUBRIQUE` VALUES(4, 1, 1, 'sous-categorie1-2', 'sub-category1-2', NULL, NULL);
+INSERT INTO `RUBRIQUE` VALUES(5, 3, 1, 'sous-sous-categorie1-3-1', 'sub-sub-category1-3-1', NULL, NULL);
+INSERT INTO `RUBRIQUE` VALUES(6, NULL, 1, 'Partenaires', 'Partners', NULL, NULL);
+INSERT INTO `RUBRIQUE` VALUES(7, NULL, 1, 'Actualites H2', 'News H2', NULL, NULL);
+INSERT INTO `RUBRIQUE` VALUES(8, NULL, 1, 'Urban Concept', 'Urban Concept', NULL, NULL);
+INSERT INTO `RUBRIQUE` VALUES(9, NULL, 1, 'Actu Polyjoule', 'News Polyjoule', NULL, NULL);
+INSERT INTO `RUBRIQUE` VALUES(10, 1, 4, 'Livre d''or', 'Guest book', NULL, NULL);
+INSERT INTO `RUBRIQUE` VALUES(11, NULL, 2, 'Album photo', 'Photograph album', NULL, NULL);
+INSERT INTO `RUBRIQUE` VALUES(12, 1, 5, 'Personnages Clés', 'Key Persons', NULL, NULL);
+INSERT INTO `RUBRIQUE` VALUES(14, 1, 3, 'Historique', 'Historique', 'Découvrez ici les anciennes équipes', 'Discover the old school');
 
 -- --------------------------------------------------------
 
