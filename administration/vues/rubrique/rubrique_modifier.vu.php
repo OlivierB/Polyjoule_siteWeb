@@ -10,15 +10,26 @@
 					<input type="hidden" name="rubrique_id" value="<?php echo $rubrique[0]; ?>"/>
 				
 					<label for="titleFR">Titre(FR) :</label>
-					<input type="text"  size="60" value="<?php echo $rubrique[2]; ?>" name="titleFR"/> <br/><br/>
+					<input type="text"  size="60" value="<?php echo $rubrique[3]; ?>" name="titleFR"/> <br/><br/>
 				
 					<label for="titleEN" >Titre(EN) :</label>
-					<input type="text"  size="60" value="<?php echo $rubrique[3]; ?>" name="titleEN"/> <br/><br/>
+					<input type="text"  size="60" value="<?php echo $rubrique[4]; ?>" name="titleEN"/> <br/><br/>
 				
 					<label for="rubrique"> Rubrique mère: </label>
 					<?php
 						listeRubriqueSelected($rubrique[1],$rubrique[0]);
-					?>
+					?><br/><br/>
+					
+					<?php $idT=$rubrique[2]; ?>
+					
+					<label for="template">Template :</label>
+					<select name="template">
+						<option value="1" <?php echo affichageSelected($idT,1); ?> ><?php echo $id1; ?></option>
+						<option value="2" <?php echo affichageSelected($idT,2); ?>><?php echo $id2; ?></option>
+						<option value="3" <?php echo affichageSelected($idT,3); ?>><?php echo $id3; ?></option>
+						<option value="4" <?php echo affichageSelected($idT,4); ?>><?php echo $id4; ?></option>
+						<option value="5" <?php echo affichageSelected($idT,5); ?>><?php echo $id5; ?></option>
+					</select>
 				</p>
 		</div>
 		

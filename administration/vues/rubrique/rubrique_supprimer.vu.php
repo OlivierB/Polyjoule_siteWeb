@@ -11,7 +11,7 @@ Page de gestion des rubriques -> suppression d'une rubrique
 		$infos->printInfos();
 	?>
 	<div class="formulaire">
-		Êtes-vous sûr de vouloir supprimer la rubrique : <?php echo $rubrique[2]; ?>
+		Êtes-vous sûr de vouloir supprimer la rubrique : <?php echo $rubrique[3]; ?>
 	</div>
 	<div align="center">
 			<a href="index.php?page=rubrique&action=6&idRubrique=<?php echo $rubrique[0]; ?>"> <img src="<?php echo $_SESSION['design_path']; ?>images/validate.png"/></a>

@@ -19,7 +19,16 @@ Page de gestion des rubriques -> ajout d'une rubrique
 			<input type="text" size="60" value="" name="titleEN"/> <br/><br/>
 		
 			<label for="rubriqueMère" >Rubrique mère :</label>
-			<?php listeRubrique(); ?>
+			<?php listeRubrique(); ?><br/><br/>
+			
+			<label for="template">Template :</label>
+			<select name="template">
+				<option value="1"><?php echo $id1; ?></option>
+				<option value="2"><?php echo $id2; ?></option>
+				<option value="3"><?php echo $id3; ?></option>
+				<option value="4"><?php echo $id4; ?></option>
+				<option value="5"><?php echo $id5; ?></option>
+			</select>
 		</div>
 		
 		<h3> Description en français : </h3>
