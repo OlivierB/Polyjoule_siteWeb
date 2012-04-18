@@ -129,7 +129,7 @@ function affichageRubriques($idMere,$niveau) {
 			echo " ";
 			echo $rubrique[3];
 			echo "</td>";
-			echo "<td class='blue_tabular_cell'>".$rubrique[3]."</td>";
+			echo "<td class='blue_tabular_cell'>".$rubrique[4]."</td>";
 			echo "<td class='blue_tabular_cell'>".$cpt[0]."</td>";
 			echo "<td class='blue_tabular_cell'>";
 			echo "<a href='index.php?page=rubrique&action=2&idRubrique=".$rubrique[0]."'>Modifier</a> - ";
