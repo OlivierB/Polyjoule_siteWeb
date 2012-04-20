@@ -16,7 +16,7 @@ Ce fichier contient uniquement la connexion à la bdd
 /* En local Linux, Windows */
 $bd_nom_serveur	='localhost';
 $bd_login		='root';
-$bd_mot_de_passe='';
+$bd_mot_de_passe='ni0745';
 $bd_nom_bd		='Polyjoule'; /**/
 
 /* En local Mac *//*

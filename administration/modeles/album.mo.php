@@ -42,16 +42,32 @@ function getListAlbum() {
 	return $listAlbum;
 }
 
+function getinfoAlbum ($id)
+{
+	$listAlbum = array();
+	$req = mysql_query("SELECT * FROM ALBUM WHERE id_album='".$id."';");
 
-function addAlbum($nom) {
+	while ($donnees = mysql_fetch_assoc($req)) {
+		$listAlbum[] = $donnees;
+	}
+
+	mysql_free_result($req);
+
+	if (!empty ($listAlbum))
+		return $listAlbum[0];
+	else
+		return Array ("nom_album" => "album",  "descFR_album" => "description FR", "descEN_album" => "description EN",);
+}
+
+function addAlbum($nom,  $dfr, $den) {
 	$today = date('Y-m-d H:i:s'); //date('Y-m-d');
- 	$req="INSERT INTO ALBUM VALUES (NULL,'".$nom."', '".$today."', ' ', '');";
+ 	$req="INSERT INTO ALBUM VALUES (NULL,'".$nom."', '".$today."', '".$dfr."', '".$den."');";
 	mysql_query($req) or die(mysql_error());
 }
 
 
-function updateAlbum($id, $nom) {
-	$req="UPDATE ALBUM SET nom_album='$nom' WHERE id_album='$id'";
+function updateAlbum($id, $nom, $dfr, $den) {
+	$req="UPDATE ALBUM SET nom_album='$nom', descFR_album='$dfr',  descEN_album='$den' WHERE id_album='$id'";
 	mysql_query($req) or die(mysql_error());
 }
 

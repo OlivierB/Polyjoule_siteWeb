@@ -13,9 +13,9 @@
 		</div>
 		
 		<h3> Description en français : </h3>
-		<textarea  class="editor" id="desciptionFR" name="desciptionFR" value="<?php echo $infoPhoto['descFR_photo'] ?>" ></textarea>
+		<textarea  class="editor" id="desciptionFR" name="desciptionFR"  ><?php echo $infoPhoto['descFR_photo'] ?></textarea>
 		<h3> Description en anglais : </h3>
-		<textarea  class="editor" id="desciptionEN" name="desciptionEN" value="<?php echo $infoPhoto['descEN_photo'] ?>"></textarea>
+		<textarea  class="editor" id="desciptionEN" name="desciptionEN" ><?php echo $infoPhoto['descEN_photo'] ?></textarea>
 		<script>
 			CKEDITOR.replace( 'desciptionFR',
 			{

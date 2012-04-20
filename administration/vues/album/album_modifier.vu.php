@@ -1,20 +1,21 @@
 <div class="contenu">
 	<?php
-		echo create_title_bar("Ajout d'un album", "add_album.png"); 
+		echo create_title_bar("Modification d'un album", "add_album.png"); 
 		$infos->printInfos();
 	?>
 	
-	<form name="formAjout" method="post" action="index.php?page=album&action=2">
+	<form name="formAjout" method="post" action="index.php?page=album&action=4&idAlbum=<?php echo $idAlbum; ?>&nomAlbum=<?php echo $nomAlbum; ?>>">
+
 	
 		<div class="formulaire">
 			<label for="nom" ><strong>Nom album</strong> :</label>
-			<input type="text" size="60" name="nom"/> <br/><br/>
+			<input type="text" size="60" value="<?php echo $nameAlbum; ?>" name="nom"/> <br/><br/>
 		</div>
 		
 		<h3> Description en français : </h3>
-		<textarea  class="editor" id="desciptionFR" name="desciptionFR"></textarea>
+		<textarea  class="editor" id="desciptionFR" name="desciptionFR"><?php echo $infoAlbum['descFR_album'] ?></textarea>
 		<h3> Description en anglais : </h3>
-		<textarea  class="editor" id="desciptionEN" name="desciptionEN"></textarea>
+		<textarea  class="editor" id="desciptionEN" name="desciptionEN"><?php echo $infoAlbum['descEN_album'] ?></textarea>
 		<script>
 			CKEDITOR.replace( 'desciptionFR',
 			{
@@ -39,6 +40,8 @@
 				filebrowserFlashUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash"
 			});
 		</script>
+		
+		
 		
 		<div align="center">
 				<a href="javascript:document.formAjout.submit();"> <img src="<?php echo $_SESSION['design_path']; ?>images/validate.png"/></a>

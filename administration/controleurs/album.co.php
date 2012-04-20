@@ -10,7 +10,7 @@ traitements
 	
 	$actions = array(1,2,3,4,5,6,7);
 	// ce qu'il ne doit pas y avoir dans le nom des dossiers
-	$warningSymb = array("/", " ", ".", "'", "\"");
+	$warningSymb = array("/", ".", "'", "\"");
 	
 	$DirPhoto = 'ressources/data/Photo/';
 
@@ -56,16 +56,16 @@ traitements
 		
 		/*****  Ajouter un album  *****/
 		case 2 :
-			if (isset($_POST['nom'])) {
+			if (isset($_POST['nom']) && isset($_POST['desciptionFR']) && isset($_POST['desciptionEN'])) {
 				$nom=securite($_POST['nom']);
-				if ($nom != "")
+				if ($nom != "" && $_POST['desciptionFR'] != "" && $_POST['desciptionEN'] != "")
 				{
 					// $nom = formatString ($nom) : trop extreme ?
 					$nom = str_replace($warningSymb, "_", $nom);
 					$nom = multipleName ($nom);
 					if  (mkdir ($DirPhoto.$nom))
 					{
-						addAlbum($nom);
+						addAlbum($nom, securite($_POST['desciptionFR']), securite($_POST['desciptionEN']));
 						$infos->addSucces ("Album ajouté !");
 						$listAlbum = getListAlbum();
 						$sousPage = "defaut";
@@ -142,38 +142,39 @@ traitements
 				else 
 					$nameAlbum = "";*/
 				$nameAlbum = getNameAlbum ($idAlbum);
+				$infoAlbum = getinfoAlbum ($idAlbum);
 				
-				if (isset($_POST['nom'])) 
+				if (isset($_POST['nom']) && isset($_POST['desciptionFR']) && isset($_POST['desciptionEN'])) 
 				{
 					$nom=securite($_POST['nom']);
-					if ($nom != "")
+					if ($nom != "" && $_POST['desciptionFR'] != "" && $_POST['desciptionEN'] != "")
 					{
 						// $nom = formatString ($nom) : trop extreme ?
 						$nom = str_replace($warningSymb, "_", $nom);
-						$oldNameAlbum = getNameAlbum ($idAlbum);
+						$oldNameAlbum = $nameAlbum;
 						
 					
 						if (rename ($DirPhoto.$oldNameAlbum , $DirPhoto.$nom))
 						{
-							updateAlbum($idAlbum,$nom);
+							updateAlbum($idAlbum,$nom, securite($_POST['desciptionFR']), securite($_POST['desciptionEN']));
 							$infos->addSucces ("Album modifié !");
 							$listAlbum = getListAlbum();
 							$sousPage = "defaut";
 						} else
 						{
 							$infos->addError ("Renommage du dossier impossible.");
-							$sousPage="ajouter";
+							$sousPage="modifier";
 						}
 						
 					} else
 					{
 						$infos->addError ("Les champs ne sont pas tous renseignés.");
-						$sousPage="ajouter";
+						$sousPage="modifier";
 					}
 				
 				} else 
 				{
-					$sousPage="ajouter";
+					$sousPage="modifier";
 				}
 
 			} else
