@@ -13,7 +13,7 @@ Ce fichier contient uniquement la connexion à la bdd
 <?php
 /*Connexion à la BDD*/
 
-/* En local Linux, Windows *//*
+/* En local Linux, Windows */
 $bd_nom_serveur	='localhost';
 $bd_login		='root';
 $bd_mot_de_passe='';

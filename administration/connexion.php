@@ -9,6 +9,8 @@
 *
 -->
 <?php
+	// ouverure d'une session (ou reprise)
+	session_start();
 	// calcul de la page à afficher
 	if (isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre'])) 
 	{	
