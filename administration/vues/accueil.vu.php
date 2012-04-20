@@ -66,7 +66,7 @@ page par défaut lors de l'affichage
 						{
 						?>
 							<p>
-								<b><?php echo $cleArticle['titreFR_article'] ; ?> :</b> <?php echo  coupeChaine(stripcslashes ($cleArticle['contenuFR_article']), 50) ; ?>
+								<b style="text-decoration:none;color:black;" ><?php echo $cleArticle['date_article'] ; ?> : </b> <a style="text-decoration:none;color:blue;" href="index.php?page=article&action=2&id=<?php echo $cleArticle['id_article'] ; ?>" ><?php echo $cleArticle['titreFR_article'] ; ?></a>
 							<p>
 						<?php
 						}
@@ -75,28 +75,6 @@ page par défaut lors de l'affichage
 						echo "...";
 					}
 					?>
-					<!--
-					<hr/>	
-					
-					<h3> Derniers messages du livre d'or : </h3>
-					
-					<?php
-					if (!empty($livre))
-					{
-						foreach ($livre as $cleLivre) 
-						{
-						?>
-							<p>
-								<b><?php echo $cleLivre['posteur_post']."  (<i>".formatDate($cleLivre['date_post'])."</i>)" ; ?> :</b> <?php echo  coupeChaine(stripcslashes ($cleLivre['message_post']), 50) ; ?>
-							<p>
-						<?php
-						}
-					} else
-					{
-						echo "...";
-					}
-					?>
-				-->
 			</td>
 		</tr>
 	</table>

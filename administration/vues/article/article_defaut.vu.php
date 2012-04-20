@@ -60,8 +60,8 @@ Page de gestion des articles
 					<td class='blue_tabular_cell'>
 						<input type='checkbox' name='checkArticle' value='".$articles[$i]["id_article"]."'/>
 					</td>
-					<td class='blue_tabular_cell'>".coupeChaine($articles[$i]["titreFR_article"],5)."</td>
-					<td class='blue_tabular_cell'>".coupeChaine($articles[$i]["titreEN_article"],5)."</td>
+					<td class='blue_tabular_cell'>".coupeChaine($articles[$i]["titreFR_article"],50)."</td>
+					<td class='blue_tabular_cell'>".coupeChaine($articles[$i]["titreEN_article"],50)."</td>
 					<td class='blue_tabular_cell'>".$articles[$i]["auteur_article"]."</td>
 					<td class='blue_tabular_cell'>".$articles[$i]["titreFR_rubrique"]."</td>";
 			if ($articles[$i]["autorisation_com"])

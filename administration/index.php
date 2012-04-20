@@ -115,7 +115,8 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 						</ul>
 					</li>
 					<li>
-						<a href="index.php?page=aide"  >AIDE</a>
+						<a href="index.php?page=aide&option=2"  >CONTACT</a>
+						<!--
 						<ul class="sousMenu"  >
 							<div class="menuH"></div>
 								<li><a href="index.php?page=aide&option=1">Aide administration</a></li>
@@ -123,6 +124,7 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 								<li><a href="index.php?page=aide&option=3">Liens utiles</a></li>
 							<div class="menuB"></div>
 						</ul>
+						-->
 					</li>
 					<li>
 						<a style="color:red;" href="index.php?page=deconnexion"">Déconnexion</a>

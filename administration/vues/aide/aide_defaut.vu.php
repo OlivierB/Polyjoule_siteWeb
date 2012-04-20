@@ -30,7 +30,7 @@ Page d'aide
 					<img src="ressources/design/style1/images/contact.png" />
 				</td>
 				<td>
-					<a class="liens_Action" href="index.php?page=aide&amp;option=2" >Envoyer un mail aux administrateurs</a>
+					<a class="liens_Action" href="index.php?page=aide&amp;option=2" >Contacter les administrateurs</a>
 				</td>
 			</tr>
 			<tr>
