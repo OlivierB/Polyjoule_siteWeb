@@ -45,14 +45,12 @@ page par défaut lors de l'affichage
 								Gestion des médias
 							</div>
 						</td>
-						<!--
 						<td>
-							<div class="icone_gestion" onclick="window.location.href='#';">
-								<img class="img_icone" src="ressources/design/style1/images/gestion_menus.png"/><br/>
-								Gestion des menus
+							<div class="icone_gestion" onclick="window.location.href='index.php?page=partenaires';">
+								<img class="img_icone" src="ressources/design/style1/images/gestion_partenaires.png"/><br/>
+								Gestion des partenaires
 							</div>
 						</td>
-						-->
 					</tr>
 				</table>
 			</td>
@@ -66,7 +64,7 @@ page par défaut lors de l'affichage
 						{
 						?>
 							<p>
-								<b style="text-decoration:none;color:black;" ><?php echo $cleArticle['date_article'] ; ?> : </b> <a style="text-decoration:none;color:blue;" href="index.php?page=article&action=2&id=<?php echo $cleArticle['id_article'] ; ?>" ><?php echo $cleArticle['titreFR_article'] ; ?></a>
+								<b style="text-decoration:none;color:black;" ><?php echo $cleArticle['date_article'] ; ?> : </b> <a style="text-decoration:none;color:blue;" href="index.php?page=article&action=2&id[]=<?php echo $cleArticle['id_article'] ; ?>" ><?php echo $cleArticle['titreFR_article'] ; ?></a>
 							<p>
 						<?php
 						}
