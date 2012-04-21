@@ -15,8 +15,9 @@
 	$graph->img->SetAntiAliasing("white");
 
 	// A détailler
-	$graph->SetScale("textlin");
-
+	//$graph->SetScale("textlin");
+	$graph->SetScale("int"); 
+	
 	// Ajouter une ombre
 	$graph->SetShadow();
 
@@ -62,13 +63,16 @@
 	// Couleur de la courbe
 	$courbe->SetColor("blue");
 	$courbe->SetCenter();
+	
 
+	
 	// Paramétrage des axes
 	$graph->xaxis->title->Set("Dates");
 	$graph->yaxis->title->Set("Nombre d'articles");
 	$graph->yaxis->title->SetFont(FF_ARIAL,FS_BOLD);
 	$graph->xaxis->title->SetFont(FF_ARIAL,FS_BOLD);
 	$graph->xaxis->SetTickLabels(array_keys($array));
+	
 
 	// Ajouter la courbe au conteneur
 	$graph->Add($courbe);

@@ -211,7 +211,7 @@ function modify_member($id, $pseudo, $mail, $statut, $photo)
 						Un administrateur vient de procéder à un changement de vos identifiants<br/>
 						Voici vos nouveaux identifiants de connexion :<br/>
 						Pseudo : '.htmlspecialchars($pseudo, ENT_QUOTES).'<br/>
-						Staut : '.htmlspecialchars($statut, ENT_QUOTES).'<br/>
+						Statut : '.htmlspecialchars($statut, ENT_QUOTES).'<br/>
 						Vous pouvez changer vos identifiants à partir de votre espace profil.<br/><br/>
 						
 						En nous excusant de la gène occasionnée.<br/><br/>

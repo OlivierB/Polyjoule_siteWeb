@@ -12,7 +12,6 @@ Page des statistiques
 	<ul class="section_name">
 		<li>Statistiques membres</li>
 	</ul>
-	
 	<div align="center">
 		<?php
 			echo "<img src='vues/statistiques/graphes/nbArt_par_membre.php?str=".addslashes(urlencode(serialize($graph1)))."' width='600' height='300' />";

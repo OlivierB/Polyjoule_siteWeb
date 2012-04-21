@@ -4,7 +4,7 @@
 	require_once ('../../../ressources/scripts/php/jpGraph/jpgraph_bar.php');
 	
 	$array = unserialize(urldecode(stripslashes($_GET['str'])));
-	
+		
 	// Construction du conteneur
 	// Spécification largeur et hauteur
 	$graph = new Graph(600,300);

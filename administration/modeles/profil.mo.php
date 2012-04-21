@@ -57,7 +57,7 @@ function MAJPseudo($pseudo) {
 }
 
 function MAJMotDePasse($ancien,$mdp,$mdp2) {
-	$profil = get_membre($_SESSION['id_membre']);
+	$profil = get_member($_SESSION['id_membre']);
 	
 	if ($profil['mdp_membre']==sha1($ancien)) {
 		if ($mdp==$mdp2) {
