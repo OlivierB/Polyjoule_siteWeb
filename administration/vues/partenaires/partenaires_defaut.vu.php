@@ -44,7 +44,7 @@ Page de gestion des partenaires
 			echo "<tr class='blue_tabular_cell'>
 					<td class='blue_tabular_cell'>".$partenaires[$i]["nom_partenaire"]."</td>
 					<td class='blue_tabular_cell'><img src='".$partenaires[$i]["logo_partenaire"]."' width='50px' height='30px' /></td>
-					<td class='blue_tabular_cell'>".$partenaires[$i]["site_partenaire"]."</td>
+					<td class='blue_tabular_cell'><a href='".$partenaires[$i]["site_partenaire"]."'>".$partenaires[$i]["site_partenaire"]."</a></td>
 					<td class='blue_tabular_cell'>".coupeChaine($partenaires[$i]["descFR_partenaire"],20)."</td>
 					<td class='blue_tabular_cell'>".coupeChaine($partenaires[$i]["descEN_partenaire"],20)."</td>";
 					
