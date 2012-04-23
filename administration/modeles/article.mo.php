@@ -48,6 +48,15 @@ function get_articles()
 	return $articles;
 }
 
+/*fonction qui compte le nombre de rubrique*/
+function countRubrique() 
+{
+	$req = mysql_query('SELECT count(*) FROM RUBRIQUE;');
+	$count=mysql_fetch_array($req);
+	mysql_free_result($req);
+	return $count[0];
+}
+
 function get_commentaires($id)
 {
 	$coms = array();

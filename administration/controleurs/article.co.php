@@ -8,7 +8,7 @@ traitements
 <?php
 
 	include("modeles/article.mo.php");
-	include("modeles/rubrique.mo.php"); // Appel à certaines fonctions concernant les rubriques
+	//include("modeles/rubrique.mo.php"); // Appel à certaines fonctions concernant les rubriques
 	
 
 
@@ -205,6 +205,7 @@ traitements
 				else
 				{
 					header("Location: index.php?page=commentaire&id_article=".$id);
+					exit();
 				}
 			}
 		break;

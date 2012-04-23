@@ -121,6 +121,7 @@ CREATE TABLE IF NOT EXISTS `COMMENTAIRE` (
   KEY `FK_COMMENTAIRE_id_article` (`id_article`)
 ) ENGINE=Xeround DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+ALTER TABLE COMMENTAIRE ADD CONSTRAINT FK_COMMENTAIRE_id_article FOREIGN KEY (id_article) REFERENCES ARTICLE (id_article) ON DELETE CASCADE;
 -- --------------------------------------------------------
 
 --

@@ -14,13 +14,15 @@ traitements
 	{
 		header("Location: index.php?page=article");
 	}
+		
 	if(!exist_article($_GET['id_article']))
 	{
 		header("Location: index.php?page=article");
 	}
 	
-	$id_article = $_GET['id_article'];
 	
+	$id_article = $_GET['id_article'];
+		
 	$actions = array(1,2,3,4,5); // Tableau des actions possibles
 	/*
 		Action 1 : Ajouter un commentaire
@@ -56,7 +58,7 @@ traitements
 			else
 			{
 				$infos->addError ('Les commentaires ne sont pas autorisés sur cet article. Pour changer cette option : <a href="index.php?page=article&action=2&id[]='.$id_article.'">Acces rapide</a>');
-				$id_article = securite($_GET['id_article'][0]);
+				$id_article = securite($_GET['id_article']);
 				$article = get_article($id_article);
 				$commentaires = get_commentaires($id_article);
 				$sousPage = "defaut";
@@ -67,7 +69,7 @@ traitements
 			if( !isset($_GET['id_com']))
 			{
 				$infos->addError ('Action impossible !');
-				$id_article = securite($_GET['id_article'][0]);
+				$id_article = securite($_GET['id_article']);
 				$article = get_article($id_article);
 				$commentaires = get_commentaires($id_article);
 				$sousPage = "defaut";
@@ -75,14 +77,14 @@ traitements
 			else if(!exist_com(securite($_GET['id_com'])))
 			{
 				$infos->addError ('Le commentaire n\'existe pas.');
-				$id_article = securite($_GET['id_article'][0]);
+				$id_article = securite($_GET['id_article']);
 				$article = get_article($id_article);
 				$commentaires = get_commentaires($id_article);
 				$sousPage = "defaut";
 			}
 			else
 			{
-				$id_article = securite($_GET['id_article'][0]);
+				$id_article = securite($_GET['id_article']);
 				$article = get_article($id_article);
 				$commentaires = get_commentaires($id_article);
 				$sousPage 	= "modifier";
@@ -98,7 +100,7 @@ traitements
 			else if(!exist_com(securite($_GET['id_com'])))
 			{
 				$infos->addError ('Le commentaire n\'existe pas.');
-				$id_article = securite($_GET['id_article'][0]);
+				$id_article = securite($_GET['id_article']);
 				$article = get_article($id_article);
 				$commentaires = get_commentaires($id_article);
 				$sousPage = "defaut";
@@ -107,7 +109,7 @@ traitements
 			{
 				delete_com(securite($_GET['id_com']));
 				$infos->addSucces ("Suppression du commentaire effectué");
-				$id_article = securite($_GET['id_article'][0]);
+				$id_article = securite($_GET['id_article']);
 				$article = get_article($id_article);
 				$commentaires = get_commentaires($id_article);
 				$sousPage = "defaut";
@@ -120,7 +122,7 @@ traitements
 
 				add_com($id_article, securite($_POST['message']));
 				$infos->addSucces ("Ajout du commentaire effectué");
-				$id_article = securite($_GET['id_article'][0]);
+				$id_article = securite($_GET['id_article']);
 				$article = get_article($id_article);
 				$commentaires = get_commentaires($id_article);
 				$sousPage = "defaut";
@@ -139,7 +141,7 @@ traitements
 
 				modify_com($_POST['id_com'], securite($_POST['message']));
 				$infos->addSucces ("Modification du commentaire effectué");
-				$id_article = securite($_GET['id_article'][0]);
+				$id_article = securite($_GET['id_article']);
 				$article = get_article($id_article);
 				$commentaires = get_commentaires($id_article);
 				$sousPage = "defaut";
@@ -148,7 +150,7 @@ traitements
 			{
 				$infos->addError ("Les champs ne sont pas tous renseignés");
 				$sousPage 	= "modifier";
-				$id_article = securite($_GET['id_article'][0]);
+				$id_article = securite($_GET['id_article']);
 				$article = get_article($id_article);
 				$commentaires = get_commentaires($id_article);
 			}
@@ -156,22 +158,10 @@ traitements
 		break;
 
 		default:
-			
-			if( !isset($_GET['id_article'][0]) )
-			{
-				header("Location: index.php?page=article");
-			}
-			else if( !exist_article(securite($_GET['id_article'][0])))
-			{
-				header("Location: index.php?page=article");
-			}
-			else
-			{
-				$id_article = securite($_GET['id_article'][0]);
-				$article = get_article($id_article);
-				$commentaires = get_commentaires($id_article);
-				$sousPage = "defaut";
-			}
+			$id_article = securite($_GET['id_article']);
+			$article = get_article($id_article);
+			$commentaires = get_commentaires($id_article);
+			$sousPage = "defaut";
 			break;
 	}
 		if(strcmp($sousPage,'ajouter') == 0 || strcmp($sousPage,'ajouter') == 0)
