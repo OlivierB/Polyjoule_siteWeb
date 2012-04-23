@@ -29,9 +29,9 @@ function create_title_bar($title, $icone)
 	$barre ="
 		<div class='barre_titre'>
 			<div style='float:left'>
-				<img src='".$_SESSION['design_path']."/images/".$icone."' alt='icone_titre'>
+				<img src='".$_SESSION['design_path']."/images/".$icone."' alt='icone_titre'/>
 			</div>
-			<div style='float:left; margin-top:10px; margin-left:20px;'>".$title."
+			<div style='float:left; margin-top:10px; margin-left:20px;position:relative;z-index:0;'>".$title."
 			</div>
 		</div> <div style='height:40px;'></div>";
 	
