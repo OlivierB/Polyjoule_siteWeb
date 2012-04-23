@@ -98,9 +98,9 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 							<div class="menuH"></div>
 								<li><a href="index.php?page=article">Gestion des articles</a></li>
 								<li><a href="index.php?page=rubrique">Gestion des rubriques</a></li>
+								<li><a href="index.php?page=partenaires">Gestion des partenaires</a></li>
 								<li><a href="index.php?page=album">Gestion de l'album</a></li>
 								<li><a href="index.php?page=livreOr">Gestion du livre d'Or</a></li>
-								<li><a href="index.php?page=partenaires">Gestion des partenaires</a></li>
 							<div class="menuB"></div>
 						</ul>
 					</li>
