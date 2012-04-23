@@ -13,7 +13,7 @@ Page de gestion du profil
 	?>
 
 	<div class="photo_membre">
-		<img src="<?php echo $profil['photo_membre']; ?>" />
+		<img src="ressources/data/Membres/<?php echo $profil['photo_membre']; ?>" width="100px" height="100px" />
 	</div>
 	
 	<div class="formulaire">

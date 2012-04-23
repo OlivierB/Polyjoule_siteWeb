@@ -13,7 +13,7 @@ Réservé aux administrateurs
 		$infos->printInfos();
 	?>
 	<div class="photo_membre">
-		<img src="<?php echo $membre['photo_membre']; ?>" />
+		<img src="ressources/data/Membres/<?php echo $membre['photo_membre']; ?>" width="100px" height="100px"/>
 	</div>
 	<form name="modifyUser" method="POST" action="index.php?page=gestionComptes&action=4" enctype="multipart/form-data">
 		<div class="formulaire">

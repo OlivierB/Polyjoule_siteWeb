@@ -158,8 +158,8 @@ traitements
 					$old_file =$old_file[count($old_file)-1];
 					if(strcmp($old_file,'defaut.png')!=0)
 						delete_file('ressources/data/Membres',$old_file);
-					$path = save_picture($_FILES['photo_membre'],100,100,'ressources/data/Membres/',securite($_SESSION['pseudo_membre']));
-					MAJPhoto($path);
+					$filename = save_picture($_FILES['photo_membre'],'ressources/data/Membres/');
+					MAJPhoto($filename);
 					$infos->addSucces("Le changement de votre photo s'est bien déroulé.");
 					$sousPage 	= "defaut";
 					$profil = get_member($_SESSION['id_membre']);

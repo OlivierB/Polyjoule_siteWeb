@@ -10,7 +10,7 @@ traitements
 	// inclusion des fichiers de scripts
 	include ("bdd/bdd_connexion.php");
 	include ("ressources/scripts/php/functions.php");
-
+	include ('ressources/scripts/php/sendMail.php');
 	include ('modeles/connexion.mo.php');
 	include ('modeles/gestionComptes.mo.php');
 	

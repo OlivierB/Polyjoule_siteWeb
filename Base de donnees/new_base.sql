@@ -416,4 +416,4 @@ CREATE TABLE IF NOT EXISTS `SPONSORISE` (
 
 
 /*INSERTION DU COMPTE admin POUR LES TESTS */
-INSERT INTO MEMBRE VALUES (1,'admin','d033e22ae348aeb5660fc2140aec35850c4da997','admin@admin','admin','ressources/data/Membres/defaut.png',now());
+INSERT INTO MEMBRE VALUES (1,'admin','d033e22ae348aeb5660fc2140aec35850c4da997','admin@admin','admin','defaut.png',now());

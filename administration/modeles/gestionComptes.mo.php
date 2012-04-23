@@ -11,7 +11,7 @@
 -->
 
 <?php
-
+    
 function get_members()
 {
 	$membres = array();
@@ -97,29 +97,7 @@ function checkpseudo($pseudo)
 	}
 	return "";
 }
-function send_mail($mail, $subject, $message)
-{
-	$to = $mail;
-	
-	
-	//headers principaux.
-	$headers  = 'MIME-Version: 1.0' . "\r\n";
-	$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-	//headers supplémentaires
-	if(isset($_SESSION['mail_membre']))
-	{
-		$headers .= 'From: "Administration Polyjoule" <'.$_SESSION['mail_membre'].'>' . "\r\n";
-		ini_set('sendmail_from' , ''.$_SESSION['mail_membre'].''); 
-	}
-	else
-	{
-		$headers .= 'From: Administration Polyjoule';
-	}
-	$mail = mail($to, $subject, $message, $headers);
-	if($mail) return true;
-	return false;
-	
-}
+
 function add_member($pseudo, $mail, $statut)
 {
 	$passwd = generate_passwd(); // Génération d'un mot de passe
@@ -143,10 +121,12 @@ function add_member($pseudo, $mail, $statut)
 					L\'équipe Polyjoule.
 				</body>
 			</html>';
-			
-	if(send_mail($mail, $subject, $message))
+	
+	$email = new Email($mail, $subject, $message);
+	
+	if($email->sendMail())
 	{
-		$req = mysql_query("INSERT INTO MEMBRE VALUES (NULL,'".$pseudo."','".sha1($passwd)."','".$mail."','".$statut."','ressources/data/Membres/defaut.png',now())") or die(mysql_error());
+		$req = mysql_query("INSERT INTO MEMBRE VALUES (NULL,'".$pseudo."','".sha1($passwd)."','".$mail."','".$statut."','defaut.png',now())") or die(mysql_error());
 		return "";
 	}
 	else
@@ -218,8 +198,10 @@ function modify_member($id, $pseudo, $mail, $statut, $photo)
 						L\'équipe Polyjoule.
 					</body>
 				</html>';
-				
-			if(send_mail($mail, $subject, $message))
+						 
+			
+			$email = new Email($mail, $subject, $message);
+			if($email->sendMail())
 			{
 				if($photo == "")
 					$photo = $membre['photo_membre'];
@@ -252,6 +234,8 @@ function delete_members($toDelete)
 			}
 			else
 			{
+				if($membre['photo_membre'] != "defaut.png")
+					delete_file('ressources/data/Membres/', $membre['photo_membre']);
 				mysql_query('DELETE FROM MEMBRE WHERE id_membre='.$toDelete[$i]) or die(mysql_error());
 			}
 		}

@@ -68,7 +68,8 @@ function reset_mdp($mail)
 					</body>
 				</html>';
 				
-		if(send_mail($mail, $subject, $message))
+		$email = new Email($mail, $subject, $message);
+		if($email->sendMail())
 		{
 			$req = mysql_query("UPDATE MEMBRE SET mdp_membre='".sha1($passwd)."' WHERE id_membre=".$membre['id_membre']) or die(mysql_error());
 			return "";

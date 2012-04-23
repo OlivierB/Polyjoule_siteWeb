@@ -6,8 +6,9 @@ traitements
 -->
 
 <?php
+	include ('ressources/scripts/php/sendMail.php');
 	include ('modeles/gestionComptes.mo.php');
-
+	
 	$membres = get_members();
 	
    /* Vérification du statut du membre : si admin autorisation d'accéder à cette page sinon redirection vers l'accueil */
@@ -149,8 +150,8 @@ traitements
 						$old_file =$old_file[count($old_file)-1];
 						if(strcmp($old_file,'defaut.png')!=0)
 							delete_file('ressources/data/Membres',$old_file);
-						$path = save_picture($_FILES['photo_membre'],100,100,'ressources/data/Membres/',securite($_POST['pseudo']));
-						$error_modify = modify_member(securite($_POST['id']), securite($_POST['pseudo']),securite($_POST['mail']),securite($_POST['statut']),$path);
+						$filename = save_picture($_FILES['photo_membre'],'ressources/data/Membres/');
+						$error_modify = modify_member(securite($_POST['id']), securite($_POST['pseudo']),securite($_POST['mail']),securite($_POST['statut']),$filename);
 					}
 				}
 				else
