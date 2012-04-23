@@ -15,7 +15,7 @@ body {
 	}
 
 #menu{
-	height : 130px;
+	height : 70px;
 	margin : -100px auto auto auto;
 	color : black;
 }
@@ -85,6 +85,8 @@ body {
 	text-align: center;
 	font-weight:normal;
 	font-size : 100%;
+	position:relative;
+	z-index:1;
 	}
 
 #menuDeroulant .sousMenu li a:link, #menuDeroulant .sousMenu li a:visited {
