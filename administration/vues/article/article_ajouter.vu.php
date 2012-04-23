@@ -54,11 +54,13 @@ Page de gestion des articles -> ajout d'un article
 		<textarea cols="80" class="ckeditor" id="contenuFR" name="contenuFR" rows="10"></textarea>
 		<h3> Contenu de l'article en anglais : </h3>
 		<textarea cols="80" class="ckeditor" id="contenuEN" name="contenuEN" rows="10"></textarea>
-		<script>
+		<script type="text/JavaScript">
 			CKEDITOR.replace( 'contenuFR',
 			{
+				entities : true,
 				toolbar : 'Full',
 				uiColor : '#468093',
+				fullPage : true,
 				filebrowserBrowseUrl : "ressources/scripts/js//ckfinder/ckfinder.html?Type=Files",
 				filebrowserImageBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Images",
 				filebrowserFlashBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Flash",
@@ -70,6 +72,8 @@ Page de gestion des articles -> ajout d'un article
 			{
 				toolbar : 'Full',
 				uiColor : '#468093',
+				fullPage : true,
+				entities : true,
 				filebrowserBrowseUrl : "ressources/scripts/js//ckfinder/ckfinder.html?Type=Files",
 				filebrowserImageBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Images",
 				filebrowserFlashBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Flash",

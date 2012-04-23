@@ -131,11 +131,9 @@ function exist_title($titleFR, $titleEN)
 	echo $nb[0];
 	return ($nb[0]==1);
 }
+
 function ajouter_article($titreFR, $titreEN, $rubrique, $statut, $commentaire, $contenuFR, $contenuEN, $auteur,$visible_home,$photo)
 {
-	$contenuFR = str_replace("/Polyjoule\_siteWeb/administration/","",$contenuFR);
-	$contenuEN = str_replace("/Polyjoule\_siteWeb/administration/","",$contenuEN);
-	
 	$req = "INSERT INTO ARTICLE VALUES (NULL,".$rubrique.",'".$auteur."','".$titreFR."','".$titreEN."','".$contenuFR."','".$contenuEN."','".$commentaire."',".$statut.",now(),'".$photo."',".$visible_home.")";
 	mysql_query($req) or die(mysql_error());
 	
@@ -172,7 +170,7 @@ function delete_articles($toDelete)
 		if(isAutorOf($toDelete[$i],$_SESSION['pseudo_membre']) && exist_article($toDelete[$i]))
 		{
 			$article = get_article($toDelete[$i]);
-			delete_file('.', $article['url_photo_principale']);
+			delete_file('ressources/data/Photo/', $article['url_photo_principale']);
 			mysql_query('DELETE FROM ARTICLE WHERE id_article='.$toDelete[$i]) or die(mysql_error());
 			
 		}

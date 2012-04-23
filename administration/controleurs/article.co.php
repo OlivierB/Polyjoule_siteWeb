@@ -105,8 +105,8 @@ traitements
 					$error_pict = verify_picture($_FILES['url_photo_principale'],5242880);
 					if($error_pict == "")
 					{
-						$path = save_picture($_FILES['url_photo_principale'],300,300,'ressources/data/Articles/',securite($_POST['titleFR']));
-						ajouter_article(securite($_POST['titleFR']),securite($_POST['titleEN']),securite($_POST['rubrique']),securite($_POST['statut']),securite($_POST['commentaire']),securite($_POST['contenuFR']),securite($_POST['contenuEN']), $_SESSION['pseudo_membre'],securite($_POST['visible_home']), $path);
+						$filename = save_picture($_FILES['url_photo_principale'],'ressources/data/Photo/articles/');
+						ajouter_article(securite($_POST['titleFR']),securite($_POST['titleEN']),securite($_POST['rubrique']),securite($_POST['statut']),securite($_POST['commentaire']),$_POST['contenuFR'],$_POST['contenuEN'], $_SESSION['pseudo_membre'],securite($_POST['visible_home']), 'articles/'.$filename);
 						$infos->addSucces ("Ajout de l'article effectué");
 						$sousPage 	= "defaut";
 					}
@@ -129,15 +129,21 @@ traitements
 			{
 				$error_pict = "";
 				$article = get_article($_POST['id']);
-				$path = $article['url_photo_principale'];
+				$filename = $article['url_photo_principale'];
+				
 				if( isset($_FILES['url_photo_principale']) && $_FILES['url_photo_principale']['name']!="")
 				{
 					$error_pict = verify_picture($_FILES['url_photo_principale'],5242880);
-					if($error_pict == "") $path = save_picture($_FILES['url_photo_principale'],300,300,'ressources/data/Photo/',securite($_POST['titleFR']));
+					if($error_pict == "")
+					{
+						$filename .= 'articles/';
+						$filename = save_picture($_FILES['url_photo_principale'],'ressources/data/Photo/articles/');
+						
+					}
 				}
 				if($error_pict == "")
 				{
-					modify_article(securite($_POST['id']),securite($_POST['titleFR']),securite($_POST['titleEN']),securite($_POST['rubrique']),securite($_POST['statut']),securite($_POST['commentaire']),securite($_POST['contenuFR']),securite($_POST['contenuEN']), $_SESSION['pseudo_membre'], $_POST['visible_home'],$path);
+					modify_article(securite($_POST['id']),securite($_POST['titleFR']),securite($_POST['titleEN']),securite($_POST['rubrique']),securite($_POST['statut']),securite($_POST['commentaire']),$_POST['contenuFR'],$_POST['contenuEN'], $_SESSION['pseudo_membre'], $_POST['visible_home'],$filename);
 					$infos->addSucces ("Modification de l'article effectuée");
 					$sousPage 	= "defaut";
 				}

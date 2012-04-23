@@ -171,6 +171,7 @@ function uploadImg (&$infos, $file, $directory, $maxSize, $extensions, $maxPixel
 				switch ( $extension ) {
 					case ".jpg":
 					case ".jpeg":
+						header('Content-Type: image/jpeg') ;
 						imagejpeg( $NouvelleImage , $directory.$fileMini );
 						break;
 
@@ -247,42 +248,21 @@ function uploadFile (&$infos, $file, $directory, $maxSize, $extensions)
 }
 
 
-function save_picture($pict, $width, $height, $dest, $pict_name)
+function save_picture($file, $dest)
 {
-	$ext = explode('.', $pict['name']);
-	$ext = strtolower($ext[count($ext)-1]);
+	$fichier = basename($file['name']);
+	$taille = filesize($file['tmp_name']);
+	$ext = strtolower(strrchr($file['name'], '.'));
 	
-	$img_dest = imagecreatetruecolor($width , $height);
-	$fond_noir = imagecolorallocate($img_dest, 0, 0, 0);
-	$taille = getimagesize($pict['tmp_name']);
+	$newName = time();
+	$fileMaxi = $newName.$ext;
 	
-	switch ($ext)
+	if(!move_uploaded_file($file['tmp_name'], $dest.$fileMaxi)) 
 	{
-		case "jpg":
-		case "jpeg": //pour le cas où l'extension est "jpeg"
-			$img_src = imagecreatefromjpeg( $pict['tmp_name']);
-			imagecopyresampled($img_dest , $img_src, 0, 0, 0, 0, $width, $height, $taille[0], $taille[1]);
-			imagejpeg($img_dest , $dest.$pict_name.'.'.$ext, 100);
-			break;
-
-		case "gif":
-			$img_src = imagecreatefromgif( $pict['tmp_name'] );
-			imagecopyresampled($img_dest , $img_src, 0, 0, 0, 0, $width, $height, $taille[0], $taille[1]);
-			imagegif($img_dest , $dest.$pict_name.'.'.$ext);
-			break;
-
-		case "png":
-			$img_src = imagecreatefrompng( $pict['tmp_name'] );
-			imagecolortransparent($img_dest, $fond_noir);
-			imagecopyresampled($img_dest , $img_src, 0, 0, 0, 0, $width, $height, $taille[0], $taille[1]);
-			imagepng($img_dest , $dest.$pict_name.'.'.$ext, 0, PNG_ALL_FILTERS);
-			break;
+		$infos->addError("Echec de l'upload !");
 	}
-
-	imagedestroy($img_src);
-	imagedestroy($img_dest);
-	return $dest.$pict_name.'.'.$ext;
-
+	
+	return $fileMaxi;
 }
 
 

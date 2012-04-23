@@ -60,7 +60,7 @@ Examples:
 
 ATTENTION: The trailing slash is required.
 */
-$baseUrl = '/Polyjoule_siteWeb/administration/ressources/data/Photo/';
+$baseUrl = '/site/administration/ressources/data/Photo/';
 
 /*
 $baseDir : the path to the local directory (in the server) which points to the

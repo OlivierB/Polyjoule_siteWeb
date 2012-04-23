@@ -57,7 +57,6 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 		<!-- Inclusion de l'éditeur ckeditor et ckfinder -->
 		<script type="text/javascript" src="ressources/scripts/js/ckeditor/ckeditor.js"></script>
 		<script type="text/javascript" src="ressources/scripts/js/ckfinder/ckfinder.js"></script>
-
 	
 		<title>Polyjoule-Administration</title>
 	</head>

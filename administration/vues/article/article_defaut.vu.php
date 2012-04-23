@@ -9,7 +9,6 @@ Page de gestion des articles
 <div class="contenu" align="center">
 	<?php
 		echo create_title_bar("Gestion des articles", "gestion_article.png");
-		
 		// affichage succès ou erreurs
 		$infos->printInfos();
 	?>

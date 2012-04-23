@@ -9,14 +9,14 @@ Page de gestion du contenu d'un album
 
 <div class="contenu" align="center">
 	<?php
-		echo create_title_bar("Gestion des photo","gestion_photo.png");
+		echo create_title_bar("Gestion des photos","gestion_photo.png");
 		
 		//affichage succès ou erreurs
 		$infos->printInfos();
 	?>
 	
 	<ul class="section_name">
-		<li>Liste des photo de l'album</li>
+		<li>Liste des photos de l'album</li>
 		
 	</ul>
 	<a style="text-decoration:none;color:green;" href="index.php?page=album"><p>Retour sur la liste des albums</p></a>
