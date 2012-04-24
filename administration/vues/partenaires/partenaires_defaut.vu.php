@@ -43,10 +43,10 @@ Page de gestion des partenaires
 		{ ?>
 			<tr class='blue_tabular_cell'>
 				<td class='blue_tabular_cell'> <?php echo $partenaires[$i]["nom_partenaire"]; ?> </td>
-				<td class='blue_tabular_cell'><img src="<?php echo $partenaires[$i]['logo_partenaire']; ?>" width='50px' height='30px' /></td>
+				<td class='blue_tabular_cell'><img src="<?php echo $partenaires[$i]['logo_partenaire']; ?>" max-width='150px' maxheight='50px' /></td>
 				<td class='blue_tabular_cell'><a href="<?php echo $partenaires[$i]['site_partenaire']; ?>"> <?php echo $partenaires[$i]['site_partenaire'] ?> </a></td>
-				<td class='blue_tabular_cell'> <?php echo coupeChaine($partenaires[$i]['descFR_partenaire'],20); ?> </td>
-				<td class='blue_tabular_cell'> <?php echo coupeChaine($partenaires[$i]['descEN_partenaire'],20); ?></td>
+				<td class='blue_tabular_cell'> <?php echo coupeChaine($partenaires[$i]['descFR_partenaire'],50); ?> </td>
+				<td class='blue_tabular_cell'> <?php echo coupeChaine($partenaires[$i]['descEN_partenaire'],50); ?></td>
 					
 				<td class='blue_tabular_cell'>
 					<a style='text-decoration:none;color:green;'  href="index.php?page=partenaires&action=2&idPart=<?php echo $partenaires[$i]['id_partenaire']; ?>">Modifier</a> -
