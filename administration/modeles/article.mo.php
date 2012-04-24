@@ -16,7 +16,7 @@ function get_articles()
 {
 	$articles = array();
 	$i = 0;
-	$req = mysql_query('SELECT * FROM ARTICLE;');
+	$req = mysql_query('SELECT * FROM ARTICLE ORDER BY date_article DESC;');
 	while($art = mysql_fetch_array($req))
 	{
 		if($art["id_rubrique"]!=NULL)

@@ -14,9 +14,7 @@ traitements
 		Action 1 : Ajouter un partenaire
 		Action 2 : Modifier un partenaire
 		Action 3 : Supprimer un partenaire
-		Action 4 : Traitemant ajout
-		Action 5 : Traitement MAJ
-		Action 6 : Traitement suppression
+		Action 4 : Traitement suppression
 		Defaut : Affichage de la page d'accueil
 	*/
 	
@@ -35,28 +33,84 @@ traitements
 	{ 
 
 		case 1:
-			
-		break;
+			if (isset($_POST['nom'], $_POST['adresse'], $_POST['logo'], $_POST['desciptionFR'], $_POST['desciptionEN'])) {
+				if ($_POST['nom'] != "" && $_POST['adresse'] != "" && $_POST['logo'] != "" && $_POST['desciptionFR'] != "" && $_POST['desciptionEN'] != "")
+				{
+					// UPLOAD LOGO !
+					// juste un lien pour l'instant
+					$logo = mysql_real_escape_string($_POST['logo']);
+					$site = mysql_real_escape_string($_POST['adresse']);
+
+					addPartenaire (securite($_POST['nom']), $site, $logo, securite($_POST['desciptionFR']), securite($_POST['desciptionEN']));
+					$infos->addSucces ("Partenaire ajouté !");
+					$sousPage = "defaut";
+				} else
+				{
+					$infos->addError ("Les champs ne sont pas tous renseignés.");
+					$sousPage="ajouter";
+				}
+				
+			} else {
+				$sousPage="ajouter";
+			}
+			break;
 
 		case 2: 
-			
-		break;
+			if (isset($_GET['idPart']))
+			{	// vérifier qu'il y a bien un partenaire selectionné
+				$idPartenaire = securite($_GET['idPart']);
+				$infoPartenaire = getInfoPartenaire ($idPartenaire);
+				
+				if (isset($_POST['nom'], $_POST['adresse'], $_POST['logo'], $_POST['desciptionFR'], $_POST['desciptionEN'])) {
+					if ($_POST['nom'] != "" && $_POST['adresse'] != "" && $_POST['logo'] != "" && $_POST['desciptionFR'] != "" && $_POST['desciptionEN'] != "")
+					{
+						// GESTION LOGO
+						$logo = mysql_real_escape_string($_POST['logo']);
+						$site = mysql_real_escape_string($_POST['adresse']);
+						
+						updatePartenaire($idPartenaire, securite($_POST['nom']), $site, $logo, securite($_POST['desciptionFR']), securite($_POST['desciptionEN']));
+						$infos->addSucces ("Partenaire modifié !");
+						$sousPage = "defaut";
+				
+					} else 
+					{
+						$sousPage="modifier";
+					}
+				} else
+				{
+					$sousPage="modifier";
+				}
+				
+			} else
+			{
+				$infos->addError ("Aucun partenaire à modifier");
+				$sousPage = "defaut";
+			}
+			break;
 
 		case 3: 
-			
-		break;
+			if (isset($_GET['idPart']))
+			{	// vérifier qu'il y a bien un partenaire selectionné
+				$idPartenaire = securite($_GET['idPart']);
+				$infoPartenaire = getInfoPartenaire ($idPartenaire);
+				
+				if (isset($_GET['RR']) && (strcmp ( securite($_GET['RR']) , "yes" ) == 0)) {
+					// SUPPRESSION LOGO	
+					
+					deletePartenaire($idPartenaire);
+					$infos->addSucces ("Partenaire supprimé !");
+					$sousPage = "defaut";
 
-		case 4: 
-		
-		break;
-
-		case 5:
-	
-		break;
-		
-		case 6:
-		
-		break;
+				} else
+				{
+					$sousPage="supprimer";
+				}
+			} else
+			{
+				$infos->addError ("Aucun partenaire à supprimer");
+				$sousPage = "defaut";
+			}
+			break;
 		
 		default:
 			$sousPage 	= "defaut";
