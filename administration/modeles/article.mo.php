@@ -101,7 +101,7 @@ function listeRubrique_article($rub_selected)
 		$selected = "";
 		if($rub_selected == $rubrique['id_rubrique'])
 			$selected = "selected='selected'";
-		echo "<option value='".$rubrique['id_rubrique']."'".$selected.">".$rubrique[2]."</option>";
+		echo "<option value='".$rubrique['id_rubrique']."'".$selected.">".$rubrique['titreFR_rubrique']."</option>";
 		getChildRubrique_article($rubrique['id_rubrique'],0,$rub_selected);
 	}
 	echo "</select>";
