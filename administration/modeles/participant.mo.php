@@ -91,7 +91,7 @@ function getParticipant($id) {
 }
 
 function ajouterParticipant($nom,$prenom,$mail,$role,$path,$bioFR,$bioEN) {
-	$req="INSERT INTO PARTICIPANT VALUES (NULL,'".$nom."','".$prenom."','".$path."','".$mail."','".$role."','".$bioFR."','".$bioEN."');";
+	$req="INSERT INTO PARTICIPANT VALUES (NULL,'1','".$nom."','".$prenom."','".$path."','".$mail."','".$role."','".$bioFR."','".$bioEN."', '0');";
 	mysql_query($req) or die(mysql_error());
 }
 

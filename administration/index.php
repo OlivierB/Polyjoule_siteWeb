@@ -86,6 +86,7 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 								
 								<li><a href="index.php?page=participant">Gestion des participants</a></li>
 								<li><a href="index.php?page=participation">Gestion des participations</a></li>
+								<li><a href="index.php?page=partenaires">Gestion des partenaires</a></li>
 								<li><a href="index.php?page=ecole">Gestion des écoles</a></li>
 								<li><a href="index.php?page=formation">Gestion des formations</a></li>
 							<div class="menuB"></div>
@@ -98,7 +99,6 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 							<div class="menuH"></div>
 								<li><a href="index.php?page=article">Gestion des articles</a></li>
 								<li><a href="index.php?page=rubrique">Gestion des rubriques</a></li>
-								<li><a href="index.php?page=partenaires">Gestion des partenaires</a></li>
 								<li><a href="index.php?page=album">Gestion de l'album</a></li>
 								<li><a href="index.php?page=livreOr">Gestion du livre d'Or</a></li>
 							<div class="menuB"></div>
