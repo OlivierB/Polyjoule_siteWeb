@@ -95,8 +95,8 @@ traitements
 						$mail=securite($_POST['mail']);
 						$role=securite($_POST['role']);
 						if ($nom!="" && $prenom!="" && $mail!="" && $role!="") {
-							$path = save_picture($_FILES['photo'],100,100,'ressources/data/Participants/',$nom."-".$prenom);
-							ajouterParticipant($nom,$prenom,$mail,$role,$path,securite($_POST['bioFR']),securite($_POST['bioEN']));
+							$filename = save_picture($_FILES['photo'],'ressources/data/Participants/');
+							ajouterParticipant($nom,$prenom,$mail,$role,$filename,securite($_POST['bioFR']),securite($_POST['bioEN']));
 							$infos->addSucces("Ajout effectué avec succès.");
 							$sousPage 	= "defaut";
 						} else {
@@ -208,11 +208,9 @@ traitements
 					if ($_FILES['photo']['name']!="") {
 						$error_pict = verify_picture($_FILES['photo'],1048576);
 						if ($error_pict == "") {
-							$old_file = explode('/', $name['photo_participant']);
-							$old_file =$old_file[count($old_file)-1];
-							delete_file('ressources/data/Participants',$old_file);
-							$path = save_picture($_FILES['photo'],100,100,'ressources/data/Participants/',$part['nom_participant']."-".$part['prenom_participant']);
-							updatePhoto($idPart,$path);
+							delete_file('ressources/data/Participants',$name['photo_participant']);
+							$filename = save_picture($_FILES['photo'],'ressources/data/Participants/');
+							updatePhoto($idPart,$filename);
 							$infos->addSucces("Mise à jour effectué avec succès.");
 							$sousPage 	= "defaut";
 						} else {

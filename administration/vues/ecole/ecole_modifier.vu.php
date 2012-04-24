@@ -11,8 +11,10 @@
 				<input type="text" style="margin-left:10px;" size="60" value="<?php echo $ecole[1]; ?>" name="nom"/><br /><br />
 				<label for="adresse" style="float : left;"><strong>Adresse de l'école</strong> :</label>
 				<input type="text" style="margin-left:10px;" size="60" value="<?php echo $ecole[2]; ?>" name="adresse"/><br /><br />
-				<label for="photo" style="float : left;"><strong>Photo de l'école</strong> : </label>
-				<img src="<?php echo $ecole[3]; ?>"/><br /><br />
+				<label for="anciennePhoto" style="float : left;"><strong>Photo de l'école</strong> : </label>
+				<img name="anciennePhoto" src="ressources/data/Ecoles/<?php echo $ecole[3]; ?>"/><br /><br />
+				
+				<label for="photo" style="float : left;"><strong>Changer de photo</strong> : </label>
 				<input type="file" name="photo" maxlength="1048576" accept="image/*"/>
 			</p>
 		</div>

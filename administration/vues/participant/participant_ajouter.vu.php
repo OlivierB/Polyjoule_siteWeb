@@ -14,22 +14,22 @@ Page d'inscription d'un participant
 	<form name="addUser" method="post" action="index.php?page=participant&action=4"  enctype="multipart/form-data">
 		<div class="formulaire">
 				<label for="nom" >Nom : </label>
-				<input type="text" size="50" value="" name="nom"/><br/>
+				<input type="text" size="50" value="" name="nom"/><br/><br/>
 				
 				<label for="prenom" >Prénom : </label>
-				<input type="text" size="50" value="" name="prenom"/><br/>
+				<input type="text" size="50" value="" name="prenom"/><br/><br/>
 				
 				<label for="mail" >Mail : </label>
-				<input type="email" size="50" value="" name="mail"/><br/>
+				<input type="email" size="50" value="" name="mail"/><br/><br/>
 				
 				<label for="role" >Rôle : </label>
-				<input type="text" size="50" value="" name="role"/><br/>
+				<input type="text" size="50" value="" name="role"/><br/><br/>
 				
 				<label for="equipe" >Équipe : </label>
-				<?php listeEquipe(); ?><br />
+				<?php listeEquipe(); ?><br /><br/>
 				
 				<label for="photo">Photo : </label>
-				<input type="file" name="photo" maxlength="1048576" accept="image/*"/>
+				<input type="file" name="photo" maxlength="1048576" accept="image/*"/><br/>
 		</div>
 		
 		<h3> Biographie en français : </h3>

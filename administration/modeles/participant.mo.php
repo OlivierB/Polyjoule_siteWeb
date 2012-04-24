@@ -103,9 +103,7 @@ function MAJParticipant($id,$nom,$prenom,$mail,$role,$bioFR,$bioEN) {
 function supprimerImageParticipant($id) {
 	$req=mysql_query("SELECT photo_participant FROM PARTICIPANT WHERE id_participant=".$id.";") or die(mysql_error());
 	$name=mysql_fetch_array($req);
-	$old_file = explode('/', $name['photo_participant']);
-	$old_file =$old_file[count($old_file)-1];
-	delete_file('ressources/data/Participants',$old_file);
+	delete_file('ressources/data/Participants',$name['photo_participant']);
 }
 
 function supprimerParticipant($id) {

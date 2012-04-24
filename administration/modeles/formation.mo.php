@@ -32,7 +32,7 @@ function listeEcole() {
 		$req2 = mysql_query("SELECT * FROM ECOLE;");
 		while($ecole=mysql_fetch_array($req2))
 		{
-			echo "<option value='".$ecole[0]."'>- ".$ecole[2]."</option>";
+			echo "<option value='".$ecole['id_ecole']."'>- ".$ecole['nom_ecole']."</option>";
 		}
 		echo "</select>";
 		mysql_free_result($req2);
@@ -47,10 +47,10 @@ function listeEcoleSelect($id) {
 		$req2 = mysql_query("SELECT * FROM ECOLE;");
 		while($ecole=mysql_fetch_array($req2))
 		{
-			if ($ecole[0]==$id) {
-				echo "<option value='".$ecole[0]."' selected='selected'>- ".$ecole[2]."</option>";
+			if ($ecole['id_ecole']==$id) {
+				echo "<option value='".$ecole['id_ecole']."' selected='selected'>- ".$ecole['nom_ecole']."</option>";
 			} else {
-				echo "<option value='".$ecole[0]."'>- ".$ecole[2]."</option>";
+				echo "<option value='".$ecole['id_ecole']."'>- ".$ecole['nom_ecole']."</option>";
 			}
 		}
 		echo "</select>";

@@ -62,9 +62,7 @@ function MAJEcole($id,$nom,$adresse,$photo,$descFR,$descEN) {
 function supprimerImageEcole($id) {
 	$req=mysql_query("SELECT photo_ecole FROM ECOLE WHERE id_ecole=".$id.";") or die(mysql_error());
 	$name=mysql_fetch_array($req);
-	$old_file = explode('/', $name['photo_ecole']);
-	$old_file =$old_file[count($old_file)-1];
-	delete_file('ressources/data/Ecoles',$old_file);
+	delete_file('ressources/data/Ecoles',$name['photo_ecole']);
 }
 
 function supprimerEcole($id) {

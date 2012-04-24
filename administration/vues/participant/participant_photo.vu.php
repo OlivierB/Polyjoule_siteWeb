@@ -20,7 +20,9 @@ Page de modification d'un participant
 			<label for="prenom" >Prénom : </label><?php echo $part[2]; ?><br /><br />
 			
 			<label for="anciennePhoto">Photo : </label>
-			<img src="<?php echo $part[3]; ?>"/><br />
+			<img src="ressources/data/Participants/<?php echo $part['photo_participant']; ?>" width="100px" height="100px"/><br/><br/>
+			
+			<label for="photo">Changer la photo : </label>
 			<input type="file" name="photo" maxlength="1048576" accept="image/*"/>
 			
 		</div>

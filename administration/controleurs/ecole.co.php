@@ -84,9 +84,9 @@ traitements
 					if ($error_pict =="") {
 						$nom=securite($_POST['nom']);
 						$adresse=securite($_POST['adresse']);
-						$path = save_picture($_FILES['photo'],100,100,'ressources/data/Ecoles/',$nom);
+						$filename = save_picture($_FILES['photo'],'ressources/data/Ecoles/');
 						if ($nom!="" && $adresse!="") {
-							ajouterEcole($nom,$adresse,$path,securite($_POST['descFR']),securite($_POST['descEN']));
+							ajouterEcole($nom,$adresse,$filename,securite($_POST['descFR']),securite($_POST['descEN']));
 							$infos->addSucces("Ajout effectué avec succès.");
 							$sousPage 	= "defaut";
 						} else {
@@ -124,10 +124,8 @@ traitements
 					if ($_FILES['photo']['name']!="") {
 						$error_pict = verify_picture($_FILES['photo'],1048576);
 						if ($error_pict =="") {
-							$old_file = explode('/', $name['photo_ecole']);
-							$old_file =$old_file[count($old_file)-1];
-							delete_file('ressources/data/Ecoles',$old_file);
-							$path = save_picture($_FILES['photo'],100,100,'ressources/data/Ecoles/',$nom);
+							delete_file('ressources/data/Ecoles',$name['photo_ecole']);
+							$filename = save_picture($_FILES['photo'],'ressources/data/Ecoles/');
 						} else {
 							$infos->addError ($error_pict);
 							$error = true;
@@ -138,7 +136,7 @@ traitements
 					}
 					if ($error == false) {
 						if ($nom!="" && $adresse!="") {
-							MAJEcole($id,$nom,$adresse,$path,securite($_POST['descFR']),securite($_POST['descEN']));
+							MAJEcole($id,$nom,$adresse,$filename,securite($_POST['descFR']),securite($_POST['descEN']));
 							$infos->addSucces("Mise à jour effectué avec succès.");
 							$sousPage 	= "defaut";
 						} else {

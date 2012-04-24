@@ -16,19 +16,19 @@ Page de modification d'un participant
 			<input type="text" hidden="hidden" name="id" value="<?php echo $idPart; ?>" />
 			
 			<label for="nom" >Nom : </label>
-			<input type="text" size="50" value="<?php echo $part[1]; ?>" name="nom"/><br/>
+			<input type="text" size="50" value="<?php echo $part[1]; ?>" name="nom"/><br/><br/>
 			
 			<label for="prenom" >Prénom : </label>
-			<input type="text" size="50" value="<?php echo $part[2]; ?>" name="prenom"/><br/>
+			<input type="text" size="50" value="<?php echo $part[2]; ?>" name="prenom"/><br/><br/>
 			
 			<label for="mail" >Mail : </label>
-			<input type="email" size="50" value="<?php echo $part[4]; ?>" name="mail"/><br/>
+			<input type="email" size="50" value="<?php echo $part[4]; ?>" name="mail"/><br/><br/>
 			
 			<label for="role" >Rôle : </label>
-			<input type="text" size="50" value="<?php echo $part[5]; ?>" name="role"/><br/>
+			<input type="text" size="50" value="<?php echo $part[5]; ?>" name="role"/><br/><br/>
 			
 			<label for="photo">Photo : </label>
-			<img src="<?php echo $part[3]; ?>"/>
+			<img src="ressources/data/Participants/<?php echo $part['photo_participant']; ?>" width="100px" height="100px"/><br/>
 		</div>
 		<h3> Biographie en français : </h3>
 		<textarea  class="editor" id="bioFR" name="bioFR"><?php echo $part[6];?></textarea>
