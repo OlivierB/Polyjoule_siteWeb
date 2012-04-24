@@ -14,32 +14,29 @@
 			<input type="file" name="photo" /><br/><br/>
 			
 		</div>
+		
 		<h3> Description en français : </h3>
-		<textarea  class="editor" id="desciptionFR" name="desciptionFR"></textarea>
+		<div align="center">
+			<textarea  class="editor" id="desciptionFR" name="desciptionFR"></textarea>
+		</div>
+		
 		<h3> Description en anglais : </h3>
-		<textarea  class="editor" id="desciptionEN" name="desciptionEN"></textarea>
+		<div align="center">
+			<textarea  class="editor" id="desciptionEN" name="desciptionEN"></textarea>
+		</div>	
+			
 		<script>
 			CKEDITOR.replace( 'desciptionFR',
 			{
-				toolbar : 'Full',
+				toolbar : 'Basic',
 				uiColor : '#468093',
-				filebrowserBrowseUrl : "ressources/scripts/js//ckfinder/ckfinder.html?Type=Files",
-				filebrowserImageBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Images",
-				filebrowserFlashBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Flash",
-				filebrowserUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files",
-				filebrowserImageUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images",
-				filebrowserFlashUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash"
+				height:"150", width:"800",
 			});
 			CKEDITOR.replace( 'desciptionEN',
 			{
-				toolbar : 'Full',
+				toolbar : 'Basic',
 				uiColor : '#468093',
-				filebrowserBrowseUrl : "ressources/scripts/js//ckfinder/ckfinder.html?Type=Files",
-				filebrowserImageBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Images",
-				filebrowserFlashBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Flash",
-				filebrowserUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files",
-				filebrowserImageUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images",
-				filebrowserFlashUploadUrl : "ressources/scripts/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash"
+				height:"150", width:"800",
 			});
 		</script>
 	</form>
