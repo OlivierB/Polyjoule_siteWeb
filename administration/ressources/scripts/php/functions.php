@@ -171,7 +171,6 @@ function uploadImg (&$infos, $file, $directory, $maxSize, $extensions, $maxPixel
 				switch ( $extension ) {
 					case ".jpg":
 					case ".jpeg":
-						header('Content-Type: image/jpeg') ;
 						imagejpeg( $NouvelleImage , $directory.$fileMini );
 						break;
 

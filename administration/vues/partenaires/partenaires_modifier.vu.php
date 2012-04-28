@@ -18,9 +18,13 @@ Page de modification d'un partenaire
 			<label for="nom" ><strong>Nom partenaire</strong> :</label>
 			<input type="text" size="60" name="nom" value="<?php echo $infoPartenaire['nom_partenaire']; ?>" /> 
 			<label for="adresse" ><strong>Site Web</strong> :</label>
-			<input type="text" size="60" name="adresse" value="<?php echo $infoPartenaire['site_partenaire']; ?>" />
-			<label for="logo" ><strong>Lien logo</strong> :</label>
-			<input type="text" name="logo" value="<?php echo $infoPartenaire['logo_partenaire']; ?>" /><br/>
+			<input type="text" size="60" name="adresse" value="<?php echo $infoPartenaire['site_partenaire']; ?>" /><br/><br/>
+			<label for="" ><strong>Logo</strong> :</label><br/>
+				<?php echo "<img id='photo_article' src='".$DirLogo.$infoPartenaire['logo_partenaire']."'/><br/><br/>";?>
+			
+			<label for="logo" style="float : left;"><strong>Nouveau logo :</strong> : </label>
+			<input type="file" name="logo" maxlength="5000000" accept="image/*"/>
+			
 		</div>
 		
 		<h3> Description en français : </h3>
