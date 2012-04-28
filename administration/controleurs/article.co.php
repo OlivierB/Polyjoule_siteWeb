@@ -138,6 +138,7 @@ traitements
 					{
 						$filename .= 'articles/';
 						$filename = save_picture($_FILES['url_photo_principale'],'ressources/data/Photo/articles/');
+						delete_file('ressources/data/Photo/', $article['url_photo_principale']);
 						
 					}
 				}
@@ -164,7 +165,7 @@ traitements
 			if(isset($_GET['id']) && $_GET['id'] != "")
 			{
 			
-				$toDelete 	= $_GET['id'];
+				$toDelete 	= securite($_GET['id']);
 				$tmpVar 	= delete_articles($toDelete);
 
 				if ($tmpVar != "")
