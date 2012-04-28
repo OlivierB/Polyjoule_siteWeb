@@ -121,6 +121,7 @@ traitements
 					$name=mysql_fetch_array($req);
 					$nom=securite($_POST['nom']);
 					$adresse=securite($_POST['adresse']);
+					$filename = $name['photo_ecole'];
 					if ($_FILES['photo']['name']!="") {
 						$error_pict = verify_picture($_FILES['photo'],1048576);
 						if ($error_pict =="") {
