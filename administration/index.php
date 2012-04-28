@@ -72,7 +72,7 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 						<ul class="sousMenu"  >
 							<div class="menuH"></div>
 								<li><a style="color:green;" href="index.php">Panneau d'administration</a></li>
-								<li><a href="index.php?page=gestionComptes">Gestion membres Polyjoule</a></li>
+								<li><a href="index.php?page=gestionComptes">Gestion des Polyjoulistes</a></li>
 								<li><a href="index.php?page=equipe">Equipe Polyjoule</a></li>
 								<li><a href="index.php?page=statistiques">Statistiques</a></li>
 								<li><a href="index.php?page=profil">Mon profil</a></li>

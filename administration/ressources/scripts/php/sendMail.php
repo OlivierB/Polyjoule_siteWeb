@@ -2,46 +2,42 @@
     class EMail
     {  
         private $DestMail ;
-        private $SrcMail;
         private $objet ;
         private $message;
-        private $boundary;
         private $_header;   
 
         public function __construct($dMail, $obj, $mess)
         {
 
-            $this->DestMail = $dMail;
-            $this->SrcMail = "administration@polyjoule.org";
-            $this->objet = $obj;
-            $this->message = $mess; 
-            $this->boundary= "-----=".md5(rand());
-            $passage_ligne = "\n"; 
-            $this->_header="From: \"administration@polyjoule.org\"<administration@polyjoule.org>".$passage_ligne;
-			$this->_header.= "Reply-to: \"administration@polyjoule.org\"<administration@polyjoule.org>".$passage_ligne;
-			$this->_header.= "MIME-Version: 1.0".$passage_ligne;
-			$this->_header.= "Content-Type: multipart/alternative;".$passage_ligne." boundary=\"".$this->boundary."\"".$passage_ligne;          
+			// on génère une chaîne de caractères aléatoire qui sera utilisée comme frontière
+			$boundary = "-----=" . md5( uniqid ( rand() ) );
+
+			$this->_header = "From: \"administration@polyjoule.org\" <administration@polyjoule.org>\n";
+			// on indique qu'on a affaire à un email au format html et texte et
+			// on spécifie la frontière (boundary) qui servira à séparer les deux parties
+			// ainsi que la version mime
+			$this->_header .= "MIME-Version: 1.0\n";
+			$this->_header  .= "Content-Type: multipart/alternative; boundary=\"$boundary\"";
+
+			$this->DestMail = $dMail;
+			$this->objet = $obj;
+			
+			$this->message .= "\n\n";
+			$this->message .= "--" . $boundary . "\n";
+			$this->message .= "Content-Type: text/html; charset=\"utf-8\"\n";
+			$this->message .= "Content-Transfer-Encoding: quoted-printable\n\n";
+			$this->message .= $mess;
+			$this->message .= "\n\n";
+			$this->message .= "--" . $boundary . "--\n";
         }
 
 
         public function sendMail() 
         {
-			$passage_ligne = "\n";
-			$message = $passage_ligne."--".$this->boundary.$passage_ligne;
-			//=====Ajout du message au format texte.
-			$message.= "Content-Type: text/html; charset=\"UTF8\"".$passage_ligne;
-			$message.= "Content-Transfer-Encoding: 8bit".$passage_ligne;
-			$message.= $passage_ligne.$this->message.$passage_ligne;
-			//==========
-			$message.= $passage_ligne."--".$this->boundary.$passage_ligne;
-			//==========
-			$message.= $passage_ligne."--".$this->boundary."--".$passage_ligne;
-			$message.= $passage_ligne."--".$this->boundary."--".$passage_ligne;
-			//==========
-			$this->message = $message;
- 
 			//=====Envoi de l'e-mail.
 			return mail($this->DestMail,$this->objet,$this->message,$this->_header);
+			
+			
         }
         
 
