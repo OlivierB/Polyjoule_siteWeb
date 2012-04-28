@@ -105,7 +105,6 @@ traitements
 						if ($res != "")
 						{
 							addPhoto($idAlbum, securite($_POST['nomFr']), securite($_POST['nomEn']), $res, securite($_POST['desciptionFR']), securite($_POST['desciptionEN']));
-							$infos->addSucces ("Photo ajoutée !");
 							$listPhoto = getListPhoto($idAlbum);
 							$nameAlbum = getNameAlbum ($idAlbum);
 							$sousPage = "photo";
