@@ -18,6 +18,8 @@ traitements
 		Defaut : Affichage de la page d'accueil
 	*/
 	
+	$DirLogo = 'ressources/data/Logos/';
+	
 	// Traitement de chaque page
 	if (isset($_GET['action']) && in_array(securite($_GET['action']),$actions)) {
 		$action = securite($_GET['action']);
@@ -33,16 +35,28 @@ traitements
 	{ 
 
 		case 1:
-			if (isset($_POST['nom'], $_POST['adresse'], $_POST['logo'], $_POST['desciptionFR'], $_POST['desciptionEN'])) {
-				if ($_POST['nom'] != "" && $_POST['adresse'] != "" && $_POST['logo'] != "" && $_POST['desciptionFR'] != "" && $_POST['desciptionEN'] != "")
+			if (isset($_POST['nom'], $_POST['adresse'], $_FILES['logo'], $_POST['desciptionFR'], $_POST['desciptionEN'])) {
+				if ($_POST['nom'] != "" && $_POST['adresse'] != "" && $_FILES['logo']['name'] != "" && $_POST['desciptionFR'] != "" && $_POST['desciptionEN'] != "")
 				{
 					// UPLOAD LOGO !
-					// juste un lien pour l'instant
-					$logo = mysql_real_escape_string($_POST['logo']);
-					$site = mysql_real_escape_string($_POST['adresse']);
-
-					addPartenaire (securite($_POST['nom']), $site, $logo, securite($_POST['desciptionFR']), securite($_POST['desciptionEN']));
-					$infos->addSucces ("Partenaire ajouté !");
+					$error_pict = verify_picture($_FILES['logo'], 5000000);
+					if($error_pict == "")
+					{
+						$filename = save_picture($_FILES['logo'], $DirLogo);
+						
+						// Ajout
+						$site = mysql_real_escape_string($_POST['adresse']);
+						addPartenaire (securite($_POST['nom']), $site, $filename, securite($_POST['desciptionFR']), securite($_POST['desciptionEN']));
+						$infos->addSucces ("Partenaire ajouté !");
+						
+						$sousPage 	= "defaut";
+					}
+					else
+					{
+						$infos->addError ($error_pict);
+						$sousPage 	= "ajouter";
+					}
+					
 					$sousPage = "defaut";
 				} else
 				{
@@ -61,15 +75,29 @@ traitements
 				$idPartenaire = securite($_GET['idPart']);
 				$infoPartenaire = getInfoPartenaire ($idPartenaire);
 				
-				if (isset($_POST['nom'], $_POST['adresse'], $_POST['logo'], $_POST['desciptionFR'], $_POST['desciptionEN'])) {
-					if ($_POST['nom'] != "" && $_POST['adresse'] != "" && $_POST['logo'] != "" && $_POST['desciptionFR'] != "" && $_POST['desciptionEN'] != "")
+				if (isset($_POST['nom'], $_POST['adresse'], $_POST['desciptionFR'], $_POST['desciptionEN'])) {
+					if ($_POST['nom'] != "" && $_POST['adresse'] != "" && $_POST['desciptionFR'] != "" && $_POST['desciptionEN'] != "")
 					{
 						// GESTION LOGO
-						$logo = mysql_real_escape_string($_POST['logo']);
-						$site = mysql_real_escape_string($_POST['adresse']);
 						
-						updatePartenaire($idPartenaire, securite($_POST['nom']), $site, $logo, securite($_POST['desciptionFR']), securite($_POST['desciptionEN']));
-						$infos->addSucces ("Partenaire modifié !");
+						$filename = $infoPartenaire['logo_partenaire'];
+						if ( isset ($_FILES['logo']) && $_FILES['logo']['name'] != "")
+						{
+							$error_pict = verify_picture($_FILES['logo'], 5000000);
+							if($error_pict == "")
+							{
+								delete_file($DirLogo, $infoPartenaire['logo_partenaire']);
+								$filename = save_picture($_FILES['logo'], $DirLogo);
+							}else
+							{
+								$infos->addError ($error_pict);
+							}
+						}
+						
+						// MAJ
+						$site = mysql_real_escape_string($_POST['adresse']);
+						updatePartenaire($idPartenaire, securite($_POST['nom']), $site, $filename, securite($_POST['desciptionFR']), securite($_POST['desciptionEN']));
+						//$infos->addSucces ("Partenaire modifié !");
 						$sousPage = "defaut";
 				
 					} else 
@@ -95,7 +123,8 @@ traitements
 				$infoPartenaire = getInfoPartenaire ($idPartenaire);
 				
 				if (isset($_GET['RR']) && (strcmp ( securite($_GET['RR']) , "yes" ) == 0)) {
-					// SUPPRESSION LOGO	
+					// SUPPRESSION LOGO
+					delete_file($DirLogo, $infoPartenaire['logo_partenaire']);
 					
 					deletePartenaire($idPartenaire);
 					$infos->addSucces ("Partenaire supprimé !");

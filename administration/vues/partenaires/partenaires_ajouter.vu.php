@@ -19,8 +19,9 @@ Page d'inscription d'un partenaire
 			<input type="text" size="60" name="nom"/> 
 			<label for="adresse" ><strong>Site Web</strong> :</label>
 			<input type="text" size="60" name="adresse"/>
-			<label for="logo" ><strong>Lien logo</strong> :</label>
-			<input type="text"  name="logo"/><br/>
+			<label for="logo" ><strong>Logo</strong> :</label>
+			<input type="file" name="logo" maxlength="5000000" accept="image/*"/>
+			<br/>
 		</div>
 		
 		<h3> Description en français : </h3>
