@@ -104,7 +104,7 @@ traitements
 						$res = uploadImg ($infos, $_FILES['photo'], $DirPhoto.$nameAlbum."/", 3000000, array('.png', '.jpg', '.jpeg'), 100);
 						if ($res != "")
 						{
-							addPhoto($idAlbum, securite($_POST['nomFr']), securite($_POST['nomEn']), $res, securite($_POST['desciptionFR']), securite($_POST['desciptionEN']));
+							addPhoto($idAlbum, securite($_POST['nomFr']), securite($_POST['nomEn']), $res, $_POST['desciptionFR'], $_POST['desciptionEN']);
 							$listPhoto = getListPhoto($idAlbum);
 							$nameAlbum = getNameAlbum ($idAlbum);
 							$sousPage = "photo";
@@ -156,7 +156,7 @@ traitements
 					
 						if (rename ($DirPhoto.$oldNameAlbum , $DirPhoto.$nom))
 						{
-							updateAlbum($idAlbum,$nom, securite($_POST['desciptionFR']), securite($_POST['desciptionEN']));
+							updateAlbum($idAlbum,$nom, $_POST['desciptionFR'], $_POST['desciptionEN']);
 							$infos->addSucces ("Album modifié !");
 							$listAlbum = getListAlbum();
 							$sousPage = "defaut";

@@ -46,7 +46,7 @@ traitements
 						
 						// Ajout
 						$site = mysql_real_escape_string($_POST['adresse']);
-						addPartenaire (securite($_POST['nom']), $site, $filename, securite($_POST['desciptionFR']), securite($_POST['desciptionEN']));
+						addPartenaire (securite($_POST['nom']), $site, $filename, $_POST['desciptionFR'], $_POST['desciptionEN']);
 						$infos->addSucces ("Partenaire ajouté !");
 						
 						$sousPage 	= "defaut";
@@ -96,7 +96,7 @@ traitements
 						
 						// MAJ
 						$site = mysql_real_escape_string($_POST['adresse']);
-						updatePartenaire($idPartenaire, securite($_POST['nom']), $site, $filename, securite($_POST['desciptionFR']), securite($_POST['desciptionEN']));
+						updatePartenaire($idPartenaire, securite($_POST['nom']), $site, $filename, $_POST['desciptionFR'], $_POST['desciptionEN']);
 						//$infos->addSucces ("Partenaire modifié !");
 						$sousPage = "defaut";
 				
