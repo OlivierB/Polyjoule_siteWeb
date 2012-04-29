@@ -34,13 +34,15 @@
 		</div>
 		
 		<h3> Description en français : </h3>
-		<textarea cols="80" class="ckeditor" id="descriptionFR" name="descriptionFR" rows="10"><?php $rubrique[4];?></textarea>
+		<textarea cols="80" class="ckeditor" id="descriptionFR" name="descriptionFR" rows="10"><?php echo $rubrique['descFR_rubrique'];?></textarea>
 		<h3> Description en anglais : </h3>
-		<textarea cols="80" class="ckeditor" id="descriptionEN" name="descriptionEN" rows="10"><?php echo $rubrique[5];?></textarea>
+		<textarea cols="80" class="ckeditor" id="descriptionEN" name="descriptionEN" rows="10"><?php echo $rubrique['descEN_rubrique'];?></textarea>
 		<script>
 			CKEDITOR.replace( 'descriptionFR',
 			{
 				toolbar : 'Full',
+				fullPage : true,
+				entities : true,
 				uiColor : '#468093',
 				filebrowserBrowseUrl : "ressources/scripts/js//ckfinder/ckfinder.html?Type=Files",
 				filebrowserImageBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Images",
@@ -52,6 +54,8 @@
 			CKEDITOR.replace( 'descriptionEN',
 			{
 				toolbar : 'Full',
+				fullPage : true,
+				entities : true,
 				uiColor : '#468093',
 				filebrowserBrowseUrl : "ressources/scripts/js//ckfinder/ckfinder.html?Type=Files",
 				filebrowserImageBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Images",

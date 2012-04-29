@@ -39,6 +39,8 @@ Page de gestion des rubriques -> ajout d'une rubrique
 			CKEDITOR.replace( 'descriptionFR',
 			{
 				toolbar : 'Full',
+				fullPage : true,
+				entities : true,
 				uiColor : '#468093',
 				filebrowserBrowseUrl : "ressources/scripts/js//ckfinder/ckfinder.html?Type=Files",
 				filebrowserImageBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Images",
@@ -50,6 +52,8 @@ Page de gestion des rubriques -> ajout d'une rubrique
 			CKEDITOR.replace( 'descriptionEN',
 			{
 				toolbar : 'Full',
+				fullPage : true,
+				entities : true,
 				uiColor : '#468093',
 				filebrowserBrowseUrl : "ressources/scripts/js//ckfinder/ckfinder.html?Type=Files",
 				filebrowserImageBrowseUrl : "ressources/scripts/js/ckfinder/ckfinder.html?Type=Images",

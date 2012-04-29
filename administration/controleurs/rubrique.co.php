@@ -85,7 +85,7 @@ traitements
 				$titreFR=securite($_POST['titleFR']);
 				$titreEN=securite($_POST['titleEN']);
 				if ($titreFR!="" && $titreEN!="" && $template <=5 && $template >=1) {
-					ajoutRubrique($titreFR,$titreEN,securite($_POST['rubrique']),$template,securite($_POST['descriptionFR']),securite($_POST['descriptionEN']));
+					ajoutRubrique($titreFR,$titreEN,securite($_POST['rubrique']),$template,$_POST['descriptionFR'],$_POST['descriptionEN']);
 					$infos->addSucces ("Ajout de la rubrique effectué.");
 					$sousPage="defaut";
 				} else {
@@ -107,7 +107,7 @@ traitements
 				if (rubriqueExistante($id)) {
 					$template=securite($_POST['template']);
 					if (securite($_POST['titleFR'])!="" && securite($_POST['titleEN'])!="" && $template <=5 && $template >=1) {
-						MAJRubrique(securite($_POST['rubrique_id']),securite($_POST['titleFR']),securite($_POST['titleEN']),securite($_POST['rubrique']),$template,securite($_POST['descriptionFR']),securite($_POST['descriptionEN']));
+						MAJRubrique(securite($_POST['rubrique_id']),securite($_POST['titleFR']),securite($_POST['titleEN']),securite($_POST['rubrique']),$template,$_POST['descriptionFR'],$_POST['descriptionEN']);
 						$infos->addSucces ("Modification de la rubrique effectuée.");
 						$sousPage="defaut";
 					} else {
