@@ -28,6 +28,10 @@ Page d'inscription d'un participant
 				<label for="equipe" >Équipe : </label>
 				<?php listeEquipe(); ?><br /><br/>
 				
+				<label for="prof" >Professeur : </label>
+				<input type= "radio" name="prof" value="1"> Oui
+				<input type= "radio" name="prof" value="0"> Non<br /><br/>
+				
 				<label for="photo">Photo : </label>
 				<input type="file" name="photo" maxlength="1048576" accept="image/*"/><br/>
 		</div>

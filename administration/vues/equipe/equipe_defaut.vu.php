@@ -47,7 +47,7 @@ Page de gestion des équipe
 					<img src="<?php echo $_SESSION['design_path']; ?>images/add_equipe.png" />
 				</td>
 				<td>
-					<a class="liens_Action"href="index.php?page=equipe&action=1"> Ajouter une équipe </a><br />
+					<a class="liens_Action"href="index.php?page=equipe&action=1">Ajouter une équipe</a><br />
 				</td>
 			</tr>
 		</table>

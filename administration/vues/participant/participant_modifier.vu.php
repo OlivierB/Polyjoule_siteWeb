@@ -24,16 +24,17 @@ Page de modification d'un participant
 			<label for="mail" >Mail : </label>
 			<input type="email" size="50" value="<?php echo $part[4]; ?>" name="mail"/><br/><br/>
 			
-			<label for="role" >Rôle : </label>
-			<input type="text" size="50" value="<?php echo $part[5]; ?>" name="role"/><br/><br/>
+			<label for="prof" >Professeur : </label>
+			<input type= "radio" name="prof" value="1" <?php if($part['isProf']==1) {echo "checked";} ?>> Oui
+			<input type= "radio" name="prof" value="0" <?php if($part['isProf']==0) {echo "checked";} ?>> Non<br/><br/>
 			
 			<label for="photo">Photo : </label>
 			<img src="ressources/data/Participants/<?php echo $part['photo_participant']; ?>" width="100px" height="100px"/><br/>
 		</div>
 		<h3> Biographie en français : </h3>
-		<textarea  class="editor" id="bioFR" name="bioFR"><?php echo $part[6];?></textarea>
+		<textarea  class="editor" id="bioFR" name="bioFR"><?php echo $part[5];?></textarea>
 		<h3> Biographie en anglais : </h3>
-		<textarea  class="editor" id="bioEN" name="bioEN"><?php echo $part[7];?></textarea>
+		<textarea  class="editor" id="bioEN" name="bioEN"><?php echo $part[6];?></textarea>
 		<script>
 			CKEDITOR.replace( 'bioFR',
 			{

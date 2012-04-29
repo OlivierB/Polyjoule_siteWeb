@@ -86,7 +86,7 @@ traitements
 		/***** Traitemant ajout *****/
 		case 4 :
 			$error_pict="";
-			if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['mail']) && isset($_FILES['photo']) && isset($_POST['role']) && isset($_POST['bioFR']) && isset($_POST['bioEN'])) {
+			if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['mail']) && isset($_FILES['photo']) && isset($_POST['role'])  && isset($_POST['prof']) && isset($_POST['bioFR']) && isset($_POST['bioEN'])) {
 				if ($_FILES['photo']['name']!="") {
 					$error_pict = verify_picture($_FILES['photo'],1048576);
 					if ($error_pict =="") {
@@ -94,9 +94,10 @@ traitements
 						$prenom=securite($_POST['prenom']);
 						$mail=securite($_POST['mail']);
 						$role=securite($_POST['role']);
+						$prof=securite($_POST['prof']);
 						if ($nom!="" && $prenom!="" && $mail!="" && $role!="") {
-							$filename = save_picture($_FILES['photo'],'ressources/data/Participants/');
-							ajouterParticipant($nom,$prenom,$mail,$role,$filename,securite($_POST['bioFR']),securite($_POST['bioEN']));
+							$filename = null/*save_picture($_FILES['photo'],'ressources/data/Participants/')*/;
+							ajouterParticipant($nom,$prenom,$mail,$filename,securite($_POST['bioFR']),securite($_POST['bioEN']),$prof);
 							$infos->addSucces("Ajout effectué avec succès.");
 							$sousPage 	= "defaut";
 						} else {
@@ -123,22 +124,22 @@ traitements
 				if (isset($_POST['equipe'])) {
 					$ecole=securite($_POST['equipe']);
 					$idPart=searchPart($nom,$prenom,$mail);
-					ajouterParticipation($idPart,$ecole);
+					ajouterParticipation($idPart,$ecole,$role);
 				}	
 			}
 			break;
 		
 		/***** Traitement MAJ *****/
 		case 5 :
-			if (isset($_POST['id']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['mail']) && isset($_POST['role']) && isset($_POST['bioFR']) && isset($_POST['bioEN'])) {
+			if (isset($_POST['id']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['mail']) && isset($_POST['prof']) && isset($_POST['bioFR']) && isset($_POST['bioEN'])) {
 				$id=securite($_POST['id']);
 				if (participantExistant($id)) {
 					$nom=securite($_POST['nom']);
 					$prenom=securite($_POST['prenom']);
 					$mail=securite($_POST['mail']);
-					$role=securite($_POST['role']);
-					if ($nom!="" && $prenom!="" && $mail!="" && $role!="") {
-						MAJParticipant($id,$nom,$prenom,$mail,$role,isset($_POST['bioFR']),isset($_POST['bioEN']));
+					$prof=securite($_POST['prof']);
+					if ($nom!="" && $prenom!="" && $mail!="") {
+						MAJParticipant($id,$nom,$prenom,$mail,securite($_POST['bioFR']),securite($_POST['bioEN']),$prof);
 						$infos->addSucces("Mise à jour effectué avec succès.");
 					} else {
 						$infos->addError ("Les champs ne sont pas correctement renseignés. Les champs nom, prénom, mail et rôle doivent être donnés.");
