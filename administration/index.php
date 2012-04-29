@@ -72,7 +72,7 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 						<ul class="sousMenu"  >
 							<div class="menuH"></div>
 								<li><a style="color:green;" href="index.php">Panneau d'administration</a></li>
-								<li><a href="index.php?page=gestionComptes">Gestion des Polyjoulistes</a></li>
+								<li><a href="index.php?page=gestionComptes">Gestion des comptes</a></li>
 								<li><a href="index.php?page=equipe">Equipe Polyjoule</a></li>
 								<li><a href="index.php?page=statistiques">Statistiques</a></li>
 								<li><a href="index.php?page=profil">Mon profil</a></li>
@@ -83,8 +83,7 @@ if (!isset ($_SESSION['id_membre'], $_SESSION['pseudo_membre']))
 						<a href="#">INTERVENANTS</a>
 						<ul class="sousMenu">
 							<div class="menuH"></div>
-								
-								<li><a href="index.php?page=participant">Gestion des participants</a></li>
+								<li><a href="index.php?page=participant">Gestion des polyjoulistes</a></li>
 								<li><a href="index.php?page=participation">Gestion des participations</a></li>
 								<li><a href="index.php?page=partenaires">Gestion des partenaires</a></li>
 								<li><a href="index.php?page=ecole">Gestion des écoles</a></li>
