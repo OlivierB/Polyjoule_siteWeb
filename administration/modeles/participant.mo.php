@@ -41,10 +41,10 @@ function countParticipant() {
 
 function listeParticipant() {
 	echo "<select name='participant'>";
-	$req = mysql_query("SELECT * FROM PARTICIPANT NATURAL JOIN PARTICIPATION ORDER BY nom_participant, prenom_participant DESC;");
+	$req = mysql_query("SELECT * FROM PARTICIPANT ORDER BY nom_participant, prenom_participant DESC;");
 	while($participant=mysql_fetch_array($req))
 	{
-		echo "<option value='".$participant[0]."'>- ".strtoupper($participant[1])." ".$participant[2]." (".$participant['role_participation'].")</option>";
+		echo "<option value='".$participant[0]."'>- ".strtoupper($participant[1])." ".$participant[2]."</option>";
 	}
 	echo "</select>";
 	mysql_free_result($req);
