@@ -16,7 +16,10 @@ Page de gestion des formations -> ajout d'une participation
 			<?php listeEquipe(); ?><br/><br/>
 			
 			<label for="participant" ><strong>Participant</strong> :</label>
-			<?php listeParticipant(); ?>
+			<?php listeParticipant(); ?><br/><br/>
+			
+			<label for="role" ><strong>Rôle</strong> :</label>
+			<input type="text" name="role"/>
 		</div>
 		<div align="center">
 				<a href="javascript:document.formAjout.submit();"> <img src="<?php echo $_SESSION['design_path']; ?>images/validate.png"/></a>

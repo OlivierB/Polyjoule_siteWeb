@@ -15,7 +15,7 @@
 function affichageParticipant () {
 	$req=mysql_query("SELECT * FROM PARTICIPANT ORDER BY nom_participant , prenom_participant");
 	while ($part=mysql_fetch_array($req)) {
-		$req2 = mysql_query("SELECT count(*) FROM COMPOSE WHERE id_participant='".$part[0]."'") or die(mysql_error());
+		$req2 = mysql_query("SELECT count(*) FROM PARTICIPATION WHERE id_participant='".$part[0]."'") or die(mysql_error());
 		$cpt=mysql_fetch_array($req2);
 		echo "<tr class='blue_tabular_cell'>";
 			echo "<td class='blue_tabular_cell'>".$part[1]."</td>";
@@ -33,7 +33,7 @@ function affichageParticipant () {
 }
 
 function countParticipant() {
-	$req = mysql_query("SELECT count(*) FROM COMPOSE;");
+	$req = mysql_query("SELECT count(*) FROM PARTICIPANT;");
 	$count=mysql_fetch_array($req);
 	mysql_free_result($req);
 	return $count[0];
@@ -108,7 +108,7 @@ function supprimerImageParticipant($id) {
 
 function supprimerParticipant($id) {
 	supprimerImageParticipant($id);
-	$req = mysql_query("DELETE FROM COMPOSE WHERE id_participant=$id;") or die(mysql_error());
+	$req = mysql_query("DELETE FROM PARTICIPATION WHERE id_participant=$id;") or die(mysql_error());
 	$req = mysql_query("DELETE FROM PARTICIPANT WHERE id_participant=$id;") or die(mysql_error());
 }
 

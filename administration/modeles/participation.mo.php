@@ -13,10 +13,17 @@
 <?php
 
 function getParticipation($idPart,$equipe) {
-	$req = mysql_query("SELECT * FROM PARTICIPANT NATURAL JOIN COMPOSE NATURAL JOIN EQUIPE WHERE id_participant=$idPart AND id_equipe=$equipe;");
+	$req = mysql_query("SELECT * FROM PARTICIPANT NATURAL JOIN PARTICIPATION NATURAL JOIN EQUIPE WHERE id_participant=$idPart AND id_equipe=$equipe;");
 	$toReturn=mysql_fetch_array($req);
 	mysql_free_result($req);
 	return $toReturn;
+}
+
+function getRole($equipe,$idPart) {
+	$req = mysql_query("SELECT role_participation FROM PARTICIPATION WHERE id_participant=$idPart AND id_equipe=$equipe;");
+	$toReturn=mysql_fetch_array($req);
+	mysql_free_result($req);
+	return $toReturn[0];
 }
 
 function affichageEquipe2() {
@@ -46,13 +53,13 @@ function affichageEquipe2() {
 					</th>
 				</tr>
 				<?php
-					$req2 = mysql_query("SELECT * FROM COMPOSE NATURAL JOIN PARTICIPANT WHERE id_equipe='".$equipe['id_equipe']."' ORDER BY nom_participant, prenom_participant");
+					$req2 = mysql_query("SELECT * FROM PARTICIPATION NATURAL JOIN PARTICIPANT WHERE id_equipe='".$equipe['id_equipe']."' ORDER BY nom_participant, prenom_participant");
 					while ($part=mysql_fetch_array($req2)) {
 						echo "<tr class='blue_tabular_cell'>";
 						echo "<td class='blue_tabular_cell'>".$part['id_participant']."</td>";
 						echo "<td class='blue_tabular_cell'>".$part['nom_participant']."</td>";
 						echo "<td class='blue_tabular_cell'>".$part['prenom_participant']."</td>";
-						echo "<td class='blue_tabular_cell'>".$part['role_participant']."</td>";
+						echo "<td class='blue_tabular_cell'>".$part['role_participation']."</td>";
 						echo "<td class='blue_tabular_cell'>";
 						echo "<a style='text-decoration:none;color:green;' href='index.php?page=participation&action=2&idEquipe=".$equipe['id_equipe']."&idParticipant=".$part['id_participant']."'>Modifier</a> - ";
 						echo "<a style='text-decoration:none;color:red;' href='index.php?page=participation&action=3&idEquipe=".$equipe['id_equipe']."&idParticipant=".$part['id_participant']."'>Supprimer</a>";
@@ -68,36 +75,43 @@ function affichageEquipe2() {
 }
 
 function countParticipation($idEquipe) {
-	$req = mysql_query("SELECT count(*) FROM COMPOSE WHERE id_equipe=$idEquipe;");
+	$req = mysql_query("SELECT count(*) FROM PARTICIPATION WHERE id_equipe=$idEquipe;");
+	$count=mysql_fetch_array($req);
+	mysql_free_result($req);
+	return $count[0];
+}
+
+function countParticipation2($idPart) {
+	$req = mysql_query("SELECT count(*) FROM PARTICIPATION WHERE id_participant=$idPart;");
 	$count=mysql_fetch_array($req);
 	mysql_free_result($req);
 	return $count[0];
 }
 
 function participationExistante($idPart,$equipe) {
-	$req = mysql_query("SELECT count(*) FROM COMPOSE WHERE id_participant='".$idPart."' AND id_equipe='".$equipe."';");
+	$req = mysql_query("SELECT count(*) FROM PARTICIPATION WHERE id_participant='".$idPart."' AND id_equipe='".$equipe."';");
 	$count=mysql_fetch_array($req);
 	mysql_free_result($req);
 	return $count[0];
 }
 
-function ajouterParticipation($idPart,$equipe) {
-	$req="INSERT INTO COMPOSE VALUES ('".$idPart."','".$equipe."');";
+function ajouterParticipation($idPart,$equipe,$role) {
+	$req="INSERT INTO PARTICIPATION VALUES ('".$equipe."','".$idPart."','".$role."');";
 	mysql_query($req) or die(mysql_error());
 }
 
 function supprimerParticipation($equipe,$part) {
-	$req="DELETE FROM COMPOSE WHERE id_participant='".$part."' AND id_equipe='".$equipe."';";
+	$req="DELETE FROM PARTICIPATION WHERE id_participant='".$part."' AND id_equipe='".$equipe."';";
 	mysql_query($req) or die(mysql_error());
-	if (countEquipeParticipant($part)==0) {
+	if (countParticipation2($part)==0) {
 		supprimerParticipant($part);
 	}
 }
 
-function MAJParticipation($equipe,$part,$newEquipe,$newPart) {
-	$req="DELETE FROM COMPOSE WHERE id_participant='".$part."' AND id_equipe='".$equipe."';";
+function MAJParticipation($equipe,$part,$newEquipe,$newPart,$newRole) {
+	$req="DELETE FROM PARTICIPATION WHERE id_participant='".$part."' AND id_equipe='".$equipe."';";
 	mysql_query($req) or die(mysql_error());
-	ajouterParticipation($newPart,$newEquipe);
+	ajouterParticipation($newPart,$newEquipe,$newRole);
 }
 
 ?>

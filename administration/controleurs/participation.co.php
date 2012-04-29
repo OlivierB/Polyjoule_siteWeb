@@ -66,6 +66,9 @@ traitements
 					$infos->addError ('La participation sélectionnée n\'existe pas ou a été supprimée.');
 					$error = true;
 				}
+				if ($error == false) {
+					$role=getRole($equipe,$part);
+				}
 			} else {
 				$infos->addError ('Les champs ne sont pas renseignés.');
 				$error = true;
@@ -109,9 +112,10 @@ traitements
 		
 		/***** Traitement ajout *****/
 		case 4 :
-			if (isset($_POST['equipe']) && isset($_POST['participant'])) {
+			if (isset($_POST['equipe']) && isset($_POST['participant']) && isset($_POST['role'])) {
 				$equipe=securite($_POST['equipe']);
 				$part=securite($_POST['participant']);
+				$role=securite($_POST['role']);
 				if (!equipeExistante($equipe)) {
 					$infos->addError ('L\'équipe sélectionnée n\'existe pas ou a été supprimée.');
 					$error = true;
@@ -128,7 +132,7 @@ traitements
 					$sousPage="defaut";
 				}
 				if ($error!=true) {
-					ajouterParticipation($part,$equipe);
+					ajouterParticipation($part,$equipe, $role);
 					$infos->addSucces ("Ajout de la participation effectué.");
 					$sousPage="defaut";
 				}
@@ -141,11 +145,12 @@ traitements
 		
 		/***** Traitement MAJ *****/
 		case 5 :
-			if (isset($_POST['equipe']) && isset($_POST['participant']) && isset($_POST['ancienneEquipe']) && isset($_POST['ancienPart'])) {
+			if (isset($_POST['equipe']) && isset($_POST['participant']) && isset($_POST['ancienneEquipe']) && isset($_POST['ancienPart']) && isset($_POST['role'])) {
 				$equipe=securite($_POST['equipe']);
 				$part=securite($_POST['participant']);
 				$ancienneEquipe=securite($_POST['ancienneEquipe']);
 				$ancienPart=securite($_POST['ancienPart']);
+				$role=securite($_POST['role']);
 				if (!equipeExistante($ancienneEquipe) || !equipeExistante($equipe)) {
 					$infos->addError ('L\'équipe sélectionnée n\'existe pas ou a été supprimée.');
 					$error = true;
@@ -161,18 +166,13 @@ traitements
 					$error = true;
 					$sousPage="defaut";
 				}
-				if (participationExistante($part,$equipe)) {
-					$infos->addError ('La nouvelle participation a déjà été enregistrée.');
-					$error = true;
-					$sousPage="defaut";
-				}
 			} else {
 				$infos->addError ('Les champs ne sont pas renseignés.');
 				$error = true;
 				$sousPage="defaut";
 			}
 			if ($error!=true) {
-				MAJParticipation($ancienneEquipe,$ancienPart,$equipe,$part);
+				MAJParticipation($ancienneEquipe,$ancienPart,$equipe,$part,$role);
 				$infos->addSucces ("Mise à jour de la participation effectuée.");
 				$sousPage="defaut";
 			}
