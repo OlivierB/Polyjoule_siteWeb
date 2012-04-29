@@ -96,7 +96,7 @@ traitements
 						$role=securite($_POST['role']);
 						$prof=securite($_POST['prof']);
 						if ($nom!="" && $prenom!="" && $mail!="" && $role!="") {
-							$filename = null/*save_picture($_FILES['photo'],'ressources/data/Participants/')*/;
+							$filename =save_picture($_FILES['photo'],'ressources/data/Participants/');
 							ajouterParticipant($nom,$prenom,$mail,$filename,securite($_POST['bioFR']),securite($_POST['bioEN']),$prof);
 							$infos->addSucces("Ajout effectué avec succès.");
 							$sousPage 	= "defaut";
